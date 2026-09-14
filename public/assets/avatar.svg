@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Abheet Singh Isher monogram">
+  <!-- PLACEHOLDER monogram avatar. Replace this file (or point .avatar img src)
+       at a real square photo — avatar.jpg / avatar.png / avatar.webp — when available. -->
+  <defs>
+    <radialGradient id="orb" cx="34%" cy="28%" r="82%">
+      <stop offset="0%" stop-color="#7CF5D6"/>
+      <stop offset="52%" stop-color="#2ED3C6"/>
+      <stop offset="100%" stop-color="#9B7BFF"/>
+    </radialGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1512" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#07100E" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="64" fill="url(#orb)"/>
+  <!-- soft inner strand arcs echoing the Fugue lattice -->
+  <g fill="none" stroke="#F3EFE6" stroke-opacity="0.20" stroke-width="1.4">
+    <path d="M18 82 C 40 58, 88 58, 110 82"/>
+    <path d="M22 96 C 46 74, 82 74, 106 96"/>
+  </g>
+  <!-- monogram A -->
+  <text x="64" y="80" text-anchor="middle" font-family="'Space Grotesk','Segoe UI',system-ui,sans-serif"
+        font-size="58" font-weight="700" fill="url(#ink)" letter-spacing="-1">A</text>
+  <circle cx="64" cy="64" r="63" fill="none" stroke="#F3EFE6" stroke-opacity="0.28" stroke-width="1"/>
+</svg>
