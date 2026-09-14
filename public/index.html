@@ -1162,6 +1162,17 @@ document.getElementById('copyBtn').addEventListener('click',function(){
     if(/\b(project|projects|education|degree|study|contact|email|resume|experience|career)\b/.test(s)) return false;
     return /\b(stack|skill|skills|tech|technology|technologies|language|languages|framework|frameworks|proficient|expertise|toolkit)\b/.test(s);
   }
+  // Employment-status questions ("is he still at X", "why did he leave", "is he available")
+  // get a direct, cited answer: current tenure + availability. Without this route the
+  // retriever matches stray tokens ("off", "left") and returns unrelated project facts.
+  const F_TENURE=docs.find(d=>d.low.indexOf("was a software engineer from december 2024")>=0);
+  const F_OPEN=docs.find(d=>d.low.indexOf("open to new software engineering roles")>=0);
+  function isAvail(q){
+    const s=norm(q);
+    // a question about a project ("is Weft still working?") is not about his employment
+    if(ENT.some(e=>s.indexOf(e)>=0&&!/^(quillbot|learneo|barclays|mamaearth)$/.test(e))) return false;
+    return /\b(laid off|layoff|layoffs|lay off|let go|fired|quit|resign|resigned|leave|left|leaving|still (at|with|work|working|employed)|current(ly)? (job|role|employer|employed|working|work)|where does he work|employed|unemployed|between jobs|(is|are) (he|abheet) (available|free|open)|looking for|job search|job hunt|hiring status|notice period)\b/.test(s);
+  }
 
   const GREET="Hi, I'm the lattice. I can tell you about Abheet Singh Isher, his experience (QuillBot, Barclays, Mamaearth), and his projects — Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm — plus the tech behind each and how to reach him. What would you like to know?";
   const HELP="Try asking things like: ‘Who is Abheet?’, ‘What did he do at QuillBot?’, ‘How does Weft merge offline edits?’, ‘Why can’t Vantage’s LLM write SQL?’, ‘What is Zeno’s approval kernel?’, ‘How does ShieldAI encrypt data?’, ‘What’s his tech stack?’ or ‘How do I contact him?’ I answer only from cited facts about his work.";
@@ -1193,6 +1204,8 @@ document.getElementById('copyBtn').addEventListener('click',function(){
     if(m==='greet'){ add(GREET,"bot"); return; }
     if(m==='help'){ add(HELP,"bot"); return; }
     if(m==='thanks'){ add("Happy to help. Ask me anything else about Abheet's projects, the tech behind them, his experience, or how to reach him.","bot"); return; }
+    if(isAvail(q)&&F_OPEN){ const p=[F_TENURE,F_OPEN].filter(Boolean);
+      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
     if(isBio(q)&&F_ID){ const p=[F_ID,F_HEAD||F_CAREER].filter(Boolean);
       add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
     if(isSkills(q)&&F_SKILLS){ const p=[F_SKILLS,F_STRENGTH].filter(Boolean);
