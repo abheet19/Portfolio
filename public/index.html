@@ -367,11 +367,6 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <span class="type-line" id="typeLine">Make it hold under pressure.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
       <p class="sub">I build software around the failure cases that matter: concurrent edits, unsafe agent actions, unverifiable analytics, and private data — from an AI writing engine used by 10M+ weekly users to local-first tools.</p>
-      <div class="ids">
-        <span>(replica <b>A</b>, counter <b>0</b>)</span>
-        <span>(replica <b>B</b>, counter <b>0</b>)</span>
-        <span>move the cursor — the strand splits</span>
-      </div>
     </div>
     <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
   </section>
@@ -446,9 +441,9 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">ProseMirror</span><span class="chip">React 19</span><span class="chip">WebSocket</span><span class="chip">IndexedDB</span><span class="chip">Vitest</span><span class="chip">fast-check</span><span class="chip">Fugue CRDT</span></div>
         <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">613</div><div class="l">Vitest cases</div></div>
-          <div class="receipt"><div class="n">100,000</div><div class="l">op benchmark</div></div>
-          <div class="receipt"><div class="n">33</div><div class="l">real-browser cases</div></div>
+          <div class="receipt"><div class="n">Offline</div><div class="l">keep editing without a connection</div></div>
+          <div class="receipt"><div class="n">Convergent</div><div class="l">same operations, same document</div></div>
+          <div class="receipt"><div class="n">Durable</div><div class="l">Saved only after server fsync + ack</div></div>
         </div>
         <div class="cta">
           <a class="link" href="https://weft-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
@@ -584,7 +579,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <div class="tl">One view of the portfolio’s live services.</div>
         <p class="pb">Helm is the deployed operations console for this project suite. It checks public endpoints from the server, keeps a rolling latency history, and makes the current fleet state easy to inspect.</p>
         <ul><li>Live now: server-side health probes, rolling latency, uptime, p50/p95, alerts, a service map, and dry-run deployment commands that show exactly what would run.</li></ul>
-        <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Open Helm ↗</a></div>
+        <div class="stack"><span class="chip">Node 22</span><span class="chip">Express</span><span class="chip">Server-side probes</span><span class="chip">MCP</span><span class="chip">glass</span></div>
+        <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/Helm" target="_blank" rel="noopener">Source</a></div>
       </div>
     </div>
   </section>
