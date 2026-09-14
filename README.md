@@ -13,7 +13,7 @@ the work. Each shipped project embeds a 60fps demo reel that plays on scroll.
 
 - **Site:** a single static `public/index.html` — no build step.
   - Three.js (r128) InstancedMesh glyph lattice + custom GLSL shader
-  - GSAP + ScrollTrigger + Lenis for scroll-driven topology morphs
+  - Native scroll drives the camera, HUD and reveals (no GSAP/Lenis — Three.js is the only script dependency)
   - Client-side RAG chatbot (TF‑IDF keyword retrieval over embedded facts, cited)
   - Theme-aware (dark/light), responsive, `prefers-reduced-motion` aware
   - The hero statement is present in the server-sent HTML (visible before JS)
