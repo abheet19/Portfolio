@@ -363,8 +363,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     <div class="wrap">
       <div class="mono hero-eyebrow">00 — STRAND · Abheet Singh Isher · software engineer</div>
       <h1>
-        <span class="lead">Two people. One document.</span>
-        <span class="type-line" id="typeLine">No lost edits.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
+        <span class="lead">Build the part people have to trust.</span>
+        <span class="type-line" id="typeLine">Make it hold under pressure.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
       <p class="sub">I build structures that stay coherent under concurrency — from an AI writing engine used by 10M+ weekly users to a suite of local-first tools with real safety guarantees.</p>
       <div class="ids">
@@ -408,8 +408,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="twohelix" data-accent="#2ED3C6">
     <div class="wrap">
       <div class="mono kicker reveal">02 — CONCURRENCY AT SCALE</div>
-      <h2 class="stmt reveal">100+ editors, each a <em>replica</em> writing back into one document.</h2>
-      <p class="lede reveal">The insert/replace engine treats every target — Google Docs, Gmail, a raw contenteditable — as a peer. The Shadow DOM and cross-frame boundaries are edges that must not cross.</p>
+      <h2 class="stmt reveal">Editing at scale is a browser problem, not a textbox.</h2>
+      <p class="lede reveal">At QuillBot, I built an insert/replace engine that writes AI suggestions back into Google Docs, Gmail, Word, and other editor surfaces while preserving the document’s formatting.</p>
     </div>
   </section>
 
@@ -417,8 +417,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="twohelix" data-accent="#6E6A62">
     <div class="wrap">
       <div class="mono kicker reveal">03 — TRANSITION</div>
-      <h2 class="stmt reveal">One replica goes offline. The strand keeps growing in the dark.</h2>
-      <p class="lede reveal">After a company-wide restructuring in September 2026, the work didn't stop — it kept converging into a suite of deploy-ready projects, each with a hard computer-science idea at its core.</p>
+      <h2 class="stmt reveal">The job changed. The work continued.</h2>
+      <p class="lede reveal">I kept building the tools I wanted to use: projects with a clear problem, a deliberate technical boundary, and enough depth to explain how they work.</p>
     </div>
   </section>
 
@@ -462,16 +462,16 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="chain" data-accent="#C81E33">
     <div class="wrap">
       <div class="proj reveal">
-        <div class="idx">06 — HASH CHAIN OF SIGNED RECEIPTS</div>
+        <div class="idx">06 — GOVERNED ACTIONS</div>
         <h2>Zeno</h2>
-        <div class="tl">Reason before action.</div>
-        <p class="pb">Coding agents can edit your files, run your build and push your commits — and each asks you to trust a prompt, which is a suggestion, not a boundary. Zeno makes the boundary structural: a local-first approval kernel stands between what an agent proposes and what actually happens.</p>
+        <div class="tl">An agent can suggest. You decide what runs.</div>
+        <p class="pb">Zeno is a local-first Windows app for working with AI agents without turning a chat message into permission. Its approval kernel sits between a proposed side effect and the action itself.</p>
         <ul>
-          <li>Deterministic approval kernel: every side-effecting action becomes a content-addressed "held proposal"; the owner approves the exact action, a compare-and-swap confirms the world hasn't moved, exactly one execution is permitted, and the result lands on an Ed25519-signed, hash-chained receipt ledger.</li>
-          <li>"A model can propose but never approve" is structural — the agent holds a proposer token the approval route rejects with 403; Tier 4 payment/biometric effects are permanently unreachable.</li>
-          <li>Three products over one gate — Command, Forge, Counsel — across 16 packages with zero runtime dependencies; e2e suite: 25 flow scripts, 18 verified passes, 3 blocked on hardware (mic/second device), 4 not yet re-run.</li>
+          <li>Each side effect is captured as a content-addressed proposal. Approval checks that the target has not changed, permits one execution, and records the result in a signed receipt chain.</li>
+          <li>The separation is structural: an agent can propose work but cannot approve its own proposal. High-risk payment and biometric effects are not permitted.</li>
+          <li>Command handles conversation and decisions, Forge works in a selected Git repository, and Counsel is a consent-first meeting assistant. All three share the same local boundary.</li>
         </ul>
-        <div class="stack"><span class="chip">TypeScript (strict)</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span><span class="chip">MCP</span><span class="chip">0 deps</span></div>
+        <div class="stack"><span class="chip">TypeScript</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span></div>
         <div class="cta">
           <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
           <span class="link ghost" style="cursor:default">Local-first · no public deploy</span>
@@ -495,8 +495,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
         <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">834</div><div class="l">test cases</div></div>
-          <div class="receipt"><div class="n">13→6→3</div><div class="l">signup · project · invite</div></div>
+          <div class="receipt"><div class="n">834</div><div class="l">automated checks</div></div>
+          <div class="receipt"><div class="n">13 → 6 → 3</div><div class="l">demo funnel over seven days</div></div>
         </div>
         <div class="cta">
           <a class="link" href="https://vantage-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
@@ -575,16 +575,16 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 10 UNWOVEN / Helm -->
+  <!-- 10 HELM -->
   <section class="chapter" data-topo="thread" data-accent="#6E6A62">
     <div class="wrap">
-      <div class="proj unbuilt reveal">
-        <div class="idx">10 — A LOOSE THREAD, UNLIT</div>
+      <div class="proj reveal">
+        <div class="idx">10 — FLEET OPERATIONS</div>
         <h2>Helm</h2>
-        <div class="tl" style="color:var(--ink-3)">One control plane for the whole portfolio.</div>
-        <p class="pb">The planned terminal deliverable: a deployed cross-project observability and ops control plane for all seven projects, built as its own product. Scheduled after the rest of the portfolio is finished.</p>
-        <ul><li>In progress — early ops dashboard live at helm-abheet.fly.dev.</li></ul>
-        <div class="cta"><a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Early build ↗</a></div>
+        <div class="tl">One view of the portfolio’s live services.</div>
+        <p class="pb">Helm is the deployed operations console for this project suite. It checks public endpoints from the server, keeps a rolling latency history, and makes the current fleet state easy to inspect.</p>
+        <ul><li>Live now: server-side health probes, rolling latency, uptime, p50/p95, alerts, a service map, and dry-run deployment commands that show exactly what would run.</li></ul>
+        <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Open Helm ↗</a></div>
       </div>
     </div>
   </section>
@@ -614,7 +614,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <a class="link" href="https://linkedin.com/in/abheet-singh-isher" target="_blank" rel="noopener">LinkedIn</a>
         <a class="link ghost" href="mailto:abheet19@gmail.com">Email</a>
         <a class="link ghost" href="/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-        <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm (early)</a>
+        <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm</a>
       </div>
       <p class="foot reveal">Abheet Singh Isher · India, open to remote · shipped AI writing to 10M+ weekly users · built for coherence, not just control.</p>
     </div>
@@ -663,12 +663,11 @@ const RAG_FACTS = [
 "At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%, and his React.js/KDB+ interfaces cut audit completion time by 40%.",
 "At Mamaearth (Jan 2022 - Jun 2022) he built a User Collaboration & Research SaaS platform and a JavaScript web SDK capturing 5K+ daily user interactions, and deployed Node.js/React microservices via Docker and GitLab CI/CD for 20% faster releases.",
 "His core strengths are browser-extension engineering at consumer scale (MV3, ~10M weekly active users), React/TypeScript, web performance, applied AI, and full-stack development.",
-"Zeno is his flagship project: a local-first, Windows-first personal AI suite whose tagline is 'Reason before action.'",
-"Zeno's core idea is a deterministic approval kernel that stands between what an AI agent proposes and what actually happens - governance as a runtime, not a policy document.",
-"In Zeno, every side-effecting action becomes a content-addressed 'held proposal'; the owner approves the exact action, a compare-and-swap check confirms the world hasn't moved, exactly one execution attempt is allowed, and the result is recorded on an Ed25519-signed hash-chained receipt ledger.",
-"In Zeno, an AI model can propose but can never approve its own action - this is structural: the agent holds a proposer token that the approval route rejects with 403, and Tier 4 payment/biometric effects are permanently unreachable.",
-"Zeno has three products over one gate: Command (orchestrator and approval home), Forge (a governed coding agent running Claude Code, Codex or a local Ollama model in a disposable git worktree), and Counsel (consent-gated meeting notes where every item cites its source line).",
-"Zeno is local-first (the daemon binds to 127.0.0.1 only), has zero telemetry, and its 16 packages have zero runtime dependencies; its e2e suite has 25 flow scripts - 18 verified passes, 3 blocked on missing hardware (microphone or second device), 4 not yet re-run - and it has no public web deployment.",
+"Zeno is a local-first Windows desktop app built around one question: what should happen between an agent proposing a side effect and that effect reaching the machine?",
+"Zeno uses a deterministic approval kernel so a side effect becomes a content-addressed proposal, the owner decides whether to release it, and the result is recorded in a signed receipt chain.",
+"A Zeno agent can propose work but cannot approve its own proposal. The approval route rejects the agent token, and high-risk payment and biometric effects are not permitted.",
+"Zeno has three connected products: Command for conversation and decisions, Forge for work in a selected Git repository, and Counsel for consent-first meeting assistance.",
+"Zeno keeps its daemon on loopback, has no public web deployment, and is being verified against the desktop app rather than represented as a browser-only demo.",
 "Weft is an offline-first collaborative rich-text editor whose tagline is 'Two people. One document. No lost edits.'",
 "Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
 "Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
@@ -694,7 +693,7 @@ const RAG_FACTS = [
 "ShieldAI is an educational Paillier partial-homomorphic-encryption demo where the private key never leaves the browser and all inputs are synthetic; it is explicitly not AI, not a credit product, and not production cryptography.",
 "In ShieldAI the browser generates a 1024-bit Paillier keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts; the server computes an encrypted weighted sum on ciphertext and returns an encrypted total the browser decrypts locally to 37.5/100.",
 "ShieldAI keeps raw fields, the private key and the decrypted result off the server entirely, uses payload-free logging, is built with Flask and vanilla JS, is verified by 8 backend tests and a 19-group browser gate, and is live at shieldai-abheet19.fly.dev with /version proving the exact commit.",
-"Helm is Abheet's planned terminal deliverable: a deployed cross-project observability and ops control plane for all seven projects, built as its own product - an early version is live at helm-abheet.fly.dev.",
+"Helm is a deployed operations console for the portfolio. It measures live endpoint health and latency, maintains a rolling window for uptime and percentiles, and labels dry-run controls and sample metrics clearly.",
 "A recurring theme across Abheet's projects is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary - CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL security boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
 "Six of the seven built projects are publicly deployed (Weft, Vantage, glass, HealthFlow, Textify, ShieldAI); Zeno is the local-first flagship with no public deploy, and all repos live under github.com/abheet19.",
 "His canonical resume is available at /resume.pdf and his QuillBot work is framed as impact plus modern technology, not internal ticket IDs, experiment names, or repo names."
@@ -750,7 +749,7 @@ const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').match
    ============================================================================ */
 (function(){
   if(prefersReduced) return;
-  const el=document.getElementById('typeLine'), full="No lost edits.";
+  const el=document.getElementById('typeLine'), full="Make it hold under pressure.";
   el.textContent=""; let i=0;
   function step(){ if(i<=full.length){ el.textContent=full.slice(0,i); i++; setTimeout(step, 70);} }
   setTimeout(step, 600);
