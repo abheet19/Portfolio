@@ -8,6 +8,12 @@ ENV NODE_ENV=production \
 
 WORKDIR /app
 
+# A deploy may provide the exact source commit with
+# `--build-arg SOURCE_REVISION=$(git rev-parse HEAD)`. Unset/invalid values are
+# reported as unknown by /version rather than inferred at runtime.
+ARG SOURCE_REVISION
+ENV SOURCE_REVISION=${SOURCE_REVISION}
+
 # App is dependency-free, so we only need the server and the static site.
 COPY server.js ./server.js
 COPY public ./public

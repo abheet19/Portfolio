@@ -13,6 +13,9 @@ const path = require('path');
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = path.join(__dirname, 'public');
+const SOURCE_REVISION = /^[0-9a-f]{40}$/i.test(process.env.SOURCE_REVISION || '')
+  ? process.env.SOURCE_REVISION.toLowerCase()
+  : null;
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -76,6 +79,15 @@ const server = http.createServer((req, res) => {
 
   if (urlPath === '/health' || urlPath === '/healthz') {
     return send(res, 200, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }, 'ok');
+  }
+
+  if (urlPath === '/version') {
+    const body = JSON.stringify({
+      service: 'portfolio',
+      sourceRevision: SOURCE_REVISION,
+      revisionStatus: SOURCE_REVISION ? 'verified-build-input' : 'unknown',
+    });
+    return send(res, 200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }, body);
   }
 
   if (urlPath.endsWith('/')) urlPath += 'index.html';
