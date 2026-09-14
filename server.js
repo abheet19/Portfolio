@@ -47,8 +47,19 @@ function cacheControl(ext) {
 }
 
 function send(res, status, headers, body) {
-  res.writeHead(status, headers);
+  res.writeHead(status, Object.assign({}, securityHeaders(), headers));
   if (body) res.end(body); else res.end();
+}
+
+function securityHeaders() {
+  return {
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+    'Cross-Origin-Opener-Policy': 'same-origin',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+  };
 }
 
 const server = http.createServer((req, res) => {
@@ -81,12 +92,11 @@ const server = http.createServer((req, res) => {
     }
     const ext = path.extname(filePath).toLowerCase();
     const type = TYPES[ext] || 'application/octet-stream';
-    const baseHeaders = {
+    const baseHeaders = Object.assign({}, securityHeaders(), {
       'Content-Type': type,
       'Cache-Control': cacheControl(ext),
-      'X-Content-Type-Options': 'nosniff',
       'Accept-Ranges': 'bytes',
-    };
+    });
 
     const range = req.headers.range;
     if (range) {

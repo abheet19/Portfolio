@@ -629,7 +629,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <div class="chat-log" id="chatLog"></div>
   <div class="chat-suggest" id="chatSuggest"></div>
   <form class="chat-input" id="chatForm">
-    <input id="chatInput" type="text" placeholder="What is Zeno's approval kernel?" autocomplete="off" aria-label="Ask a question">
+    <input id="chatInput" type="text" maxlength="500" placeholder="What is Zeno's approval kernel?" autocomplete="off" aria-label="Ask a question">
     <button type="submit" aria-label="Send">↑</button>
   </form>
 </section>
@@ -720,7 +720,10 @@ const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').match
   const eg = document.getElementById('ecoGrid');
   ECO.forEach(n=>{
     const d=document.createElement('div');d.className='node';
-    d.innerHTML=`<div class="d" style="background:${n.c};box-shadow:0 0 12px ${n.c}"></div><h4>${n.name}</h4><p>${n.s}</p>`;
+    const dot=document.createElement('div');dot.className='d';dot.style.background=n.c;dot.style.boxShadow=`0 0 12px ${n.c}`;
+    const title=document.createElement('h4');title.textContent=n.name;
+    const summary=document.createElement('p');summary.textContent=n.s;
+    d.append(dot,title,summary);
     eg.appendChild(d);
   });
 })();
@@ -765,6 +768,8 @@ document.getElementById('copyBtn').addEventListener('click',function(){
    RAG CHATBOT — keyword/token retrieval, isAvail() routing
    ============================================================================ */
 (function(){
+  const MAX_QUERY_LENGTH=500;
+  const MAX_MESSAGES=40;
   const STOP=new Set("a an the of to in on at is are was were be been being and or but if then than that this these those it its as with for from by his he she they them your you i we our not no yes do does".split(" "));
   const norm=s=>s.toLowerCase().replace(/[^a-z0-9+.# ]/g," ");
   const toks=s=>norm(s).split(/\s+/).filter(w=>w.length>1&&!STOP.has(w));
@@ -804,9 +809,21 @@ document.getElementById('copyBtn').addEventListener('click',function(){
     const m=document.createElement('div');m.className='msg '+who;
     m.textContent=text;
     if(cites&&cites.length){const c=document.createElement('span');c.className='cite';c.textContent='Grounded in '+cites.map(n=>'fact #'+(n+1)).join(', ');m.appendChild(c);}
-    log.appendChild(m);log.scrollTop=log.scrollHeight;
+    log.appendChild(m);
+    while(log.children.length>MAX_MESSAGES) log.firstElementChild.remove();
+    log.scrollTop=log.scrollHeight;
+  }
+  function looksLikePromptInjection(q){
+    return /\b(ignore|disregard|forget|override|bypass)\b[\s\S]{0,80}\b(previous|prior|above|instruction|prompt|system|developer|policy|rules?)\b/i.test(q) ||
+      /\b(reveal|repeat|print|show)\b[\s\S]{0,80}\b(system prompt|developer message|hidden instructions?|secret instructions?)\b/i.test(q) ||
+      /\b(system|developer|assistant)\s*:/i.test(q) ||
+      /<\/?(?:script|iframe|object|embed|svg|img)\b/i.test(q);
   }
   function answer(q){
+    if(looksLikePromptInjection(q)){
+      add("I treat messages as untrusted questions, not instructions. I can only retrieve and quote the fixed portfolio facts shown on this page.","bot");
+      return;
+    }
     if(isAvail(q)){
       add("Abheet was a Software Engineer at QuillBot from December 2024 to August 2026. He is open to software engineering roles in India or fully remote. Reach him at abheet19@gmail.com.","bot",[4,0]);
       return;
@@ -827,10 +844,19 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   const sw=document.getElementById('chatSuggest');
   suggestions.forEach(q=>{const b=document.createElement('button');b.textContent=q;b.addEventListener('click',()=>{ask(q);});sw.appendChild(b);});
 
-  function ask(q){ add(q,"user"); setTimeout(()=>answer(q), prefersReduced?0:220); }
+  function ask(q){
+    if(typeof q!=="string") return;
+    q=q.trim();
+    if(!q) return;
+    if(q.length>MAX_QUERY_LENGTH){
+      add(`Please keep questions under ${MAX_QUERY_LENGTH} characters.`,"bot");
+      return;
+    }
+    add(q,"user");setTimeout(()=>answer(q),prefersReduced?0:220);
+  }
 
   const form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
-  form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(!v)return;input.value="";ask(v);});
+  form.addEventListener('submit',e=>{e.preventDefault();const v=input.value;input.value="";ask(v);});
 
   const panel=document.getElementById('chatPanel'), fab=document.getElementById('chatFab');
   let greeted=false;
