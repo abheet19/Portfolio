@@ -535,7 +535,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="idx">HEALTHFLOW</div>
           <h2 style="font-size:1.6rem">HealthFlow</h2>
           <div class="tl">One patient, five departments, one report.</div>
-          <p class="pb" style="font-size:.9rem">Five department dashboards (IT, ENT, Vision, General, Dental) share one clinic-scoped draft over a Socket.IO room; only IT's final submit persists the record transactionally, then stitches all five sections into a formatted .docx report. Tenant boundary authenticates an exact clinic/user/secret triple; Lighthouse 100/100/100/100.</p>
+          <p class="pb" style="font-size:.9rem">A synthetic health-camp workflow: IT, ENT, Vision, General and Dental share one clinic-scoped draft over Socket.IO; the full flow can stitch five sections into a formatted .docx report. The public release is deliberately read-only—its sample data, uploads, reset and submit controls are disabled. It is not an EHR, access-controlled service, or compliance claim.</p>
           <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
           <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
         </div>
@@ -684,9 +684,9 @@ const RAG_FACTS = [
 "glass's central rule is that a theme file contains eight numbers and no structure - a theme can rotate its accent hue but cannot break the shared lightness ladder, radii, type scale or motion curve.",
 "glass is live at abheet19.github.io/glass and is consumed in production by Zeno, Weft and Vantage; it is intentionally not published to npm.",
 "HealthFlow is a synthetic clinic health-checkup workflow whose tagline is 'One patient, five departments, one report,' and it is a demonstration only - not an EHR or compliance-ready product.",
-"HealthFlow puts five departments (IT, ENT, Vision, General, Dental) on live dashboards sharing one clinic-scoped draft over Socket.IO, and only IT's final submit persists the complete record transactionally to PostgreSQL, then generates a formatted .docx report from a template.",
-"HealthFlow enforces a tenant boundary by authenticating an exact clinic/user/secret triple over both HTTP and Socket.IO, deriving room names server-side, and filtering stored rows and reports by clinic (cross-clinic report requests return 404).",
-"HealthFlow uses React 18, TypeScript, Vite, Tailwind, MUI and Socket.IO on the frontend with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend, deploys as two Fly apps, and scored 100/100/100/100 on Lighthouse; it is live at healthflow-abheet19.fly.dev.",
+"HealthFlow models a five-department health-camp flow: IT, ENT, Vision, General and Dental share a clinic-scoped draft over Socket.IO; the project can assemble a formatted .docx report after a completed workflow.",
+"The deployed HealthFlow sample is deliberately read-only: it displays synthetic records and disables entry, upload, reset and submit controls. It is not an EHR, role-authorized platform, or compliance-ready service.",
+"HealthFlow uses React 18, TypeScript, Vite, Tailwind, MUI and Socket.IO on the frontend with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend. Its public synthetic demonstration is live at healthflow-abheet19.fly.dev.",
 "Textify is a private, single-user, citation-first RAG study workspace whose tagline is 'Answers you can check.'",
 "Textify indexes a PDF, DOCX or TXT source into sentence-aware chunks (180 words, 36-word overlap), retrieves the top-4 passages by cosine similarity, and returns the answer with its cited source excerpts (or evidence-only without a generation key).",
 "Textify creates embeddings locally with a pinned quantized BAAI/bge-small-en-v1.5 ONNX model on CPU (no embedding API bill) and uses Claude to generate the final answer; it stores vectors in Neon PostgreSQL with pgvector.",
