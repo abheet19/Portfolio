@@ -133,15 +133,16 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 @media(max-width:720px){.nav-links a:not(.keep){display:none}}
 
 /* ---- Hero ---- */
-.hero-eyebrow{margin-bottom:22px}
-.hero h1{font-size:clamp(2.1rem,6.4vw,5.1rem);line-height:1.02;max-width:16ch;font-weight:700}
+.chapter.hero{padding-top:10vh;padding-bottom:8vh}
+.hero-eyebrow{margin-bottom:16px}
+.hero h1{font-size:clamp(2rem,4.7vw,4rem);line-height:1.04;max-width:17ch;font-weight:700}
 .hero h1 .lead{display:block;color:var(--cream)}
 .hero h1 .type-line{color:var(--accent)}
 .caret{display:inline-block;width:.5ch;background:var(--accent);animation:blink 1s steps(1) infinite;
   margin-left:2px;transform:translateY(2px)}
 @keyframes blink{50%{opacity:0}}
-.hero .sub{margin-top:26px;max-width:52ch;color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.18rem)}
-.hero .ids{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 20px}
+.hero .sub{margin-top:18px;max-width:48ch;color:var(--ink-2);font-size:clamp(1rem,1.3vw,1.12rem)}
+.hero .ids{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 20px}
 .hero .ids span{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-3)}
 .hero .ids b{color:var(--teal);font-weight:500}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
@@ -311,25 +312,76 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   .receipt .n{font-size:1.35rem}
   .hero .sub{font-size:1rem}
 }
+/* ---- Hero primary CTAs (recruiter one-click: projects / résumé / contact) ---- */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.hero-cta .link{font-size:.82rem;padding:12px 22px}
+.link.solid{background:var(--accent);border-color:var(--accent);color:var(--void);font-weight:600}
+:root[data-theme="light"] .link.solid{color:#fff}
+.link.solid:hover{filter:brightness(1.08);background:var(--accent);transform:translateY(-1px)}
+@media(max-width:640px){.hero-cta{gap:9px}.hero-cta .link{padding:10px 16px;font-size:.76rem}}
+
+/* ---- Scannable project disclosures: Problem / Contribution / Proof (collapsed) ---- */
+.disclosures{margin-top:24px;border-top:1px solid var(--line)}
+.disc{border-bottom:1px solid var(--line)}
+.disc>summary{cursor:pointer;list-style:none;padding:13px 2px;display:flex;align-items:center;gap:12px;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);
+  transition:color .2s var(--ease)}
+.disc>summary::-webkit-details-marker{display:none}
+.disc>summary::before{content:"+";color:var(--accent);font-size:1.05rem;line-height:1;width:1ch;text-align:center;flex:none}
+.disc[open]>summary::before{content:"\2013"}
+.disc>summary:hover{color:var(--accent)}
+.disc .body{padding:2px 0 16px 25px;color:var(--ink-2);font-size:.93rem;line-height:1.62}
+.disc .body ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.disc .body li{position:relative;padding-left:18px}
+.disc .body li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:2px;
+  background:var(--accent);transform:rotate(45deg)}
+.disc .peek{color:var(--ink-3);font-family:var(--font-ui);letter-spacing:0;text-transform:none;font-size:.82rem;
+  margin-left:auto;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:640px){.disc .peek{display:none}}
+
+/* ---- Telemetry HUD + progress rail (Fugue replica/counter × Threshold pane readout) ---- */
+.hud{position:fixed;z-index:30;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);pointer-events:none;user-select:none}
+.hud b{color:var(--ink-2);font-weight:500}
+.hud .lit{color:var(--accent);transition:color .5s var(--ease)}
+.hud-tr{top:64px;right:clamp(14px,4vw,40px);text-align:right}
+.hud-bl{left:clamp(14px,4vw,40px);bottom:18px;display:flex;gap:8px 16px;align-items:center;flex-wrap:wrap;max-width:min(78vw,520px)}
+.hud-bl .dotp{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);
+  transition:background .5s var(--ease),box-shadow .5s var(--ease);flex:none}
+.progress-rail{position:fixed;right:0;top:0;bottom:0;width:2px;z-index:30;background:var(--line-2);pointer-events:none}
+.progress-fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--accent);
+  box-shadow:0 0 10px var(--accent);transition:background .5s var(--ease)}
+@media(max-width:640px){.hud-tr{top:58px}.hud-bl{font-size:.55rem;gap:6px 10px}}
+@media(max-width:400px){.hud-bl .hud-hide{display:none}}
+
+/* ---- Project panes: the glass card reads over its WebGL glass wall ---- */
+.pane-ch .idx{display:flex;align-items:center;gap:10px}
+.pane-ch .idx .pane-no{color:var(--ink-3)}
+.hall-fallback{position:fixed;inset:0;z-index:0;background:
+  radial-gradient(1100px 720px at 62% 26%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),
+  radial-gradient(900px 600px at 16% 84%,color-mix(in srgb,var(--teal) 12%,transparent),transparent 60%),var(--void)}
+
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .caret{animation:none}
   .scroll-cue .bar{animation:none}
   .chat-fab{transition:none}
   .orb,.chat-head .orb{animation:none}
+  .progress-fill,.hud .lit,.hud-bl .dotp,.progress-fill{transition:none}
 }
 </style>
 </head>
 <body>
 
 <canvas id="scene" aria-hidden="true"></canvas>
+<div id="hall-fallback" class="hall-fallback" hidden aria-hidden="true"></div>
 <div id="grain" aria-hidden="true"></div>
 <div class="scene-veil" id="veil" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top"><span class="dot" id="brandDot"></span>ABHEET · FUGUE</a>
+  <a class="brand" href="#top"><span class="dot" id="brandDot"></span>ABHEET&nbsp;ISHER</a>
   <nav class="nav-links">
-    <a href="#work">Work</a>
+    <a href="#work">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
@@ -339,21 +391,36 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </nav>
 </header>
 
+<!-- Telemetry HUD: replica/counter (Fugue) + which pane you're passing (Threshold) -->
+<div class="hud hud-tr" aria-hidden="true"><span class="lit" id="hudPane">PANE 00 / 08</span></div>
+<div class="hud hud-bl" aria-hidden="true">
+  <span class="dotp" id="hudDot"></span>
+  <span><b>replica</b> <span class="lit" id="hudReplica">A</span></span>
+  <span class="hud-hide"><b>counter</b> <span id="hudCounter">0000</span></span>
+  <span class="hud-hide" id="hudState">strand · in sync</span>
+</div>
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progFill"></div></div>
+
 <main id="top">
 
   <!-- 00 STRAND / HERO -->
-  <section class="chapter hero" data-topo="helix" data-accent="#2ED3C6" id="hero">
+  <section class="chapter hero" data-proj="" data-accent="#2ED3C6" id="hero">
     <div class="wrap">
-      <div class="mono hero-eyebrow">00 — STRAND · Abheet Singh Isher · software engineer</div>
+      <div class="mono hero-eyebrow">Abheet Singh Isher · Software Engineer</div>
       <h1>
-        <span class="lead">Two people. One document.</span>
-        <span class="type-line" id="typeLine">No lost edits.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
+        <span class="lead">Systems that stay correct</span>
+        <span class="type-line" id="typeLine">when everything happens at once.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
-      <p class="sub">I build structures that stay coherent under concurrency — from an AI writing engine used by 10M+ weekly users to a suite of local-first tools with real safety guarantees.</p>
+      <p class="sub">I shipped AI writing to 10M+ weekly users at QuillBot. Now I build local-first AI tools with safety guarantees you can actually check — and I write the tests that prove them.</p>
+      <div class="hero-cta">
+        <a class="link solid" href="#projects">View projects</a>
+        <a class="link" href="/resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+        <a class="link ghost" href="#contact">Contact</a>
+      </div>
       <div class="ids">
         <span>(replica <b>A</b>, counter <b>0</b>)</span>
         <span>(replica <b>B</b>, counter <b>0</b>)</span>
-        <span>move the cursor — the strand splits</span>
+        <span>move your cursor — the strand splits</span>
       </div>
     </div>
     <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
@@ -362,15 +429,15 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <!-- 01 LINEAGE -->
   <section class="chapter" data-topo="helix" data-accent="#2ED3C6" id="work">
     <div class="wrap">
-      <div class="mono kicker reveal">01 — LINEAGE</div>
+      <div class="mono kicker reveal">01 — Experience</div>
       <div class="about-id reveal">
         <!-- Real photo (owner-provided). Fallback: the CSS gradient orb shows if the file is missing. -->
         <span class="avatar"><img src="/assets/avatar.jpg" alt="Abheet Singh Isher"
               width="60" height="60" decoding="async" onerror="this.remove()"></span>
-        <span class="who"><b>Abheet Singh Isher</b><br>software engineer · India, open to remote</span>
+        <span class="who"><b>Abheet Singh Isher</b><br>software engineer · India · open to remote</span>
       </div>
-      <h2 class="stmt reveal">A career grown as one strand through <em>three eras</em>.</h2>
-      <p class="lede reveal">Each era is a receipt that lights: an intern SDK, an auditor's dashboard, a writing assistant at scale.</p>
+      <h2 class="stmt reveal">Three roles, one throughline: <em>software people depend on</em>.</h2>
+      <p class="lede reveal">An intern's web SDK, a fintech audit console, an AI writing assistant at consumer scale — each shipped, measured, and still in use.</p>
       <div class="receipts">
         <div class="receipt reveal"><div class="n">5K+</div><div class="l">daily interactions · Mamaearth</div></div>
         <div class="receipt reveal"><div class="n">$8,000<span style="font-size:1rem">/mo</span></div><div class="l">auditor time saved · Barclays</div></div>
@@ -393,38 +460,57 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 02 CONCURRENCY AT SCALE -->
-  <section class="chapter" data-topo="twohelix" data-accent="#2ED3C6">
+  <!-- 02 QUILLBOT — AT SCALE -->
+  <section class="chapter" data-proj="" data-accent="#2ED3C6">
     <div class="wrap">
-      <div class="mono kicker reveal">02 — CONCURRENCY AT SCALE</div>
-      <h2 class="stmt reveal">100+ editors, each a <em>replica</em> writing back into one document.</h2>
-      <p class="lede reveal">The insert/replace engine treats every target — Google Docs, Gmail, a raw contenteditable — as a peer. The Shadow DOM and cross-frame boundaries are edges that must not cross.</p>
+      <div class="mono kicker reveal">02 — At scale</div>
+      <h2 class="stmt reveal">One writing engine, writing back into <em>a hundred editors</em>.</h2>
+      <p class="lede reveal">At QuillBot I built the insert/replace engine behind AI writing for 10M+ weekly users: the piece that puts paraphrased text back into Google Docs, Gmail, Word and ChatGPT with formatting intact — across Shadow DOM and cross-frame boundaries — then holds a selection path that once fired 60 times a second to a smooth 300ms.</p>
     </div>
   </section>
 
-  <!-- 03 DISCONNECT -->
-  <section class="chapter" data-topo="twohelix" data-accent="#6E6A62">
+  <!-- 03 INTO THE HALL -->
+  <section class="chapter" data-proj="" data-accent="#9B7BFF" id="projects">
     <div class="wrap">
-      <div class="mono kicker reveal">03 — DISCONNECT</div>
-      <h2 class="stmt reveal">One replica goes offline. The strand keeps growing in the dark.</h2>
-      <p class="lede reveal">Laid off from QuillBot in September 2026. The work didn't stop — it kept converging into a suite of deploy-ready projects.</p>
+      <div class="mono kicker reveal">03 — The work</div>
+      <h2 class="stmt reveal">Eight projects. Each one a <em>boundary you can see through</em>.</h2>
+      <p class="lede reveal">Ahead is a hall of glass — one pane per project. Keep scrolling and the camera walks you through it. CRDTs, a deterministic approval kernel, a typed LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption: each turns a hard idea into shipped, tested software, and the strand threads through them all.</p>
     </div>
   </section>
 
-  <!-- 04 THESIS -->
-  <section class="chapter" data-topo="helix" data-accent="#9B7BFF" id="projects">
+  <!-- PANE 01 — ZENO -->
+  <section class="chapter pane-ch" data-proj="Zeno" data-accent="#C81E33">
     <div class="wrap">
-      <div class="mono kicker reveal">04 — THESIS</div>
-      <h2 class="stmt reveal">Every hard idea here is a structure that <em>survives concurrency</em>.</h2>
-      <p class="lede reveal">CRDTs, a deterministic approval kernel, an LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption — one lattice, folding into each project's own topology.</p>
+      <div class="proj reveal" style="--accent:#C81E33">
+        <div class="idx">Pane 01 · Approval kernel</div>
+        <h2>Zeno</h2>
+        <div class="tl">Reason before action.</div>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Agents act on a prompt, not a boundary</span></summary>
+            <div class="body">Coding agents can edit your files, run your build, and push your commits — and each one asks you to trust a prompt. A prompt is a suggestion, not a boundary.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">A local-first approval kernel</span></summary>
+            <div class="body"><ul>
+              <li>A local-first approval kernel sits between what an agent proposes and what actually runs. Every side-effecting action becomes a content-addressed "held proposal"; you approve the exact action, a compare-and-swap confirms the world hasn't moved, and exactly one execution is allowed.</li>
+              <li>A model can propose but never approve — structurally: the agent holds a proposer token the approval route rejects with 403, and Tier 4 payment/biometric effects are permanently unreachable.</li>
+              <li>Three products over one gate: Command (orchestrator), Forge (governed coding agent), and Counsel (consent-gated meeting notes).</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">18 flows pass · signed receipt ledger</span></summary>
+            <div class="body">16 packages with zero runtime dependencies. Every result lands on an Ed25519-signed, hash-chained receipt ledger. The end-to-end suite passes 18 flows, 0 failed.</div></details>
+        </div>
+        <div class="stack"><span class="chip">TypeScript (strict)</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span><span class="chip">MCP</span><span class="chip">0 deps</span></div>
+        <div class="cta">
+          <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
+          <span class="link ghost" style="cursor:default">Local-first · runs on your machine</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 05 WEFT -->
-  <section class="chapter" data-topo="tree" data-accent="#2ED3C6">
+  <!-- PANE 02 — WEFT -->
+  <section class="chapter pane-ch" data-proj="Weft" data-accent="#2ED3C6">
     <div class="wrap">
-      <div class="proj reveal">
-        <div class="idx">05 — SPLIT · DRIFT · CONVERGE</div>
+      <div class="proj reveal" style="--accent:#2ED3C6">
+        <div class="idx">Pane 02 · Offline-first CRDT</div>
         <h2>Weft</h2>
         <div class="tl">Two people. One document. No lost edits.</div>
         <figure class="reel reveal" data-reel>
@@ -432,18 +518,19 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/weft-reel.mp4" aria-label="Weft demo reel"></video>
           <figcaption>Weft · live reel</figcaption>
         </figure>
-        <p class="pb">Two people edit the same paragraph and one goes offline for an hour. Weft stores a document as a tree of characters instead of a string, so merges are a deterministic fact about the tree — not a decision anyone has to make.</p>
-        <ul>
-          <li>A from-scratch Fugue sequence CRDT (Weidner & Kleppmann, 2023): every character has a permanent (replica, counter) identity, so two peers edit, disconnect, keep typing, reconnect and converge with no "resolve conflict" dialog.</li>
-          <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
-          <li>The server is a pure relay/log writer that never imports CRDT semantics.</li>
-        </ul>
-        <div class="stack"><span class="chip">TypeScript</span><span class="chip">ProseMirror</span><span class="chip">React 19</span><span class="chip">WebSocket</span><span class="chip">IndexedDB</span><span class="chip">Vitest</span><span class="chip">fast-check</span><span class="chip">Fugue CRDT</span></div>
-        <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">613</div><div class="l">Vitest cases</div></div>
-          <div class="receipt"><div class="n">100,000</div><div class="l">op benchmark</div></div>
-          <div class="receipt"><div class="n">33</div><div class="l">real-browser cases</div></div>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Edit together, one goes offline</span></summary>
+            <div class="body">Two people edit the same paragraph and one drops offline for an hour. Naive systems overwrite work, force a conflict decision, or block editing.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">A from-scratch Fugue CRDT</span></summary>
+            <div class="body"><ul>
+              <li>Weft stores the document as a tree of characters, not a string, using a from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023) — every character carries a permanent (replica, counter) identity, so two peers converge with no "resolve conflict" dialog.</li>
+              <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
+              <li>The server is a pure relay and log writer that never imports CRDT semantics, so a server bug can't quietly change a merge.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">613 tests · 100k-op benchmark · live</span></summary>
+            <div class="body">613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases including offline/reconnect and corrupt-storage recovery. Live at weft-abheet.fly.dev.</div></details>
         </div>
+        <div class="stack"><span class="chip">TypeScript</span><span class="chip">ProseMirror</span><span class="chip">React 19</span><span class="chip">WebSocket</span><span class="chip">IndexedDB</span><span class="chip">Vitest</span><span class="chip">fast-check</span><span class="chip">Fugue CRDT</span></div>
         <div class="cta">
           <a class="link" href="https://weft-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Weft" target="_blank" rel="noopener">Source</a>
@@ -452,33 +539,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 06 ZENO -->
-  <section class="chapter" data-topo="chain" data-accent="#C81E33">
+  <!-- PANE 03 — VANTAGE -->
+  <section class="chapter pane-ch" data-proj="Vantage" data-accent="#F2B23E">
     <div class="wrap">
-      <div class="proj reveal">
-        <div class="idx">06 — HASH CHAIN OF SIGNED RECEIPTS</div>
-        <h2>Zeno</h2>
-        <div class="tl">Reason before action.</div>
-        <p class="pb">Coding agents can edit your files, run your build and push your commits — and each asks you to trust a prompt, which is a suggestion, not a boundary. Zeno makes the boundary structural: a local-first approval kernel stands between what an agent proposes and what actually happens.</p>
-        <ul>
-          <li>Deterministic approval kernel: every side-effecting action becomes a content-addressed "held proposal"; the owner approves the exact action, a compare-and-swap confirms the world hasn't moved, exactly one execution is permitted, and the result lands on an Ed25519-signed, hash-chained receipt ledger.</li>
-          <li>"A model can propose but never approve" is structural — the agent holds a proposer token the approval route rejects with 403; Tier 4 payment/biometric effects are permanently unreachable.</li>
-          <li>Three products over one gate — Command, Forge, Counsel — across 16 packages with zero runtime dependencies; end-to-end suite passed 18 flows, 0 failed.</li>
-        </ul>
-        <div class="stack"><span class="chip">TypeScript (strict)</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span><span class="chip">MCP</span><span class="chip">0 deps</span></div>
-        <div class="cta">
-          <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
-          <span class="link ghost" style="cursor:default">Local-first · no public deploy</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 VANTAGE -->
-  <section class="chapter" data-topo="funnel" data-accent="#F2B23E">
-    <div class="wrap">
-      <div class="proj reveal">
-        <div class="idx">07 — TYPED FUNNEL</div>
+      <div class="proj reveal" style="--accent:#F2B23E">
+        <div class="idx">Pane 03 · Typed LLM → SQL</div>
         <h2>Vantage</h2>
         <div class="tl">Ask in English. See the SQL. Trust the number.</div>
         <figure class="reel reveal" data-reel>
@@ -486,17 +551,18 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/vantage-reel.mp4" aria-label="Vantage demo reel"></video>
           <figcaption>Vantage · live reel</figcaption>
         </figure>
-        <p class="pb">Add an LLM that writes the query and the number becomes both unverifiable and produced by something that can be talked into anything. Vantage makes the model fill a typed spec instead of writing SQL.</p>
-        <ul>
-          <li>The model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count), and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role, in a read-only transaction, with a 5-second timeout and row caps.</li>
-          <li>Exposed as an MCP server with 8 read-only tools — no run_sql, no ask — so Claude can query it with no LLM key of its own, and every result carries the exact SQL it ran.</li>
-          <li>Hand-computed fixture proves the August funnel: signup 13 → create_project 6 → invite_teammate 3 in a 7-day window.</li>
-        </ul>
-        <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
-        <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">834</div><div class="l">test cases</div></div>
-          <div class="receipt"><div class="n">13→6→3</div><div class="l">signup · project · invite</div></div>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">An LLM writing SQL isn't checkable</span></summary>
+            <div class="body">Analytics tools answer with numbers you can't check. Let an LLM write the SQL and the number becomes both unverifiable and easy to talk into anything.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">The model fills a typed spec, not SQL</span></summary>
+            <div class="body"><ul>
+              <li>The model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count), and a pure compiler turns it into a parameterized SELECT, run as a read-only Postgres role, in a read-only transaction, with a 5-second timeout and row caps.</li>
+              <li>Exposed as an MCP server with 8 read-only tools — no run_sql, no ask — so Claude can query it with no key of its own, and every result carries the exact SQL it ran.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">834 tests · funnel 13→6→3 · live</span></summary>
+            <div class="body">834 test cases. A hand-computed fixture pins the August funnel: signup 13 → create_project 6 → invite_teammate 3 in a 7-day window. Live at vantage-abheet.fly.dev, exposing its exact commit at /health.release_sha.</div></details>
         </div>
+        <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
         <div class="cta">
           <a class="link" href="https://vantage-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Vantage" target="_blank" rel="noopener">Source</a>
@@ -505,64 +571,99 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 08 SHIELDAI / TEXTIFY / HEALTHFLOW -->
-  <section class="chapter" data-topo="scatter" data-accent="#4F8EF7">
+  <!-- PANE 04 — SHIELDAI -->
+  <section class="chapter pane-ch" data-proj="ShieldAI" data-accent="#4F8EF7">
     <div class="wrap">
-      <div class="mono kicker reveal">08 — THREE FASTER BEATS</div>
-      <h2 class="stmt reveal" style="max-width:24ch">Ciphertext scatter. Citation edges. Five rooms, one draft.</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:30px">
-
-        <div class="proj reveal" style="--accent:#4F8EF7;max-width:none">
-          <div class="idx">SHIELDAI</div>
-          <h2 style="font-size:1.6rem">ShieldAI</h2>
-          <div class="tl">The private key never leaves the browser.</div>
-          <figure class="reel tall reveal" data-reel>
-            <img class="reel-poster" src="/assets/reels/shieldai-demo.gif" alt="ShieldAI — encrypted score computed on ciphertext" width="1280" height="900" loading="lazy" decoding="async">
-            <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="900" data-src="/assets/reels/shieldai-reel.mp4" aria-label="ShieldAI demo reel"></video>
-            <figcaption>ShieldAI · reel</figcaption>
-          </figure>
-          <p class="pb" style="font-size:.9rem">An educational Paillier partial-homomorphic-encryption demo: the browser generates a 1024-bit keypair, encrypts four derived indicators and sends only the public modulus and ciphertexts. The server computes an encrypted weighted sum and returns a total the browser decrypts locally to 37.5/100 — raw fields and the key never reach the server.</p>
-          <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Vanilla JS</span><span class="chip">Paillier PHE</span></div>
-          <div class="cta"><a class="link" href="https://shieldai-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/ShieldAI" target="_blank" rel="noopener">Source</a></div>
+      <div class="proj reveal" style="--accent:#4F8EF7">
+        <div class="idx">Pane 04 · Homomorphic crypto</div>
+        <h2>ShieldAI</h2>
+        <div class="tl">The private key never leaves the browser.</div>
+        <figure class="reel tall reveal" data-reel>
+          <img class="reel-poster" src="/assets/reels/shieldai-demo.gif" alt="ShieldAI — encrypted score computed on ciphertext" width="1280" height="900" loading="lazy" decoding="async">
+          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="900" data-src="/assets/reels/shieldai-reel.mp4" aria-label="ShieldAI demo reel"></video>
+          <figcaption>ShieldAI · reel</figcaption>
+        </figure>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Score sensitive numbers without sending them</span></summary>
+            <div class="body">You want a score computed on sensitive numbers without handing the raw numbers — or the private key — to the server.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">Compute on ciphertext (Paillier)</span></summary>
+            <div class="body"><ul>
+              <li>An educational Paillier demo: the browser generates a 1024-bit keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts. The server adds the encrypted numbers and returns a total the browser decrypts locally to 37.5/100.</li>
+              <li>Partial (additive) homomorphic encryption is exactly what a weighted sum needs — the server computes on ciphertext and never sees a plaintext value.</li>
+              <li>Honest-but-curious threat model, stated plainly: no zero-knowledge range proof, so it doesn't defend against a client lying about its own inputs — and the demo says so.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">Key never leaves the browser · 8+19 gates</span></summary>
+            <div class="body">The raw fields and the private key never reach the server, and logging is payload-free. Verified by 8 backend tests and a 19-group browser gate. Live at shieldai-abheet19.fly.dev, with /version proving the exact commit.</div></details>
         </div>
-
-        <div class="proj reveal" style="--accent:#E0954D;max-width:none">
-          <div class="idx">TEXTIFY</div>
-          <h2 style="font-size:1.6rem">Textify</h2>
-          <div class="tl">Answers you can check.</div>
-          <figure class="reel reveal" data-reel>
-            <img class="reel-poster" src="/assets/reels/textify-demo.gif" alt="Textify — answer returned with cited source excerpts" width="1280" height="800" loading="lazy" decoding="async">
-            <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/textify-reel.mp4" aria-label="Textify demo reel"></video>
-            <figcaption>Textify · reel</figcaption>
-          </figure>
-          <p class="pb" style="font-size:.9rem">A private, citation-first RAG workspace: indexes a PDF/DOCX/TXT into sentence-aware chunks (180 words, 36 overlap), retrieves the top-4 passages by cosine similarity and returns the answer with its cited excerpts. Local BGE ONNX embeddings on CPU; Claude writes the final answer; retrieved text is wrapped as untrusted data.</p>
-          <div class="stack"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">BGE ONNX</span><span class="chip">Neon</span></div>
-          <div class="cta"><a class="link" href="https://textify-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/Textify" target="_blank" rel="noopener">Source</a></div>
-        </div>
-
-        <div class="proj reveal" style="--accent:#3ECF8E;max-width:none">
-          <div class="idx">HEALTHFLOW</div>
-          <h2 style="font-size:1.6rem">HealthFlow</h2>
-          <div class="tl">One patient, five departments, one report.</div>
-          <figure class="reel reveal" data-reel>
-            <img class="reel-poster" src="/assets/reels/healthflow-demo.gif" alt="HealthFlow — five department dashboards on one shared draft" width="1280" height="800" loading="lazy" decoding="async">
-            <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/healthflow-reel.mp4" aria-label="HealthFlow demo reel"></video>
-            <figcaption>HealthFlow · reel</figcaption>
-          </figure>
-          <p class="pb" style="font-size:.9rem">Five department dashboards (IT, ENT, Vision, General, Dental) share one clinic-scoped draft over a Socket.IO room; only IT's final submit persists the record transactionally, then stitches all five sections into a formatted .docx report. Tenant boundary authenticates an exact clinic/user/secret triple; Lighthouse 100/100/100/100.</p>
-          <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
-          <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
-        </div>
-
+        <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Vanilla JS</span><span class="chip">Paillier</span></div>
+        <div class="cta"><a class="link" href="https://shieldai-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/ShieldAI" target="_blank" rel="noopener">Source</a></div>
       </div>
     </div>
   </section>
 
-  <!-- 09 THE LADDER / glass -->
-  <section class="chapter" data-topo="ladder" data-accent="#2ED3C6" id="skills">
+  <!-- PANE 05 — TEXTIFY -->
+  <section class="chapter pane-ch" data-proj="Textify" data-accent="#E0954D">
     <div class="wrap">
-      <div class="proj reveal">
-        <div class="idx">09 — ONE LIGHTNESS LADDER</div>
+      <div class="proj reveal" style="--accent:#E0954D">
+        <div class="idx">Pane 05 · Citation-first RAG</div>
+        <h2>Textify</h2>
+        <div class="tl">Answers you can check.</div>
+        <figure class="reel reveal" data-reel>
+          <img class="reel-poster" src="/assets/reels/textify-demo.gif" alt="Textify — answer returned with cited source excerpts" width="1280" height="800" loading="lazy" decoding="async">
+          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/textify-reel.mp4" aria-label="Textify demo reel"></video>
+          <figcaption>Textify · reel</figcaption>
+        </figure>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">You need the evidence, not just the answer</span></summary>
+            <div class="body">When the answer lives inside your own notes, you also want to see the evidence it came from.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">Citation-first RAG over your docs</span></summary>
+            <div class="body"><ul>
+              <li>Turns a PDF, DOCX, or TXT into a private workspace: sentence-aware chunks (180 words, 36-word overlap), top-4 retrieval by cosine similarity, and the cited excerpts rendered beside the answer.</li>
+              <li>Local BGE-small ONNX embeddings on CPU by default — no key, no bill; Claude writes the final answer, and without a key it stays evidence-only.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">Fails closed · injection-boundaried · live</span></summary>
+            <div class="body">Fails closed — the access-code and body-size checks run before the file is parsed — and retrieved text is wrapped as untrusted data against prompt injection. Live at textify-abheet19.fly.dev.</div></details>
+        </div>
+        <div class="stack"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">BGE ONNX</span><span class="chip">Neon</span></div>
+        <div class="cta"><a class="link" href="https://textify-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/Textify" target="_blank" rel="noopener">Source</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANE 06 — HEALTHFLOW -->
+  <section class="chapter pane-ch" data-proj="HealthFlow" data-accent="#3ECF8E">
+    <div class="wrap">
+      <div class="proj reveal" style="--accent:#3ECF8E">
+        <div class="idx">Pane 06 · Tenant boundary</div>
+        <h2>HealthFlow</h2>
+        <div class="tl">One patient, five departments, one report.</div>
+        <figure class="reel reveal" data-reel>
+          <img class="reel-poster" src="/assets/reels/healthflow-demo.gif" alt="HealthFlow — five department dashboards on one shared draft" width="1280" height="800" loading="lazy" decoding="async">
+          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/healthflow-reel.mp4" aria-label="HealthFlow demo reel"></video>
+          <figcaption>HealthFlow · reel</figcaption>
+        </figure>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Five departments, paper, reconciled by hand</span></summary>
+            <div class="body">A clinic checkup usually means five departments filling paper for the same patient and reconciling by hand.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">One live draft, one report, real tenancy</span></summary>
+            <div class="body"><ul>
+              <li>Five dashboards (IT, ENT, Vision, General, Dental) share one clinic-scoped draft over a Socket.IO room; only IT's final submit commits the record transactionally, then stitches all five into one .docx report — broadcasts are never commits.</li>
+              <li>The tenant boundary authenticates the same clinic/user/secret triple over HTTP and the socket handshake and derives room names server-side.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">Cross-clinic → 404 · Lighthouse 100×4</span></summary>
+            <div class="body">Cross-clinic report requests return 404. Code-split so a tiny gate loads first; pinned Lighthouse scored 100/100/100/100 on mobile and desktop. Live at healthflow-abheet19.fly.dev.</div></details>
+        </div>
+        <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
+        <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANE 07 — glass -->
+  <section class="chapter pane-ch" data-proj="glass" data-accent="#2ED3C6">
+    <div class="wrap">
+      <div class="proj reveal" style="--accent:#2ED3C6">
+        <div class="idx">Pane 07 · Design system</div>
         <h2>glass</h2>
         <div class="tl">A theme owns hue. The system owns everything else.</div>
         <figure class="reel reveal" data-reel>
@@ -570,50 +671,66 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/glass-reel.mp4" aria-label="glass demo reel"></video>
           <figcaption>glass · live reel</figcaption>
         </figure>
-        <p class="pb">Eight of my projects independently converged on the same glass surface without ever sharing a stylesheet. glass is the extraction: one importable design grammar and a contrast law a script proves on every theme.</p>
-        <ul>
-          <li>Framework-neutral CSS: semantic OKLCH tokens, eight product themes, six component sheets and a Tailwind v3 adapter — no React, no Web Component, no JS runtime.</li>
-          <li>The contrast law is verified, not asserted: a dependency-free script proves 814 assertions across 8 themes × 2 grounds = 16 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.</li>
-          <li>Consumed in production by Zeno, Weft and Vantage — this very page reuses its tokens.</li>
-        </ul>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Visual drift across products is easy to miss</span></summary>
+            <div class="body">Eight of my projects landed on the same glass surface without ever sharing a stylesheet — and visual drift across products is easy to introduce and hard to catch.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">One design grammar, eight numbers per theme</span></summary>
+            <div class="body"><ul>
+              <li>The extraction: one importable, framework-neutral design grammar — semantic OKLCH tokens, eight themes, six component sheets, and a Tailwind v3 adapter, with no React and no runtime.</li>
+              <li>A theme file is eight numbers and no structure — it can rotate its accent but can't break the shared lightness ladder, radii, type scale, or motion curve.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">814 assertions · 16 palettes · used in prod</span></summary>
+            <div class="body">The contrast law is verified, not asserted: a dependency-free script proves 814 assertions across 8 themes × 2 grounds = 16 palettes (WCAG 4.5:1 text, 3:1 graphic) and fails the build on drift. Used in production by Zeno, Weft, and Vantage — and by this page. Live at abheet19.github.io/glass.</div></details>
+        </div>
         <div class="stack"><span class="chip">CSS</span><span class="chip">OKLCH</span><span class="chip">Tailwind v3 preset</span><span class="chip">Playwright</span><span class="chip">GitHub Pages</span></div>
-        <div class="receipts" style="margin-top:22px"><div class="receipt"><div class="n">814</div><div class="l">contrast assertions</div></div><div class="receipt"><div class="n">16</div><div class="l">palettes proven</div></div></div>
         <div class="cta">
           <a class="link" href="https://abheet19.github.io/glass/" target="_blank" rel="noopener">Live ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/glass" target="_blank" rel="noopener">Source</a>
         </div>
       </div>
-
-      <div style="margin-top:56px">
-        <div class="mono kicker reveal">TOOLKIT</div>
-        <div class="skills-grid" id="skillsGrid"></div>
-      </div>
     </div>
   </section>
 
-  <!-- 10 WOVEN / Helm -->
-  <section class="chapter" data-topo="chain" data-accent="#7FB5C9">
+  <!-- TOOLKIT -->
+  <section class="chapter" data-proj="" data-accent="#7CF5D6" id="skills">
+    <div class="wrap">
+      <div class="mono kicker reveal">Toolkit</div>
+      <h2 class="stmt reveal">The tools behind the boundaries.</h2>
+      <p class="lede reveal">Languages, frameworks, and the harder ideas the projects are built on.</p>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PANE 08 — Helm -->
+  <section class="chapter pane-ch" data-proj="Helm" data-accent="#7FB5C9">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#7FB5C9">
-        <div class="idx">10 — THE THREAD, NOW LIT</div>
+        <div class="idx">Pane 08 · Fleet control plane</div>
         <h2>Helm</h2>
-        <div class="tl">One control plane for the whole portfolio.</div>
-        <p class="pb">The terminal deliverable, now deployed: a cross-project observability and ops control plane that watches all seven projects as a single product. Every other project is a strand; Helm is where they light up together.</p>
-        <ul>
-          <li>One pane over the whole suite — live health, deploy state and receipts for Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Zeno.</li>
-          <li>Built as its own product on the same glass design grammar as the rest of the lattice.</li>
-        </ul>
+        <div class="tl">One console for the whole fleet.</div>
+        <div class="disclosures">
+          <details class="disc"><summary>Problem<span class="peek">Seven projects, no single place to watch them</span></summary>
+            <div class="body">Seven separate projects are seven separate things to watch. There was no single place to see them as one fleet.</div></details>
+          <details class="disc"><summary>Contribution<span class="peek">One console, real server-side probes</span></summary>
+            <div class="body"><ul>
+              <li>One console that watches all seven other projects. A small Node/Express server probes each service server-side (no CORS), measures real latency, and computes uptime and p50/p95 from a rolling window.</li>
+              <li>Its own product on the same glass design system, exposing a read-only MCP manifest of fleet tools.</li>
+            </ul></div></details>
+          <details class="disc"><summary>Proof<span class="peek">SAMPLE-labelled · dry-run deploys · live</span></summary>
+            <div class="body">Honest by design: metrics that aren't wired yet are labelled SAMPLE, and deploy actions are dry-runs that print the exact fly command and run nothing. Live at helm-abheet.fly.dev.</div></details>
+        </div>
+        <div class="stack"><span class="chip">Node 20</span><span class="chip">Express</span><span class="chip">ES-module SPA</span><span class="chip">inline SVG charts</span><span class="chip">glass</span><span class="chip">MCP</span></div>
         <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a></div>
       </div>
     </div>
   </section>
 
-  <!-- 11 CONVERGENCE -->
-  <section class="chapter" data-topo="brain" data-accent="#7CF5D6">
+  <!-- CONVERGENCE -->
+  <section class="chapter" data-proj="" data-accent="#7CF5D6">
     <div class="wrap">
-      <div class="mono kicker reveal">11 — CONVERGENCE</div>
-      <h2 class="stmt reveal">The lattice folds into a <em>breathing mind</em>.</h2>
-      <p class="lede reveal">A recurring theme across every project: turn a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary. Ask the lattice anything about this work — it answers only from cited facts.</p>
+      <div class="mono kicker reveal">The throughline</div>
+      <h2 class="stmt reveal">One idea runs through <em>all of it</em>.</h2>
+      <p class="lede reveal">Every project takes a hard computer-science idea and turns it into shipped, tested software with a boundary you can see: a CRDT, an approval kernel, a typed query spec, a verified contrast law, homomorphic encryption. Ask about any of it — the assistant answers only from cited facts.</p>
       <div class="eco" id="ecoGrid"></div>
       <div style="margin-top:26px"><button class="link" id="askBtn2">Ask the lattice ↗</button></div>
     </div>
@@ -622,8 +739,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <!-- 12 ONE LINE / CONTACT -->
   <section class="chapter contact" data-topo="line" data-accent="#F2B23E" id="contact">
     <div class="wrap">
-      <div class="mono kicker reveal" style="text-align:center">12 — ONE LINE</div>
-      <h2 class="stmt reveal">The strand resolves to a single line.</h2>
+      <div class="mono kicker reveal" style="text-align:center">Contact</div>
+      <h2 class="stmt reveal">One line to reach me.</h2>
       <div class="email-row reveal">
         <span class="addr" id="emailAddr">abheet19@gmail.com</span>
         <button class="copy-btn" id="copyBtn">Copy</button>
@@ -635,7 +752,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <a class="link ghost" href="/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
         <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm ↗</a>
       </div>
-      <p class="foot reveal">Abheet Singh Isher · India, open to remote · shipped AI writing to 10M+ weekly users · built for coherence, not just control.</p>
+      <p class="foot reveal">Abheet Singh Isher · India · open to remote · shipped AI writing to 10M+ weekly users · builds things that hold up under load.</p>
     </div>
   </section>
 
@@ -676,7 +793,7 @@ const RAG_FACTS = [
 "His career path runs Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), and then building his own suite of deploy-ready projects.",
 "His core strengths are browser-extension engineering at consumer scale (Manifest V3, ~10M weekly active users), React and TypeScript, web performance, applied AI, and full-stack development.",
 "A recurring theme across all his work is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary.",
-"He was laid off from QuillBot in September 2026 and has since been building and deploying a portfolio of eight projects: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm.",
+"He has built and deployed a portfolio of eight projects — Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm — that each turn a hard computer-science idea into shipped, tested software.",
 "His resume is available from the Resume link in the site's top navigation and contact section (it opens the PDF).",
 "His work at QuillBot is deliberately framed around real results and modern tooling, never internal ticket IDs, experiment names, or repository names.",
 /* ---- QuillBot ---- */
@@ -815,7 +932,7 @@ const RAG_FACTS = [
 "MCP (the Model Context Protocol) is an open standard for exposing tools and data to an AI model; Vantage ships an MCP analytics server, Zeno exposes and consumes MCP tools, and Helm exposes a read-only MCP manifest.",
 "Several projects share a glass app-shell redesign (a nav rail, a command palette on Ctrl-K or Cmd-K, and light/dark themes): Weft, Vantage, glass, HealthFlow, Textify and ShieldAI all adopted it.",
 "The projects are heavily tested overall - for example 834 cases in Vantage, 613 in Weft, an 18-flow end-to-end suite in Zeno, 814 contrast assertions in glass, and Lighthouse 100s in HealthFlow.",
-"This portfolio site is named 'Fugue' and is itself one of Abheet's builds - a WebGL 'lattice' of glyph-nodes that morphs per chapter - and it reuses the glass design tokens.",
+"This portfolio site is itself one of Abheet's builds: a single WebGL scene where a living glyph strand threads through a hall of refractive glass panes, one pane per project, and it reuses the glass design tokens.",
 /* ---- Skills ---- */
 "Abheet's tech stack and technologies span these skills: TypeScript, JavaScript, Python, SQL and C++ as languages; React, Redux, Node.js, Express, NestJS, Flask and FastAPI as frameworks; PostgreSQL, pgvector, Redis, MongoDB and KDB+ for data; Docker, Fly.io, GitHub Actions and nx for tooling; plus applied-AI work with CRDTs, MCP, RAG and homomorphic encryption.",
 "Abheet's programming languages include TypeScript, JavaScript, Python, SQL and C++.",
@@ -827,7 +944,7 @@ const RAG_FACTS = [
 "His quality and design skills include property-based testing (fast-check), Playwright, Vitest, Jest, A/B experimentation, funnel analytics (Amplitude), web-performance optimization, and OKLCH design systems with WCAG contrast.",
 /* ---- Contact ---- */
 "The best way to reach Abheet is email at abheet19@gmail.com; his GitHub is github.com/abheet19 and his LinkedIn is linkedin.com/in/abheet-singh-isher.",
-"Abheet is open to new roles, in India or fully remote, following his QuillBot layoff in September 2026.",
+"Abheet is open to new software engineering roles, in India or fully remote.",
 "All of Abheet's personal project repositories are public under github.com/abheet19, including Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm."
 ];
 
@@ -844,8 +961,7 @@ const ECO = [
   {name:"Helm",c:"#7FB5C9",s:"control plane · live",href:"https://helm-abheet.fly.dev"}
 ];
 
-const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').matches ||
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============================================================================
    POPULATE DOM lists
@@ -882,7 +998,7 @@ const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').match
    ============================================================================ */
 (function(){
   if(prefersReduced) return;
-  const el=document.getElementById('typeLine'), full="No lost edits.";
+  const el=document.getElementById('typeLine'), full="when everything happens at once.";
   el.textContent=""; let i=0;
   function step(){ if(i<=full.length){ el.textContent=full.slice(0,i); i++; setTimeout(step, 70);} }
   setTimeout(step, 600);
@@ -1153,335 +1269,380 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
 <script>
 /* ============================================================================
-   THE LATTICE — WebGL scene. InstancedMesh of glyph quads sampling a canvas
-   glyph atlas; positions morph between topology target-sets per chapter.
+   ONE WORLD — a single WebGL scene that blends Fugue's living glyph strand with
+   Threshold's hall of refractive glass panes. On scroll the camera dollies down
+   a dark corridor; the glyph strand threads through it; each project is a pane
+   of glass the camera passes through. Storm particles render to a half-res
+   target the panes refract, so hero + strand + panes read as one space.
+
+   Perf guards: devicePixelRatio capped at 2 (1.5 mobile); the loop pauses when
+   the tab is hidden or the canvas leaves the viewport; work is GPU-side only
+   (no per-frame layout); prefers-reduced-motion renders composed frames on
+   scroll with no animation loop.
    ============================================================================ */
 (function(){
-  if(typeof THREE==='undefined'){ return; }
-  const canvas=document.getElementById('scene');
-  const reduce = prefersReduced;
+  var canvas   = document.getElementById('scene');
+  var fallback = document.getElementById('hall-fallback');
+  var reduce   = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- tier / count ----
-  const cores=navigator.hardwareConcurrency||4;
-  const isMobile=Math.min(window.innerWidth,window.innerHeight)<720 || /Mobi|Android/i.test(navigator.userAgent);
-  let COUNT = 4000;
-  if(isMobile||cores<=4) COUNT=1400;
-  else if(cores<=8) COUNT=2600;
-  const DPR=Math.min(window.devicePixelRatio||1, isMobile?1.5:2);
+  /* ---- HUD refs ---- */
+  var hudPane=document.getElementById('hudPane'), hudReplica=document.getElementById('hudReplica'),
+      hudCounter=document.getElementById('hudCounter'), hudState=document.getElementById('hudState'),
+      hudDot=document.getElementById('hudDot'), progFill=document.getElementById('progFill'),
+      brandDot=document.getElementById('brandDot');
 
-  // ---- renderer / camera / scene ----
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:true,powerPreference:'high-performance'});
-  renderer.setPixelRatio(DPR);
-  renderer.setSize(window.innerWidth,window.innerHeight,false);
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 200);
-  camera.position.set(0,0,34);
+  /* ---- chapters & panes ---- */
+  var allChapters=[].slice.call(document.querySelectorAll('.chapter'));
+  var paneEls=[].slice.call(document.querySelectorAll('.pane-ch'));
+  var NP=paneEls.length;                                   // 8 project panes
+  var paneAccents=paneEls.map(function(el){return el.getAttribute('data-accent')||'#2ED3C6';});
+  var paneNames  =paneEls.map(function(el){return el.getAttribute('data-proj')||'';});
 
-  // ---- glyph atlas ----
-  const CHARSET="TWOPEOPLE.NDCUMTGLSIEX/()ABRV0123456789replicaounter+".split("").filter((v,i,a)=>a.indexOf(v)===i);
-  const COLS=8, ROWS=Math.ceil(CHARSET.length/COLS);
-  const CELL=64, AW=COLS*CELL, AH=ROWS*CELL;
-  const ac=document.createElement('canvas'); ac.width=AW; ac.height=AH;
-  const ax=ac.getContext('2d');
-  ax.clearRect(0,0,AW,AH);
-  ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
-  ax.font='600 44px "Space Grotesk", "Segoe UI", sans-serif';
-  CHARSET.forEach((ch,i)=>{ const c=i%COLS, r=Math.floor(i/COLS); ax.fillText(ch, c*CELL+CELL/2, r*CELL+CELL/2); });
-  const atlas=new THREE.CanvasTexture(ac);
-  atlas.flipY=false; atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
+  /* ---- global scroll progress ---- */
+  var targetProgress=0, progress=0, prevProgress=0;
+  function maxScroll(){var h=document.documentElement;return Math.max(1,h.scrollHeight-h.clientHeight);}
+  function readScroll(){targetProgress=Math.min(1,Math.max(0,(window.scrollY||document.documentElement.scrollTop||0)/maxScroll()));}
+  window.addEventListener('scroll',readScroll,{passive:true});
+  readScroll();
 
-  // ---- topology generators : fill Float32Array(COUNT*3) ----
-  const TAU=Math.PI*2;
-  const rnd=(function(){let s=1234567;return()=>{s=(s*1103515245+12345)&0x7fffffff;return s/0x7fffffff;};})();
-  const R=Array.from({length:COUNT},()=>rnd()); // stable per-node randoms
+  /* ---- camera dolly model (linear in scroll) ---- */
+  var CAM_START=8, CAM_END=-300, SPAN=CAM_END-CAM_START;
+  var STRAND_NEAR=CAM_START-6, STRAND_FAR=CAM_END-12;   // strand sits AHEAD of the camera (smaller z)
+  function camZ(p){return CAM_START+p*SPAN;}
 
-  function alloc(){return new Float32Array(COUNT*3);}
-  function gen(name){
-    const p=alloc();
-    for(let i=0;i<COUNT;i++){
-      const t=i/COUNT, a=R[i];
-      let x=0,y=0,z=0;
-      if(name==='helix'){
-        const turns=7, ang=t*turns*TAU, r=6+Math.sin(t*Math.PI)*1.2;
-        x=Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
-      } else if(name==='twohelix'){
-        const side=i%2?1:-1, turns=6, ang=t*turns*TAU, r=3.4;
-        x=side*5.4+Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
-      } else if(name==='tree'){
-        const depth=Math.floor(Math.log2(i+2)); const inLevel=(i+2)-Math.pow(2,depth); const levelW=Math.pow(2,depth);
-        x=((inLevel+0.5)/levelW-0.5)*22; y=11-depth*3.0; z=(a-0.5)*3;
-        x+= (a-0.5)*1.2;
-      } else if(name==='chain'){
-        const seg=Math.floor(t*40); y=13-t*26; x=Math.sin(seg*1.7)*2.4+(a-0.5)*0.8; z=Math.cos(seg*1.3)*2.0;
-      } else if(name==='funnel'){
-        const ang=t*TAU*9; const r=10.5*(1-t)+0.6; x=Math.cos(ang)*r; y=11-t*24; z=Math.sin(ang)*r;
-      } else if(name==='ladder'){
-        const rung=Math.floor(t*14); const inRung=(t*14)%1; y=10-rung*1.5; x=(inRung-0.5)*20; z=(a-0.5)*2.2;
-      } else if(name==='scatter'){
-        // ciphertext scatter + key node stays near camera
-        if(i<8){ x=(a-0.5)*3; y=(R[(i*7)%COUNT]-0.5)*3; z=16; } // key node cluster, near side
-        else { x=(a-0.5)*24; y=(R[(i*3)%COUNT]-0.5)*22; z=(R[(i*5)%COUNT]-0.5)*16-2; }
-      } else if(name==='thread'){
-        // loose unlit thread: sparse gentle strand
-        const ang=t*TAU*3, r=2+Math.sin(t*6)*0.6; x=Math.cos(ang)*r+(t-0.5)*4; y=(t-0.5)*20; z=Math.sin(ang)*r;
-      } else if(name==='brain'){
-        // sphere shell + radial noise
-        const ph=Math.acos(2*R[(i*13)%COUNT]-1), th=t*TAU*11; const rr=9+ (R[(i*17)%COUNT]-0.5)*1.6;
-        x=rr*Math.sin(ph)*Math.cos(th); y=rr*Math.cos(ph)*0.9; z=rr*Math.sin(ph)*Math.sin(th);
-      } else if(name==='line'){
-        x=(t-0.5)*30; y=Math.sin(t*TAU*2)*0.25; z=(a-0.5)*0.5;
-      }
-      p[i*3]=x; p[i*3+1]=y; p[i*3+2]=z;
+  var paneZ=new Array(NP).fill(0);
+  function measurePanes(){
+    var sc=window.scrollY||document.documentElement.scrollTop||0, ms=maxScroll(), vh=window.innerHeight;
+    for(var i=0;i<NP;i++){
+      var r=paneEls[i].getBoundingClientRect();
+      var centeredAt=(r.top+sc)+r.height/2 - vh/2;         // scroll value when chapter is centred
+      var Pk=Math.min(1,Math.max(0,centeredAt/ms));
+      paneZ[i]=camZ(Pk);
     }
-    return p;
   }
-  const TOPO_CACHE={};
-  const topo=name=>TOPO_CACHE[name]||(TOPO_CACHE[name]=gen(name));
 
-  // ---- geometry (instanced quad) ----
-  const base=new THREE.PlaneBufferGeometry(1,1);
-  const geo=new THREE.InstancedBufferGeometry();
-  geo.index=base.index; geo.attributes.position=base.attributes.position; geo.attributes.uv=base.attributes.uv;
-
-  const aTargetA=new Float32Array(topo('helix')); // start on helix
-  const aTargetB=new Float32Array(aTargetA);
-  const aCell=new Float32Array(COUNT*2);
-  const aRand=new Float32Array(COUNT);
-  const aReplica=new Float32Array(COUNT);
-  const aLit=new Float32Array(COUNT);
-  for(let i=0;i<COUNT;i++){
-    const ci=i%CHARSET.length; aCell[i*2]=(ci%COLS)/COLS; aCell[i*2+1]=Math.floor(ci/COLS)/ROWS;
-    aRand[i]=R[i]; aReplica[i]=(i%2?1:-1); aLit[i]=1.0;
+  /* ---- nearest chapter (drives ambient accent + HUD; works with or without WebGL) ---- */
+  var curAccentHex='#2ED3C6', lastPaneShown=-1;
+  function updateHUD(){
+    var cy=window.innerHeight/2, best=null, bd=1e9;
+    for(var i=0;i<allChapters.length;i++){
+      var r=allChapters[i].getBoundingClientRect(), c=(r.top+r.bottom)/2, d=Math.abs(c-cy);
+      if(d<bd){bd=d;best=allChapters[i];}
+    }
+    if(best){
+      curAccentHex=best.getAttribute('data-accent')||curAccentHex;
+      var pIdx=paneEls.indexOf(best);
+      if(pIdx>=0) lastPaneShown=pIdx;
+      if(hudPane) hudPane.textContent='PANE '+('0'+(pIdx>=0?pIdx+1:(lastPaneShown>=0?lastPaneShown+1:0))).slice(-2)+' / '+('0'+NP).slice(-2);
+      if(hudState) hudState.textContent = pIdx>=0 ? (paneNames[pIdx]+' · glass') : 'strand · in sync';
+    }
+    if(hudReplica) hudReplica.textContent = progress<0.5?'A':'B';
+    if(hudCounter) hudCounter.textContent = ('000'+Math.floor(progress*4096)).slice(-4);
+    if(progFill){ progFill.style.height=(progress*100)+'%'; progFill.style.background=curAccentHex; }
+    if(hudDot){ hudDot.style.background=curAccentHex; hudDot.style.boxShadow='0 0 10px '+curAccentHex; }
+    document.documentElement.style.setProperty('--accent',curAccentHex);
+    if(brandDot){ brandDot.style.background=curAccentHex; brandDot.style.boxShadow='0 0 14px '+curAccentHex; }
   }
-  geo.setAttribute('aTargetA',new THREE.InstancedBufferAttribute(aTargetA,3));
-  geo.setAttribute('aTargetB',new THREE.InstancedBufferAttribute(aTargetB,3));
-  geo.setAttribute('aCell',new THREE.InstancedBufferAttribute(aCell,2));
-  geo.setAttribute('aRand',new THREE.InstancedBufferAttribute(aRand,1));
-  geo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(aReplica,1));
-  geo.setAttribute('aLit',new THREE.InstancedBufferAttribute(aLit,1));
 
-  const uniforms={
-    uAtlas:{value:atlas},
-    uMix:{value:1},
-    uTime:{value:0},
-    uSize:{value:0.62},
-    uSplit:{value:0},
-    uDrift:{value:0},
-    uBreath:{value:0},
-    uPointer:{value:new THREE.Vector3(999,999,0)},
-    uColor:{value:new THREE.Color('#2ED3C6')},
-    uColor2:{value:new THREE.Color('#9B7BFF')},
-    uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)},
-    uInk:{value:1.0}
+  /* ========================= no-WebGL / no-THREE fallback ========================= */
+  function startLite(){
+    if(canvas) canvas.hidden=true;
+    if(fallback){ fallback.hidden=false; }
+    var pend=false;
+    function tick(){ pend=false; progress=targetProgress; updateHUD(); }
+    window.addEventListener('scroll',function(){ if(!pend){pend=true; requestAnimationFrame(tick);} },{passive:true});
+    updateHUD();
+  }
+
+  if(typeof THREE==='undefined'){ startLite(); return; }
+
+  /* ---- device tier ---- */
+  var W=innerWidth, H=innerHeight;
+  var isMobile = Math.min(W,H)<720 || /Mobi|Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches;
+  var DPR=Math.min(window.devicePixelRatio||1, isMobile?1.5:2);   // cap DPR
+
+  var renderer;
+  try{
+    renderer=new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:false, powerPreference:'high-performance'});
+  }catch(e){ startLite(); return; }
+  renderer.setPixelRatio(DPR); renderer.setSize(W,H,false); renderer.autoClear=false;
+
+  function isLightTheme(){
+    var t=document.documentElement.getAttribute('data-theme');
+    return t==='light' || (!t && matchMedia('(prefers-color-scheme: light)').matches);
+  }
+  var isLight=isLightTheme();
+
+  var camera=new THREE.PerspectiveCamera(60, W/H, 0.1, 520);
+  camera.position.set(0,0,CAM_START);
+  var stormScene=new THREE.Scene(), strandScene=new THREE.Scene(), paneScene=new THREE.Scene();
+
+  /* ============================ STORM (shared dark ground) ============================ */
+  var SCOUNT=isMobile?3400:7000;
+  var STORM_BACK=CAM_START+14, STORM_FRONT=STRAND_FAR-18;
+  var spos=new Float32Array(SCOUNT*3), sseed=new Float32Array(SCOUNT), sscl=new Float32Array(SCOUNT);
+  for(var i=0;i<SCOUNT;i++){
+    spos[i*3]  =(Math.random()-0.5)*54;
+    spos[i*3+1]=(Math.random()-0.5)*36;
+    spos[i*3+2]= STORM_BACK - Math.random()*(STORM_BACK-STORM_FRONT);
+    sseed[i]=Math.random(); sscl[i]=0.4+Math.random()*1.2;
+  }
+  var sg=new THREE.BufferGeometry();
+  sg.setAttribute('position',new THREE.BufferAttribute(spos,3));
+  sg.setAttribute('aSeed',new THREE.BufferAttribute(sseed,1));
+  sg.setAttribute('aScale',new THREE.BufferAttribute(sscl,1));
+  var stormMat=new THREE.ShaderMaterial({
+    uniforms:{uTime:{value:0}, uSize:{value:isMobile?1.5:2.1}, uPix:{value:DPR},
+      uColorA:{value:new THREE.Color(0.55,0.75,1.0)}, uColorB:{value:new THREE.Color(isLight?0.55:0.10,isLight?0.6:0.16,isLight?0.72:0.34)}},
+    vertexShader:[
+      "uniform float uTime;uniform float uSize;uniform float uPix;",
+      "attribute float aSeed;attribute float aScale;varying float vA;",
+      "void main(){vec3 p=position;float s=aSeed*6.2831;float t=uTime*0.15;",
+      "p.x+=sin(t+s)*1.7*aScale;p.y+=cos(t*1.1+s*1.3)*1.7*aScale;p.z+=sin(t*0.7+s*2.0)*1.3*aScale;",
+      "vec4 mv=modelViewMatrix*vec4(p,1.0);gl_Position=projectionMatrix*mv;float d=-mv.z;",
+      "gl_PointSize=uSize*uPix*(12.0/max(d,0.1))*(0.5+aScale);vA=clamp(1.0-d/150.0,0.04,1.0);}"
+    ].join("\n"),
+    fragmentShader:[
+      "precision mediump float;uniform vec3 uColorA;uniform vec3 uColorB;varying float vA;",
+      "void main(){vec2 c=gl_PointCoord-0.5;float r=length(c);if(r>0.5)discard;",
+      "float a=smoothstep(0.5,0.0,r);vec3 col=mix(uColorB,uColorA,a);gl_FragColor=vec4(col,a*vA);}"
+    ].join("\n"),
+    transparent:true, depthWrite:false, blending:THREE.AdditiveBlending
+  });
+  stormScene.add(new THREE.Points(sg,stormMat));
+
+  /* ============================ REFRACTION TARGET ============================ */
+  var rtScale=isMobile?0.5:0.6;
+  var rt=new THREE.WebGLRenderTarget(Math.max(2,Math.floor(W*DPR*rtScale)), Math.max(2,Math.floor(H*DPR*rtScale)),
+    {minFilter:THREE.LinearFilter, magFilter:THREE.LinearFilter, format:THREE.RGBFormat});
+
+  /* ---- backdrop quad: paints the ground + storm from the target ---- */
+  var bgScene=new THREE.Scene(), bgCam=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  var bgMat=new THREE.ShaderMaterial({
+    uniforms:{uTex:{value:rt.texture}, uDark:{value:new THREE.Color(isLight?0.93:0.028, isLight?0.92:0.033, isLight?0.90:0.052)}},
+    vertexShader:"varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.0,1.0);}",
+    fragmentShader:[
+      "precision mediump float;uniform sampler2D uTex;uniform vec3 uDark;varying vec2 vUv;",
+      "void main(){vec3 c=texture2D(uTex,vUv).rgb;float v=smoothstep(1.25,0.15,length(vUv-0.5));",
+      "vec3 col=(uDark+c)*(0.55+0.45*v);gl_FragColor=vec4(col,1.0);}"
+    ].join("\n"),
+    depthTest:false, depthWrite:false
+  });
+  bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2), bgMat));
+
+  /* ============================ GLASS PANES (one per project) ============================ */
+  var resVec=new THREE.Vector2(W*DPR,H*DPR);
+  var paneVert=[
+    "varying vec2 vUv;varying vec3 vN;varying vec3 vView;",
+    "void main(){vUv=uv;vec4 mv=modelViewMatrix*vec4(position,1.0);",
+    "vN=normalize(normalMatrix*normal);vView=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}"
+  ].join("\n");
+  var paneFrag=[
+    "precision highp float;",
+    "uniform sampler2D uStorm;uniform vec2 uRes;uniform float uTime;uniform vec3 uAccent;",
+    "uniform float uCross;uniform vec2 uMouse;uniform float uTintMix;uniform float uLight;",
+    "varying vec2 vUv;varying vec3 vN;varying vec3 vView;",
+    "void main(){vec2 sc=gl_FragCoord.xy/uRes;",
+    "float r1=sin((vUv.x*18.0)+uTime*0.8);float r2=cos((vUv.y*22.0)-uTime*0.6);",
+    "vec2 ripple=vec2(r1,r2)*0.006;",
+    "vec2 md=vUv-(uMouse*0.5+0.5);float mdist=length(md);",
+    "vec2 bend=normalize(md+1e-4)*exp(-mdist*4.0)*0.02;",
+    "vec2 off=ripple+bend;float ca=0.004;",
+    "float rr=texture2D(uStorm,sc+off+vec2(ca,0.0)).r;",
+    "float gg=texture2D(uStorm,sc+off).g;",
+    "float bb=texture2D(uStorm,sc+off-vec2(ca,0.0)).b;",
+    "vec3 refr=vec3(rr,gg,bb);",
+    "float fres=pow(1.0-max(dot(vN,vView),0.0),3.0);",
+    "float e=min(min(vUv.x,1.0-vUv.x),min(vUv.y,1.0-vUv.y));",
+    "float frame=smoothstep(0.06,0.0,e);",
+    "vec3 baseTint=mix(refr, refr*0.55+uAccent*0.28, uTintMix);",
+    "vec3 col=baseTint;",
+    "col+=uAccent*frame*1.4;",
+    "col+=uAccent*fres*0.5;",
+    "float gx=abs(fract(vUv.x*8.0)-0.5);float gy=abs(fract(vUv.y*5.0)-0.5);",
+    "float grid=smoothstep(0.47,0.5,max(gx,gy));",
+    "col+=uCross*(grid*0.9+frame*1.6)*(uAccent*0.6+vec3(0.7));",
+    "vec3 lightGlass=mix(vec3(0.92,0.93,0.96), vec3(0.82)+uAccent*0.18, 0.4);",
+    "col=mix(col, lightGlass*(0.85+0.3*frame)+uAccent*frame*0.6, uLight*0.72);",
+    "float alpha=mix(0.24,0.56,uTintMix)+frame*0.5+fres*0.3+uCross*0.4;",
+    "alpha=clamp(alpha,0.0,0.9);",
+    "alpha=mix(alpha, clamp(alpha+0.12,0.0,0.96), uLight);",
+    "gl_FragColor=vec4(col,alpha);}"
+  ].join("\n");
+  var panes=[];
+  for(var pI=0;pI<NP;pI++){
+    var mat=new THREE.ShaderMaterial({
+      uniforms:{uStorm:{value:rt.texture}, uRes:{value:resVec}, uTime:{value:0}, uAccent:{value:new THREE.Color(paneAccents[pI])},
+        uCross:{value:0}, uMouse:{value:new THREE.Vector2(0,0)}, uTintMix:{value:0}, uLight:{value:isLight?1:0}},
+      vertexShader:paneVert, fragmentShader:paneFrag, transparent:true, depthWrite:false, side:THREE.DoubleSide});
+    var mesh=new THREE.Mesh(new THREE.PlaneGeometry(46,30,1,1), mat);
+    mesh.rotation.y=(pI%2?1:-1)*0.05;
+    paneScene.add(mesh); panes.push(mesh);
+  }
+
+  /* ============================ GLYPH STRAND (Fugue identity) ============================ */
+  var GCOUNT=isMobile?1200:2400;
+  var CHARSET="TWOPEOPLE.NDCUMTGLSIEX/()ABRV0123456789replicaounter+".split("").filter(function(v,i,a){return a.indexOf(v)===i;});
+  var COLS=8, ROWS=Math.ceil(CHARSET.length/COLS), CELL=64, AW=COLS*CELL, AH=ROWS*CELL;
+  var ac=document.createElement('canvas'); ac.width=AW; ac.height=AH;
+  var ax=ac.getContext('2d');
+  ax.clearRect(0,0,AW,AH); ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
+  ax.font='600 44px "Space Grotesk","Segoe UI",sans-serif';
+  CHARSET.forEach(function(ch,i){ax.fillText(ch,(i%COLS)*CELL+CELL/2,Math.floor(i/COLS)*CELL+CELL/2);});
+  var atlas=new THREE.CanvasTexture(ac); atlas.flipY=false; atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
+
+  var TAU=Math.PI*2, TURNS=24;
+  var gPos=new Float32Array(GCOUNT*3), gCell=new Float32Array(GCOUNT*2), gRand=new Float32Array(GCOUNT), gRep=new Float32Array(GCOUNT);
+  for(var j=0;j<GCOUNT;j++){
+    var t=j/GCOUNT, ang=t*TURNS*TAU, r=5.0+2.6*Math.exp(-t*3.2)+0.5*Math.sin(t*40.0);
+    gPos[j*3]  =Math.cos(ang)*r;
+    gPos[j*3+1]=Math.sin(ang)*r*0.62;
+    gPos[j*3+2]=STRAND_NEAR+t*(STRAND_FAR-STRAND_NEAR);
+    var ci=j%CHARSET.length; gCell[j*2]=(ci%COLS)/COLS; gCell[j*2+1]=Math.floor(ci/COLS)/ROWS;
+    gRand[j]=Math.random(); gRep[j]=(j%2?1:-1);
+  }
+  var baseQuad=new THREE.PlaneGeometry(1,1);
+  var strandGeo=new THREE.InstancedBufferGeometry();
+  strandGeo.index=baseQuad.index; strandGeo.attributes.position=baseQuad.attributes.position; strandGeo.attributes.uv=baseQuad.attributes.uv;
+  strandGeo.setAttribute('aPos',new THREE.InstancedBufferAttribute(gPos,3));
+  strandGeo.setAttribute('aCell',new THREE.InstancedBufferAttribute(gCell,2));
+  strandGeo.setAttribute('aRand',new THREE.InstancedBufferAttribute(gRand,1));
+  strandGeo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(gRep,1));
+  var strandUngu={uAtlas:{value:atlas}, uTime:{value:0}, uSize:{value:0.6}, uSplit:{value:0}, uDrift:{value:0}, uBreath:{value:0},
+    uColor:{value:new THREE.Color('#2ED3C6')}, uColor2:{value:new THREE.Color('#9B7BFF')}, uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)}, uInk:{value:isLight?0:1}};
+  var strandMat=new THREE.ShaderMaterial({
+    uniforms:strandUngu,
+    vertexShader:[
+      "precision mediump float;",
+      "attribute vec3 aPos;attribute vec2 aCell;attribute float aRand;attribute float aReplica;",
+      "uniform float uTime,uSize,uSplit,uDrift,uBreath;",
+      "varying vec2 vUv;varying vec2 vCell;varying float vGlow;",
+      "void main(){vec3 c=aPos;",
+      "c.x+=uSplit*aReplica*3.0;",
+      "float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);",
+      "c+=n*(0.10+uDrift*1.4)*vec3(1.0,0.8,1.0);",
+      "c.xy*=(1.0+uBreath*0.05*sin(uTime*0.8+aRand*6.0));",
+      "vUv=uv;vCell=aCell;vGlow=0.5+0.5*sin(uTime*1.3+aRand*6.283);",
+      "vec4 mv=modelViewMatrix*vec4(c,1.0);float sz=uSize*(0.55+aRand*0.9);",
+      "mv.xy+=(uv-0.5)*sz;gl_Position=projectionMatrix*mv;}"
+    ].join("\n"),
+    fragmentShader:[
+      "precision mediump float;",
+      "uniform sampler2D uAtlas;uniform vec3 uColor,uColor2;uniform vec2 uCell;uniform float uInk;",
+      "varying vec2 vUv;varying vec2 vCell;varying float vGlow;",
+      "void main(){vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);",
+      "float a=texture2D(uAtlas,auv).a;if(a<0.03)discard;",
+      "vec3 col=mix(uColor,uColor2,vGlow*0.55);",
+      "col=mix(vec3(0.08,0.10,0.12),col,uInk*0.85+0.15);",
+      "gl_FragColor=vec4(col,a*(uInk>0.5?0.9:0.96));}"
+    ].join("\n"),
+    transparent:true, depthWrite:false, depthTest:false, blending:isLight?THREE.NormalBlending:THREE.AdditiveBlending
+  });
+  var strandMesh=new THREE.Mesh(strandGeo,strandMat); strandMesh.frustumCulled=false; strandScene.add(strandMesh);
+
+  /* ---- theme switching (called by the nav toggle) ---- */
+  window.__fugueThemeChange=function(){
+    isLight=isLightTheme();
+    bgMat.uniforms.uDark.value.setRGB(isLight?0.93:0.028, isLight?0.92:0.033, isLight?0.90:0.052);
+    stormMat.uniforms.uColorB.value.setRGB(isLight?0.55:0.10, isLight?0.6:0.16, isLight?0.72:0.34);
+    panes.forEach(function(m){m.material.uniforms.uLight.value=isLight?1:0;});
+    strandMat.uniforms.uInk.value=isLight?0:1;
+    strandMat.blending=isLight?THREE.NormalBlending:THREE.AdditiveBlending; strandMat.needsUpdate=true;
   };
 
-  const vert=`
-    precision mediump float;
-    attribute vec3 aTargetA; attribute vec3 aTargetB; attribute vec2 aCell;
-    attribute float aRand; attribute float aReplica; attribute float aLit;
-    uniform float uMix,uTime,uSize,uSplit,uDrift,uBreath; uniform vec3 uPointer;
-    varying vec2 vUv; varying vec2 vCell; varying float vLit; varying float vGlow;
-    void main(){
-      float m=smoothstep(0.0,1.0,uMix);
-      vec3 c=mix(aTargetA,aTargetB,m);
-      c.x += uSplit*aReplica*3.2;
-      float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);
-      c += n*(0.12+uDrift*1.6)*vec3(1.0,0.8,1.0);
-      c *= (1.0+uBreath*0.03*sin(uTime*0.9+aRand*6.0));
-      vec3 toP=c-uPointer; float d=length(toP.xy);
-      c.xy += normalize(toP.xy+vec2(0.001))* (3.5*exp(-d*d*0.03));
-      vUv=uv; vCell=aCell; vLit=aLit;
-      vGlow=0.5+0.5*sin(uTime*1.3+aRand*6.283);
-      vec4 mv=modelViewMatrix*vec4(c,1.0);
-      float sz=uSize*(0.55+aRand*0.9);
-      mv.xy += (uv-0.5)*sz;
-      gl_Position=projectionMatrix*mv;
-    }`;
-  const frag=`
-    precision mediump float;
-    uniform sampler2D uAtlas; uniform vec3 uColor,uColor2; uniform vec2 uCell; uniform float uInk;
-    varying vec2 vUv; varying vec2 vCell; varying float vLit; varying float vGlow;
-    void main(){
-      vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);
-      float a=texture2D(uAtlas,auv).a;
-      if(a<0.03) discard;
-      vec3 col=mix(uColor,uColor2,vGlow*0.55);
-      float lit=mix(0.16,1.0,vLit);
-      // in light theme uInk=0 -> darken glyphs so they read as ink on paper
-      col = mix(vec3(0.08,0.10,0.12), col, uInk*0.85+0.15);
-      gl_FragColor=vec4(col*lit, a*lit*(uInk>0.5?0.92:0.96));
-    }`;
-
-  let material=new THREE.ShaderMaterial({
-    uniforms,vertexShader:vert,fragmentShader:frag,
-    transparent:true, depthWrite:false, depthTest:false,
-    blending:THREE.AdditiveBlending
-  });
-  const mesh=new THREE.Mesh(geo,material);
-  mesh.frustumCulled=false;
-  scene.add(mesh);
-
-  // ---- edges (additive line segments along the strand subset) ----
-  const STEP=Math.max(2,Math.floor(COUNT/650));
-  const eIdx=[]; for(let i=STEP;i<COUNT;i+=STEP){ eIdx.push(i-STEP,i); }
-  const edgePos=new Float32Array(eIdx.length*3);
-  const edgeGeo=new THREE.BufferGeometry();
-  edgeGeo.setAttribute('position',new THREE.BufferAttribute(edgePos,3));
-  const edgeMat=new THREE.LineBasicMaterial({color:new THREE.Color('#2ED3C6'),transparent:true,opacity:0.14,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false});
-  const edges=new THREE.LineSegments(edgeGeo,edgeMat);
-  edges.frustumCulled=false; scene.add(edges);
-
-  function updateEdges(){
-    const A=geo.attributes.aTargetA.array, B=geo.attributes.aTargetB.array;
-    const m=uniforms.uMix.value; const mm=m*m*(3-2*m);
-    for(let k=0;k<eIdx.length;k++){
-      const i=eIdx[k]*3;
-      edgePos[k*3]  =A[i]  +(B[i]  -A[i])*mm;
-      edgePos[k*3+1]=A[i+1]+(B[i+1]-A[i+1])*mm;
-      edgePos[k*3+2]=A[i+2]+(B[i+2]-A[i+2])*mm;
-    }
-    edgeGeo.attributes.position.needsUpdate=true;
-  }
-
-  // ---- morph between topologies ----
-  let currentName='helix';
-  function snapshotCurrent(){
-    // write current mixed positions into aTargetA
-    const A=geo.attributes.aTargetA.array, B=geo.attributes.aTargetB.array, m=uniforms.uMix.value;
-    const mm=m*m*(3-2*m);
-    for(let i=0;i<A.length;i++){ A[i]=A[i]+(B[i]-A[i])*mm; }
-    geo.attributes.aTargetA.needsUpdate=true;
-  }
-  function setTopology(name,accentHex){
-    if(name===currentName && !accentPending(accentHex)) {/* still update accent */}
-    snapshotCurrent();
-    const tgt=topo(name);
-    geo.attributes.aTargetB.array.set(tgt);
-    geo.attributes.aTargetB.needsUpdate=true;
-    uniforms.uMix.value=0;
-    currentName=name;
-    // lit: dim thread topology
-    const dim = (name==='thread');
-    for(let i=0;i<COUNT;i++){ aLit[i]= dim ? (i%9===0?0.7:0.14) : 1.0; }
-    geo.attributes.aLit.needsUpdate=true;
-    if(reduce){ uniforms.uMix.value=1; }
-    else{ gsap.to(uniforms.uMix,{value:1,duration:1.2,ease:'power2.inOut',overwrite:true}); }
-    if(accentHex){
-      const col=new THREE.Color(accentHex);
-      if(reduce){ uniforms.uColor.value.copy(col); edgeMat.color.copy(col); }
-      else{
-        gsap.to(uniforms.uColor.value,{r:col.r,g:col.g,b:col.b,duration:1.0,overwrite:true});
-        gsap.to(edgeMat.color,{r:col.r,g:col.g,b:col.b,duration:1.0,overwrite:true});
-      }
-      // update brand dot
-      document.documentElement.style.setProperty('--accent',accentHex);
-      const bd=document.getElementById('brandDot'); if(bd){bd.style.background=accentHex;bd.style.boxShadow='0 0 14px '+accentHex;}
-    }
-  }
-  function accentPending(){return true;}
-
-  // ---- pointer repulsion ----
-  const rc=new THREE.Raycaster();
-  const plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
-  const ndc=new THREE.Vector2(999,999);
-  window.addEventListener('pointermove',e=>{
-    ndc.x=(e.clientX/window.innerWidth)*2-1;
-    ndc.y=-(e.clientY/window.innerHeight)*2+1;
-    rc.setFromCamera(ndc,camera);
-    const hit=new THREE.Vector3();
-    if(rc.ray.intersectPlane(plane,hit)){ uniforms.uPointer.value.copy(hit); }
-    // hero split on cursor move
-    if(currentName==='helix' && !reduce && window.scrollY<window.innerHeight*0.8){
-      gsap.to(uniforms.uSplit,{value:0.7,duration:0.8,overwrite:true});
-    }
+  /* ---- pointer (parallax + hero split) ---- */
+  var mTarget={x:0,y:0}, mouse={x:0,y:0}, lastMove=-9;
+  window.addEventListener('pointermove',function(e){
+    mTarget.x=(e.clientX/innerWidth)*2-1; mTarget.y=-((e.clientY/innerHeight)*2-1); lastMove=clock?clock.elapsedTime:0;
   },{passive:true});
-  window.addEventListener('pointerleave',()=>{uniforms.uPointer.value.set(999,999,0);});
 
-  // ---- scroll driving (GSAP + Lenis) ----
-  const sections=Array.from(document.querySelectorAll('.chapter'));
-  function accentFor(sec){return sec.getAttribute('data-accent')||'#2ED3C6';}
+  /* ---- accent lerp ---- */
+  var accentCur=new THREE.Color(curAccentHex), accentTgt=new THREE.Color(curAccentHex);
 
-  let lenis=null;
-  if(!reduce && window.Lenis && window.gsap && window.ScrollTrigger){
-    gsap.registerPlugin(ScrollTrigger);
-    lenis=new Lenis({duration:1.05,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
-    lenis.on('scroll',(e)=>{
-      ScrollTrigger.update();
-      const v=Math.min(Math.abs(e.velocity||0)/40,1);
-      uniforms.uDrift.value=v; // fast scroll => drift
-    });
-    gsap.ticker.add((time)=>{ lenis.raf(time*1000); });
-    gsap.ticker.lagSmoothing(0);
-
-    sections.forEach(sec=>{
-      ScrollTrigger.create({
-        trigger:sec, start:'top 62%', end:'bottom 40%',
-        onEnter:()=>setTopology(sec.getAttribute('data-topo'),accentFor(sec)),
-        onEnterBack:()=>setTopology(sec.getAttribute('data-topo'),accentFor(sec)),
-      });
-    });
-    // hero split reset when leaving hero
-    ScrollTrigger.create({trigger:'#hero',start:'bottom 70%',
-      onEnter:()=>gsap.to(uniforms.uSplit,{value:0,duration:0.8,overwrite:true}),
-      onLeaveBack:()=>{}
-    });
-    // in-page anchor links via lenis
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',ev=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){ev.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
-    });
-  } else {
-    // reduced motion / no libs: set topology by IntersectionObserver, instant
-    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){setTopology(e.target.getAttribute('data-topo'),accentFor(e.target));}});},{threshold:0.4});
-    sections.forEach(s=>io.observe(s));
+  function resize(){
+    W=innerWidth; H=innerHeight;
+    renderer.setSize(W,H,false); camera.aspect=W/H; camera.updateProjectionMatrix();
+    resVec.set(W*DPR,H*DPR);
+    rt.setSize(Math.max(2,Math.floor(W*DPR*rtScale)), Math.max(2,Math.floor(H*DPR*rtScale)));
+    measurePanes();
   }
+  var rzT; window.addEventListener('resize',function(){ clearTimeout(rzT); rzT=setTimeout(resize,150); });
 
-  // ---- theme -> uInk + blending ----
-  function applyTheme(){
-    const light=document.documentElement.getAttribute('data-theme')==='light';
-    uniforms.uInk.value=light?0.0:1.0;
-    material.blending=light?THREE.NormalBlending:THREE.AdditiveBlending;
-    edgeMat.opacity=light?0.10:0.14;
-    material.needsUpdate=true;
-    renderer.setClearColor(0x000000,0);
-  }
-  window.__fugueThemeChange=applyTheme; applyTheme();
+  /* ---- one composed frame ---- */
+  var clock=new THREE.Clock();
+  function frame(dt,t){
+    updateHUD();
+    accentTgt.set(curAccentHex); accentCur.lerp(accentTgt, reduce?1:Math.min(1,dt*2.4));
+    strandUngu.uColor.value.copy(accentCur);
+    stormMat.uniforms.uColorA.value.copy(accentCur).lerp(new THREE.Color(0.8,0.86,1.0),0.35);
 
-  // ---- resize ----
-  let rt;
-  window.addEventListener('resize',()=>{
-    clearTimeout(rt);
-    rt=setTimeout(()=>{
-      renderer.setSize(window.innerWidth,window.innerHeight,false);
-      camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix();
-    },150);
-  });
-
-  // ---- render loop with offscreen pause ----
-  let visible=true, running=true;
-  document.addEventListener('visibilitychange',()=>{visible=!document.hidden; if(visible&&running)loop();});
-  const clock=new THREE.Clock();
-  let breathTarget=0.6;
-  function loop(){
-    if(!visible||!running) return;
-    requestAnimationFrame(loop);
-    const dt=clock.getDelta();
-    if(!reduce){
-      uniforms.uTime.value+=dt;
-      uniforms.uBreath.value += (breathTarget-uniforms.uBreath.value)*0.05;
-      uniforms.uDrift.value *= 0.94; // decay drift
-      // gentle auto camera parallax
-      camera.position.x += ( (ndc.x*2) - camera.position.x)*0.02;
-      camera.position.y += ( (ndc.y*2) - camera.position.y)*0.02;
-      camera.lookAt(0,0,0);
+    if(reduce){ progress=targetProgress; }
+    else{
+      progress+=(targetProgress-progress)*Math.min(1,dt*3.2);
+      mouse.x+=(mTarget.x-mouse.x)*Math.min(1,dt*4); mouse.y+=(mTarget.y-mouse.y)*Math.min(1,dt*4);
+      var dp=Math.abs(progress-prevProgress);
+      strandUngu.uDrift.value=Math.max(strandUngu.uDrift.value*0.94, Math.min(1,dp*80));
+      strandUngu.uBreath.value+=(0.6-strandUngu.uBreath.value)*0.05;
+      var wantSplit=(progress<0.12 && (t-lastMove)<2.5)?0.7:0.0;
+      strandUngu.uSplit.value+=(wantSplit-strandUngu.uSplit.value)*Math.min(1,dt*3);
+      strandUngu.uTime.value=t; stormMat.uniforms.uTime.value=t;
     }
-    updateEdges();
-    renderer.render(scene,camera);
-  }
-  // set initial topology accent (hero)
-  setTopology('helix','#2ED3C6'); uniforms.uMix.value=1;
-  loop();
+    prevProgress=progress;
 
-  // stop entirely if the whole main leaves viewport (extra safety on very tall pages handled by visibility)
+    camera.position.z=camZ(progress);
+    camera.position.x=mouse.x*0.6; camera.position.y=mouse.y*0.4;
+    camera.lookAt(mouse.x*0.35, mouse.y*0.25, camera.position.z-10);
+
+    for(var i=0;i<panes.length;i++){
+      var u=panes[i].material.uniforms;
+      u.uTime.value=t; u.uMouse.value.set(mouse.x,mouse.y);
+      var dz=Math.abs(camera.position.z-paneZ[i]);
+      u.uCross.value=Math.max(0,1-dz/3.0);
+      u.uTintMix.value=Math.max(0,1-dz/16.0);
+    }
+
+    renderer.setRenderTarget(rt);
+    renderer.clear(true,true,true);
+    renderer.render(stormScene,camera);
+
+    renderer.setRenderTarget(null);
+    renderer.clear(true,true,true);
+    renderer.render(bgScene,bgCam);
+    renderer.render(strandScene,camera);
+    renderer.render(paneScene,camera);
+  }
+
+  /* ---- loop + pause guards ---- */
+  var running=true, onscreen=true, started=false;
+  function loop(){
+    if(reduce || !running || !onscreen) return;
+    requestAnimationFrame(loop);
+    var dt=Math.min(clock.getDelta(),0.05);
+    frame(dt, clock.elapsedTime);
+  }
+  function kick(){ if(reduce){ frame(0,0); return; } if(!started||!( running&&onscreen)) return; clock.getDelta(); loop(); }
+
+  document.addEventListener('visibilitychange',function(){ running=!document.hidden; if(running) kick(); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ onscreen=e.isIntersecting&&e.intersectionRatio>0; if(onscreen) kick(); }); },{threshold:0}).observe(canvas);
+  }
+  // reduced-motion: render a composed frame on scroll, no animation loop
+  if(reduce){
+    var pend=false;
+    window.addEventListener('scroll',function(){ if(!pend){pend=true; requestAnimationFrame(function(){pend=false; frame(0,0);});} },{passive:true});
+  }
+
+  /* ---- boot ---- */
+  function boot(){
+    measurePanes(); resize();               // resize() also measures; measure first so first frame is aligned
+    started=true;
+    frame(0,0);                             // first composed frame immediately (hero visible even before loop)
+    if(!reduce) loop();
+  }
+  if(document.readyState==='complete') boot();
+  else window.addEventListener('load', boot);
+  // re-measure once late layout (fonts, lazy posters) settles
+  setTimeout(measurePanes, 600); setTimeout(measurePanes, 1600);
 })();
 </script>
 
