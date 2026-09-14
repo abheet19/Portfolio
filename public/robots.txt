@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/reels/
+
+Sitemap: https://abheet-isher.fly.dev/sitemap.xml

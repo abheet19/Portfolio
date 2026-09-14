@@ -3,11 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fugue — Abheet Singh Isher</title>
-<meta name="description" content="Abheet Singh Isher — full-stack engineer. Structures that stay coherent under concurrency. Shipped AI writing to 10M+ weekly users; now building local-first AI tools with real safety guarantees.">
+<title>Abheet Singh Isher — Software Engineer | Portfolio</title>
+<meta name="description" content="Abheet Singh Isher — full-stack software engineer. Shipped AI writing to 10M+ weekly users at QuillBot; now building local-first AI tools with safety guarantees you can check: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, Helm.">
+<link rel="canonical" href="https://abheet-isher.fly.dev/">
+<meta name="author" content="Abheet Singh Isher">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#07100E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF2F0" media="(prefers-color-scheme: light)">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Abheet Singh Isher">
+<meta property="og:url" content="https://abheet-isher.fly.dev/">
+<meta property="og:title" content="Abheet Singh Isher — Software Engineer">
+<meta property="og:description" content="Shipped AI writing to 10M+ weekly users at QuillBot. Now building local-first AI tools with safety guarantees you can check — CRDTs, an approval kernel, a typed LLM→SQL boundary, homomorphic encryption.">
+<meta property="og:image" content="https://abheet-isher.fly.dev/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vantage — an English question compiled to a typed spec and the exact SQL it ran.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abheet Singh Isher — Software Engineer">
+<meta name="twitter:description" content="Shipped AI writing to 10M+ weekly users at QuillBot. Now building local-first AI tools with safety guarantees you can check.">
+<meta name="twitter:image" content="https://abheet-isher.fly.dev/assets/og-cover.jpg">
+<meta name="twitter:image:alt" content="Vantage — an English question compiled to a typed spec and the exact SQL it ran.">
+
+<link rel="icon" href="/assets/avatar.jpg" type="image/jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts load non-render-blocking; the stacks below fall back to system UI faces,
+     so the LCP hero text paints on the first frame regardless of font arrival. -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Abheet Singh Isher",
+"url":"https://abheet-isher.fly.dev/","image":"https://abheet-isher.fly.dev/assets/og-cover.jpg",
+"jobTitle":"Software Engineer","email":"mailto:abheet19@gmail.com",
+"address":{"@type":"PostalAddress","addressCountry":"IN"},
+"alumniOf":{"@type":"CollegeOrUniversity","name":"Thapar Institute of Engineering and Technology"},
+"sameAs":["https://github.com/abheet19","https://linkedin.com/in/abheet-singh-isher"],
+"knowsAbout":["TypeScript","React","Python","CRDTs","Model Context Protocol","Browser extensions (Manifest V3)","PostgreSQL","Web performance"]}
+</script>
 <style>
 /* ============================================================================
    FUGUE — portfolio variant #3. One continuous lattice of glyph-nodes that
@@ -97,11 +134,14 @@ img{max-width:100%}
 ::selection{background:color-mix(in srgb,var(--teal) 40%,transparent);color:var(--cream)}
 
 /* ---- Fixed WebGL canvas ---- */
-#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block}
+/* The WebGL layer is decoration only: it sits under every text surface (z-index 0
+   vs main's 2), is dimmed by a veil, and never takes pointer events. */
+#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;pointer-events:none;opacity:.82}
+:root[data-theme="light"] #scene{opacity:.6}
 #grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
   background-image:radial-gradient(rgba(255,255,255,.7) .5px,transparent .5px);background-size:3px 3px}
 .scene-veil{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 8%, transparent 40%, var(--void) 100%);
+  background:radial-gradient(125% 95% at 50% 10%, color-mix(in srgb,var(--void) 18%,transparent) 30%, var(--void) 100%);
   transition:opacity .6s var(--ease)}
 
 /* ---- Layout scaffold ---- */
@@ -135,7 +175,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 /* ---- Hero ---- */
 .chapter.hero{padding-top:10vh;padding-bottom:8vh}
 .hero-eyebrow{margin-bottom:16px}
-.hero h1{font-size:clamp(2rem,4.7vw,4rem);line-height:1.04;max-width:17ch;font-weight:700}
+.hero h1{font-size:clamp(2rem,5.4vw,4.4rem);line-height:1.03;max-width:17ch;font-weight:700;
+  min-height:2.06em} /* reserve two lines so the typing line cannot shift layout (CLS 0) */
 .hero h1 .lead{display:block;color:var(--cream)}
 .hero h1 .type-line{color:var(--accent)}
 .caret{display:inline-block;width:.5ch;background:var(--accent);animation:blink 1s steps(1) infinite;
@@ -339,27 +380,51 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   margin-left:auto;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:640px){.disc .peek{display:none}}
 
-/* ---- Telemetry HUD + progress rail (Fugue replica/counter × Threshold pane readout) ---- */
-.hud{position:fixed;z-index:30;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-3);pointer-events:none;user-select:none}
-.hud b{color:var(--ink-2);font-weight:500}
-.hud .lit{color:var(--accent);transition:color .5s var(--ease)}
-.hud-tr{top:64px;right:clamp(14px,4vw,40px);text-align:right}
-.hud-bl{left:clamp(14px,4vw,40px);bottom:18px;display:flex;gap:8px 16px;align-items:center;flex-wrap:wrap;max-width:min(78vw,520px)}
-.hud-bl .dotp{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);
-  transition:background .5s var(--ease),box-shadow .5s var(--ease);flex:none}
-.progress-rail{position:fixed;right:0;top:0;bottom:0;width:2px;z-index:30;background:var(--line-2);pointer-events:none}
-.progress-fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--accent);
-  box-shadow:0 0 10px var(--accent);transition:background .5s var(--ease)}
-@media(max-width:640px){.hud-tr{top:58px}.hud-bl{font-size:.55rem;gap:6px 10px}}
-@media(max-width:400px){.hud-bl .hud-hide{display:none}}
+/* ---- Narrative glass blocks: every text-only chapter sits on its own scrim so
+   the strand behind it can never compete with the words (readability rule). ---- */
+.narrative{background:var(--gl-fill);backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur);
+  border:1px solid var(--line);border-radius:var(--r-3);box-shadow:var(--gl-shadow);
+  padding:clamp(22px,3.2vw,40px);max-width:min(var(--maxw),880px)}
+.narrative.wide{max-width:var(--maxw)}
+/* left-aligned so the strand keeps the other half of the screen to itself */
+.chapter .wrap.narrative{margin-left:0;margin-right:auto}
+.hero .narrative{background:color-mix(in srgb,var(--gl-fill) 74%,transparent);max-width:min(var(--maxw),720px)}
+.contact .wrap.narrative{margin-inline:auto;text-align:center}
+@media(max-width:900px){.chapter .wrap.narrative{margin-inline:auto}}
 
-/* ---- Project panes: the glass card reads over its WebGL glass wall ---- */
-.pane-ch .idx{display:flex;align-items:center;gap:10px}
-.pane-ch .idx .pane-no{color:var(--ink-3)}
+/* ---- Strand legend: says out loud what the WebGL thread is ---- */
+.legend{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px}
+.legend .cap{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);width:100%;margin-bottom:2px}
+.legend .mile{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.66rem;
+  color:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:4px 10px;
+  background:color-mix(in srgb,var(--surface) 40%,transparent)}
+.legend .mile i{width:7px;height:7px;border-radius:50%;flex:none;font-style:normal}
+.legend .arw{color:var(--ink-3);font-size:.7rem}
+@media(max-width:720px){
+  .legend{gap:5px 6px;margin-top:16px}
+  .legend .arw{display:none}
+  .legend .mile{font-size:.58rem;padding:3px 7px;gap:5px}
+  .legend .cap{font-size:.58rem}
+}
+
 .hall-fallback{position:fixed;inset:0;z-index:0;background:
   radial-gradient(1100px 720px at 62% 26%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),
   radial-gradient(900px 600px at 16% 84%,color-mix(in srgb,var(--teal) 12%,transparent),transparent 60%),var(--void)}
+
+/* ---- Mobile: real tap targets (>=44px) and no hover-only affordances ---- */
+@media (hover:none),(pointer:coarse){
+  .link,.nav-btn,.copy-btn,.skill,.chat-suggest button{min-height:44px;display:inline-flex;align-items:center}
+  .disc>summary{min-height:48px}
+  .link:hover,.skill:hover,.eco a.node:hover{transform:none}
+  .disc .peek{display:none}
+}
+@media(max-width:400px){
+  .chapter{padding:11vh 16px}
+  .hero h1{font-size:clamp(1.75rem,8.6vw,2.4rem)}
+  .narrative{padding:18px 16px}
+  .hero-cta .link{padding:10px 14px}
+}
 
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -367,7 +432,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   .scroll-cue .bar{animation:none}
   .chat-fab{transition:none}
   .orb,.chat-head .orb{animation:none}
-  .progress-fill,.hud .lit,.hud-bl .dotp,.progress-fill{transition:none}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
@@ -391,21 +456,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </nav>
 </header>
 
-<!-- Telemetry HUD: replica/counter (Fugue) + which pane you're passing (Threshold) -->
-<div class="hud hud-tr" aria-hidden="true"><span class="lit" id="hudPane">PANE 00 / 08</span></div>
-<div class="hud hud-bl" aria-hidden="true">
-  <span class="dotp" id="hudDot"></span>
-  <span><b>replica</b> <span class="lit" id="hudReplica">A</span></span>
-  <span class="hud-hide"><b>counter</b> <span id="hudCounter">0000</span></span>
-  <span class="hud-hide" id="hudState">strand · in sync</span>
-</div>
-<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progFill"></div></div>
-
 <main id="top">
 
   <!-- 00 STRAND / HERO -->
-  <section class="chapter hero" data-proj="" data-accent="#2ED3C6" id="hero">
-    <div class="wrap">
+  <section class="chapter hero" data-topo="helix" data-accent="#2ED3C6" id="hero">
+    <div class="wrap narrative">
       <div class="mono hero-eyebrow">Abheet Singh Isher · Software Engineer</div>
       <h1>
         <span class="lead">Systems that stay correct</span>
@@ -417,18 +472,19 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <a class="link" href="/resume.pdf" target="_blank" rel="noopener">Download résumé</a>
         <a class="link ghost" href="#contact">Contact</a>
       </div>
+      <div class="legend" id="strandLegend" aria-hidden="true">
+        <span class="cap">The strand behind this page is the timeline — it lights the chapter you're in</span>
+      </div>
       <div class="ids">
-        <span>(replica <b>A</b>, counter <b>0</b>)</span>
-        <span>(replica <b>B</b>, counter <b>0</b>)</span>
-        <span>move your cursor — the strand splits</span>
+        <span>2022 → today · <b>3 roles</b>, <b>8 shipped projects</b>, one thread</span>
       </div>
     </div>
     <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
   </section>
 
   <!-- 01 LINEAGE -->
-  <section class="chapter" data-topo="helix" data-accent="#2ED3C6" id="work">
-    <div class="wrap">
+  <section class="chapter" data-topo="helix" data-mile="1" data-span="2.4" data-accent="#6FA8FF" id="work">
+    <div class="wrap narrative wide">
       <div class="mono kicker reveal">01 — Experience</div>
       <div class="about-id reveal">
         <!-- Real photo (owner-provided). Fallback: the CSS gradient orb shows if the file is missing. -->
@@ -461,28 +517,28 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </section>
 
   <!-- 02 QUILLBOT — AT SCALE -->
-  <section class="chapter" data-proj="" data-accent="#2ED3C6">
-    <div class="wrap">
+  <section class="chapter" data-topo="twohelix" data-mile="2" data-span="1.1" data-accent="#9B7BFF">
+    <div class="wrap narrative">
       <div class="mono kicker reveal">02 — At scale</div>
       <h2 class="stmt reveal">One writing engine, writing back into <em>a hundred editors</em>.</h2>
       <p class="lede reveal">At QuillBot I built the insert/replace engine behind AI writing for 10M+ weekly users: the piece that puts paraphrased text back into Google Docs, Gmail, Word and ChatGPT with formatting intact — across Shadow DOM and cross-frame boundaries — then holds a selection path that once fired 60 times a second to a smooth 300ms.</p>
     </div>
   </section>
 
-  <!-- 03 INTO THE HALL -->
-  <section class="chapter" data-proj="" data-accent="#9B7BFF" id="projects">
-    <div class="wrap">
+  <!-- 03 THESIS -->
+  <section class="chapter" data-topo="helix" data-accent="#9B7BFF" id="projects">
+    <div class="wrap narrative">
       <div class="mono kicker reveal">03 — The work</div>
       <h2 class="stmt reveal">Eight projects. Each one a <em>boundary you can see through</em>.</h2>
-      <p class="lede reveal">Ahead is a hall of glass — one pane per project. Keep scrolling and the camera walks you through it. CRDTs, a deterministic approval kernel, a typed LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption: each turns a hard idea into shipped, tested software, and the strand threads through them all.</p>
+      <p class="lede reveal">From here the strand folds into each project's own shape and takes its colour. CRDTs, a deterministic approval kernel, a typed LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption: each turns a hard idea into shipped, tested software, and the same thread runs through them all.</p>
     </div>
   </section>
 
-  <!-- PANE 01 — ZENO -->
-  <section class="chapter pane-ch" data-proj="Zeno" data-accent="#C81E33">
+  <!-- 04 — ZENO -->
+  <section class="chapter" data-topo="chain" data-mile="3" data-accent="#C81E33">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#C81E33">
-        <div class="idx">Pane 01 · Approval kernel</div>
+        <div class="idx">04 — HASH CHAIN OF SIGNED RECEIPTS</div>
         <h2>Zeno</h2>
         <div class="tl">Reason before action.</div>
         <div class="disclosures">
@@ -506,11 +562,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 02 — WEFT -->
-  <section class="chapter pane-ch" data-proj="Weft" data-accent="#2ED3C6">
+  <!-- 05 — WEFT -->
+  <section class="chapter" data-topo="tree" data-mile="4" data-accent="#2ED3C6">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#2ED3C6">
-        <div class="idx">Pane 02 · Offline-first CRDT</div>
+        <div class="idx">05 — A TREE OF CHARACTERS, NOT A STRING</div>
         <h2>Weft</h2>
         <div class="tl">Two people. One document. No lost edits.</div>
         <figure class="reel reveal" data-reel>
@@ -539,11 +595,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 03 — VANTAGE -->
-  <section class="chapter pane-ch" data-proj="Vantage" data-accent="#F2B23E">
+  <!-- 06 — VANTAGE -->
+  <section class="chapter" data-topo="funnel" data-mile="5" data-accent="#F2B23E">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#F2B23E">
-        <div class="idx">Pane 03 · Typed LLM → SQL</div>
+        <div class="idx">06 — TYPED FUNNEL</div>
         <h2>Vantage</h2>
         <div class="tl">Ask in English. See the SQL. Trust the number.</div>
         <figure class="reel reveal" data-reel>
@@ -571,11 +627,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 04 — SHIELDAI -->
-  <section class="chapter pane-ch" data-proj="ShieldAI" data-accent="#4F8EF7">
+  <!-- 07 — SHIELDAI -->
+  <section class="chapter" data-topo="scatter" data-mile="6" data-accent="#4F8EF7">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#4F8EF7">
-        <div class="idx">Pane 04 · Homomorphic crypto</div>
+        <div class="idx">07 — CIPHERTEXT SCATTER</div>
         <h2>ShieldAI</h2>
         <div class="tl">The private key never leaves the browser.</div>
         <figure class="reel tall reveal" data-reel>
@@ -601,11 +657,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 05 — TEXTIFY -->
-  <section class="chapter pane-ch" data-proj="Textify" data-accent="#E0954D">
+  <!-- 08 — TEXTIFY -->
+  <section class="chapter" data-topo="thread" data-mile="7" data-accent="#E0954D">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#E0954D">
-        <div class="idx">Pane 05 · Citation-first RAG</div>
+        <div class="idx">08 — CITATION EDGES</div>
         <h2>Textify</h2>
         <div class="tl">Answers you can check.</div>
         <figure class="reel reveal" data-reel>
@@ -630,11 +686,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 06 — HEALTHFLOW -->
-  <section class="chapter pane-ch" data-proj="HealthFlow" data-accent="#3ECF8E">
+  <!-- 09 — HEALTHFLOW -->
+  <section class="chapter" data-topo="rooms" data-mile="8" data-accent="#3ECF8E">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#3ECF8E">
-        <div class="idx">Pane 06 · Tenant boundary</div>
+        <div class="idx">09 — FIVE ROOMS, ONE DRAFT</div>
         <h2>HealthFlow</h2>
         <div class="tl">One patient, five departments, one report.</div>
         <figure class="reel reveal" data-reel>
@@ -659,11 +715,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- PANE 07 — glass -->
-  <section class="chapter pane-ch" data-proj="glass" data-accent="#2ED3C6">
+  <!-- 10 — glass -->
+  <section class="chapter" data-topo="ladder" data-mile="9" data-accent="#7CF5D6">
     <div class="wrap">
-      <div class="proj reveal" style="--accent:#2ED3C6">
-        <div class="idx">Pane 07 · Design system</div>
+      <div class="proj reveal" style="--accent:#7CF5D6">
+        <div class="idx">10 — ONE LIGHTNESS LADDER</div>
         <h2>glass</h2>
         <div class="tl">A theme owns hue. The system owns everything else.</div>
         <figure class="reel reveal" data-reel>
@@ -692,20 +748,20 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </section>
 
   <!-- TOOLKIT -->
-  <section class="chapter" data-proj="" data-accent="#7CF5D6" id="skills">
-    <div class="wrap">
-      <div class="mono kicker reveal">Toolkit</div>
+  <section class="chapter" data-topo="ladder" data-accent="#7CF5D6" id="skills">
+    <div class="wrap narrative wide">
+      <div class="mono kicker reveal">11 — Toolkit</div>
       <h2 class="stmt reveal">The tools behind the boundaries.</h2>
       <p class="lede reveal">Languages, frameworks, and the harder ideas the projects are built on.</p>
       <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
-  <!-- PANE 08 — Helm -->
-  <section class="chapter pane-ch" data-proj="Helm" data-accent="#7FB5C9">
+  <!-- 12 — Helm -->
+  <section class="chapter" data-topo="ring" data-mile="10" data-accent="#7FB5C9">
     <div class="wrap">
       <div class="proj reveal" style="--accent:#7FB5C9">
-        <div class="idx">Pane 08 · Fleet control plane</div>
+        <div class="idx">12 — ONE RING AROUND THE FLEET</div>
         <h2>Helm</h2>
         <div class="tl">One console for the whole fleet.</div>
         <div class="disclosures">
@@ -726,9 +782,9 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </section>
 
   <!-- CONVERGENCE -->
-  <section class="chapter" data-proj="" data-accent="#7CF5D6">
-    <div class="wrap">
-      <div class="mono kicker reveal">The throughline</div>
+  <section class="chapter" data-topo="brain" data-span="12" data-accent="#7CF5D6">
+    <div class="wrap narrative wide">
+      <div class="mono kicker reveal">13 — The throughline</div>
       <h2 class="stmt reveal">One idea runs through <em>all of it</em>.</h2>
       <p class="lede reveal">Every project takes a hard computer-science idea and turns it into shipped, tested software with a boundary you can see: a CRDT, an approval kernel, a typed query spec, a verified contrast law, homomorphic encryption. Ask about any of it — the assistant answers only from cited facts.</p>
       <div class="eco" id="ecoGrid"></div>
@@ -736,10 +792,10 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 12 ONE LINE / CONTACT -->
-  <section class="chapter contact" data-topo="line" data-accent="#F2B23E" id="contact">
-    <div class="wrap">
-      <div class="mono kicker reveal" style="text-align:center">Contact</div>
+  <!-- 14 ONE LINE / CONTACT -->
+  <section class="chapter contact" data-topo="line" data-span="12" data-accent="#F2B23E" id="contact">
+    <div class="wrap narrative">
+      <div class="mono kicker reveal" style="text-align:center">14 — Contact</div>
       <h2 class="stmt reveal">One line to reach me.</h2>
       <div class="email-row reveal">
         <span class="addr" id="emailAddr">abheet19@gmail.com</span>
@@ -774,9 +830,9 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </form>
 </section>
 
-<!-- Libraries: cdnjs only. Three.js is the only runtime dependency; scroll is native. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
+<!-- Three.js is the only runtime dependency and it is NOT in the critical path:
+     the scene script below injects it after window.load, so first paint, the hero
+     LCP text and the chatbot never wait on a 600KB WebGL bundle. Scroll is native. -->
 <script>
 /* ============================================================================
    DATA
@@ -929,7 +985,7 @@ const RAG_FACTS = [
 "MCP (the Model Context Protocol) is an open standard for exposing tools and data to an AI model; Vantage ships an MCP analytics server, Zeno exposes and consumes MCP tools, and Helm exposes a read-only MCP manifest.",
 "Several projects share a glass app-shell redesign (a nav rail, a command palette on Ctrl-K or Cmd-K, and light/dark themes): Weft, Vantage, glass, HealthFlow, Textify and ShieldAI all adopted it.",
 "The projects are heavily tested overall - for example 834 cases in Vantage, 613 in Weft, an 18-flow end-to-end suite in Zeno, 814 contrast assertions in glass, and Lighthouse 100s in HealthFlow.",
-"This portfolio site is itself one of Abheet's builds: a single WebGL scene where a living glyph strand threads through a hall of refractive glass panes, one pane per project, and it reuses the glass design tokens.",
+"This portfolio site is itself one of Abheet's builds: a single WebGL scene in which one glyph strand is his timeline - Mamaearth, Barclays, QuillBot and then the eight projects - folding into a different shape and taking that chapter's colour as you scroll, over glass panels that reuse the glass design tokens.",
 /* ---- Skills ---- */
 "Abheet's tech stack and technologies span these skills: TypeScript, JavaScript, Python, SQL and C++ as languages; React, Redux, Node.js, Express, NestJS, Flask and FastAPI as frameworks; PostgreSQL, pgvector, Redis, MongoDB and KDB+ for data; Docker, Fly.io, GitHub Actions and nx for tooling; plus applied-AI work with CRDTs, MCP, RAG and homomorphic encryption.",
 "Abheet's programming languages include TypeScript, JavaScript, Python, SQL and C++.",
@@ -958,6 +1014,25 @@ const ECO = [
   {name:"Helm",c:"#7FB5C9",s:"control plane · live",href:"https://helm-abheet.fly.dev"}
 ];
 
+/* THE STRAND = THE TIMELINE. Eleven milestones in the order they happened: three
+   roles, then the eight shipped projects. Every particle on the WebGL strand
+   belongs to exactly one segment between two milestones and wears that
+   milestone's colour, so the thread you see behind the page literally is this
+   list — and the chapter you are reading is the segment that lights up. */
+const MILES = [
+  {k:"Mamaearth", y:"2022",      c:"#8E9B97"},
+  {k:"Barclays",  y:"2022–24",   c:"#6FA8FF"},
+  {k:"QuillBot",  y:"2024–26",   c:"#9B7BFF"},
+  {k:"Zeno",      y:"kernel",    c:"#C81E33"},
+  {k:"Weft",      y:"CRDT",      c:"#2ED3C6"},
+  {k:"Vantage",   y:"typed SQL", c:"#F2B23E"},
+  {k:"ShieldAI",  y:"PHE",       c:"#4F8EF7"},
+  {k:"Textify",   y:"RAG",       c:"#E0954D"},
+  {k:"HealthFlow",y:"realtime",  c:"#3ECF8E"},
+  {k:"glass",     y:"tokens",    c:"#7CF5D6"},
+  {k:"Helm",      y:"ops",       c:"#7FB5C9"}
+];
+
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============================================================================
@@ -973,6 +1048,16 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
     d.innerHTML=`<div class="d" style="background:${n.c};box-shadow:0 0 12px ${n.c}"></div><h4>${n.name}</h4><p>${n.s}</p>`;
     eg.appendChild(d);
   });
+  // strand legend: name the milestones the WebGL thread is made of
+  const lg=document.getElementById('strandLegend');
+  if(lg){
+    MILES.forEach((m,i)=>{
+      if(i) { const a=document.createElement('span'); a.className='arw'; a.textContent='→'; lg.appendChild(a); }
+      const s=document.createElement('span'); s.className='mile'; s.dataset.mile=String(i);
+      s.innerHTML=`<i style="background:${m.c};box-shadow:0 0 8px ${m.c}"></i>${m.k}`;
+      lg.appendChild(s);
+    });
+  }
 })();
 
 /* ============================================================================
@@ -1279,380 +1364,403 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
 <script>
 /* ============================================================================
-   ONE WORLD — a single WebGL scene that blends Fugue's living glyph strand with
-   Threshold's hall of refractive glass panes. On scroll the camera dollies down
-   a dark corridor; the glyph strand threads through it; each project is a pane
-   of glass the camera passes through. Storm particles render to a half-res
-   target the panes refract, so hero + strand + panes read as one space.
+   THE STRAND — one WebGL scene, Fugue's original motif: a single continuous
+   lattice of glyph-nodes that morphs between one topology per chapter.
 
-   Perf guards: devicePixelRatio capped at 2 (1.5 mobile); the loop pauses when
-   the tab is hidden or the canvas leaves the viewport; work is GPU-side only
-   (no per-frame layout); prefers-reduced-motion renders composed frames on
-   scroll with no animation loop.
+   What the strand MEANS (this is the whole point of the shape):
+     it is Abheet's timeline. Eleven milestones in order — Mamaearth, Barclays,
+     QuillBot, then Zeno, Weft, Vantage, ShieldAI, Textify, HealthFlow, glass,
+     Helm. Position along the strand is time; every particle belongs to the
+     segment between two milestones and wears that milestone's accent colour;
+     the chapter you are reading lights its own segment and dims the rest. The
+     thread never reorders — only the shape it folds into changes, chapter by
+     chapter (chain for Zeno's receipt ledger, tree for Weft's CRDT, funnel for
+     Vantage, ciphertext scatter for ShieldAI, ladder for glass, and so on).
+
+   Readability: the canvas is z-index 0 under every text surface, capped at 0.82
+   opacity (0.6 in light theme), pointer-events:none, behind a vignette veil, and
+   every text block sits on its own backdrop-filter glass panel.
+
+   Perf: DPR capped at 2 (1.5 mobile); particle count tiered by device; the loop
+   stops on visibilitychange and when the canvas leaves the viewport; three.js is
+   injected only after window.load so it never blocks first paint;
+   prefers-reduced-motion renders one static composed frame and no loop at all.
    ============================================================================ */
 (function(){
   var canvas   = document.getElementById('scene');
   var fallback = document.getElementById('hall-fallback');
   var reduce   = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var brandDot = document.getElementById('brandDot');
+  var legendEls= [].slice.call(document.querySelectorAll('#strandLegend .mile'));
 
-  /* ---- HUD refs ---- */
-  var hudPane=document.getElementById('hudPane'), hudReplica=document.getElementById('hudReplica'),
-      hudCounter=document.getElementById('hudCounter'), hudState=document.getElementById('hudState'),
-      hudDot=document.getElementById('hudDot'), progFill=document.getElementById('progFill'),
-      brandDot=document.getElementById('brandDot');
+  var chapters = [].slice.call(document.querySelectorAll('.chapter'));
+  var NM = MILES.length;                     // 11 milestones
 
-  /* ---- chapters & panes ---- */
-  var allChapters=[].slice.call(document.querySelectorAll('.chapter'));
-  var paneEls=[].slice.call(document.querySelectorAll('.pane-ch'));
-  var NP=paneEls.length;                                   // 8 project panes
-  var paneAccents=paneEls.map(function(el){return el.getAttribute('data-accent')||'#2ED3C6';});
-  var paneNames  =paneEls.map(function(el){return el.getAttribute('data-proj')||'';});
-
-  /* ---- global scroll progress ---- */
-  var targetProgress=0, progress=0, prevProgress=0;
-  function maxScroll(){var h=document.documentElement;return Math.max(1,h.scrollHeight-h.clientHeight);}
-  function readScroll(){targetProgress=Math.min(1,Math.max(0,(window.scrollY||document.documentElement.scrollTop||0)/maxScroll()));}
-  window.addEventListener('scroll',readScroll,{passive:true});
-  readScroll();
-
-  /* ---- camera dolly model (linear in scroll) ---- */
-  var CAM_START=8, CAM_END=-300, SPAN=CAM_END-CAM_START;
-  var STRAND_NEAR=CAM_START-6, STRAND_FAR=CAM_END-12;   // strand sits AHEAD of the camera (smaller z)
-  function camZ(p){return CAM_START+p*SPAN;}
-
-  var paneZ=new Array(NP).fill(0);
-  function measurePanes(){
-    var sc=window.scrollY||document.documentElement.scrollTop||0, ms=maxScroll(), vh=window.innerHeight;
-    for(var i=0;i<NP;i++){
-      var r=paneEls[i].getBoundingClientRect();
-      var centeredAt=(r.top+sc)+r.height/2 - vh/2;         // scroll value when chapter is centred
-      var Pk=Math.min(1,Math.max(0,centeredAt/ms));
-      paneZ[i]=camZ(Pk);
+  /* ---- which chapter is centred: drives page accent + active milestone ---- */
+  var curAccent='#2ED3C6', curTopo='helix', curMile=-1, curSpan=1.25;
+  function readChapter(){
+    var cy=innerHeight/2, best=null, bd=1e9;
+    for(var i=0;i<chapters.length;i++){
+      var r=chapters[i].getBoundingClientRect(), c=(r.top+r.bottom)/2, d=Math.abs(c-cy);
+      if(d<bd){bd=d;best=chapters[i];}
     }
-  }
-
-  /* ---- nearest chapter (drives ambient accent + HUD; works with or without WebGL) ---- */
-  var curAccentHex='#2ED3C6', lastPaneShown=-1;
-  function updateHUD(){
-    var cy=window.innerHeight/2, best=null, bd=1e9;
-    for(var i=0;i<allChapters.length;i++){
-      var r=allChapters[i].getBoundingClientRect(), c=(r.top+r.bottom)/2, d=Math.abs(c-cy);
-      if(d<bd){bd=d;best=allChapters[i];}
+    if(!best) return false;
+    var a=best.getAttribute('data-accent')||curAccent;
+    var t=best.getAttribute('data-topo')||curTopo;
+    var m=best.hasAttribute('data-mile')?parseFloat(best.getAttribute('data-mile')):-1;
+    var s=best.hasAttribute('data-span')?parseFloat(best.getAttribute('data-span')):1.25;
+    var changed=(t!==curTopo)||(m!==curMile)||(a!==curAccent);
+    curAccent=a; curTopo=t; curMile=m; curSpan=s;
+    if(changed){
+      document.documentElement.style.setProperty('--accent',a);
+      if(brandDot){brandDot.style.background=a;brandDot.style.boxShadow='0 0 14px '+a;}
+      for(var k=0;k<legendEls.length;k++){
+        var on = m>=0 ? Math.abs(k-m)<=0.5 : false;
+        legendEls[k].style.color = on ? 'var(--cream)' : '';
+        legendEls[k].style.borderColor = on ? a : '';
+      }
     }
-    if(best){
-      curAccentHex=best.getAttribute('data-accent')||curAccentHex;
-      var pIdx=paneEls.indexOf(best);
-      if(pIdx>=0) lastPaneShown=pIdx;
-      if(hudPane) hudPane.textContent='PANE '+('0'+(pIdx>=0?pIdx+1:(lastPaneShown>=0?lastPaneShown+1:0))).slice(-2)+' / '+('0'+NP).slice(-2);
-      if(hudState) hudState.textContent = pIdx>=0 ? (paneNames[pIdx]+' · glass') : 'strand · in sync';
-    }
-    if(hudReplica) hudReplica.textContent = progress<0.5?'A':'B';
-    if(hudCounter) hudCounter.textContent = ('000'+Math.floor(progress*4096)).slice(-4);
-    if(progFill){ progFill.style.height=(progress*100)+'%'; progFill.style.background=curAccentHex; }
-    if(hudDot){ hudDot.style.background=curAccentHex; hudDot.style.boxShadow='0 0 10px '+curAccentHex; }
-    document.documentElement.style.setProperty('--accent',curAccentHex);
-    if(brandDot){ brandDot.style.background=curAccentHex; brandDot.style.boxShadow='0 0 14px '+curAccentHex; }
+    return changed;
   }
-
-  /* ========================= no-WebGL / no-THREE fallback ========================= */
-  function startLite(){
-    if(canvas) canvas.hidden=true;
-    if(fallback){ fallback.hidden=false; }
-    var pend=false;
-    function tick(){ pend=false; progress=targetProgress; updateHUD(); }
-    window.addEventListener('scroll',function(){ if(!pend){pend=true; requestAnimationFrame(tick);} },{passive:true});
-    updateHUD();
-  }
-
-  if(typeof THREE==='undefined'){ startLite(); return; }
-
-  /* ---- device tier ---- */
-  var W=innerWidth, H=innerHeight;
-  var isMobile = Math.min(W,H)<720 || /Mobi|Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches;
-  var DPR=Math.min(window.devicePixelRatio||1, isMobile?1.5:2);   // cap DPR
-
-  var renderer;
-  try{
-    renderer=new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:false, powerPreference:'high-performance'});
-  }catch(e){ startLite(); return; }
-  renderer.setPixelRatio(DPR); renderer.setSize(W,H,false); renderer.autoClear=false;
-
-  function isLightTheme(){
-    var t=document.documentElement.getAttribute('data-theme');
-    return t==='light' || (!t && matchMedia('(prefers-color-scheme: light)').matches);
-  }
-  var isLight=isLightTheme();
-
-  var camera=new THREE.PerspectiveCamera(60, W/H, 0.1, 520);
-  camera.position.set(0,0,CAM_START);
-  var stormScene=new THREE.Scene(), strandScene=new THREE.Scene(), paneScene=new THREE.Scene();
-
-  /* ============================ STORM (shared dark ground) ============================ */
-  var SCOUNT=isMobile?3400:7000;
-  var STORM_BACK=CAM_START+14, STORM_FRONT=STRAND_FAR-18;
-  var spos=new Float32Array(SCOUNT*3), sseed=new Float32Array(SCOUNT), sscl=new Float32Array(SCOUNT);
-  for(var i=0;i<SCOUNT;i++){
-    spos[i*3]  =(Math.random()-0.5)*54;
-    spos[i*3+1]=(Math.random()-0.5)*36;
-    spos[i*3+2]= STORM_BACK - Math.random()*(STORM_BACK-STORM_FRONT);
-    sseed[i]=Math.random(); sscl[i]=0.4+Math.random()*1.2;
-  }
-  var sg=new THREE.BufferGeometry();
-  sg.setAttribute('position',new THREE.BufferAttribute(spos,3));
-  sg.setAttribute('aSeed',new THREE.BufferAttribute(sseed,1));
-  sg.setAttribute('aScale',new THREE.BufferAttribute(sscl,1));
-  var stormMat=new THREE.ShaderMaterial({
-    uniforms:{uTime:{value:0}, uSize:{value:isMobile?1.5:2.1}, uPix:{value:DPR},
-      uColorA:{value:new THREE.Color(0.55,0.75,1.0)}, uColorB:{value:new THREE.Color(isLight?0.55:0.10,isLight?0.6:0.16,isLight?0.72:0.34)}},
-    vertexShader:[
-      "uniform float uTime;uniform float uSize;uniform float uPix;",
-      "attribute float aSeed;attribute float aScale;varying float vA;",
-      "void main(){vec3 p=position;float s=aSeed*6.2831;float t=uTime*0.15;",
-      "p.x+=sin(t+s)*1.7*aScale;p.y+=cos(t*1.1+s*1.3)*1.7*aScale;p.z+=sin(t*0.7+s*2.0)*1.3*aScale;",
-      "vec4 mv=modelViewMatrix*vec4(p,1.0);gl_Position=projectionMatrix*mv;float d=-mv.z;",
-      "gl_PointSize=uSize*uPix*(12.0/max(d,0.1))*(0.5+aScale);vA=clamp(1.0-d/150.0,0.04,1.0);}"
-    ].join("\n"),
-    fragmentShader:[
-      "precision mediump float;uniform vec3 uColorA;uniform vec3 uColorB;varying float vA;",
-      "void main(){vec2 c=gl_PointCoord-0.5;float r=length(c);if(r>0.5)discard;",
-      "float a=smoothstep(0.5,0.0,r);vec3 col=mix(uColorB,uColorA,a);gl_FragColor=vec4(col,a*vA);}"
-    ].join("\n"),
-    transparent:true, depthWrite:false, blending:THREE.AdditiveBlending
-  });
-  stormScene.add(new THREE.Points(sg,stormMat));
-
-  /* ============================ REFRACTION TARGET ============================ */
-  var rtScale=isMobile?0.5:0.6;
-  var rt=new THREE.WebGLRenderTarget(Math.max(2,Math.floor(W*DPR*rtScale)), Math.max(2,Math.floor(H*DPR*rtScale)),
-    {minFilter:THREE.LinearFilter, magFilter:THREE.LinearFilter, format:THREE.RGBFormat});
-
-  /* ---- backdrop quad: paints the ground + storm from the target ---- */
-  var bgScene=new THREE.Scene(), bgCam=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
-  var bgMat=new THREE.ShaderMaterial({
-    uniforms:{uTex:{value:rt.texture}, uDark:{value:new THREE.Color(isLight?0.93:0.028, isLight?0.92:0.033, isLight?0.90:0.052)}},
-    vertexShader:"varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.0,1.0);}",
-    fragmentShader:[
-      "precision mediump float;uniform sampler2D uTex;uniform vec3 uDark;varying vec2 vUv;",
-      "void main(){vec3 c=texture2D(uTex,vUv).rgb;float v=smoothstep(1.25,0.15,length(vUv-0.5));",
-      "vec3 col=(uDark+c)*(0.55+0.45*v);gl_FragColor=vec4(col,1.0);}"
-    ].join("\n"),
-    depthTest:false, depthWrite:false
-  });
-  bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2), bgMat));
-
-  /* ============================ GLASS PANES (one per project) ============================ */
-  var resVec=new THREE.Vector2(W*DPR,H*DPR);
-  var paneVert=[
-    "varying vec2 vUv;varying vec3 vN;varying vec3 vView;",
-    "void main(){vUv=uv;vec4 mv=modelViewMatrix*vec4(position,1.0);",
-    "vN=normalize(normalMatrix*normal);vView=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}"
-  ].join("\n");
-  var paneFrag=[
-    "precision highp float;",
-    "uniform sampler2D uStorm;uniform vec2 uRes;uniform float uTime;uniform vec3 uAccent;",
-    "uniform float uCross;uniform vec2 uMouse;uniform float uTintMix;uniform float uLight;",
-    "varying vec2 vUv;varying vec3 vN;varying vec3 vView;",
-    "void main(){vec2 sc=gl_FragCoord.xy/uRes;",
-    "float r1=sin((vUv.x*18.0)+uTime*0.8);float r2=cos((vUv.y*22.0)-uTime*0.6);",
-    "vec2 ripple=vec2(r1,r2)*0.006;",
-    "vec2 md=vUv-(uMouse*0.5+0.5);float mdist=length(md);",
-    "vec2 bend=normalize(md+1e-4)*exp(-mdist*4.0)*0.02;",
-    "vec2 off=ripple+bend;float ca=0.004;",
-    "float rr=texture2D(uStorm,sc+off+vec2(ca,0.0)).r;",
-    "float gg=texture2D(uStorm,sc+off).g;",
-    "float bb=texture2D(uStorm,sc+off-vec2(ca,0.0)).b;",
-    "vec3 refr=vec3(rr,gg,bb);",
-    "float fres=pow(1.0-max(dot(vN,vView),0.0),3.0);",
-    "float e=min(min(vUv.x,1.0-vUv.x),min(vUv.y,1.0-vUv.y));",
-    "float frame=smoothstep(0.06,0.0,e);",
-    "vec3 baseTint=mix(refr, refr*0.55+uAccent*0.28, uTintMix);",
-    "vec3 col=baseTint;",
-    "col+=uAccent*frame*1.4;",
-    "col+=uAccent*fres*0.5;",
-    "float gx=abs(fract(vUv.x*8.0)-0.5);float gy=abs(fract(vUv.y*5.0)-0.5);",
-    "float grid=smoothstep(0.47,0.5,max(gx,gy));",
-    "col+=uCross*(grid*0.9+frame*1.6)*(uAccent*0.6+vec3(0.7));",
-    "vec3 lightGlass=mix(vec3(0.92,0.93,0.96), vec3(0.82)+uAccent*0.18, 0.4);",
-    "col=mix(col, lightGlass*(0.85+0.3*frame)+uAccent*frame*0.6, uLight*0.72);",
-    "float alpha=mix(0.24,0.56,uTintMix)+frame*0.5+fres*0.3+uCross*0.4;",
-    "alpha=clamp(alpha,0.0,0.9);",
-    "alpha=mix(alpha, clamp(alpha+0.12,0.0,0.96), uLight);",
-    "gl_FragColor=vec4(col,alpha);}"
-  ].join("\n");
-  var panes=[];
-  for(var pI=0;pI<NP;pI++){
-    var mat=new THREE.ShaderMaterial({
-      uniforms:{uStorm:{value:rt.texture}, uRes:{value:resVec}, uTime:{value:0}, uAccent:{value:new THREE.Color(paneAccents[pI])},
-        uCross:{value:0}, uMouse:{value:new THREE.Vector2(0,0)}, uTintMix:{value:0}, uLight:{value:isLight?1:0}},
-      vertexShader:paneVert, fragmentShader:paneFrag, transparent:true, depthWrite:false, side:THREE.DoubleSide});
-    var mesh=new THREE.Mesh(new THREE.PlaneGeometry(46,30,1,1), mat);
-    mesh.rotation.y=(pI%2?1:-1)*0.05;
-    paneScene.add(mesh); panes.push(mesh);
-  }
-
-  /* ============================ GLYPH STRAND (Fugue identity) ============================ */
-  var GCOUNT=isMobile?1200:2400;
-  var CHARSET="TWOPEOPLE.NDCUMTGLSIEX/()ABRV0123456789replicaounter+".split("").filter(function(v,i,a){return a.indexOf(v)===i;});
-  var COLS=8, ROWS=Math.ceil(CHARSET.length/COLS), CELL=64, AW=COLS*CELL, AH=ROWS*CELL;
-  var ac=document.createElement('canvas'); ac.width=AW; ac.height=AH;
-  var ax=ac.getContext('2d');
-  ax.clearRect(0,0,AW,AH); ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
-  ax.font='600 44px "Space Grotesk","Segoe UI",sans-serif';
-  CHARSET.forEach(function(ch,i){ax.fillText(ch,(i%COLS)*CELL+CELL/2,Math.floor(i/COLS)*CELL+CELL/2);});
-  var atlas=new THREE.CanvasTexture(ac); atlas.flipY=false; atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
-
-  var TAU=Math.PI*2, TURNS=24;
-  var gPos=new Float32Array(GCOUNT*3), gCell=new Float32Array(GCOUNT*2), gRand=new Float32Array(GCOUNT), gRep=new Float32Array(GCOUNT);
-  for(var j=0;j<GCOUNT;j++){
-    var t=j/GCOUNT, ang=t*TURNS*TAU, r=5.0+2.6*Math.exp(-t*3.2)+0.5*Math.sin(t*40.0);
-    gPos[j*3]  =Math.cos(ang)*r;
-    gPos[j*3+1]=Math.sin(ang)*r*0.62;
-    gPos[j*3+2]=STRAND_NEAR+t*(STRAND_FAR-STRAND_NEAR);
-    var ci=j%CHARSET.length; gCell[j*2]=(ci%COLS)/COLS; gCell[j*2+1]=Math.floor(ci/COLS)/ROWS;
-    gRand[j]=Math.random(); gRep[j]=(j%2?1:-1);
-  }
-  var baseQuad=new THREE.PlaneGeometry(1,1);
-  var strandGeo=new THREE.InstancedBufferGeometry();
-  strandGeo.index=baseQuad.index; strandGeo.attributes.position=baseQuad.attributes.position; strandGeo.attributes.uv=baseQuad.attributes.uv;
-  strandGeo.setAttribute('aPos',new THREE.InstancedBufferAttribute(gPos,3));
-  strandGeo.setAttribute('aCell',new THREE.InstancedBufferAttribute(gCell,2));
-  strandGeo.setAttribute('aRand',new THREE.InstancedBufferAttribute(gRand,1));
-  strandGeo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(gRep,1));
-  var strandUngu={uAtlas:{value:atlas}, uTime:{value:0}, uSize:{value:0.6}, uSplit:{value:0}, uDrift:{value:0}, uBreath:{value:0},
-    uColor:{value:new THREE.Color('#2ED3C6')}, uColor2:{value:new THREE.Color('#9B7BFF')}, uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)}, uInk:{value:isLight?0:1}};
-  var strandMat=new THREE.ShaderMaterial({
-    uniforms:strandUngu,
-    vertexShader:[
-      "precision mediump float;",
-      "attribute vec3 aPos;attribute vec2 aCell;attribute float aRand;attribute float aReplica;",
-      "uniform float uTime,uSize,uSplit,uDrift,uBreath;",
-      "varying vec2 vUv;varying vec2 vCell;varying float vGlow;",
-      "void main(){vec3 c=aPos;",
-      "c.x+=uSplit*aReplica*3.0;",
-      "float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);",
-      "c+=n*(0.10+uDrift*1.4)*vec3(1.0,0.8,1.0);",
-      "c.xy*=(1.0+uBreath*0.05*sin(uTime*0.8+aRand*6.0));",
-      "vUv=uv;vCell=aCell;vGlow=0.5+0.5*sin(uTime*1.3+aRand*6.283);",
-      "vec4 mv=modelViewMatrix*vec4(c,1.0);float sz=uSize*(0.55+aRand*0.9);",
-      "mv.xy+=(uv-0.5)*sz;gl_Position=projectionMatrix*mv;}"
-    ].join("\n"),
-    fragmentShader:[
-      "precision mediump float;",
-      "uniform sampler2D uAtlas;uniform vec3 uColor,uColor2;uniform vec2 uCell;uniform float uInk;",
-      "varying vec2 vUv;varying vec2 vCell;varying float vGlow;",
-      "void main(){vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);",
-      "float a=texture2D(uAtlas,auv).a;if(a<0.03)discard;",
-      "vec3 col=mix(uColor,uColor2,vGlow*0.55);",
-      "col=mix(vec3(0.08,0.10,0.12),col,uInk*0.85+0.15);",
-      "gl_FragColor=vec4(col,a*(uInk>0.5?0.9:0.96));}"
-    ].join("\n"),
-    transparent:true, depthWrite:false, depthTest:false, blending:isLight?THREE.NormalBlending:THREE.AdditiveBlending
-  });
-  var strandMesh=new THREE.Mesh(strandGeo,strandMat); strandMesh.frustumCulled=false; strandScene.add(strandMesh);
-
-  /* ---- theme switching (called by the nav toggle) ---- */
-  window.__fugueThemeChange=function(){
-    isLight=isLightTheme();
-    bgMat.uniforms.uDark.value.setRGB(isLight?0.93:0.028, isLight?0.92:0.033, isLight?0.90:0.052);
-    stormMat.uniforms.uColorB.value.setRGB(isLight?0.55:0.10, isLight?0.6:0.16, isLight?0.72:0.34);
-    panes.forEach(function(m){m.material.uniforms.uLight.value=isLight?1:0;});
-    strandMat.uniforms.uInk.value=isLight?0:1;
-    strandMat.blending=isLight?THREE.NormalBlending:THREE.AdditiveBlending; strandMat.needsUpdate=true;
-  };
-
-  /* ---- pointer (parallax + hero split) ---- */
-  var mTarget={x:0,y:0}, mouse={x:0,y:0}, lastMove=-9;
-  window.addEventListener('pointermove',function(e){
-    mTarget.x=(e.clientX/innerWidth)*2-1; mTarget.y=-((e.clientY/innerHeight)*2-1); lastMove=clock?clock.elapsedTime:0;
+  var pendR=false;
+  window.addEventListener('scroll',function(){
+    if(pendR) return; pendR=true;
+    requestAnimationFrame(function(){ pendR=false; if(readChapter()&&window.__strandApply) window.__strandApply(); });
   },{passive:true});
+  readChapter();
 
-  /* ---- accent lerp ---- */
-  var accentCur=new THREE.Color(curAccentHex), accentTgt=new THREE.Color(curAccentHex);
+  /* ---- lite mode: no WebGL / no three.js — a calm static gradient, text intact ---- */
+  function startLite(){ if(canvas) canvas.hidden=true; if(fallback) fallback.hidden=false; }
 
-  function resize(){
-    W=innerWidth; H=innerHeight;
-    renderer.setSize(W,H,false); camera.aspect=W/H; camera.updateProjectionMatrix();
-    resVec.set(W*DPR,H*DPR);
-    rt.setSize(Math.max(2,Math.floor(W*DPR*rtScale)), Math.max(2,Math.floor(H*DPR*rtScale)));
-    measurePanes();
+  /* ---- three.js is loaded only after the page is interactive ---- */
+  function loadThree(cb){
+    if(typeof THREE!=='undefined') return cb();
+    var s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    s.async=true; s.onload=cb; s.onerror=startLite;
+    document.head.appendChild(s);
   }
-  var rzT; window.addEventListener('resize',function(){ clearTimeout(rzT); rzT=setTimeout(resize,150); });
-
-  /* ---- one composed frame ---- */
-  var clock=new THREE.Clock();
-  function frame(dt,t){
-    updateHUD();
-    accentTgt.set(curAccentHex); accentCur.lerp(accentTgt, reduce?1:Math.min(1,dt*2.4));
-    strandUngu.uColor.value.copy(accentCur);
-    stormMat.uniforms.uColorA.value.copy(accentCur).lerp(new THREE.Color(0.8,0.86,1.0),0.35);
-
-    if(reduce){ progress=targetProgress; }
-    else{
-      progress+=(targetProgress-progress)*Math.min(1,dt*3.2);
-      mouse.x+=(mTarget.x-mouse.x)*Math.min(1,dt*4); mouse.y+=(mTarget.y-mouse.y)*Math.min(1,dt*4);
-      var dp=Math.abs(progress-prevProgress);
-      strandUngu.uDrift.value=Math.max(strandUngu.uDrift.value*0.94, Math.min(1,dp*80));
-      strandUngu.uBreath.value+=(0.6-strandUngu.uBreath.value)*0.05;
-      var wantSplit=(progress<0.12 && (t-lastMove)<2.5)?0.7:0.0;
-      strandUngu.uSplit.value+=(wantSplit-strandUngu.uSplit.value)*Math.min(1,dt*3);
-      strandUngu.uTime.value=t; stormMat.uniforms.uTime.value=t;
-    }
-    prevProgress=progress;
-
-    camera.position.z=camZ(progress);
-    camera.position.x=mouse.x*0.6; camera.position.y=mouse.y*0.4;
-    camera.lookAt(mouse.x*0.35, mouse.y*0.25, camera.position.z-10);
-
-    for(var i=0;i<panes.length;i++){
-      var u=panes[i].material.uniforms;
-      u.uTime.value=t; u.uMouse.value.set(mouse.x,mouse.y);
-      var dz=Math.abs(camera.position.z-paneZ[i]);
-      u.uCross.value=Math.max(0,1-dz/3.0);
-      u.uTintMix.value=Math.max(0,1-dz/16.0);
-    }
-
-    renderer.setRenderTarget(rt);
-    renderer.clear(true,true,true);
-    renderer.render(stormScene,camera);
-
-    renderer.setRenderTarget(null);
-    renderer.clear(true,true,true);
-    renderer.render(bgScene,bgCam);
-    renderer.render(strandScene,camera);
-    renderer.render(paneScene,camera);
+  function whenIdle(fn){
+    if('requestIdleCallback' in window) requestIdleCallback(fn,{timeout:1500}); else setTimeout(fn,300);
   }
+  if(document.readyState==='complete') whenIdle(function(){loadThree(boot);});
+  else window.addEventListener('load',function(){ whenIdle(function(){loadThree(boot);}); });
 
-  /* ---- loop + pause guards ---- */
-  var running=true, onscreen=true, started=false;
-  function loop(){
-    if(reduce || !running || !onscreen) return;
-    requestAnimationFrame(loop);
-    var dt=Math.min(clock.getDelta(),0.05);
-    frame(dt, clock.elapsedTime);
-  }
-  function kick(){ if(reduce){ frame(0,0); return; } if(!started||!( running&&onscreen)) return; clock.getDelta(); loop(); }
-
-  document.addEventListener('visibilitychange',function(){ running=!document.hidden; if(running) kick(); });
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ es.forEach(function(e){ onscreen=e.isIntersecting&&e.intersectionRatio>0; if(onscreen) kick(); }); },{threshold:0}).observe(canvas);
-  }
-  // reduced-motion: render a composed frame on scroll, no animation loop
-  if(reduce){
-    var pend=false;
-    window.addEventListener('scroll',function(){ if(!pend){pend=true; requestAnimationFrame(function(){pend=false; frame(0,0);});} },{passive:true});
-  }
-
-  /* ---- boot ---- */
+  /* ======================================================================== */
   function boot(){
-    measurePanes(); resize();               // resize() also measures; measure first so first frame is aligned
-    started=true;
-    frame(0,0);                             // first composed frame immediately (hero visible even before loop)
+    if(typeof THREE==='undefined'){ startLite(); return; }
+
+    var W=innerWidth, H=innerHeight;
+    var isMobile = Math.min(W,H)<720 || /Mobi|Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches;
+    var cores = navigator.hardwareConcurrency||4;
+    // Deliberately far fewer glyphs than the original sketch: the strand has to
+    // read as a legible thread with named stations, not a blizzard of letters.
+    var COUNT = isMobile ? 700 : (cores<=4 ? 900 : 1500);
+    var DPR   = Math.min(window.devicePixelRatio||1, isMobile?1.5:2);
+
+    var renderer;
+    try{ renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:false,alpha:true,powerPreference:'high-performance'}); }
+    catch(e){ startLite(); return; }
+    renderer.setPixelRatio(DPR); renderer.setSize(W,H,false); renderer.setClearColor(0x000000,0);
+
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(55,W/H,0.1,200);
+    camera.position.set(0,0,34);
+
+    function isLight(){ var t=document.documentElement.getAttribute('data-theme');
+      return t==='light' || (!t && matchMedia('(prefers-color-scheme: light)').matches); }
+    var light=isLight();
+
+    /* ---- glyph atlas: the letters are the milestone initials plus digits, so a
+       node that reads "Q" or "W" is literally that station on the timeline ---- */
+    var CHARSET="MBQZWVSTHGL0123456789·+()/".split("").filter(function(v,i,a){return a.indexOf(v)===i;});
+    var COLS=8, ROWS=Math.ceil(CHARSET.length/COLS), CELL=64;
+    var ac=document.createElement('canvas'); ac.width=COLS*CELL; ac.height=ROWS*CELL;
+    var ax=ac.getContext('2d');
+    ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
+    ax.font='600 42px "Space Grotesk","Segoe UI",sans-serif';
+    CHARSET.forEach(function(ch,i){ ax.fillText(ch,(i%COLS)*CELL+CELL/2,Math.floor(i/COLS)*CELL+CELL/2); });
+    var atlas=new THREE.CanvasTexture(ac); atlas.flipY=false;
+    atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
+    var MILE_GLYPH=[0,1,2,3,4,5,6,7,8,9,10];   // M B Q Z W V S T H G L — index into CHARSET
+
+    /* ---- deterministic per-node randoms (stable across topology swaps) ---- */
+    var TAU=Math.PI*2;
+    var seed=1234567, rnd=function(){ seed=(seed*1103515245+12345)&0x7fffffff; return seed/0x7fffffff; };
+    var R=new Float32Array(COUNT); for(var i=0;i<COUNT;i++) R[i]=rnd();
+
+    /* ---- topology generators: same node, same order, different fold ---- */
+    function gen(name){
+      var p=new Float32Array(COUNT*3);
+      for(var i=0;i<COUNT;i++){
+        var t=i/COUNT, a=R[i], x=0,y=0,z=0;
+        if(name==='helix'){                      // one continuous strand (hero, lineage)
+          var ang=t*7*TAU, r=6+Math.sin(t*Math.PI)*1.2;
+          x=Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
+        } else if(name==='twohelix'){            // two replicas of one document
+          var side=(i%2)?1:-1, an2=t*6*TAU;
+          x=side*5.4+Math.cos(an2)*3.4; y=(t-0.5)*26; z=Math.sin(an2)*3.4;
+        } else if(name==='tree'){                // Weft: a tree of characters
+          var depth=Math.floor(Math.log2(i+2)), inL=(i+2)-Math.pow(2,depth), lw=Math.pow(2,depth);
+          x=((inL+0.5)/lw-0.5)*22+(a-0.5)*1.2; y=11-depth*3.0; z=(a-0.5)*3;
+        } else if(name==='chain'){               // Zeno: a hash chain of receipts
+          var seg=Math.floor(t*40); y=13-t*26; x=Math.sin(seg*1.7)*2.4+(a-0.5)*0.8; z=Math.cos(seg*1.3)*2.0;
+        } else if(name==='funnel'){              // Vantage: a typed funnel
+          var an3=t*TAU*9, r3=10.5*(1-t)+0.6; x=Math.cos(an3)*r3; y=11-t*24; z=Math.sin(an3)*r3;
+        } else if(name==='ladder'){              // glass: one lightness ladder
+          var rung=Math.floor(t*14), inR=(t*14)%1; y=10-rung*1.5; x=(inR-0.5)*20; z=(a-0.5)*2.2;
+        } else if(name==='scatter'){             // ShieldAI: ciphertext scatter, key held near
+          if(i%64===0){ x=(a-0.5)*3; y=(R[(i*7)%COUNT]-0.5)*3; z=15; }
+          else { x=(a-0.5)*24; y=(R[(i*3)%COUNT]-0.5)*22; z=(R[(i*5)%COUNT]-0.5)*16-2; }
+        } else if(name==='thread'){              // Textify: a thread of citation edges
+          var an4=t*TAU*3, r4=2.6+Math.sin(t*6)*0.7;
+          x=Math.cos(an4)*r4+(t-0.5)*10; y=(t-0.5)*20; z=Math.sin(an4)*r4;
+        } else if(name==='rooms'){               // HealthFlow: five rooms, one draft
+          var room=i%5, ra=room/5*TAU;
+          x=Math.cos(ra)*9+(a-0.5)*3.4; y=(R[(i*11)%COUNT]-0.5)*13; z=Math.sin(ra)*9+(R[(i*3)%COUNT]-0.5)*3.4;
+        } else if(name==='ring'){                // Helm: one ring around the fleet
+          var an5=t*TAU, r5=10+Math.sin(t*TAU*8)*0.5;
+          x=Math.cos(an5)*r5; y=Math.sin(an5)*r5*0.34+(a-0.5)*1.4; z=Math.sin(an5*2)*2.4;
+        } else if(name==='brain'){               // the throughline: it folds into one mind
+          var ph=Math.acos(2*R[(i*13)%COUNT]-1), th=t*TAU*11, rr=9+(R[(i*17)%COUNT]-0.5)*1.6;
+          x=rr*Math.sin(ph)*Math.cos(th); y=rr*Math.cos(ph)*0.9; z=rr*Math.sin(ph)*Math.sin(th);
+        } else {                                 // 'line' — it resolves to a single line
+          x=(t-0.5)*30; y=Math.sin(t*TAU*2)*0.25; z=(a-0.5)*0.5;
+        }
+        p[i*3]=x; p[i*3+1]=y; p[i*3+2]=z;
+      }
+      return p;
+    }
+    var CACHE={}; function topo(n){ return CACHE[n]||(CACHE[n]=gen(n)); }
+
+    /* ---- instanced glyph quads ---- */
+    var quad=new THREE.PlaneGeometry(1,1);
+    var geo=new THREE.InstancedBufferGeometry();
+    geo.index=quad.index; geo.attributes.position=quad.attributes.position; geo.attributes.uv=quad.attributes.uv;
+
+    var A=new Float32Array(topo('helix')), B=new Float32Array(A);
+    var aCell=new Float32Array(COUNT*2), aRand=new Float32Array(COUNT),
+        aRep=new Float32Array(COUNT), aMile=new Float32Array(COUNT),
+        aNode=new Float32Array(COUNT), aCol=new Float32Array(COUNT*3);
+    var SEGS=NM-1, c3=new THREE.Color();
+    var NODE_EVERY=Math.max(6,Math.floor(COUNT/(NM*7)));   // a handful of bright station glyphs each
+    for(var i=0;i<COUNT;i++){
+      var t=i/(COUNT-1);
+      var mf=t*SEGS;                       // continuous position on the timeline
+      var mi=Math.min(NM-1,Math.round(mf));// nearest milestone owns this particle's colour
+      aMile[i]=mf;
+      // a small number of particles sit exactly on a station and carry its initial
+      var atStation = Math.abs(mf-mi)<0.045 || (i%NODE_EVERY===0 && Math.abs(mf-mi)<0.12);
+      aNode[i]=atStation?1:0;
+      var ci = atStation ? MILE_GLYPH[mi] : (11+(i%14));   // stations = initials, rest = digits/marks
+      ci=ci%CHARSET.length;
+      aCell[i*2]=(ci%COLS)/COLS; aCell[i*2+1]=Math.floor(ci/COLS)/ROWS;
+      aRand[i]=R[i]; aRep[i]=(i%2)?1:-1;
+      c3.set(MILES[mi].c); aCol[i*3]=c3.r; aCol[i*3+1]=c3.g; aCol[i*3+2]=c3.b;
+    }
+    geo.setAttribute('aTargetA',new THREE.InstancedBufferAttribute(A,3));
+    geo.setAttribute('aTargetB',new THREE.InstancedBufferAttribute(B,3));
+    geo.setAttribute('aCell',new THREE.InstancedBufferAttribute(aCell,2));
+    geo.setAttribute('aRand',new THREE.InstancedBufferAttribute(aRand,1));
+    geo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(aRep,1));
+    geo.setAttribute('aMile',new THREE.InstancedBufferAttribute(aMile,1));
+    geo.setAttribute('aNode',new THREE.InstancedBufferAttribute(aNode,1));
+    geo.setAttribute('aCol',new THREE.InstancedBufferAttribute(aCol,3));
+
+    var U={
+      uAtlas:{value:atlas}, uMix:{value:1}, uTime:{value:0}, uSize:{value:0.62},
+      uSplit:{value:0}, uDrift:{value:0}, uBreath:{value:0},
+      uPointer:{value:new THREE.Vector3(999,999,0)},
+      uActive:{value:-1}, uSpan:{value:1.25},
+      uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)}, uInk:{value:light?0:1}
+    };
+
+    var vert=[
+      "precision mediump float;",
+      "attribute vec3 aTargetA;attribute vec3 aTargetB;attribute vec2 aCell;attribute vec3 aCol;",
+      "attribute float aRand;attribute float aReplica;attribute float aMile;attribute float aNode;",
+      "uniform float uMix,uTime,uSize,uSplit,uDrift,uBreath,uActive,uSpan;uniform vec3 uPointer;",
+      "varying vec2 vUv;varying vec2 vCell;varying vec3 vCol;varying float vLit;varying float vNode;",
+      "void main(){",
+      "  float m=smoothstep(0.0,1.0,uMix);",
+      "  vec3 c=mix(aTargetA,aTargetB,m);",
+      "  c.x += uSplit*aReplica*3.2;",
+      "  float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);",
+      "  c += n*(0.10+uDrift*1.4)*vec3(1.0,0.8,1.0);",
+      "  c *= (1.0+uBreath*0.03*sin(uTime*0.9+aRand*6.0));",
+      "  vec3 toP=c-uPointer;float d=length(toP.xy);",
+      "  c.xy += normalize(toP.xy+vec2(0.001))*(3.2*exp(-d*d*0.03));",
+      // segment lighting: the milestone the current chapter belongs to burns bright,
+      // the rest of the timeline stays a dim, readable trace.
+      "  float lit = 1.0;",
+      "  if(uActive>=0.0){ float dm=abs(aMile-uActive); lit = mix(0.16,1.0,1.0-smoothstep(uSpan*0.55,uSpan,dm)); }",
+      "  vLit=lit; vNode=aNode; vCol=aCol; vUv=uv; vCell=aCell;",
+      "  vec4 mv=modelViewMatrix*vec4(c,1.0);",
+      "  float sz=uSize*(0.55+aRand*0.7)*(1.0+aNode*(0.9+0.9*lit));",
+      "  mv.xy += (uv-0.5)*sz;",
+      "  gl_Position=projectionMatrix*mv;",
+      "}"
+    ].join("\n");
+    var frag=[
+      "precision mediump float;",
+      "uniform sampler2D uAtlas;uniform vec2 uCell;uniform float uInk;",
+      "varying vec2 vUv;varying vec2 vCell;varying vec3 vCol;varying float vLit;varying float vNode;",
+      "void main(){",
+      "  vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);",
+      "  float a=texture2D(uAtlas,auv).a;",
+      "  if(a<0.04) discard;",
+      "  vec3 col=vCol;",
+      "  col=mix(col, col*0.45+vec3(0.04,0.05,0.07), 1.0-uInk);",  // light theme: ink, not glow
+      "  float lit=mix(0.18,1.0,vLit)*(0.75+0.55*vNode);",
+      "  float alpha=a*lit*(uInk>0.5?0.80:0.92);",
+      "  gl_FragColor=vec4(col*lit,alpha);",
+      "}"
+    ].join("\n");
+
+    var mat=new THREE.ShaderMaterial({uniforms:U,vertexShader:vert,fragmentShader:frag,
+      transparent:true,depthWrite:false,depthTest:false,
+      blending:light?THREE.NormalBlending:THREE.AdditiveBlending});
+    var mesh=new THREE.Mesh(geo,mat); mesh.frustumCulled=false; scene.add(mesh);
+    // On wide screens the text panel holds the left half, so the strand is pushed
+    // into the right half where it is fully visible instead of hiding behind glass.
+    function sceneOffset(){ return innerWidth>=1100 ? 11 : (innerWidth>=900 ? 6 : 0); }
+
+    /* ---- the literal thread: a coloured polyline joining consecutive nodes ---- */
+    var STEP=Math.max(1,Math.floor(COUNT/420));
+    var eIdx=[]; for(var e=STEP;e<COUNT;e+=STEP){ eIdx.push(e-STEP,e); }
+    var ePos=new Float32Array(eIdx.length*3), eCol=new Float32Array(eIdx.length*3);
+    for(var q=0;q<eIdx.length;q++){
+      var src=eIdx[q]*3; eCol[q*3]=aCol[src]; eCol[q*3+1]=aCol[src+1]; eCol[q*3+2]=aCol[src+2];
+    }
+    var eGeo=new THREE.BufferGeometry();
+    eGeo.setAttribute('position',new THREE.BufferAttribute(ePos,3));
+    eGeo.setAttribute('color',new THREE.BufferAttribute(eCol,3));
+    var eMat=new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:light?0.10:0.16,
+      blending:light?THREE.NormalBlending:THREE.AdditiveBlending,depthWrite:false,depthTest:false});
+    var lines=new THREE.LineSegments(eGeo,eMat); lines.frustumCulled=false; scene.add(lines);
+    mesh.position.x=lines.position.x=sceneOffset();
+    function updateEdges(){
+      var m=U.uMix.value, mm=m*m*(3-2*m);
+      for(var k=0;k<eIdx.length;k++){
+        var s=eIdx[k]*3;
+        ePos[k*3]  =A[s]  +(B[s]  -A[s])*mm;
+        ePos[k*3+1]=A[s+1]+(B[s+1]-A[s+1])*mm;
+        ePos[k*3+2]=A[s+2]+(B[s+2]-A[s+2])*mm;
+      }
+      eGeo.attributes.position.needsUpdate=true;
+    }
+
+    /* ---- morph between topologies (own tween; no animation library) ---- */
+    var shown='helix', mixFrom=1, mixT=1, MIX_DUR=1.15;
+    function snapshot(){
+      var m=U.uMix.value, mm=m*m*(3-2*m);
+      for(var k=0;k<A.length;k++) A[k]=A[k]+(B[k]-A[k])*mm;
+      geo.attributes.aTargetA.needsUpdate=true;
+    }
+    function applyChapter(){
+      var want=curTopo||'helix';
+      U.uSpan.value=curSpan;
+      if(want!==shown){
+        snapshot();
+        B.set(topo(want));
+        geo.attributes.aTargetB.needsUpdate=true;
+        U.uMix.value=0; mixT=0; shown=want;
+        if(reduce){ U.uMix.value=1; mixT=1; }
+      }
+      kick();
+    }
+    window.__strandApply=applyChapter;
+
+    /* ---- theme ---- */
+    window.__fugueThemeChange=function(){
+      light=isLight();
+      U.uInk.value=light?0:1;
+      mat.blending=light?THREE.NormalBlending:THREE.AdditiveBlending; mat.needsUpdate=true;
+      eMat.opacity=light?0.10:0.16;
+      eMat.blending=light?THREE.NormalBlending:THREE.AdditiveBlending; eMat.needsUpdate=true;
+      kick();
+    };
+
+    /* ---- pointer: parallax + the hero split (two replicas of one strand) ---- */
+    var rc=new THREE.Raycaster(), plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
+    var ndc=new THREE.Vector2(999,999), hit=new THREE.Vector3(), lastMove=-9;
+    if(!matchMedia('(pointer:coarse)').matches){
+      window.addEventListener('pointermove',function(ev){
+        ndc.x=(ev.clientX/innerWidth)*2-1; ndc.y=-(ev.clientY/innerHeight)*2+1;
+        rc.setFromCamera(ndc,camera);
+        // the strand mesh is translated on wide screens, so bring the world hit
+        // back into the mesh's own space before the shader repels from it
+        if(rc.ray.intersectPlane(plane,hit)) U.uPointer.value.set(hit.x-mesh.position.x,hit.y,hit.z);
+        lastMove=clock.elapsedTime;
+      },{passive:true});
+      window.addEventListener('pointerleave',function(){ U.uPointer.value.set(999,999,0); });
+    }
+
+    /* ---- resize ---- */
+    var rzT;
+    window.addEventListener('resize',function(){
+      clearTimeout(rzT);
+      rzT=setTimeout(function(){
+        W=innerWidth;H=innerHeight;
+        renderer.setSize(W,H,false); camera.aspect=W/H; camera.updateProjectionMatrix();
+        mesh.position.x=lines.position.x=sceneOffset();
+        kick();
+      },150);
+    });
+
+    /* ---- one frame ---- */
+    var clock=new THREE.Clock();
+    var activeCur=-1;
+    function frame(dt,t){
+      if(!reduce){
+        U.uTime.value=t;
+        U.uBreath.value += (0.6-U.uBreath.value)*0.05;
+        U.uDrift.value  *= 0.94;
+        if(mixT<1){ mixT=Math.min(1,mixT+dt/MIX_DUR); var x=mixT; U.uMix.value=x*x*(3-2*x); }
+        var wantSplit=(scrollY<innerHeight*0.8 && (t-lastMove)<2.5)?0.7:0.0;
+        U.uSplit.value += (wantSplit-U.uSplit.value)*Math.min(1,dt*3);
+        camera.position.x += ((ndc.x>900?0:ndc.x*2)-camera.position.x)*0.03;
+        camera.position.y += ((ndc.y>900?0:ndc.y*2)-camera.position.y)*0.03;
+        camera.lookAt(0,0,0);
+      } else { U.uMix.value=1; }
+      // active milestone eases toward the chapter's own station
+      var wantA=curMile;
+      if(wantA<0) activeCur=-1;
+      else { if(activeCur<0) activeCur=wantA; else activeCur+=(wantA-activeCur)*Math.min(1,(reduce?1:dt*2.6)); }
+      U.uActive.value=activeCur;
+      updateEdges();
+      renderer.render(scene,camera);
+    }
+
+    /* ---- loop with pause guards ---- */
+    var running=true, onscreen=true, looping=false;
+    function loop(){
+      if(reduce||!running||!onscreen){ looping=false; return; }
+      looping=true;
+      requestAnimationFrame(loop);
+      frame(Math.min(clock.getDelta(),0.05), clock.elapsedTime);
+    }
+    function kick(){
+      if(reduce){ frame(0,0); return; }
+      if(!looping && running && onscreen){ clock.getDelta(); loop(); }
+    }
+    document.addEventListener('visibilitychange',function(){ running=!document.hidden; kick(); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(en){ onscreen=en.isIntersecting; if(onscreen) kick(); });
+      },{threshold:0}).observe(canvas);
+    }
+    if(reduce){
+      var pend=false;
+      window.addEventListener('scroll',function(){
+        if(pend) return; pend=true;
+        requestAnimationFrame(function(){ pend=false; readChapter(); applyChapter(); frame(0,0); });
+      },{passive:true});
+    }
+
+    readChapter(); applyChapter(); frame(0,0);
     if(!reduce) loop();
   }
-  if(document.readyState==='complete') boot();
-  else window.addEventListener('load', boot);
-  // re-measure once late layout (fonts, lazy posters) settles
-  setTimeout(measurePanes, 600); setTimeout(measurePanes, 1600);
 })();
 </script>
 
