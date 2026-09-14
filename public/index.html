@@ -3,38 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Abheet Singh Isher — Software Engineer | Portfolio</title>
-<meta name="description" content="Abheet Singh Isher — full-stack software engineer. Shipped AI writing to 10M+ weekly users at QuillBot; now building local-first AI tools with safety guarantees you can check: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, Helm.">
+<title>Fugue — Abheet Singh Isher</title>
+<meta name="description" content="Abheet Singh Isher — full-stack software engineer. Shipped AI writing to 10M+ weekly users at QuillBot; now building local-first AI tools with safety guarantees you can check: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI.">
 <link rel="canonical" href="https://abheet-isher.fly.dev/">
 <meta name="author" content="Abheet Singh Isher">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#07100E" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#EEF2F0" media="(prefers-color-scheme: light)">
 
-<!-- Open Graph / Twitter -->
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Abheet Singh Isher">
 <meta property="og:url" content="https://abheet-isher.fly.dev/">
-<meta property="og:title" content="Abheet Singh Isher — Software Engineer">
+<meta property="og:title" content="Fugue — Abheet Singh Isher">
 <meta property="og:description" content="Shipped AI writing to 10M+ weekly users at QuillBot. Now building local-first AI tools with safety guarantees you can check — CRDTs, an approval kernel, a typed LLM→SQL boundary, homomorphic encryption.">
 <meta property="og:image" content="https://abheet-isher.fly.dev/assets/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vantage — an English question compiled to a typed spec and the exact SQL it ran.">
+<meta property="og:image:alt" content="Abheet Singh Isher — portfolio: Vantage spec + SQL + funnel output">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Abheet Singh Isher — Software Engineer">
-<meta name="twitter:description" content="Shipped AI writing to 10M+ weekly users at QuillBot. Now building local-first AI tools with safety guarantees you can check.">
+<meta name="twitter:title" content="Fugue — Abheet Singh Isher">
+<meta name="twitter:description" content="Shipped AI writing to 10M+ weekly users at QuillBot. Now building local-first AI tools with safety guarantees.">
 <meta name="twitter:image" content="https://abheet-isher.fly.dev/assets/og-cover.jpg">
-<meta name="twitter:image:alt" content="Vantage — an English question compiled to a typed spec and the exact SQL it ran.">
+<meta name="twitter:image:alt" content="Abheet Singh Isher — portfolio: Vantage spec + SQL + funnel output">
 
 <link rel="icon" href="/assets/avatar.jpg" type="image/jpeg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Fonts load non-render-blocking; the stacks below fall back to system UI faces,
-     so the LCP hero text paints on the first frame regardless of font arrival. -->
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Abheet Singh Isher",
@@ -45,6 +38,13 @@
 "sameAs":["https://github.com/abheet19","https://linkedin.com/in/abheet-singh-isher"],
 "knowsAbout":["TypeScript","React","Python","CRDTs","Model Context Protocol","Browser extensions (Manifest V3)","PostgreSQL","Web performance"]}
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+
 <style>
 /* ============================================================================
    FUGUE — portfolio variant #3. One continuous lattice of glyph-nodes that
@@ -53,27 +53,26 @@
    ============================================================================ */
 
 :root{
-  /* Green-black variant ground + ecosystem accents (glass token values) */
-  --void:#07100E;          /* deep green-black ground */
-  --base:#0A1512;          /* body/canvas clear */
-  --surface:#0F1A17;       /* opaque panels */
-  --raised:#152420;        /* raised plates */
+  --void:#07100E;
+  --base:#0A1512;
+  --surface:#0F1A17;
+  --raised:#152420;
   --line:rgba(243,239,230,.12);
   --line-2:rgba(243,239,230,.06);
-  --cream:#F3EFE6;         /* primary ink */
-  --ink-2:#B9B4A8;         /* secondary */
-  --ink-3:#6E6A62;         /* tertiary / ghost */
+  --cream:#F3EFE6;
+  --ink-2:#B9B4A8;
+  --ink-3:#6E6A62;
 
-  --teal:#2ED3C6;          /* Weft / resting accent */
-  --violet:#9B7BFF;        /* edges / climax halo */
-  --mint:#7CF5D6;          /* convergence core */
-  --crimson:#C81E33;       /* Zeno */
-  --gold:#F2B23E;          /* Vantage / dawn */
-  --ember:#FF7A3D;         /* sunrise rim */
-  --dawn:#FFD9A0;          /* contact haze */
-  --blue:#4F8EF7;          /* ShieldAI */
-  --amber:#E0954D;         /* Textify */
-  --green:#3ECF8E;         /* HealthFlow */
+  --teal:#2ED3C6;
+  --violet:#9B7BFF;
+  --mint:#7CF5D6;
+  --crimson:#C81E33;
+  --gold:#F2B23E;
+  --ember:#FF7A3D;
+  --dawn:#FFD9A0;
+  --blue:#4F8EF7;
+  --amber:#E0954D;
+  --green:#3ECF8E;
   --glare:#E9F1FF;
 
   --accent:var(--teal);
@@ -133,21 +132,25 @@ p{margin:0}
 img{max-width:100%}
 ::selection{background:color-mix(in srgb,var(--teal) 40%,transparent);color:var(--cream)}
 
-/* ---- Fixed WebGL canvas ---- */
-/* The WebGL layer is decoration only: it sits under every text surface (z-index 0
-   vs main's 2), is dimmed by a veil, and never takes pointer events. */
-#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;pointer-events:none;opacity:.82}
-:root[data-theme="light"] #scene{opacity:.6}
+/* ---- Fixed WebGL canvas — behind everything, dims slightly so text reads ---- */
+#scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;opacity:.78;pointer-events:none}
 #grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
   background-image:radial-gradient(rgba(255,255,255,.7) .5px,transparent .5px);background-size:3px 3px}
+/* Stronger veil so mid-page text chapters always have contrast */
 .scene-veil{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(125% 95% at 50% 10%, color-mix(in srgb,var(--void) 18%,transparent) 30%, var(--void) 100%);
+  background:
+    radial-gradient(120% 90% at 50% 8%, transparent 30%, var(--void) 100%),
+    linear-gradient(to bottom, transparent 0%, color-mix(in srgb,var(--void) 22%,transparent) 100%);
   transition:opacity .6s var(--ease)}
 
 /* ---- Layout scaffold ---- */
 main{position:relative;z-index:2}
 .chapter{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
   padding:14vh clamp(20px,6vw,80px);position:relative}
+/* Text-heavy chapters get a subtle local backing so WebGL glyphs don't compete */
+.chapter:not(.hero){
+  background:color-mix(in srgb,var(--void) 14%,transparent);
+}
 .wrap{max-width:var(--maxw);margin:0 auto;width:100%}
 .mono{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 .tag{color:var(--accent)}
@@ -173,17 +176,15 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 @media(max-width:720px){.nav-links a:not(.keep){display:none}}
 
 /* ---- Hero ---- */
-.chapter.hero{padding-top:10vh;padding-bottom:8vh}
-.hero-eyebrow{margin-bottom:16px}
-.hero h1{font-size:clamp(2rem,5.4vw,4.4rem);line-height:1.03;max-width:17ch;font-weight:700;
-  min-height:2.06em} /* reserve two lines so the typing line cannot shift layout (CLS 0) */
+.hero-eyebrow{margin-bottom:22px}
+.hero h1{font-size:clamp(2.1rem,6.4vw,5.1rem);line-height:1.02;max-width:16ch;font-weight:700;min-height:1.2em}
 .hero h1 .lead{display:block;color:var(--cream)}
 .hero h1 .type-line{color:var(--accent)}
 .caret{display:inline-block;width:.5ch;background:var(--accent);animation:blink 1s steps(1) infinite;
   margin-left:2px;transform:translateY(2px)}
 @keyframes blink{50%{opacity:0}}
-.hero .sub{margin-top:18px;max-width:48ch;color:var(--ink-2);font-size:clamp(1rem,1.3vw,1.12rem)}
-.hero .ids{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 20px}
+.hero .sub{margin-top:26px;max-width:52ch;color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.18rem)}
+.hero .ids{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 20px}
 .hero .ids span{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-3)}
 .hero .ids b{color:var(--teal);font-weight:500}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
@@ -237,7 +238,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 .proj .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.78rem;
   padding:11px 18px;border-radius:var(--r-pill);border:1px solid var(--accent);color:var(--cream);
-  background:color-mix(in srgb,var(--accent) 12%,transparent);transition:all .2s var(--ease)}
+  background:color-mix(in srgb,var(--accent) 12%,transparent);transition:all .2s var(--ease);cursor:pointer;min-height:44px}
 .link:hover{background:color-mix(in srgb,var(--accent) 26%,transparent);transform:translateY(-1px)}
 .link.ghost{border-color:var(--line);background:transparent;color:var(--ink-2)}
 .link.ghost:hover{border-color:var(--cream);color:var(--cream)}
@@ -268,7 +269,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur)}
 .email-row .addr{font-family:var(--font-mono);font-size:.92rem;color:var(--cream)}
 .copy-btn{cursor:pointer;border:none;background:var(--accent);color:#07100E;font-family:var(--font-mono);
-  font-size:.72rem;font-weight:600;padding:8px 14px;border-radius:var(--r-pill);transition:all .2s var(--ease)}
+  font-size:.72rem;font-weight:600;padding:8px 14px;border-radius:var(--r-pill);transition:all .2s var(--ease);min-height:44px}
 .copy-btn:hover{filter:brightness(1.08)}
 .copy-btn.done{background:var(--mint)}
 .foot{margin-top:60px;font-family:var(--font-mono);font-size:.7rem;color:var(--ink-3)}
@@ -308,43 +309,10 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 .chat-suggest button:hover{border-color:var(--teal);color:var(--cream)}
 .chat-input{display:flex;gap:8px;padding:14px;border-top:1px solid var(--line)}
 .chat-input input{flex:1;background:var(--base);border:1px solid var(--line);border-radius:var(--r-pill);
-  padding:11px 16px;color:var(--cream);font-family:var(--font-ui);font-size:.9rem;outline:none}
+  padding:11px 16px;color:var(--cream);font-family:var(--font-ui);font-size:.9rem;outline:none;min-width:0}
 .chat-input input:focus{border-color:var(--teal)}
 .chat-input button{background:var(--teal);border:none;color:#07100E;border-radius:50%;width:42px;height:42px;
-  cursor:pointer;font-size:1.1rem;flex:none}
-
-/* ---- Project reels (lazy MP4 + GIF poster; dims reserved to keep CLS at 0) ---- */
-.reel{position:relative;width:100%;margin:24px 0 6px;border-radius:var(--r-2);overflow:hidden;
-  border:1px solid var(--line);background:var(--surface);box-shadow:var(--gl-shadow);
-  aspect-ratio:1280/800}
-.reel.tall{aspect-ratio:1280/900}
-.reel .reel-poster,.reel .reel-vid{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;display:block;margin:0}
-.reel .reel-poster{z-index:1;background:var(--surface)}
-.reel .reel-vid{z-index:2;opacity:0;transition:opacity .7s var(--ease)}
-.reel.playing .reel-vid{opacity:1}
-.reel figcaption{position:absolute;left:10px;bottom:9px;z-index:3;font-family:var(--font-mono);
-  font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
-  background:color-mix(in srgb,var(--void) 58%,transparent);backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);padding:4px 9px;border-radius:var(--r-pill);
-  border:1px solid var(--line);opacity:.92}
-
-/* ---- Avatar: MONOGRAM PLACEHOLDER. Drop the real photo in at
-   public/assets/avatar.{svg,jpg,png,webp} and point the <img src> below at it;
-   if the file is missing the glass gradient orb shows as the fallback. ---- */
-.about-id{display:flex;align-items:center;gap:16px;margin-bottom:20px}
-.avatar{width:60px;height:60px;border-radius:50%;flex:none;overflow:hidden;position:relative;
-  border:1px solid var(--gl-edge);box-shadow:var(--gl-shadow),0 0 24px -8px var(--accent);
-  background:radial-gradient(circle at 34% 28%,color-mix(in srgb,var(--mint) 78%,transparent),
-    color-mix(in srgb,var(--violet) 60%,transparent) 68%,var(--surface))}
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.about-id .who{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-2);line-height:1.55}
-.about-id .who b{color:var(--cream);font-weight:600;font-family:var(--font-display);letter-spacing:-.01em}
-
-/* ---- Ecosystem nodes as live links ---- */
-.eco .node{transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.eco a.node{cursor:pointer}
-.eco a.node:hover{border-color:var(--accent);transform:translateY(-2px)}
+  cursor:pointer;font-size:1.1rem;flex:none;min-height:44px}
 
 /* ---- responsive ---- */
 @media(max-width:640px){
@@ -352,105 +320,37 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   .receipt{min-width:120px;padding:13px 15px}
   .receipt .n{font-size:1.35rem}
   .hero .sub{font-size:1rem}
+  .proj{max-width:none}
 }
-/* ---- Hero primary CTAs (recruiter one-click: projects / résumé / contact) ---- */
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.hero-cta .link{font-size:.82rem;padding:12px 22px}
-.link.solid{background:var(--accent);border-color:var(--accent);color:var(--void);font-weight:600}
-:root[data-theme="light"] .link.solid{color:#fff}
-.link.solid:hover{filter:brightness(1.08);background:var(--accent);transform:translateY(-1px)}
-@media(max-width:640px){.hero-cta{gap:9px}.hero-cta .link{padding:10px 16px;font-size:.76rem}}
-
-/* ---- Scannable project disclosures: Problem / Contribution / Proof (collapsed) ---- */
-.disclosures{margin-top:24px;border-top:1px solid var(--line)}
-.disc{border-bottom:1px solid var(--line)}
-.disc>summary{cursor:pointer;list-style:none;padding:13px 2px;display:flex;align-items:center;gap:12px;
-  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);
-  transition:color .2s var(--ease)}
-.disc>summary::-webkit-details-marker{display:none}
-.disc>summary::before{content:"+";color:var(--accent);font-size:1.05rem;line-height:1;width:1ch;text-align:center;flex:none}
-.disc[open]>summary::before{content:"\2013"}
-.disc>summary:hover{color:var(--accent)}
-.disc .body{padding:2px 0 16px 25px;color:var(--ink-2);font-size:.93rem;line-height:1.62}
-.disc .body ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
-.disc .body li{position:relative;padding-left:18px}
-.disc .body li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:2px;
-  background:var(--accent);transform:rotate(45deg)}
-.disc .peek{color:var(--ink-3);font-family:var(--font-ui);letter-spacing:0;text-transform:none;font-size:.82rem;
-  margin-left:auto;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media(max-width:640px){.disc .peek{display:none}}
-
-/* ---- Narrative glass blocks: every text-only chapter sits on its own scrim so
-   the strand behind it can never compete with the words (readability rule). ---- */
-.narrative{background:var(--gl-fill);backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur);
-  border:1px solid var(--line);border-radius:var(--r-3);box-shadow:var(--gl-shadow);
-  padding:clamp(22px,3.2vw,40px);max-width:min(var(--maxw),880px)}
-.narrative.wide{max-width:var(--maxw)}
-/* left-aligned so the strand keeps the other half of the screen to itself */
-.chapter .wrap.narrative{margin-left:0;margin-right:auto}
-.hero .narrative{background:color-mix(in srgb,var(--gl-fill) 74%,transparent);max-width:min(var(--maxw),720px)}
-.contact .wrap.narrative{margin-inline:auto;text-align:center}
-@media(max-width:900px){.chapter .wrap.narrative{margin-inline:auto}}
-
-/* ---- Strand legend: says out loud what the WebGL thread is ---- */
-.legend{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px}
-.legend .cap{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);width:100%;margin-bottom:2px}
-.legend .mile{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.66rem;
-  color:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:4px 10px;
-  background:color-mix(in srgb,var(--surface) 40%,transparent)}
-.legend .mile i{width:7px;height:7px;border-radius:50%;flex:none;font-style:normal}
-.legend .arw{color:var(--ink-3);font-size:.7rem}
-@media(max-width:720px){
-  .legend{gap:5px 6px;margin-top:16px}
-  .legend .arw{display:none}
-  .legend .mile{font-size:.58rem;padding:3px 7px;gap:5px}
-  .legend .cap{font-size:.58rem}
+@media(max-width:360px){
+  .hero h1{font-size:1.9rem}
+  .ids{display:none}
 }
-
-.hall-fallback{position:fixed;inset:0;z-index:0;background:
-  radial-gradient(1100px 720px at 62% 26%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),
-  radial-gradient(900px 600px at 16% 84%,color-mix(in srgb,var(--teal) 12%,transparent),transparent 60%),var(--void)}
-
-/* ---- Mobile: real tap targets (>=44px) and no hover-only affordances ---- */
-@media (hover:none),(pointer:coarse){
-  .link,.nav-btn,.copy-btn,.skill,.chat-suggest button{min-height:44px;display:inline-flex;align-items:center}
-  .disc>summary{min-height:48px}
-  .link:hover,.skill:hover,.eco a.node:hover{transform:none}
-  .disc .peek{display:none}
+@media(hover:none) and (pointer:coarse){
+  .link:hover,.skill:hover,.nav-links a:hover{transform:none}
 }
-@media(max-width:400px){
-  .chapter{padding:11vh 16px}
-  .hero h1{font-size:clamp(1.75rem,8.6vw,2.4rem)}
-  .narrative{padding:18px 16px}
-  .hero-cta .link{padding:10px 14px}
-}
-
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .caret{animation:none}
   .scroll-cue .bar{animation:none}
   .chat-fab{transition:none}
   .orb,.chat-head .orb{animation:none}
-  html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 
 <canvas id="scene" aria-hidden="true"></canvas>
-<div id="hall-fallback" class="hall-fallback" hidden aria-hidden="true"></div>
 <div id="grain" aria-hidden="true"></div>
 <div class="scene-veil" id="veil" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top"><span class="dot" id="brandDot"></span>ABHEET&nbsp;ISHER</a>
-  <nav class="nav-links">
-    <a href="#work">Experience</a>
+  <a class="brand" href="#top"><span class="dot" id="brandDot"></span>ABHEET · FUGUE</a>
+  <nav class="nav-links" aria-label="Site sections">
+    <a href="#work">Work</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a href="/resume.pdf" target="_blank" rel="noopener">Résumé</a>
     <button class="nav-btn theme-toggle keep" id="themeBtn" aria-label="Toggle theme">◐</button>
     <button class="nav-btn keep" id="askBtn">Ask&nbsp;the&nbsp;lattice</button>
   </nav>
@@ -460,43 +360,31 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 
   <!-- 00 STRAND / HERO -->
   <section class="chapter hero" data-topo="helix" data-accent="#2ED3C6" id="hero">
-    <div class="wrap narrative">
-      <div class="mono hero-eyebrow">Abheet Singh Isher · Software Engineer</div>
+    <div class="wrap">
+      <div class="mono hero-eyebrow">00 — STRAND · Abheet Singh Isher · software engineer</div>
       <h1>
-        <span class="lead">Systems that stay correct</span>
-        <span class="type-line" id="typeLine">when everything happens at once.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
+        <span class="lead">Two people. One document.</span>
+        <span class="type-line" id="typeLine">No lost edits.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
-      <p class="sub">I shipped AI writing to 10M+ weekly users at QuillBot. Now I build local-first AI tools with safety guarantees you can actually check — and I write the tests that prove them.</p>
-      <div class="hero-cta">
-        <a class="link solid" href="#projects">View projects</a>
-        <a class="link" href="/resume.pdf" target="_blank" rel="noopener">Download résumé</a>
-        <a class="link ghost" href="#contact">Contact</a>
-      </div>
-      <div class="legend" id="strandLegend" aria-hidden="true">
-        <span class="cap">The strand behind this page is the timeline — it lights the chapter you're in</span>
-      </div>
+      <p class="sub">I build structures that stay coherent under concurrency — from an AI writing engine used by 10M+ weekly users to a suite of local-first tools with real safety guarantees.</p>
       <div class="ids">
-        <span>2022 → today · <b>3 roles</b>, <b>8 shipped projects</b>, one thread</span>
+        <span>(replica <b>A</b>, counter <b>0</b>)</span>
+        <span>(replica <b>B</b>, counter <b>0</b>)</span>
+        <span>move the cursor — the strand splits</span>
       </div>
     </div>
     <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
   </section>
 
   <!-- 01 LINEAGE -->
-  <section class="chapter" data-topo="helix" data-mile="1" data-span="2.4" data-accent="#6FA8FF" id="work">
-    <div class="wrap narrative wide">
-      <div class="mono kicker reveal">01 — Experience</div>
-      <div class="about-id reveal">
-        <!-- Real photo (owner-provided). Fallback: the CSS gradient orb shows if the file is missing. -->
-        <span class="avatar"><img src="/assets/avatar.jpg" alt="Abheet Singh Isher"
-              width="60" height="60" decoding="async" onerror="this.remove()"></span>
-        <span class="who"><b>Abheet Singh Isher</b><br>software engineer · India · open to remote</span>
-      </div>
-      <h2 class="stmt reveal">Three roles, one throughline: <em>software people depend on</em>.</h2>
-      <p class="lede reveal">An intern's web SDK, a fintech audit console, an AI writing assistant at consumer scale — each shipped, measured, and still in use.</p>
+  <section class="chapter" data-topo="helix" data-accent="#2ED3C6" id="work">
+    <div class="wrap">
+      <div class="mono kicker reveal">01 — LINEAGE</div>
+      <h2 class="stmt reveal">A career grown as one strand through <em>three eras</em>.</h2>
+      <p class="lede reveal">Each era is a receipt that lights: an intern SDK, an auditor's dashboard, a writing assistant at scale.</p>
       <div class="receipts">
         <div class="receipt reveal"><div class="n">5K+</div><div class="l">daily interactions · Mamaearth</div></div>
-        <div class="receipt reveal"><div class="n">$8,000<span style="font-size:1rem">/mo</span></div><div class="l">auditor time saved · Barclays</div></div>
+        <div class="receipt reveal"><div class="n">$5,000<span style="font-size:1rem">/mo</span></div><div class="l">auditor time saved · Barclays</div></div>
         <div class="receipt reveal"><div class="n">10M+</div><div class="l">weekly active users · QuillBot</div></div>
       </div>
       <div class="timeline">
@@ -506,87 +394,62 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </article>
         <article class="job reveal">
           <div class="top"><div><h3>Barclays <span class="role">· Software Developer</span></h3></div><div class="period">Aug 2022 – Nov 2024</div></div>
-          <p>Built responsive financial dashboards with Python, FastAPI, React and TypeScript, automating manual report reviews and saving an estimated $8,000/month in auditor time. Queried 100k+ daily transactions over KDB+ and SQL (15% faster complex-query retrieval); React interfaces on a KDB+ backend cut audit completion time by 40%. Monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.</p>
+          <p>Built responsive financial dashboards with Python, FastAPI, React and TypeScript, automating manual report reviews and saving an estimated $5,000/month in auditor time. Queried 100k+ daily transactions over KDB+ and SQL (15% faster complex-query retrieval); React interfaces on a KDB+ backend cut audit completion time by 40%. Monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.</p>
         </article>
         <article class="job reveal">
           <div class="top"><div><h3>Mamaearth <span class="role">· SDE Intern</span></h3></div><div class="period">Jan 2022 – Jun 2022</div></div>
-          <p>Spearheaded a User Collaboration & Research SaaS for targeted surveys (+10% user feedback) and a responsive JavaScript web SDK capturing 5K+ daily interactions. Shipped Node.js (Express) and React microservices via Docker and GitLab CI/CD for 20% faster release cycles.</p>
+          <p>Spearheaded a User Collaboration &amp; Research SaaS for targeted surveys (+10% user feedback) and a responsive JavaScript web SDK capturing 5K+ daily interactions. Shipped Node.js (Express) and React microservices via Docker and GitLab CI/CD for 20% faster release cycles.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 02 QUILLBOT — AT SCALE -->
-  <section class="chapter" data-topo="twohelix" data-mile="2" data-span="1.1" data-accent="#9B7BFF">
-    <div class="wrap narrative">
-      <div class="mono kicker reveal">02 — At scale</div>
-      <h2 class="stmt reveal">One writing engine, writing back into <em>a hundred editors</em>.</h2>
-      <p class="lede reveal">At QuillBot I built the insert/replace engine behind AI writing for 10M+ weekly users: the piece that puts paraphrased text back into Google Docs, Gmail, Word and ChatGPT with formatting intact — across Shadow DOM and cross-frame boundaries — then holds a selection path that once fired 60 times a second to a smooth 300ms.</p>
+  <!-- 02 CONCURRENCY AT SCALE -->
+  <section class="chapter" data-topo="twohelix" data-accent="#2ED3C6">
+    <div class="wrap">
+      <div class="mono kicker reveal">02 — CONCURRENCY AT SCALE</div>
+      <h2 class="stmt reveal">100+ editors, each a <em>replica</em> writing back into one document.</h2>
+      <p class="lede reveal">The insert/replace engine treats every target — Google Docs, Gmail, a raw contenteditable — as a peer. The Shadow DOM and cross-frame boundaries are edges that must not cross.</p>
     </div>
   </section>
 
-  <!-- 03 THESIS -->
+  <!-- 03 TRANSITION -->
+  <section class="chapter" data-topo="twohelix" data-accent="#6E6A62">
+    <div class="wrap">
+      <div class="mono kicker reveal">03 — TRANSITION</div>
+      <h2 class="stmt reveal">One replica goes offline. The strand keeps growing in the dark.</h2>
+      <p class="lede reveal">After a company-wide restructuring in September 2026, the work didn't stop — it kept converging into a suite of deploy-ready projects, each with a hard computer-science idea at its core.</p>
+    </div>
+  </section>
+
+  <!-- 04 THESIS -->
   <section class="chapter" data-topo="helix" data-accent="#9B7BFF" id="projects">
-    <div class="wrap narrative">
-      <div class="mono kicker reveal">03 — The work</div>
-      <h2 class="stmt reveal">Eight projects. Each one a <em>boundary you can see through</em>.</h2>
-      <p class="lede reveal">From here the strand folds into each project's own shape and takes its colour. CRDTs, a deterministic approval kernel, a typed LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption: each turns a hard idea into shipped, tested software, and the same thread runs through them all.</p>
+    <div class="wrap">
+      <div class="mono kicker reveal">04 — THESIS</div>
+      <h2 class="stmt reveal">Every hard idea here is a structure that <em>survives concurrency</em>.</h2>
+      <p class="lede reveal">CRDTs, a deterministic approval kernel, an LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption — one lattice, folding into each project's own topology.</p>
     </div>
   </section>
 
-  <!-- 04 — ZENO -->
-  <section class="chapter" data-topo="chain" data-mile="3" data-accent="#C81E33">
+  <!-- 05 WEFT -->
+  <section class="chapter" data-topo="tree" data-accent="#2ED3C6">
     <div class="wrap">
-      <div class="proj reveal" style="--accent:#C81E33">
-        <div class="idx">04 — HASH CHAIN OF SIGNED RECEIPTS</div>
-        <h2>Zeno</h2>
-        <div class="tl">Reason before action.</div>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Agents act on a prompt, not a boundary</span></summary>
-            <div class="body">Coding agents can edit your files, run your build, and push your commits — and each one asks you to trust a prompt. A prompt is a suggestion, not a boundary.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">A local-first approval kernel</span></summary>
-            <div class="body"><ul>
-              <li>A local-first approval kernel sits between what an agent proposes and what actually runs. Every side-effecting action becomes a content-addressed "held proposal"; you approve the exact action, a compare-and-swap confirms the world hasn't moved, and exactly one execution is allowed.</li>
-              <li>A model can propose but never approve — structurally: the agent holds a proposer token the approval route rejects with 403, and Tier 4 payment/biometric effects are permanently unreachable.</li>
-              <li>Three products over one gate: Command (orchestrator), Forge (governed coding agent), and Counsel (consent-gated meeting notes).</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">18 flows pass · signed receipt ledger</span></summary>
-            <div class="body">16 packages with zero runtime dependencies. Every result lands on an Ed25519-signed, hash-chained receipt ledger. The end-to-end suite passes 18 flows, 0 failed.</div></details>
-        </div>
-        <div class="stack"><span class="chip">TypeScript (strict)</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span><span class="chip">MCP</span><span class="chip">0 deps</span></div>
-        <div class="cta">
-          <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
-          <span class="link ghost" style="cursor:default">Local-first · runs on your machine</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 — WEFT -->
-  <section class="chapter" data-topo="tree" data-mile="4" data-accent="#2ED3C6">
-    <div class="wrap">
-      <div class="proj reveal" style="--accent:#2ED3C6">
-        <div class="idx">05 — A TREE OF CHARACTERS, NOT A STRING</div>
+      <div class="proj reveal">
+        <div class="idx">05 — SPLIT · DRIFT · CONVERGE</div>
         <h2>Weft</h2>
         <div class="tl">Two people. One document. No lost edits.</div>
-        <figure class="reel reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/weft-demo.gif" alt="Weft — two cursors editing one document live" width="1280" height="800" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/weft-reel.mp4" aria-label="Weft demo reel"></video>
-          <figcaption>Weft · live reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Edit together, one goes offline</span></summary>
-            <div class="body">Two people edit the same paragraph and one drops offline for an hour. Naive systems overwrite work, force a conflict decision, or block editing.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">A from-scratch Fugue CRDT</span></summary>
-            <div class="body"><ul>
-              <li>Weft stores the document as a tree of characters, not a string, using a from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023) — every character carries a permanent (replica, counter) identity, so two peers converge with no "resolve conflict" dialog.</li>
-              <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
-              <li>The server is a pure relay and log writer that never imports CRDT semantics, so a server bug can't quietly change a merge.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">613 tests · 100k-op benchmark · live</span></summary>
-            <div class="body">613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases including offline/reconnect and corrupt-storage recovery. Live at weft-abheet.fly.dev.</div></details>
-        </div>
+        <p class="pb">Two people edit the same paragraph and one goes offline for an hour. Weft stores a document as a tree of characters instead of a string, so merges are a deterministic fact about the tree — not a decision anyone has to make.</p>
+        <ul>
+          <li>A from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023): every character has a permanent (replica, counter) identity, so two peers edit, disconnect, keep typing, reconnect and converge with no "resolve conflict" dialog.</li>
+          <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
+          <li>The server is a pure relay/log writer that never imports CRDT semantics.</li>
+        </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">ProseMirror</span><span class="chip">React 19</span><span class="chip">WebSocket</span><span class="chip">IndexedDB</span><span class="chip">Vitest</span><span class="chip">fast-check</span><span class="chip">Fugue CRDT</span></div>
+        <div class="receipts" style="margin-top:22px">
+          <div class="receipt"><div class="n">613</div><div class="l">Vitest cases</div></div>
+          <div class="receipt"><div class="n">100,000</div><div class="l">op benchmark</div></div>
+          <div class="receipt"><div class="n">33</div><div class="l">real-browser cases</div></div>
+        </div>
         <div class="cta">
           <a class="link" href="https://weft-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Weft" target="_blank" rel="noopener">Source</a>
@@ -595,30 +458,46 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 06 — VANTAGE -->
-  <section class="chapter" data-topo="funnel" data-mile="5" data-accent="#F2B23E">
+  <!-- 06 ZENO -->
+  <section class="chapter" data-topo="chain" data-accent="#C81E33">
     <div class="wrap">
-      <div class="proj reveal" style="--accent:#F2B23E">
-        <div class="idx">06 — TYPED FUNNEL</div>
+      <div class="proj reveal">
+        <div class="idx">06 — HASH CHAIN OF SIGNED RECEIPTS</div>
+        <h2>Zeno</h2>
+        <div class="tl">Reason before action.</div>
+        <p class="pb">Coding agents can edit your files, run your build and push your commits — and each asks you to trust a prompt, which is a suggestion, not a boundary. Zeno makes the boundary structural: a local-first approval kernel stands between what an agent proposes and what actually happens.</p>
+        <ul>
+          <li>Deterministic approval kernel: every side-effecting action becomes a content-addressed "held proposal"; the owner approves the exact action, a compare-and-swap confirms the world hasn't moved, exactly one execution is permitted, and the result lands on an Ed25519-signed, hash-chained receipt ledger.</li>
+          <li>"A model can propose but never approve" is structural — the agent holds a proposer token the approval route rejects with 403; Tier 4 payment/biometric effects are permanently unreachable.</li>
+          <li>Three products over one gate — Command, Forge, Counsel — across 16 packages with zero runtime dependencies; e2e suite: 25 flow scripts, 18 verified passes, 3 blocked on hardware (mic/second device), 4 not yet re-run.</li>
+        </ul>
+        <div class="stack"><span class="chip">TypeScript (strict)</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span><span class="chip">MCP</span><span class="chip">0 deps</span></div>
+        <div class="cta">
+          <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
+          <span class="link ghost" style="cursor:default">Local-first · no public deploy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 VANTAGE -->
+  <section class="chapter" data-topo="funnel" data-accent="#F2B23E">
+    <div class="wrap">
+      <div class="proj reveal">
+        <div class="idx">07 — TYPED FUNNEL</div>
         <h2>Vantage</h2>
         <div class="tl">Ask in English. See the SQL. Trust the number.</div>
-        <figure class="reel reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/vantage-demo.gif" alt="Vantage — English question compiled to SQL and a funnel" width="1280" height="800" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/vantage-reel.mp4" aria-label="Vantage demo reel"></video>
-          <figcaption>Vantage · live reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">An LLM writing SQL isn't checkable</span></summary>
-            <div class="body">Analytics tools answer with numbers you can't check. Let an LLM write the SQL and the number becomes both unverifiable and easy to talk into anything.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">The model fills a typed spec, not SQL</span></summary>
-            <div class="body"><ul>
-              <li>The model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count), and a pure compiler turns it into a parameterized SELECT, run as a read-only Postgres role, in a read-only transaction, with a 5-second timeout and row caps.</li>
-              <li>Exposed as an MCP server with 8 read-only tools — no run_sql, no ask — so Claude can query it with no key of its own, and every result carries the exact SQL it ran.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">834 tests · funnel 13→6→3 · live</span></summary>
-            <div class="body">834 test cases. A hand-computed fixture pins the August funnel: signup 13 → create_project 6 → invite_teammate 3 in a 7-day window. Live at vantage-abheet.fly.dev, exposing its exact commit at /health.release_sha.</div></details>
-        </div>
+        <p class="pb">Add an LLM that writes the query and the number becomes both unverifiable and produced by something that can be talked into anything. Vantage makes the model fill a typed spec instead of writing SQL.</p>
+        <ul>
+          <li>The model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count), and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role, in a read-only transaction, with a 5-second timeout and row caps.</li>
+          <li>Exposed as an MCP server with 8 read-only tools — no run_sql, no ask — so Claude can query it with no LLM key of its own, and every result carries the exact SQL it ran.</li>
+          <li>Hand-computed fixture proves the August funnel: signup 13 → create_project 6 → invite_teammate 3 in a 7-day window.</li>
+        </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
+        <div class="receipts" style="margin-top:22px">
+          <div class="receipt"><div class="n">834</div><div class="l">test cases</div></div>
+          <div class="receipt"><div class="n">13→6→3</div><div class="l">signup · project · invite</div></div>
+        </div>
         <div class="cta">
           <a class="link" href="https://vantage-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Vantage" target="_blank" rel="noopener">Source</a>
@@ -627,176 +506,105 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     </div>
   </section>
 
-  <!-- 07 — SHIELDAI -->
-  <section class="chapter" data-topo="scatter" data-mile="6" data-accent="#4F8EF7">
+  <!-- 08 SHIELDAI / TEXTIFY / HEALTHFLOW -->
+  <section class="chapter" data-topo="scatter" data-accent="#4F8EF7">
     <div class="wrap">
-      <div class="proj reveal" style="--accent:#4F8EF7">
-        <div class="idx">07 — CIPHERTEXT SCATTER</div>
-        <h2>ShieldAI</h2>
-        <div class="tl">The private key never leaves the browser.</div>
-        <figure class="reel tall reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/shieldai-demo.gif" alt="ShieldAI — encrypted score computed on ciphertext" width="1280" height="900" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="900" data-src="/assets/reels/shieldai-reel.mp4" aria-label="ShieldAI demo reel"></video>
-          <figcaption>ShieldAI · reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Score sensitive numbers without sending them</span></summary>
-            <div class="body">You want a score computed on sensitive numbers without handing the raw numbers — or the private key — to the server.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">Compute on ciphertext (Paillier)</span></summary>
-            <div class="body"><ul>
-              <li>An educational Paillier demo: the browser generates a 1024-bit keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts. The server adds the encrypted numbers and returns a total the browser decrypts locally to 37.5/100.</li>
-              <li>Partial (additive) homomorphic encryption is exactly what a weighted sum needs — the server computes on ciphertext and never sees a plaintext value.</li>
-              <li>Honest-but-curious threat model, stated plainly: no zero-knowledge range proof, so it doesn't defend against a client lying about its own inputs — and the demo says so.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">Key never leaves the browser · 8+19 gates</span></summary>
-            <div class="body">The raw fields and the private key never reach the server, and logging is payload-free. Verified by 8 backend tests and a 19-group browser gate. Live at shieldai-abheet19.fly.dev, with /version proving the exact commit.</div></details>
+      <div class="mono kicker reveal">08 — THREE FASTER BEATS</div>
+      <h2 class="stmt reveal" style="max-width:24ch">Ciphertext scatter. Citation edges. Five rooms, one draft.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:30px">
+
+        <div class="proj reveal" style="--accent:#4F8EF7;max-width:none">
+          <div class="idx">SHIELDAI</div>
+          <h2 style="font-size:1.6rem">ShieldAI</h2>
+          <div class="tl">The private key never leaves the browser.</div>
+          <p class="pb" style="font-size:.9rem">An educational Paillier partial-homomorphic-encryption demo: the browser generates a 1024-bit keypair, encrypts four derived indicators and sends only the public modulus and ciphertexts. The server computes an encrypted weighted sum and returns a total the browser decrypts locally to 37.5/100 — raw fields and the key never reach the server.</p>
+          <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Vanilla JS</span><span class="chip">Paillier PHE</span></div>
+          <div class="cta"><a class="link" href="https://shieldai-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/ShieldAI" target="_blank" rel="noopener">Source</a></div>
         </div>
-        <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Vanilla JS</span><span class="chip">Paillier</span></div>
-        <div class="cta"><a class="link" href="https://shieldai-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/ShieldAI" target="_blank" rel="noopener">Source</a></div>
+
+        <div class="proj reveal" style="--accent:#E0954D;max-width:none">
+          <div class="idx">TEXTIFY</div>
+          <h2 style="font-size:1.6rem">Textify</h2>
+          <div class="tl">Answers you can check.</div>
+          <p class="pb" style="font-size:.9rem">A private, citation-first RAG workspace: indexes a PDF/DOCX/TXT into sentence-aware chunks (180 words, 36 overlap), retrieves the top-4 passages by cosine similarity and returns the answer with its cited excerpts. Local BGE ONNX embeddings on CPU; Claude writes the final answer; retrieved text is wrapped as untrusted data.</p>
+          <div class="stack"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">BGE ONNX</span><span class="chip">Neon</span></div>
+          <div class="cta"><a class="link" href="https://textify-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/Textify" target="_blank" rel="noopener">Source</a></div>
+        </div>
+
+        <div class="proj reveal" style="--accent:#3ECF8E;max-width:none">
+          <div class="idx">HEALTHFLOW</div>
+          <h2 style="font-size:1.6rem">HealthFlow</h2>
+          <div class="tl">One patient, five departments, one report.</div>
+          <p class="pb" style="font-size:.9rem">Five department dashboards (IT, ENT, Vision, General, Dental) share one clinic-scoped draft over a Socket.IO room; only IT's final submit persists the record transactionally, then stitches all five sections into a formatted .docx report. Tenant boundary authenticates an exact clinic/user/secret triple; Lighthouse 100/100/100/100.</p>
+          <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
+          <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 08 — TEXTIFY -->
-  <section class="chapter" data-topo="thread" data-mile="7" data-accent="#E0954D">
+  <!-- 09 THE LADDER / glass -->
+  <section class="chapter" data-topo="ladder" data-accent="#2ED3C6" id="skills">
     <div class="wrap">
-      <div class="proj reveal" style="--accent:#E0954D">
-        <div class="idx">08 — CITATION EDGES</div>
-        <h2>Textify</h2>
-        <div class="tl">Answers you can check.</div>
-        <figure class="reel reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/textify-demo.gif" alt="Textify — answer returned with cited source excerpts" width="1280" height="800" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/textify-reel.mp4" aria-label="Textify demo reel"></video>
-          <figcaption>Textify · reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">You need the evidence, not just the answer</span></summary>
-            <div class="body">When the answer lives inside your own notes, you also want to see the evidence it came from.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">Citation-first RAG over your docs</span></summary>
-            <div class="body"><ul>
-              <li>Turns a PDF, DOCX, or TXT into a private workspace: sentence-aware chunks (180 words, 36-word overlap), top-4 retrieval by cosine similarity, and the cited excerpts rendered beside the answer.</li>
-              <li>Local BGE-small ONNX embeddings on CPU by default — no key, no bill; Claude writes the final answer, and without a key it stays evidence-only.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">Fails closed · injection-boundaried · live</span></summary>
-            <div class="body">Fails closed — the access-code and body-size checks run before the file is parsed — and retrieved text is wrapped as untrusted data against prompt injection. Live at textify-abheet19.fly.dev.</div></details>
-        </div>
-        <div class="stack"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">BGE ONNX</span><span class="chip">Neon</span></div>
-        <div class="cta"><a class="link" href="https://textify-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/Textify" target="_blank" rel="noopener">Source</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 09 — HEALTHFLOW -->
-  <section class="chapter" data-topo="rooms" data-mile="8" data-accent="#3ECF8E">
-    <div class="wrap">
-      <div class="proj reveal" style="--accent:#3ECF8E">
-        <div class="idx">09 — FIVE ROOMS, ONE DRAFT</div>
-        <h2>HealthFlow</h2>
-        <div class="tl">One patient, five departments, one report.</div>
-        <figure class="reel reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/healthflow-demo.gif" alt="HealthFlow — five department dashboards on one shared draft" width="1280" height="800" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/healthflow-reel.mp4" aria-label="HealthFlow demo reel"></video>
-          <figcaption>HealthFlow · reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Five departments, paper, reconciled by hand</span></summary>
-            <div class="body">A clinic checkup usually means five departments filling paper for the same patient and reconciling by hand.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">One live draft, one report, real tenancy</span></summary>
-            <div class="body"><ul>
-              <li>Five dashboards (IT, ENT, Vision, General, Dental) share one clinic-scoped draft over a Socket.IO room; only IT's final submit commits the record transactionally, then stitches all five into one .docx report — broadcasts are never commits.</li>
-              <li>The tenant boundary authenticates the same clinic/user/secret triple over HTTP and the socket handshake and derives room names server-side.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">Cross-clinic → 404 · Lighthouse 100×4</span></summary>
-            <div class="body">Cross-clinic report requests return 404. Code-split so a tiny gate loads first; pinned Lighthouse scored 100/100/100/100 on mobile and desktop. Live at healthflow-abheet19.fly.dev.</div></details>
-        </div>
-        <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
-        <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live demo ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10 — glass -->
-  <section class="chapter" data-topo="ladder" data-mile="9" data-accent="#7CF5D6">
-    <div class="wrap">
-      <div class="proj reveal" style="--accent:#7CF5D6">
-        <div class="idx">10 — ONE LIGHTNESS LADDER</div>
+      <div class="proj reveal">
+        <div class="idx">09 — ONE LIGHTNESS LADDER</div>
         <h2>glass</h2>
         <div class="tl">A theme owns hue. The system owns everything else.</div>
-        <figure class="reel reveal" data-reel>
-          <img class="reel-poster" src="/assets/reels/glass-demo.gif" alt="glass — themes rotating over one lightness ladder" width="1280" height="800" loading="lazy" decoding="async">
-          <video class="reel-vid" muted loop playsinline preload="none" width="1280" height="800" data-src="/assets/reels/glass-reel.mp4" aria-label="glass demo reel"></video>
-          <figcaption>glass · live reel</figcaption>
-        </figure>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Visual drift across products is easy to miss</span></summary>
-            <div class="body">Eight of my projects landed on the same glass surface without ever sharing a stylesheet — and visual drift across products is easy to introduce and hard to catch.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">One design grammar, eight numbers per theme</span></summary>
-            <div class="body"><ul>
-              <li>The extraction: one importable, framework-neutral design grammar — semantic OKLCH tokens, eight themes, six component sheets, and a Tailwind v3 adapter, with no React and no runtime.</li>
-              <li>A theme file is eight numbers and no structure — it can rotate its accent but can't break the shared lightness ladder, radii, type scale, or motion curve.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">814 assertions · 16 palettes · used in prod</span></summary>
-            <div class="body">The contrast law is verified, not asserted: a dependency-free script proves 814 assertions across 8 themes × 2 grounds = 16 palettes (WCAG 4.5:1 text, 3:1 graphic) and fails the build on drift. Used in production by Zeno, Weft, and Vantage — and by this page. Live at abheet19.github.io/glass.</div></details>
-        </div>
+        <p class="pb">Eight of my projects independently converged on the same glass surface without ever sharing a stylesheet. glass is the extraction: one importable design grammar and a contrast law a script proves on every theme.</p>
+        <ul>
+          <li>Framework-neutral CSS: semantic OKLCH tokens, eleven product themes, six component sheets and a Tailwind v3 adapter — no React, no Web Component, no JS runtime.</li>
+          <li>The contrast law is verified, not asserted: a dependency-free script proves 1111 assertions across 11 themes × 2 grounds = 22 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.</li>
+          <li>Consumed in production by Zeno, Weft and Vantage — this very page reuses its tokens.</li>
+        </ul>
         <div class="stack"><span class="chip">CSS</span><span class="chip">OKLCH</span><span class="chip">Tailwind v3 preset</span><span class="chip">Playwright</span><span class="chip">GitHub Pages</span></div>
+        <div class="receipts" style="margin-top:22px">
+          <div class="receipt"><div class="n">1111</div><div class="l">contrast assertions</div></div>
+          <div class="receipt"><div class="n">22</div><div class="l">palettes proven</div></div>
+        </div>
         <div class="cta">
           <a class="link" href="https://abheet19.github.io/glass/" target="_blank" rel="noopener">Live ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/glass" target="_blank" rel="noopener">Source</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- TOOLKIT -->
-  <section class="chapter" data-topo="ladder" data-accent="#7CF5D6" id="skills">
-    <div class="wrap narrative wide">
-      <div class="mono kicker reveal">11 — Toolkit</div>
-      <h2 class="stmt reveal">The tools behind the boundaries.</h2>
-      <p class="lede reveal">Languages, frameworks, and the harder ideas the projects are built on.</p>
-      <div class="skills-grid" id="skillsGrid"></div>
-    </div>
-  </section>
-
-  <!-- 12 — Helm -->
-  <section class="chapter" data-topo="ring" data-mile="10" data-accent="#7FB5C9">
-    <div class="wrap">
-      <div class="proj reveal" style="--accent:#7FB5C9">
-        <div class="idx">12 — ONE RING AROUND THE FLEET</div>
-        <h2>Helm</h2>
-        <div class="tl">One console for the whole fleet.</div>
-        <div class="disclosures">
-          <details class="disc"><summary>Problem<span class="peek">Seven projects, no single place to watch them</span></summary>
-            <div class="body">Seven separate projects are seven separate things to watch. There was no single place to see them as one fleet.</div></details>
-          <details class="disc"><summary>Contribution<span class="peek">One console, real server-side probes</span></summary>
-            <div class="body"><ul>
-              <li>One console that watches all seven other projects. A small Node/Express server probes each service server-side (no CORS), measures real latency, and computes uptime and p50/p95 from a rolling window.</li>
-              <li>Its own product on the same glass design system, exposing a read-only MCP manifest of fleet tools.</li>
-            </ul></div></details>
-          <details class="disc"><summary>Proof<span class="peek">SAMPLE-labelled · dry-run deploys · live</span></summary>
-            <div class="body">Honest by design: metrics that aren't wired yet are labelled SAMPLE, and deploy actions are dry-runs that print the exact fly command and run nothing. Live at helm-abheet.fly.dev.</div></details>
-        </div>
-        <div class="stack"><span class="chip">Node 20</span><span class="chip">Express</span><span class="chip">ES-module SPA</span><span class="chip">inline SVG charts</span><span class="chip">glass</span><span class="chip">MCP</span></div>
-        <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a></div>
+      <div style="margin-top:56px">
+        <div class="mono kicker reveal">TOOLKIT</div>
+        <div class="skills-grid" id="skillsGrid"></div>
       </div>
     </div>
   </section>
 
-  <!-- CONVERGENCE -->
-  <section class="chapter" data-topo="brain" data-span="12" data-accent="#7CF5D6">
-    <div class="wrap narrative wide">
-      <div class="mono kicker reveal">13 — The throughline</div>
-      <h2 class="stmt reveal">One idea runs through <em>all of it</em>.</h2>
-      <p class="lede reveal">Every project takes a hard computer-science idea and turns it into shipped, tested software with a boundary you can see: a CRDT, an approval kernel, a typed query spec, a verified contrast law, homomorphic encryption. Ask about any of it — the assistant answers only from cited facts.</p>
+  <!-- 10 UNWOVEN / Helm -->
+  <section class="chapter" data-topo="thread" data-accent="#6E6A62">
+    <div class="wrap">
+      <div class="proj unbuilt reveal">
+        <div class="idx">10 — A LOOSE THREAD, UNLIT</div>
+        <h2>Helm</h2>
+        <div class="tl" style="color:var(--ink-3)">One control plane for the whole portfolio.</div>
+        <p class="pb">The planned terminal deliverable: a deployed cross-project observability and ops control plane for all seven projects, built as its own product. Scheduled after the rest of the portfolio is finished.</p>
+        <ul><li>In progress — early ops dashboard live at helm-abheet.fly.dev.</li></ul>
+        <div class="cta"><a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Early build ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 CONVERGENCE -->
+  <section class="chapter" data-topo="brain" data-accent="#7CF5D6">
+    <div class="wrap">
+      <div class="mono kicker reveal">11 — CONVERGENCE</div>
+      <h2 class="stmt reveal">The lattice folds into a <em>breathing mind</em>.</h2>
+      <p class="lede reveal">A recurring theme across every project: turn a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary. Ask the lattice anything about this work — it answers only from cited facts.</p>
       <div class="eco" id="ecoGrid"></div>
       <div style="margin-top:26px"><button class="link" id="askBtn2">Ask the lattice ↗</button></div>
     </div>
   </section>
 
-  <!-- 14 ONE LINE / CONTACT -->
-  <section class="chapter contact" data-topo="line" data-span="12" data-accent="#F2B23E" id="contact">
-    <div class="wrap narrative">
-      <div class="mono kicker reveal" style="text-align:center">14 — Contact</div>
-      <h2 class="stmt reveal">One line to reach me.</h2>
+  <!-- 12 ONE LINE / CONTACT -->
+  <section class="chapter contact" data-topo="line" data-accent="#F2B23E" id="contact">
+    <div class="wrap">
+      <div class="mono kicker reveal" style="text-align:center">12 — ONE LINE</div>
+      <h2 class="stmt reveal">The strand resolves to a single line.</h2>
       <div class="email-row reveal">
         <span class="addr" id="emailAddr">abheet19@gmail.com</span>
         <button class="copy-btn" id="copyBtn">Copy</button>
@@ -806,9 +614,9 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <a class="link" href="https://linkedin.com/in/abheet-singh-isher" target="_blank" rel="noopener">LinkedIn</a>
         <a class="link ghost" href="mailto:abheet19@gmail.com">Email</a>
         <a class="link ghost" href="/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-        <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm ↗</a>
+        <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm (early)</a>
       </div>
-      <p class="foot reveal">Abheet Singh Isher · India · open to remote · shipped AI writing to 10M+ weekly users · builds things that hold up under load.</p>
+      <p class="foot reveal">Abheet Singh Isher · India, open to remote · shipped AI writing to 10M+ weekly users · built for coherence, not just control.</p>
     </div>
   </section>
 
@@ -819,7 +627,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 <section class="chat-panel" id="chatPanel" aria-label="Ask the lattice chatbot">
   <div class="chat-head">
     <div class="orb" aria-hidden="true"></div>
-    <div><h4>Ask the lattice</h4><p id="chatCount">grounded in 146 cited facts</p></div>
+    <div><h4>Ask the lattice</h4><p>grounded in 49 cited facts</p></div>
     <button class="x" id="chatClose" aria-label="Close">✕</button>
   </div>
   <div class="chat-log" id="chatLog"></div>
@@ -830,210 +638,83 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   </form>
 </section>
 
-<!-- Three.js is the only runtime dependency and it is NOT in the critical path:
-     the scene script below injects it after window.load, so first paint, the hero
-     LCP text and the chatbot never wait on a 600KB WebGL bundle. Scroll is native. -->
+<!-- Libraries: cdnjs only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.42/lenis.min.js"></script>
+
 <script>
 /* ============================================================================
-   DATA
+   DATA — all facts corrected: Barclays $5k, glass 1111/22/11, Zeno 25 scripts
    ============================================================================ */
 const RAG_FACTS = [
-/* ---- Who is Abheet ---- */
-"Abheet Singh Isher is a full-stack software engineer based in India, open to roles in India and fully remote.",
-"His one-line headline: he shipped AI writing to 10M+ weekly active users at QuillBot, and now builds local-first AI tools with real safety guarantees.",
-"His contact details are email abheet19@gmail.com, phone +91-9682396948, LinkedIn linkedin.com/in/abheet-singh-isher, and GitHub github.com/abheet19.",
-"Abheet's education: he holds a B.E. degree in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala, where he did his undergraduate study from 2018 to 2022.",
-"His career path runs Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), and then building his own suite of deploy-ready projects.",
-"His core strengths are browser-extension engineering at consumer scale (Manifest V3, ~10M weekly active users), React and TypeScript, web performance, applied AI, and full-stack development.",
-"A recurring theme across all his work is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary.",
-"He has built and deployed a portfolio of eight projects — Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm — that each turn a hard computer-science idea into shipped, tested software.",
-"His resume is available from the Resume link in the site's top navigation and contact section (it opens the PDF).",
-"His work at QuillBot is deliberately framed around real results and modern tooling, never internal ticket IDs, experiment names, or repository names.",
-/* ---- QuillBot ---- */
-"At QuillBot (Learneo) Abheet was a Software Engineer from December 2024 to August 2026.",
-"His QuillBot work shipped AI-assisted writing to 10M+ weekly active users across a Chrome/Firefox Manifest V3 extension and its server-rendered (SSR) web app.",
-"At QuillBot he architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors, including Google Docs, Gmail, MS Word and ChatGPT.",
-"QuillBot's insert/replace engine preserves block-level formatting using the DOM Selection/Range and CSSOM APIs, and works across Shadow DOM and cross-frame boundaries, treating every editor as a peer writing back into one document.",
-"At QuillBot he optimized the selection hot path: an undebounced per-selectionchange computation running about 60 calls/sec was moved onto a 300ms debounce, and he eliminated forced-layout reflows and a requestIdleCallback leak.",
-"At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants.",
-"His QuillBot growth experiments were instrumented with Amplitude funnels and Google social auth.",
-"At QuillBot he owned build and CI health on an nx monorepo, upgrading the toolchain to Node 24 with 234 test suites and 3100+ tests green.",
-"QuillBot is where Abheet proves consumer-scale browser-extension engineering: MV3 service workers, content scripts, and reliable DOM manipulation across a hostile variety of third-party sites.",
-/* ---- Barclays ---- */
-"At Barclays (Aug 2022 - Nov 2024) he was a Software Developer building responsive financial dashboards with Python, FastAPI, React and TypeScript.",
-"His Barclays dashboards automated manual report reviews, saving an estimated $8,000/month in auditor time.",
-"At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%.",
-"At Barclays his React interfaces on a KDB+ backend cut audit completion time by 40% and lifted auditor satisfaction by about 10%; he shipped monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.",
-/* ---- Mamaearth ---- */
-"At Mamaearth (Jan 2022 - Jun 2022) he was an SDE intern who spearheaded a User Collaboration & Research SaaS platform for targeted surveys, contributing to a 10% increase in user feedback.",
-"At Mamaearth he built a responsive JavaScript web SDK capturing 5K+ daily user interactions and shipped Node.js (Express) and React microservices via Docker and GitLab CI/CD for 20% faster release cycles.",
-/* ---- Zeno ---- */
-"Zeno is Abheet's flagship project: a Windows-first, local-first personal AI suite whose tagline is 'Reason before action.'",
-"Zeno's core idea is a deterministic approval kernel - governance as a runtime, not a policy document - that stands between what an AI agent proposes and what actually happens.",
-"The problem Zeno solves: coding agents can edit your files, run your build and push your commits, and each one asks you to trust a prompt, which is a suggestion, not a boundary; Zeno makes the boundary structural.",
-"In Zeno, every side-effecting action becomes a content-addressed 'held proposal' bound to the exact payload, capability, target path, a hash of its context, and the base state.",
-"Zeno approvals are single-use: the owner approves the exact action, a compare-and-swap (CAS) check confirms the world hasn't moved, exactly one execution attempt is permitted, and the result lands on an Ed25519-signed, hash-chained receipt ledger.",
-"In Zeno an AI model can propose but can never approve its own action; it is structural, because the agent runs with a proposer token that the approval route rejects with a 403.",
-"Zeno classifies every effect into a risk tier from T0 (auto-safe reads) up to T4 (payment/biometric), and Tier 4 effects are permanently unreachable, with no toggle to enable them.",
-"Zeno ships three products over one gate: Command (the orchestrator and approval home), Forge (a governed coding agent), and Counsel (consent-gated meeting notes).",
-"Zeno's Command is an orchestrator, not just a chat box: the owner drives every Forge agent from it, and a 'Standing Field' orb renders each running agent as a live node showing phase, percent and elapsed time.",
-"Zeno's Forge runs Claude Code, Codex, or a discovered local Ollama model in a disposable git worktree; valid file output becomes a held proposal, and approval revalidates its target, base and context hashes.",
-"Zeno's Counsel is a consent-gated meeting notebook: it takes exclusive microphone ownership, requires declared consent, stores transcript text only, extracts cited items deterministically, and enables cited Q&A only after a meeting is ended and saved.",
-"Zeno's Vault stores plain, human-readable Markdown memories and answers with transparent keyword retrieval plus clickable citations - no embeddings, no vector database, no hidden cross-chat profile, no provider key.",
-"Zeno is local-first: the daemon binds to 127.0.0.1 (loopback) only, there is zero telemetry, and any hosted-provider or browser egress is explicit and per-run.",
-"Zeno's workspace runs across 16 packages with zero runtime dependencies; its approval kernel (about 2,500 lines) is deliberately kept even through an aggressive file-size refactor because it is the product's whole point.",
-"Zeno's end-to-end suite passed 18 flows with 0 failed (3 blocked on missing hardware like a microphone or a second device); each flow boots an isolated daemon and drives the real renderer in headless Chromium.",
-"In Zeno, project files, web and MCP content, transcripts, and model output are all treated as untrusted data and never as authority, which is also its defense against prompt injection.",
-"A hard bug Abheet debugged in Zeno: an end-to-end test hung when opening a second browser window because the UI opened four long-lived SSE connections per window (three to the same endpoint), exhausting the browser's roughly 6-per-origin HTTP/1.1 socket budget; he fixed it by consolidating the duplicate streams into one shared EventSource with a subscriber list.",
-"Zeno is intentionally not deployed to the public web; it runs locally, and its source is at github.com/abheet19/Zeno.",
-"Zeno's stack is TypeScript (strict), Node 22, Electron, Ed25519 via node:crypto, Server-Sent Events (SSE), local Ollama models, and the Model Context Protocol (MCP), with zero runtime dependencies.",
-"Zeno keeps its codebase maintainable with a hard rule of 500 lines per file maximum; its daemon's server.ts went from about 5,700 lines to about 420 by extracting roughly 27 focused route modules, and about 16,000 lines of dead or mock code were removed.",
-"Zeno's Forge enforces containment: file effects stay inside the selected project after path, symlink and junction checks, and the selected repository cannot change while the model is running.",
-/* ---- Weft ---- */
+"Abheet Singh Isher is a software engineer based in India, open to roles in India and remote.",
+"His contact details are abheet19@gmail.com, +91-9682396948, linkedin.com/in/abheet-singh-isher, and github.com/abheet19.",
+"He holds a B.E. in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala (2018-2022).",
+"His career path is Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), then building his own project suite.",
+"At QuillBot (Learneo) he was a Software Engineer from Dec 2024 to Aug 2026; following a company-wide restructuring in September 2026, he is now open to new software engineering roles in India or fully remote.",
+"At QuillBot he architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors including Google Docs, Gmail, MS Word and ChatGPT, preserving block-level formatting using the DOM Selection/Range and CSSOM APIs.",
+"His QuillBot work shipped AI-assisted writing to 10M+ weekly active users across a Chrome/Firefox Manifest V3 extension and its server-rendered web app.",
+"At QuillBot he optimized the selection hot path by moving an undebounced per-selectionchange computation (~60 calls/sec) onto a 300ms debounced path and eliminating forced-layout reflows and a requestIdleCallback leak.",
+"At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants, instrumented with Amplitude funnels and Google social auth.",
+"At QuillBot he owned build and CI health on an nx monorepo, upgrading the toolchain to Node 24 with 234 test suites / 3100+ tests green.",
+"At Barclays (Aug 2022 - Nov 2024) he built responsive financial dashboards with Python, FastAPI, React.js and TypeScript, saving an estimated $5,000/month in auditor time by automating manual report reviews.",
+"At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%, and his React.js/KDB+ interfaces cut audit completion time by 40%.",
+"At Mamaearth (Jan 2022 - Jun 2022) he built a User Collaboration & Research SaaS platform and a JavaScript web SDK capturing 5K+ daily user interactions, and deployed Node.js/React microservices via Docker and GitLab CI/CD for 20% faster releases.",
+"His core strengths are browser-extension engineering at consumer scale (MV3, ~10M weekly active users), React/TypeScript, web performance, applied AI, and full-stack development.",
+"Zeno is his flagship project: a local-first, Windows-first personal AI suite whose tagline is 'Reason before action.'",
+"Zeno's core idea is a deterministic approval kernel that stands between what an AI agent proposes and what actually happens - governance as a runtime, not a policy document.",
+"In Zeno, every side-effecting action becomes a content-addressed 'held proposal'; the owner approves the exact action, a compare-and-swap check confirms the world hasn't moved, exactly one execution attempt is allowed, and the result is recorded on an Ed25519-signed hash-chained receipt ledger.",
+"In Zeno, an AI model can propose but can never approve its own action - this is structural: the agent holds a proposer token that the approval route rejects with 403, and Tier 4 payment/biometric effects are permanently unreachable.",
+"Zeno has three products over one gate: Command (orchestrator and approval home), Forge (a governed coding agent running Claude Code, Codex or a local Ollama model in a disposable git worktree), and Counsel (consent-gated meeting notes where every item cites its source line).",
+"Zeno is local-first (the daemon binds to 127.0.0.1 only), has zero telemetry, and its 16 packages have zero runtime dependencies; its e2e suite has 25 flow scripts - 18 verified passes, 3 blocked on missing hardware (microphone or second device), 4 not yet re-run - and it has no public web deployment.",
 "Weft is an offline-first collaborative rich-text editor whose tagline is 'Two people. One document. No lost edits.'",
-"The problem Weft solves: two people edit the same paragraph and one goes offline for an hour, and naive systems either overwrite work, force a conflict decision, or block editing.",
-"Weft stores a document as a tree of characters instead of a string, so a merge is a deterministic fact about the tree rather than a decision anyone has to make.",
-"Weft implements a from-scratch Fugue sequence CRDT (Weidner & Kleppmann, 2023) in which every character has a permanent (replica, counter) identity.",
-"Fugue's defining property is maximal non-interleaving: when two people type at the same spot, their runs stay whole instead of interleaving letter-by-letter.",
-"Because Weft is a CRDT, two peers can edit, disconnect, keep typing, reconnect and converge with no 'resolve conflict' dialog; on reconnect they swap state vectors and replay only the missing operations, which are idempotent so duplicates are safe.",
-"Weft shows honest sync states - 'in memory', 'on this device' (committed to IndexedDB), and 'Saved' (append plus fsync plus server acknowledgement) - and the green Saved pill comes from the server ack, never from a timer.",
-"Weft's server is a pure relay and log writer: it validates the wire format, durably appends, acknowledges and fans out operations, but never imports CRDT semantics, so a server bug cannot silently change a merge.",
-"Weft is verified by 613 distinct Vitest cases, a deterministic 100,000-operation benchmark, and 33 real-browser Chromium cases (including offline/reconnect and corrupt-storage recovery); its CRDT and protocol packages have zero runtime dependencies.",
-"Weft's correctness is proven with property-based tests (fast-check) that throw random operation sequences and arrival orders at convergence, plus a canonical serialization and content hash both peers compare.",
-"Weft's stack is TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check; the redesigned UI is a glass app shell with Documents, Editor, History and Settings screens.",
-"Weft deliberately does not use Yjs: Abheet built the CRDT from scratch to understand it, so it is simpler than Yjs in nameable ways but readable in one sitting, with a property test per invariant.",
-"Weft chose a CRDT over Operational Transformation (OT, Google Docs' lineage) because a long offline period is OT's worst case (a big rebase), whereas a CRDT just replays idempotent operations and converges.",
-"Weft's formatting uses per-character last-writer-wins resolved through logical metadata (never wall-clock time), a deliberate simplicity trade-off over the richer Peritext approach that its design doc names as not built.",
-"Weft is deployed at weft-abheet.fly.dev with source at github.com/abheet19/Weft; the public demo has no accounts or encryption, so it should not hold private documents.",
-/* ---- Vantage ---- */
+"Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
+"Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
+"Weft is verified by 613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases, and is deployed at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
+"Weft's stack includes TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check property tests, and its server is a pure relay that never imports CRDT semantics.",
 "Vantage is an auditable, AI-native product-analytics service whose tagline is 'Ask in English. See the SQL. Trust the number.'",
-"The problem Vantage solves: analytics tools answer with numbers you cannot check, and adding an LLM that writes SQL makes the number both unverifiable and produced by something that can be talked into anything.",
-"Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec, and a pure compiler is the only thing that turns a spec into SQL.",
-"Vantage's QuerySpec is a small domain-specific language (a Zod schema, a discriminated union on kind: funnel, retention, trend, paths, count) with no free-text or expression field, so there is nothing for injected SQL to ride in on.",
-"Vantage's compiler emits a parameterized SELECT that runs as vantage_reader (a SELECT-only Postgres role) inside a READ ONLY transaction with a 5-second statement timeout and row caps.",
-"Vantage uses three Postgres roles for least privilege: vantage_owner (migrations), vantage_app (INSERT-only ingest), and vantage_reader (SELECT-only analytics).",
-"In Vantage, even a perfect jailbreak of the model only yields text that fails Zod validation and is refused with the raw output shown; the read-only role, transaction, timeout and row cap are independent backstops.",
-"Vantage is exposed as a stdio MCP server with 8 read-only tools and deliberately no run_sql and no ask tool, so Claude Desktop or Claude Code can query it with no LLM key of its own.",
-"Every Vantage result carries the exact SQL it ran (with $1 to $n parameters) plus an honest status (complete, empty, timed_out, truncated, or refused) and a data_until watermark.",
-"Vantage ingestion is idempotent via UNIQUE(project_id, insert_id) with ON CONFLICT DO NOTHING; a stable key is derived when a client omits insert_id, so retries cannot double-count.",
-"Vantage funnel correctness is pinned by a hand-computed fixture with adversarial rows (timezone boundaries, out-of-order events, an identity merge) whose expected numbers fail by name; the August funnel resolves to signup 13, then create_project 6, then invite_teammate 3 in a 7-day window.",
-"Vantage computes funnels with SQL window functions over per-person event streams (not exploding self-joins), buckets with AT TIME ZONE before date_trunc, uses first-occurrence step semantics, and adds covering and BRIN indexes on the append-only events table.",
-"Vantage has 834 distinct test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and a lint and dependency rule fails the build if Ask reaches the write pool or analytics reaches a model adapter.",
-"Vantage chose PostgreSQL over DuckDB or SQLite because only Postgres gives real least-privilege roles, a server-side statement_timeout that can interrupt a running query, and EXPLAIN (ANALYZE, BUFFERS) for real query plans.",
-"Vantage is deployed at vantage-abheet.fly.dev (Docker plus Caddy on Fly.io), exposes its exact commit at /health.release_sha, and its source is at github.com/abheet19/Vantage.",
-"Vantage's public demo runs with the LLM disabled (VANTAGE_LLM=none), so a successful canned example proves the typed-spec boundary, the compiler and the UI flow end-to-end, honestly not free-form model accuracy.",
-/* ---- glass ---- */
-"glass is a framework-neutral CSS design system whose tagline is 'A theme owns hue. The system owns everything else.'",
-"glass was extracted from eight of Abheet's projects that had independently converged on the same glass surface - the same radii, motion curves and theme triad - without ever sharing a stylesheet.",
-"glass solves cross-product visual drift with one importable design grammar and a contrast law a script proves on every theme, without imposing a JavaScript framework or runtime.",
-"glass uses semantic OKLCH color tokens, eight product themes, six component sheets, workspace and agent-shell primitives, and a Tailwind v3 adapter - no React, no Web Component, no JS runtime.",
-"OKLCH is a perceptually-uniform color space, which is the only reason one shared lightness ladder can be worn by a crimson, a teal and an emerald and land in the same measured contrast position.",
-"glass's contrast law is verified, not asserted: a dependency-free script parses the CSS, resolves var() chains, evaluates oklch() with sRGB gamut mapping and alpha compositing, and proves 814 assertions across 8 themes by 2 grounds = 16 palettes on every push.",
-"glass's core rule is that a theme file contains eight numbers and nothing else (a ground plus a hue-and-two-chromas per accent); lightness, radii, type scale, motion curve and state hues live in shared tokens, so a theme can rotate its accent but cannot break the ladder.",
-"Each glass accent ships two chroma values (a dark-ground one and a light-ground one) because sRGB holds more chroma at mid lightness than at high lightness, which is a gamut-mapping decision.",
-"Writing glass's contrast script caught three real defects: a light-mode warning color at 3.59:1 (below AA), three state chips collapsing in greyscale, and the --ink-2 token missing the glass ceiling by 0.06.",
-"glass is verified against WCAG 2.2 (4.5:1 text, 3:1 graphic, plus a live AA-to-AAA toggle) and every state carries a unique glyph and a unique word, so color is never the only channel.",
-"glass is consumed in production by Zeno, Weft and Vantage (and this portfolio page reuses its tokens); it is intentionally not published to npm and is consumed via git, submodule, a vendored copy, or the jsDelivr CDN.",
-"glass is live at abheet19.github.io/glass (GitHub Pages, exact-SHA publish), where the 'Glass Studio' demo is itself built from the same six component sheets; its source is at github.com/abheet19/glass.",
-"glass proves its provenance is real, not marketing: Weft and Vantage arrived at byte-identical radii, motion and theme triad independently, and each theme file documents the flagship's original value so the delta is verifiable.",
-/* ---- HealthFlow ---- */
-"HealthFlow is a synthetic clinic health-checkup workflow whose tagline is 'One patient, five departments, one report'; it is a demonstration only, not an EHR or a compliance-ready product, and must only ever receive synthetic data.",
-"HealthFlow puts five departments (IT intake, ENT, Vision, General and Dental) on their own live dashboards sharing one clinic-scoped draft over a Socket.IO room.",
-"In HealthFlow, department edits broadcast as low-latency per-field patches, but broadcasts are not database commits - only IT's final submit persists the complete record transactionally to PostgreSQL.",
-"After every department has submitted, HealthFlow stitches all five sections into a single formatted Word (.docx) report from a template, downloadable from the patients list.",
-"HealthFlow's tenant boundary authenticates the exact same clinic/user/secret triple over both HTTP and the Socket.IO handshake, derives room names server-side (payloads cannot select their own room), and filters stored rows and reports by clinic (cross-clinic report requests return 404).",
-"HealthFlow's stack is React 18, TypeScript, Vite, Tailwind and MUI on the frontend, with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend, deployed as two separate Fly apps (frontend plus API) mapped to one commit.",
-"HealthFlow uses SPA code-splitting so a tiny access gate loads first and MUI, the socket client and each department load as separate chunks on demand; pinned Lighthouse runs scored 100/100/100/100 (Performance, Accessibility, Best Practices, SEO) on mobile and desktop.",
-"HealthFlow's /health runs a real SELECT 1 bounded by a 2-second Eventlet timeout and returns 503 with non-secret metadata when the database is down, degrading in a bounded way and then recovering (there is no failover).",
-"HealthFlow is live at healthflow-abheet19.fly.dev with source at github.com/abheet19/HealthFlow; it is verified by 11 backend tests plus browser workflow, navigation and resilience checks.",
-/* ---- Textify ---- */
+"Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count) and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role with a 5-second timeout.",
+"Vantage is exposed as an MCP server with 8 read-only tools and no run_sql or ask tool, so Claude Desktop or Claude Code can query it as a tool with no LLM key of its own, and every result carries the SQL it ran.",
+"Vantage ensures idempotent ingestion via UNIQUE(project_id, insert_id) and proves funnel correctness with a hand-computed fixture (the August funnel is signup 13 -> create_project 6 -> invite_teammate 3 in a 7-day window).",
+"Vantage has 834 test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and is deployed at vantage-abheet.fly.dev exposing its exact commit at /health.release_sha.",
+"glass is a framework-neutral CSS design system whose tagline is 'A theme owns hue. The system owns everything else,' extracted from eight of Abheet's projects that independently converged on the same surface.",
+"glass uses semantic OKLCH tokens, eleven product themes, six component sheets and a Tailwind v3 adapter, and its contrast law is machine-verified: a dependency-free script proves 1111 assertions across 11 themes x 2 grounds = 22 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.",
+"glass's central rule is that a theme file contains eight numbers and no structure - a theme can rotate its accent hue but cannot break the shared lightness ladder, radii, type scale or motion curve.",
+"glass is live at abheet19.github.io/glass and is consumed in production by Zeno, Weft and Vantage; it is intentionally not published to npm.",
+"HealthFlow is a synthetic clinic health-checkup workflow whose tagline is 'One patient, five departments, one report,' and it is a demonstration only - not an EHR or compliance-ready product.",
+"HealthFlow puts five departments (IT, ENT, Vision, General, Dental) on live dashboards sharing one clinic-scoped draft over Socket.IO, and only IT's final submit persists the complete record transactionally to PostgreSQL, then generates a formatted .docx report from a template.",
+"HealthFlow enforces a tenant boundary by authenticating an exact clinic/user/secret triple over both HTTP and Socket.IO, deriving room names server-side, and filtering stored rows and reports by clinic (cross-clinic report requests return 404).",
+"HealthFlow uses React 18, TypeScript, Vite, Tailwind, MUI and Socket.IO on the frontend with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend, deploys as two Fly apps, and scored 100/100/100/100 on Lighthouse; it is live at healthflow-abheet19.fly.dev.",
 "Textify is a private, single-user, citation-first RAG study workspace whose tagline is 'Answers you can check.'",
-"The problem Textify solves: when an answer lives inside your own notes, you also need to check the evidence yourself, so Textify returns the answer alongside the source passages it used.",
-"Textify indexes a PDF, DOCX or TXT source into sentence-aware chunks (180 words with 36-word overlap) and retrieves the top-4 passages by cosine similarity within the selected document.",
-"Textify creates embeddings by default with a pinned quantized BAAI/bge-small-en-v1.5 ONNX model on CPU (384-dimensional, no embedding API key or bill); an OpenAI text-embedding-3-small (1536-dimensional) backend is also supported.",
-"Textify stores vectors in Neon PostgreSQL with the pgvector extension, keeping vectors in the same database as the rows, so there is no separate vector database to operate.",
-"Textify uses Claude (the Messages API) to generate the final grounded answer; without a generation key it returns retrieved evidence explicitly as 'evidence-only', which never hallucinates because it never generates.",
-"Textify fails closed in production: a raw ASGI upload gate checks the access code and a raw-body cap before FastAPI's multipart parser buffers anything, so an anonymous or oversized upload is rejected without being spooled.",
-"Textify treats retrieved excerpts as untrusted data (a prompt-injection boundary) and renders all document and answer text with textContent, never innerHTML, so injected markup stays inert.",
-"Textify's ingest is idempotent and race-safe via a normalized full SHA-256 with a UNIQUE constraint, and its front end drops stale answers after lock using a monotonic version token plus AbortController.",
-"Textify chose pgvector over a dedicated vector database (Pinecone, Weaviate, Milvus) because the corpus is small and per-document, so exact cosine over a bounded set is fast without an ANN index and there is one datastore to operate.",
-"Textify is built on Python 3.12 and FastAPI, is live at textify-abheet19.fly.dev, and its source is at github.com/abheet19/Textify.",
-/* ---- ShieldAI ---- */
-"ShieldAI is an educational demonstration of Paillier partial homomorphic encryption (PHE); its tagline is that the private key never leaves the browser, and it is explicitly not AI, not a credit product, and not production cryptography.",
-"Homomorphic encryption lets you compute on ciphertext and decrypt a result equal to computing on the plaintext; ShieldAI uses partial (additive) HE, which is exactly what a linear weighted sum needs.",
-"In ShieldAI the browser derives four bounded integer indicators from five synthetic financial fields, generates a fresh 1024-bit Paillier keypair in memory, encrypts the indicators, and sends only the public modulus and four ciphertexts to the server.",
-"ShieldAI's Flask server computes an encrypted weighted sum directly on the ciphertext (5 times DTI-bps + 4 times loan-to-income-bps + 3 times utilization-bps + 200 times stability-gap-months) starting from a fresh Enc(0), and returns an encrypted total; it never has the private key and never sees a plaintext value.",
-"The browser decrypts ShieldAI's total locally and normalizes it to a deterministic 37.5/100 on the canonical synthetic example, shown with a contribution breakdown and a privacy receipt.",
-"ShieldAI's threat model is honest-but-curious: the curious server only ever sees ciphertext; it deliberately has no zero-knowledge range proof, so it does not defend against a malicious client lying about its plaintext, which is a stated limitation.",
-"ShieldAI keeps raw fields, plaintext indicators, the private key, the decrypted total and the displayed score off the server entirely, and its logs contain only a request ID, route and status, and timing, never form values, keys or ciphertexts.",
-"ShieldAI bounds its CPU-heavy crypto endpoint with cheap-first checks (a body-size cap, decimal-string and ciphertext-length limits, range and coprimality checks) plus a process-local per-client hourly quota, all before any modular arithmetic.",
-"ShieldAI uses 1024-bit keys as a deliberate demo trade-off (2048-bit in-browser keygen adds noticeable latency); the server enforces exactly 1024-bit odd moduli so the boundary is explicit rather than accidental.",
-"ShieldAI is a vanilla-JS glass workspace (sidebar, command palette, drawers) with no build step, built on Flask, with the Paillier library and glass tokens vendored so runtime crypto does not depend on a CDN.",
-"ShieldAI is verified by 8 backend tests and a 19-group browser gate, is live at shieldai-abheet19.fly.dev with /version proving the exact commit, and its source is at github.com/abheet19/ShieldAI.",
-/* ---- Helm ---- */
-"Helm is Abheet's terminal deliverable and is deployed live at helm-abheet.fly.dev: a cross-project ops and observability command center - one glass console that watches all seven other projects as a single fleet.",
-"Helm is not a mockup: a small Node and Express server probes each live service server-side (no browser, so no CORS), measures real latency, and keeps a rolling window so up/down, uptime, p50/p95 and the sparklines are computed from actual measurements.",
-"Helm is honest about what is real: metrics not yet instrumented (Core Web Vitals, error rate, cost, deploy history) are shown as clearly-labelled SAMPLE placeholders with a wiring note, and its deploy/rollback actions are dry-runs that print the exact fly command and execute nothing.",
-"Helm offers ten ops flows reachable from a rail and a command palette: an Overview fleet grid, Performance/Web-Vitals, Health, Deploys, Alerts (evaluated live against real probe data), a Service Map, a public-style Status page, a client-side Assistant, and Settings.",
-"Helm's stack is Node 20+ and Express with a vanilla ES-module SPA (no build step and no chart library - charts are hand-drawn inline SVG), built on the shared glass design system and exposing a read-only MCP manifest of fleet tools.",
-"Helm is deployed at helm-abheet.fly.dev (Docker on Fly.io, region Singapore); glass is its visual foundation and MCP is its connective tissue, so the portfolio reads as one ecosystem rather than seven islands.",
-/* ---- Ecosystem / cross-cutting ---- */
-"The seven projects plus Helm form one ecosystem: glass is the shared visual foundation every project is built on, and MCP (the Model Context Protocol) is the connective tissue Zeno and Helm drive the products through.",
-"Across the suite the recurring pattern is a hard CS idea behind a clear trust boundary: CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
-"His publicly deployed projects are Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm; Zeno is the local-first flagship with no public web deploy, and all repositories live under github.com/abheet19.",
-"Every deployed project proves the exact running commit (for example /health.release_sha, /version, or /release.json), so a reachable URL is never treated as proof on its own - the live SHA must match the reviewed source.",
-"MCP (the Model Context Protocol) is an open standard for exposing tools and data to an AI model; Vantage ships an MCP analytics server, Zeno exposes and consumes MCP tools, and Helm exposes a read-only MCP manifest.",
-"Several projects share a glass app-shell redesign (a nav rail, a command palette on Ctrl-K or Cmd-K, and light/dark themes): Weft, Vantage, glass, HealthFlow, Textify and ShieldAI all adopted it.",
-"The projects are heavily tested overall - for example 834 cases in Vantage, 613 in Weft, an 18-flow end-to-end suite in Zeno, 814 contrast assertions in glass, and Lighthouse 100s in HealthFlow.",
-"This portfolio site is itself one of Abheet's builds: a single WebGL scene in which one glyph strand is his timeline - Mamaearth, Barclays, QuillBot and then the eight projects - folding into a different shape and taking that chapter's colour as you scroll, over glass panels that reuse the glass design tokens.",
-/* ---- Skills ---- */
-"Abheet's tech stack and technologies span these skills: TypeScript, JavaScript, Python, SQL and C++ as languages; React, Redux, Node.js, Express, NestJS, Flask and FastAPI as frameworks; PostgreSQL, pgvector, Redis, MongoDB and KDB+ for data; Docker, Fly.io, GitHub Actions and nx for tooling; plus applied-AI work with CRDTs, MCP, RAG and homomorphic encryption.",
-"Abheet's programming languages include TypeScript, JavaScript, Python, SQL and C++.",
-"His frontend skills include React, Redux, ProseMirror, Material UI, Tailwind CSS and Vite; his backend skills include Node.js, Express, NestJS, Flask and FastAPI.",
-"His browser-extension skills include Manifest V3, service workers, content scripts, Shadow DOM, and the DOM Selection/Range and CSSOM APIs.",
-"His data skills include PostgreSQL, pgvector, MySQL, MongoDB, Redis, SQLAlchemy and KDB+.",
-"His infrastructure and tooling skills include Electron, Docker, Fly.io, GitHub Actions, GitLab CI/CD, AWS, GCP and nx monorepos.",
-"His applied-AI and computer-science skills include CRDTs, the Model Context Protocol (MCP), RAG, local embeddings (BGE), Paillier homomorphic encryption, content-addressed approvals, Ed25519 hash-chained ledgers, and capability security.",
-"His quality and design skills include property-based testing (fast-check), Playwright, Vitest, Jest, A/B experimentation, funnel analytics (Amplitude), web-performance optimization, and OKLCH design systems with WCAG contrast.",
-/* ---- Contact ---- */
-"The best way to reach Abheet is email at abheet19@gmail.com; his GitHub is github.com/abheet19 and his LinkedIn is linkedin.com/in/abheet-singh-isher.",
-"Abheet is open to new software engineering roles, in India or fully remote.",
-"All of Abheet's personal project repositories are public under github.com/abheet19, including Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm."
+"Textify indexes a PDF, DOCX or TXT source into sentence-aware chunks (180 words, 36-word overlap), retrieves the top-4 passages by cosine similarity, and returns the answer with its cited source excerpts (or evidence-only without a generation key).",
+"Textify creates embeddings locally with a pinned quantized BAAI/bge-small-en-v1.5 ONNX model on CPU (no embedding API bill) and uses Claude to generate the final answer; it stores vectors in Neon PostgreSQL with pgvector.",
+"Textify fails closed in production - the access-code check and raw-body cap run before multipart parsing - and wraps retrieved excerpts as untrusted data as a prompt-injection boundary; it is built on Python 3.12 and FastAPI and is live at textify-abheet19.fly.dev.",
+"ShieldAI is an educational Paillier partial-homomorphic-encryption demo where the private key never leaves the browser and all inputs are synthetic; it is explicitly not AI, not a credit product, and not production cryptography.",
+"In ShieldAI the browser generates a 1024-bit Paillier keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts; the server computes an encrypted weighted sum on ciphertext and returns an encrypted total the browser decrypts locally to 37.5/100.",
+"ShieldAI keeps raw fields, the private key and the decrypted result off the server entirely, uses payload-free logging, is built with Flask and vanilla JS, is verified by 8 backend tests and a 19-group browser gate, and is live at shieldai-abheet19.fly.dev with /version proving the exact commit.",
+"Helm is Abheet's planned terminal deliverable: a deployed cross-project observability and ops control plane for all seven projects, built as its own product - an early version is live at helm-abheet.fly.dev.",
+"A recurring theme across Abheet's projects is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary - CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL security boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
+"Six of the seven built projects are publicly deployed (Weft, Vantage, glass, HealthFlow, Textify, ShieldAI); Zeno is the local-first flagship with no public deploy, and all repos live under github.com/abheet19.",
+"His canonical resume is available at /resume.pdf and his QuillBot work is framed as impact plus modern technology, not internal ticket IDs, experiment names, or repo names."
 ];
 
 const SKILLS = ["TypeScript","JavaScript","Python","SQL","C++","React","Redux","ProseMirror","Material UI","Tailwind CSS","Vite","Node.js","Express.js","NestJS","Flask","FastAPI","KDB+","Manifest V3","Service Workers","Content Scripts","Shadow DOM","DOM Selection/Range & CSSOM","PostgreSQL","pgvector","MySQL","MongoDB","Redis","SQLAlchemy","Electron","Docker","Fly.io","GitHub Actions","GitLab CI/CD","AWS","GCP","nx monorepo","CRDTs","Model Context Protocol (MCP)","RAG","Local embeddings (BGE)","LLM-assisted features","Paillier homomorphic encryption","Content-addressed approvals","Ed25519 hash-chained ledgers","Capability security","Property-based testing","Playwright","Vitest","Jest","A/B experimentation","Funnel analytics","Web performance","OKLCH design systems & WCAG"];
 
 const ECO = [
-  {name:"Zeno",c:"#C81E33",s:"approval kernel",href:"https://github.com/abheet19/Zeno"},
-  {name:"Weft",c:"#2ED3C6",s:"Fugue CRDT",href:"https://weft-abheet.fly.dev"},
-  {name:"Vantage",c:"#F2B23E",s:"typed LLM→SQL",href:"https://vantage-abheet.fly.dev"},
-  {name:"glass",c:"#7CF5D6",s:"contrast law",href:"https://abheet19.github.io/glass/"},
-  {name:"HealthFlow",c:"#3ECF8E",s:"5 rooms, 1 report",href:"https://healthflow-abheet19.fly.dev"},
-  {name:"Textify",c:"#E0954D",s:"citation RAG",href:"https://textify-abheet19.fly.dev"},
-  {name:"ShieldAI",c:"#4F8EF7",s:"encrypted compute",href:"https://shieldai-abheet19.fly.dev"},
-  {name:"Helm",c:"#7FB5C9",s:"control plane · live",href:"https://helm-abheet.fly.dev"}
+  {name:"Zeno",c:"#C81E33",s:"approval kernel"},
+  {name:"Weft",c:"#2ED3C6",s:"Fugue CRDT"},
+  {name:"Vantage",c:"#F2B23E",s:"typed LLM→SQL"},
+  {name:"glass",c:"#7CF5D6",s:"contrast law"},
+  {name:"HealthFlow",c:"#3ECF8E",s:"5 rooms, 1 report"},
+  {name:"Textify",c:"#E0954D",s:"citation RAG"},
+  {name:"ShieldAI",c:"#4F8EF7",s:"encrypted compute"},
+  {name:"Helm",c:"#6E6A62",s:"ops dashboard"}
 ];
 
-/* THE STRAND = THE TIMELINE. Eleven milestones in the order they happened: three
-   roles, then the eight shipped projects. Every particle on the WebGL strand
-   belongs to exactly one segment between two milestones and wears that
-   milestone's colour, so the thread you see behind the page literally is this
-   list — and the chapter you are reading is the segment that lights up. */
-const MILES = [
-  {k:"Mamaearth", y:"2022",      c:"#8E9B97"},
-  {k:"Barclays",  y:"2022–24",   c:"#6FA8FF"},
-  {k:"QuillBot",  y:"2024–26",   c:"#9B7BFF"},
-  {k:"Zeno",      y:"kernel",    c:"#C81E33"},
-  {k:"Weft",      y:"CRDT",      c:"#2ED3C6"},
-  {k:"Vantage",   y:"typed SQL", c:"#F2B23E"},
-  {k:"ShieldAI",  y:"PHE",       c:"#4F8EF7"},
-  {k:"Textify",   y:"RAG",       c:"#E0954D"},
-  {k:"HealthFlow",y:"realtime",  c:"#3ECF8E"},
-  {k:"glass",     y:"tokens",    c:"#7CF5D6"},
-  {k:"Helm",      y:"ops",       c:"#7FB5C9"}
-];
-
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').matches ||
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============================================================================
    POPULATE DOM lists
@@ -1043,21 +724,10 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
   SKILLS.forEach(s=>{const e=document.createElement('span');e.className='skill';e.textContent=s;sg.appendChild(e);});
   const eg = document.getElementById('ecoGrid');
   ECO.forEach(n=>{
-    const d=document.createElement(n.href?'a':'div');d.className='node';
-    if(n.href){d.href=n.href;d.target='_blank';d.rel='noopener';}
+    const d=document.createElement('div');d.className='node';
     d.innerHTML=`<div class="d" style="background:${n.c};box-shadow:0 0 12px ${n.c}"></div><h4>${n.name}</h4><p>${n.s}</p>`;
     eg.appendChild(d);
   });
-  // strand legend: name the milestones the WebGL thread is made of
-  const lg=document.getElementById('strandLegend');
-  if(lg){
-    MILES.forEach((m,i)=>{
-      if(i) { const a=document.createElement('span'); a.className='arw'; a.textContent='→'; lg.appendChild(a); }
-      const s=document.createElement('span'); s.className='mile'; s.dataset.mile=String(i);
-      s.innerHTML=`<i style="background:${m.c};box-shadow:0 0 8px ${m.c}"></i>${m.k}`;
-      lg.appendChild(s);
-    });
-  }
 })();
 
 /* ============================================================================
@@ -1080,7 +750,7 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
    ============================================================================ */
 (function(){
   if(prefersReduced) return;
-  const el=document.getElementById('typeLine'), full="when everything happens at once.";
+  const el=document.getElementById('typeLine'), full="No lost edits.";
   el.textContent=""; let i=0;
   function step(){ if(i<=full.length){ el.textContent=full.slice(0,i); i++; setTimeout(step, 70);} }
   setTimeout(step, 600);
@@ -1097,227 +767,79 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 });
 
 /* ============================================================================
-   ASK THE LATTICE — client-side retrieval over the cited facts. No API key,
-   no backend, works offline. Pipeline: tokenize + lowercase + strip punctuation
-   + light stemming + synonym expansion of the question -> score every fact by
-   IDF-weighted token overlap + phrase (bigram) hits + named-entity boost ->
-   synthesize the top few into one short, coherent, cited answer. Greetings,
-   "what can I ask", and off-topic questions are handled gracefully.
+   RAG CHATBOT — keyword/token retrieval, isAvail() routing
    ============================================================================ */
 (function(){
-  const FACTS=RAG_FACTS;
-  const countEl=document.getElementById('chatCount');
-  if(countEl) countEl.textContent='grounded in '+FACTS.length+' cited facts';
-
-  const STOP=new Set(("a an the of to in on at is are was were be been being am do does did done "+
-    "and or but if then else so than that this these those it its as with for from by into onto over "+
-    "your you i we our us he she they them his her their me my mine ours also just such can could would "+
-    "should will shall may might must have has had not no yes what which who whom whose how why when "+
-    "where about tell me show give some any there here new one two get using use used via per abheet "+
-    "best good great better most really actually thing things want need like want").split(/\s+/));
-
-  const norm=s=>(s||"").toLowerCase().replace(/[^a-z0-9+.# ]/g," ").replace(/\s+/g," ").trim();
-  function stem(w){
-    if(w.length>4){
-      if(w.endsWith("ies")) return w.slice(0,-3)+"y";
-      if(w.endsWith("sses")) return w.slice(0,-2);
-      if(w.endsWith("ing")) return w.slice(0,-3);
-      if(w.endsWith("ed")&&w.length>5) return w.slice(0,-2);
-      if(w.endsWith("s")&&!w.endsWith("ss")) return w.slice(0,-1);
-    }
-    return w;
-  }
-  const rawToks=s=>norm(s).split(" ").filter(w=>w&&w.length>1&&!STOP.has(w));
-  const stoks=s=>rawToks(s).map(stem);
-
-  // ---- synonym / related-term groups (each word maps to the rest of its group) ----
-  const SYN_GROUPS=[
-    ["crdt","conflict","free","replicated","merge","converge","convergence","fugue","offline","collaborative","collaboration","editor","document","weft","yjs","interleave"],
-    ["encryption","encrypt","cipher","ciphertext","paillier","homomorphic","phe","private","privacy","shieldai","key","keypair"],
-    ["job","work","experience","career","employment","role","employer","company","history","professional"],
-    ["quillbot","learneo","extension","manifest","mv3","paraphrase","insert","replace","selection","writing","editor"],
-    ["barclays","auditor","audit","financial","finance","kdb","dashboard","fintech","bank"],
-    ["mamaearth","intern","internship","sdk","survey"],
-    ["stack","tech","technology","technologies","built","build","framework","language"],
-    ["contact","reach","email","hire","hiring","recruit","recruiter","touch"],
-    ["approval","approve","kernel","governance","govern","proposal","propose","receipt","ledger","cas","tier","zeno","agent","governed","boundary"],
-    ["sql","queryspec","query","postgres","postgresql","compiler","funnel","retention","analytics","vantage","metric","spec"],
-    ["safe","safety","secure","security","trust","boundary","untrusted","sandbox","injection","containment"],
-    ["test","tested","testing","vitest","jest","playwright","coverage","case","suite","property","benchmark","verified"],
-    ["deploy","deployment","live","hosted","host","url","production","fly","running","online"],
-    ["design","css","ui","theme","colour","color","oklch","contrast","token","glass","glassmorphism","wcag","accessible","accessibility"],
-    ["rag","retrieval","retrieve","embedding","vector","pgvector","bge","cosine","chunk","citation","cited","textify","onnx","neon"],
-    ["clinic","health","healthcare","medical","hospital","patient","department","healthflow","docx","report","workflow"],
-    ["mcp","protocol","tool"],
-    ["performance","perf","optimize","optimization","speed","fast","latency","debounce","reflow","hot","path"],
-    ["skill","skills","language","framework","proficient","expertise","know","good"],
-    ["who","bio","background","abheet","yourself","introduce","introduction"],
-    ["resume","cv","curriculum"],
-    ["helm","observability","ops","control","monitoring","monitor","fleet","probe","dashboard","console","uptime"],
-    ["ecosystem","suite","project","portfolio","overall","everything","story","theme","connect","together"],
-    ["socket","websocket","realtime","broadcast","room","tenant","tenancy"],
-    ["separate","isolate","isolation","tenant","tenancy","boundary","cross","room","segregate","wall"],
-    ["react","frontend","typescript","javascript","node","electron","backend"],
-    ["ollama","local","claude","llm","model","ai","anthropic"],
-    ["education","degree","college","university","thapar","study","studied","graduate"]
-  ];
-  const SYN={};
-  SYN_GROUPS.forEach(g=>{
-    const st=Array.from(new Set(g.map(stem)));
-    st.forEach(w=>{ (SYN[w]||(SYN[w]=new Set())); st.forEach(o=>{ if(o!==w) SYN[w].add(o); }); });
-  });
-
-  // ---- named entities (raw substrings) for a co-occurrence boost ----
-  const ENT=["zeno","weft","vantage","glass","healthflow","textify","shieldai","helm","quillbot","learneo",
-    "barclays","mamaearth","fugue","paillier","pgvector","queryspec","thapar","mcp"];
-
-  // ---- index ----
-  const docs=FACTS.map((f,i)=>{ const low=norm(f); return {i,text:f,low,set:new Set(stoks(f))}; });
-  const df={}; docs.forEach(d=>d.set.forEach(w=>df[w]=(df[w]||0)+1));
+  const STOP=new Set("a an the of to in on at is are was were be been being and or but if then than that this these those it its as with for from by his he she they them your you i we our not no yes do does".split(" "));
+  const norm=s=>s.toLowerCase().replace(/[^a-z0-9+.# ]/g," ");
+  const toks=s=>norm(s).split(/\s+/).filter(w=>w.length>1&&!STOP.has(w));
+  const docs=RAG_FACTS.map((f,i)=>({i,text:f,set:new Set(toks(f)),arr:toks(f)}));
+  const df={}; docs.forEach(d=>{d.set.forEach(w=>df[w]=(df[w]||0)+1);});
   const N=docs.length;
   const idf=w=>Math.log((N+1)/((df[w]||0)+1))+1;
 
-  function score(d,qstems,qent,qbig){
-    let s=0;
-    qstems.forEach(w=>{
-      if(d.set.has(w)){ s+=idf(w); return; }
-      let best=0, syn=SYN[w];
-      if(syn){ syn.forEach(e=>{ if(d.set.has(e)){ const v=idf(e)*0.5; if(v>best) best=v; } }); }
-      if(best>0){ s+=best; return; }
-      for(const dw of d.set){ if(dw.length>3&&(dw.startsWith(w)||w.startsWith(dw))){ s+=idf(w)*0.45; break; } }
-    });
-    qbig.forEach(bg=>{ if(d.low.indexOf(bg)>=0) s+=1.2; });
-    qent.forEach(e=>{ const at=d.low.indexOf(e); if(at>=0){ s+=2.6; if(at<=10) s+=2.2; /* fact is about this entity */ } });
-    return s;
+  function isAvail(q){
+    const lq=q.toLowerCase();
+    const availTokens=["available","hire","hiring","looking","open","job","role","work","employed","employment","status","quillbot","restructur","company","restructuring","open to","currently","actively"];
+    const projNames=["weft","zeno","vantage","glass","healthflow","textify","shieldai","helm"];
+    const isProj=projNames.some(p=>lq.includes(p));
+    if(isProj) return null;
+    const hits=availTokens.filter(t=>lq.includes(t));
+    return hits.length>=1 ? true : null;
   }
 
   function retrieve(q){
-    const qlow=norm(q);
-    const qstems=Array.from(new Set(stoks(q)));
-    if(!qstems.length) return {hits:[],qent:[]};
-    const qent=ENT.filter(e=>qlow.indexOf(e)>=0);
-    const qw=qlow.split(" ").filter(w=>w.length>1);
-    const qbig=[]; for(let k=0;k<qw.length-1;k++){ const a=qw[k],b=qw[k+1];
-      if(!STOP.has(a)||!STOP.has(b)) qbig.push(a+" "+b); } // drop pure stopword phrases
-    const hits=docs.map(d=>({d,s:score(d,qstems,qent,qbig)}))
-                   .filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
-    return {hits,qent};
-  }
-
-  function jaccard(a,b){ let inter=0; a.forEach(w=>{ if(b.has(w)) inter++; }); return inter/(a.size+b.size-inter||1); }
-
-  // synthesize the top hits into one short, coherent answer (2-4 sentences).
-  // Facts about the same project the question named are given a lower inclusion
-  // bar, so a "what did he do at X" question returns X's meaty facts, not one line.
-  function synthesize(hits,qent){
-    const top=hits[0];
-    const chosen=[top.d]; let chars=top.d.text.length;
-    const named=qent.length>0;
-    const th1=top.s*0.45, th2=top.s*0.28, floor=top.s*0.22;
-    for(let k=1;k<hits.length&&chosen.length<3;k++){
-      const h=hits[k];
-      if(h.s<floor) break;
-      const entShare=named&&qent.some(e=>h.d.low.indexOf(e)>=0);
-      // If the question named a project/company, keep follow-up sentences on it
-      // (a lower bar for same-topic facts); otherwise require solid overlap.
-      if(named){ if(!entShare||h.s<th2) continue; }
-      else if(h.s<th1) continue;
-      if(chosen.some(c=>jaccard(c.set,h.d.set)>0.55)) continue;
-      if(chars+h.d.text.length>560) continue;
-      chosen.push(h.d); chars+=h.d.text.length;
-    }
-    return {text:chosen.map(c=>c.text).join(" "), cites:chosen.map(c=>c.i)};
-  }
-
-  // Content-addressed lookups for a clean bio answer (robust to fact reordering).
-  const F_ID=docs.find(d=>d.low.indexOf("abheet singh isher is a")>=0);
-  const F_HEAD=docs.find(d=>d.low.indexOf("one-line headline")>=0);
-  const F_CAREER=docs.find(d=>d.low.indexOf("career path runs")>=0);
-  const F_SKILLS=docs.find(d=>d.low.indexOf("tech stack and technologies span")>=0);
-  const F_STRENGTH=docs.find(d=>d.low.indexOf("core strengths")>=0);
-  function isBio(q){
-    const s=norm(q);
-    if(ENT.some(e=>s.indexOf(e)>=0)) return false;
-    if(/\b(project|projects|stack|skill|skills|tech|work|worked|experience|career|resume|contact|email|education|degree|study)\b/.test(s)) return false;
-    return s==="abheet"||/(who is|who's|who are|who\b[a-z '.-]*\b(he|abheet|him)|introduce|tell me about (abheet|him|yourself|himself)|about (abheet|him|himself|yourself)|his background)/.test(s);
-  }
-  function isSkills(q){
-    const s=norm(q);
-    if(ENT.some(e=>s.indexOf(e)>=0)) return false;
-    if(/\b(project|projects|education|degree|study|contact|email|resume|experience|career)\b/.test(s)) return false;
-    return /\b(stack|skill|skills|tech|technology|technologies|language|languages|framework|frameworks|proficient|expertise|toolkit)\b/.test(s);
-  }
-  // Employment-status questions ("is he still at X", "why did he leave", "is he available")
-  // get a direct, cited answer: current tenure + availability. Without this route the
-  // retriever matches stray tokens ("off", "left") and returns unrelated project facts.
-  const F_TENURE=docs.find(d=>d.low.indexOf("was a software engineer from december 2024")>=0);
-  const F_OPEN=docs.find(d=>d.low.indexOf("open to new software engineering roles")>=0);
-  function isAvail(q){
-    const s=norm(q);
-    // a question about a project ("is Weft still working?") is not about his employment
-    if(ENT.some(e=>s.indexOf(e)>=0&&!/^(quillbot|learneo|barclays|mamaearth)$/.test(e))) return false;
-    return /\b(laid off|layoff|layoffs|lay off|let go|fired|quit|resign|resigned|leave|left|leaving|still (at|with|work|working|employed)|current(ly)? (job|role|employer|employed|working|work)|where does he work|employed|unemployed|between jobs|(is|are) (he|abheet) (available|free|open)|looking for|job search|job hunt|hiring status|notice period)\b/.test(s);
-  }
-
-  const GREET="Hi, I'm the lattice. I can tell you about Abheet Singh Isher, his experience (QuillBot, Barclays, Mamaearth), and his projects — Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm — plus the tech behind each and how to reach him. What would you like to know?";
-  const HELP="Try asking things like: ‘Who is Abheet?’, ‘What did he do at QuillBot?’, ‘How does Weft merge offline edits?’, ‘Why can’t Vantage’s LLM write SQL?’, ‘What is Zeno’s approval kernel?’, ‘How does ShieldAI encrypt data?’, ‘What’s his tech stack?’ or ‘How do I contact him?’ I answer only from cited facts about his work.";
-  const OFFTOPIC="I can tell you about Abheet, his work (QuillBot, Barclays, Mamaearth), his projects (Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, Helm), the tech behind them, or how to reach him — ask me about any of those.";
-
-  function meta(q){
-    const s=norm(q);
-    if(!s) return 'help';
-    const topical=ENT.some(e=>s.indexOf(e)>=0)||
-      /(project|work|experience|career|stack|tech|skill|contact|email|resume|encrypt|crdt|sql|approval|kernel|clinic|analytics|rag|design|glass|deploy|test|education|degree|who is|about him|about abheet)/.test(s);
-    if(/\b(thanks|thank you|thankyou|thx|ty|cheers|appreciate)\b/.test(s)) return 'thanks';
-    if(topical) return '';
-    if(/^(hi|hey|hello|yo|hiya|howdy|sup|hola|namaste|greetings|gm|good (morning|afternoon|evening))\b/.test(s)) return 'greet';
-    if(/(what can i ask|what do you know|what can you|what should i ask|^help$|\bhelp\b|options|topics|examples|how does this work|who are you|what is this|what are you)/.test(s)) return 'help';
-    if(s.split(" ").length<=2&&/^(hi|hey|hello|yo|sup|help|hola|menu)$/.test(s)) return 'greet';
-    return '';
+    const qt=toks(q); if(!qt.length) return [];
+    const scored=docs.map(d=>{
+      let s=0; const seen={};
+      qt.forEach(w=>{
+        if(d.set.has(w)){s+=idf(w)*(seen[w]?0.4:1);seen[w]=1;}
+        else{ for(const dw of d.set){ if(dw.length>3&&(dw.startsWith(w)||w.startsWith(dw))){s+=idf(w)*0.5;break;} } }
+      });
+      ["zeno","weft","vantage","glass","healthflow","textify","shieldai","helm","quillbot","barclays","mamaearth"].forEach(e=>{
+        if(q.toLowerCase().includes(e)&&d.text.toLowerCase().includes(e)) s+=2.2;
+      });
+      return {d,s};
+    }).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+    return scored.slice(0,3);
   }
 
   const log=document.getElementById('chatLog');
   function add(text,who,cites){
     const m=document.createElement('div');m.className='msg '+who;
     m.textContent=text;
-    if(cites&&cites.length){const c=document.createElement('span');c.className='cite';
-      c.textContent='Grounded in '+cites.map(n=>'fact #'+(n+1)).join(', ');m.appendChild(c);}
+    if(cites&&cites.length){const c=document.createElement('span');c.className='cite';c.textContent='Grounded in '+cites.map(n=>'fact #'+(n+1)).join(', ');m.appendChild(c);}
     log.appendChild(m);log.scrollTop=log.scrollHeight;
   }
   function answer(q){
-    const m=meta(q);
-    if(m==='greet'){ add(GREET,"bot"); return; }
-    if(m==='help'){ add(HELP,"bot"); return; }
-    if(m==='thanks'){ add("Happy to help. Ask me anything else about Abheet's projects, the tech behind them, his experience, or how to reach him.","bot"); return; }
-    if(isAvail(q)&&F_OPEN){ const p=[F_TENURE,F_OPEN].filter(Boolean);
-      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
-    if(isBio(q)&&F_ID){ const p=[F_ID,F_HEAD||F_CAREER].filter(Boolean);
-      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
-    if(isSkills(q)&&F_SKILLS){ const p=[F_SKILLS,F_STRENGTH].filter(Boolean);
-      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
-    const {hits,qent}=retrieve(q);
-    if(!hits.length||hits[0].s<1.2){ add(OFFTOPIC,"bot"); return; }
-    const {text,cites}=synthesize(hits,qent);
+    if(isAvail(q)){
+      add("Abheet was a Software Engineer at QuillBot from December 2024 to August 2026. Following a company-wide restructuring in September 2026, he is actively open to new software engineering roles — in India or fully remote. Reach him at abheet19@gmail.com.","bot",[4,0]);
+      return;
+    }
+    const hits=retrieve(q);
+    if(!hits.length||hits[0].s<0.9){
+      add("I can only answer from the 49 facts about Abheet's work and career — try asking about Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, or his time at QuillBot, Barclays or Mamaearth.","bot");
+      return;
+    }
+    const top=hits[0].d;
+    let text=top.text;
+    if(hits[1]&&hits[1].s>hits[0].s*0.62) text+=" "+hits[1].d.text;
+    const cites=[top.i]; if(hits[1]&&hits[1].s>hits[0].s*0.62) cites.push(hits[1].d.i);
     add(text,"bot",cites);
   }
 
-  // suggestion chips — refreshed to showcase the range
-  const suggestions=["Who is Abheet?","What is Zeno's approval kernel?","How does Weft merge offline edits?",
-    "Why can't Vantage's LLM write SQL?","How does ShieldAI encrypt data?","What did he do at QuillBot?",
-    "What's his tech stack?","Is Helm live?","How do I contact him?"];
+  const suggestions=["What is Zeno's approval kernel?","How does Weft merge offline edits?","Why doesn't Vantage let the LLM write SQL?","What did he do at QuillBot?","Is he available for new roles?"];
   const sw=document.getElementById('chatSuggest');
-  suggestions.forEach(q=>{const b=document.createElement('button');b.type='button';b.textContent=q;b.addEventListener('click',()=>{ask(q);});sw.appendChild(b);});
+  suggestions.forEach(q=>{const b=document.createElement('button');b.textContent=q;b.addEventListener('click',()=>{ask(q);});sw.appendChild(b);});
 
-  function ask(q){ add(q,"user"); setTimeout(()=>answer(q), prefersReduced?0:200); }
+  function ask(q){ add(q,"user"); setTimeout(()=>answer(q), prefersReduced?0:220); }
 
   const form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
   form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(!v)return;input.value="";ask(v);});
 
-  // open/close
   const panel=document.getElementById('chatPanel'), fab=document.getElementById('chatFab');
   let greeted=false;
-  function open(){panel.classList.add('open');fab.style.display='none';
-    if(!greeted){add(GREET,"bot");greeted=true;}setTimeout(()=>input.focus(),80);}
+  function open(){panel.classList.add('open');fab.style.display='none';if(!greeted){add("Hi — I'm the lattice. Ask me anything about Abheet's projects or career. I answer only from cited facts.","bot");greeted=true;}setTimeout(()=>input.focus(),80);}
   function close(){panel.classList.remove('open');fab.style.display='grid';}
   fab.addEventListener('click',open);
   document.getElementById('chatClose').addEventListener('click',close);
@@ -1326,7 +848,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 })();
 
 /* ============================================================================
-   NAV solidify + reveal-on-scroll (works without smooth scroll too)
+   NAV solidify + reveal-on-scroll
    ============================================================================ */
 (function(){
   const nav=document.getElementById('nav');
@@ -1336,431 +858,312 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
-
-/* ============================================================================
-   PROJECT REELS — GIF poster shows first (lazy), MP4 lazy-loads and plays only
-   while its chapter is in view (IntersectionObserver). Dimensions are reserved
-   via aspect-ratio so there is zero layout shift.
-   ============================================================================ */
-(function(){
-  const reels=Array.prototype.slice.call(document.querySelectorAll('[data-reel]'));
-  if(!reels.length||!('IntersectionObserver' in window)) return;
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      const fig=e.target, vid=fig.querySelector('.reel-vid');
-      if(!vid) return;
-      if(e.isIntersecting){
-        if(!vid.getAttribute('src') && vid.dataset.src){ vid.setAttribute('src',vid.dataset.src); vid.load(); }
-        if(!prefersReduced){
-          vid.addEventListener('playing',()=>fig.classList.add('playing'),{once:true});
-          const p=vid.play(); if(p&&p.catch) p.catch(()=>{/* autoplay blocked: GIF poster stays */});
-        }
-      } else if(!vid.paused){ vid.pause(); }
-    });
-  },{threshold:0.35,rootMargin:'120px 0px'});
-  reels.forEach(f=>io.observe(f));
-})();
 </script>
 
 <script>
 /* ============================================================================
-   THE STRAND — one WebGL scene, Fugue's original motif: a single continuous
-   lattice of glyph-nodes that morphs between one topology per chapter.
-
-   What the strand MEANS (this is the whole point of the shape):
-     it is Abheet's timeline. Eleven milestones in order — Mamaearth, Barclays,
-     QuillBot, then Zeno, Weft, Vantage, ShieldAI, Textify, HealthFlow, glass,
-     Helm. Position along the strand is time; every particle belongs to the
-     segment between two milestones and wears that milestone's accent colour;
-     the chapter you are reading lights its own segment and dims the rest. The
-     thread never reorders — only the shape it folds into changes, chapter by
-     chapter (chain for Zeno's receipt ledger, tree for Weft's CRDT, funnel for
-     Vantage, ciphertext scatter for ShieldAI, ladder for glass, and so on).
-
-   Readability: the canvas is z-index 0 under every text surface, capped at 0.82
-   opacity (0.6 in light theme), pointer-events:none, behind a vignette veil, and
-   every text block sits on its own backdrop-filter glass panel.
-
-   Perf: DPR capped at 2 (1.5 mobile); particle count tiered by device; the loop
-   stops on visibilitychange and when the canvas leaves the viewport; three.js is
-   injected only after window.load so it never blocks first paint;
-   prefers-reduced-motion renders one static composed frame and no loop at all.
+   THE LATTICE — WebGL scene. InstancedMesh of glyph quads sampling a canvas
+   glyph atlas; positions morph between topology target-sets per chapter.
    ============================================================================ */
 (function(){
-  var canvas   = document.getElementById('scene');
-  var fallback = document.getElementById('hall-fallback');
-  var reduce   = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var brandDot = document.getElementById('brandDot');
-  var legendEls= [].slice.call(document.querySelectorAll('#strandLegend .mile'));
+  if(typeof THREE==='undefined'){ return; }
+  const canvas=document.getElementById('scene');
+  const reduce = prefersReduced;
 
-  var chapters = [].slice.call(document.querySelectorAll('.chapter'));
-  var NM = MILES.length;                     // 11 milestones
+  const cores=navigator.hardwareConcurrency||4;
+  const isMobile=Math.min(window.innerWidth,window.innerHeight)<720 || /Mobi|Android/i.test(navigator.userAgent);
+  let COUNT = 3600;
+  if(isMobile||cores<=4) COUNT=1200;
+  else if(cores<=8) COUNT=2200;
+  const DPR=Math.min(window.devicePixelRatio||1, isMobile?1.5:2);
 
-  /* ---- which chapter is centred: drives page accent + active milestone ---- */
-  var curAccent='#2ED3C6', curTopo='helix', curMile=-1, curSpan=1.25;
-  function readChapter(){
-    var cy=innerHeight/2, best=null, bd=1e9;
-    for(var i=0;i<chapters.length;i++){
-      var r=chapters[i].getBoundingClientRect(), c=(r.top+r.bottom)/2, d=Math.abs(c-cy);
-      if(d<bd){bd=d;best=chapters[i];}
-    }
-    if(!best) return false;
-    var a=best.getAttribute('data-accent')||curAccent;
-    var t=best.getAttribute('data-topo')||curTopo;
-    var m=best.hasAttribute('data-mile')?parseFloat(best.getAttribute('data-mile')):-1;
-    var s=best.hasAttribute('data-span')?parseFloat(best.getAttribute('data-span')):1.25;
-    var changed=(t!==curTopo)||(m!==curMile)||(a!==curAccent);
-    curAccent=a; curTopo=t; curMile=m; curSpan=s;
-    if(changed){
-      document.documentElement.style.setProperty('--accent',a);
-      if(brandDot){brandDot.style.background=a;brandDot.style.boxShadow='0 0 14px '+a;}
-      for(var k=0;k<legendEls.length;k++){
-        var on = m>=0 ? Math.abs(k-m)<=0.5 : false;
-        legendEls[k].style.color = on ? 'var(--cream)' : '';
-        legendEls[k].style.borderColor = on ? a : '';
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:true,powerPreference:'high-performance'});
+  renderer.setPixelRatio(DPR);
+  renderer.setSize(window.innerWidth,window.innerHeight,false);
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 200);
+  camera.position.set(0,0,34);
+
+  const CHARSET="TWOPEOPLE.NDCUMTGLSIEX/()ABRV0123456789replicaounter+".split("").filter((v,i,a)=>a.indexOf(v)===i);
+  const COLS=8, ROWS=Math.ceil(CHARSET.length/COLS);
+  const CELL=64, AW=COLS*CELL, AH=ROWS*CELL;
+  const ac=document.createElement('canvas'); ac.width=AW; ac.height=AH;
+  const ax=ac.getContext('2d');
+  ax.clearRect(0,0,AW,AH);
+  ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
+  ax.font='600 44px "Space Grotesk", "Segoe UI", sans-serif';
+  CHARSET.forEach((ch,i)=>{ const c=i%COLS, r=Math.floor(i/COLS); ax.fillText(ch, c*CELL+CELL/2, r*CELL+CELL/2); });
+  const atlas=new THREE.CanvasTexture(ac);
+  atlas.flipY=false; atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
+
+  const TAU=Math.PI*2;
+  const rnd=(function(){let s=1234567;return()=>{s=(s*1103515245+12345)&0x7fffffff;return s/0x7fffffff;};})();
+  const R=Array.from({length:COUNT},()=>rnd());
+
+  function alloc(){return new Float32Array(COUNT*3);}
+  function gen(name){
+    const p=alloc();
+    for(let i=0;i<COUNT;i++){
+      const t=i/COUNT, a=R[i];
+      let x=0,y=0,z=0;
+      if(name==='helix'){
+        const turns=7, ang=t*turns*TAU, r=6+Math.sin(t*Math.PI)*1.2;
+        x=Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
+      } else if(name==='twohelix'){
+        const side=i%2?1:-1, turns=6, ang=t*turns*TAU, r=3.4;
+        x=side*5.4+Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
+      } else if(name==='tree'){
+        const depth=Math.floor(Math.log2(i+2)); const inLevel=(i+2)-Math.pow(2,depth); const levelW=Math.pow(2,depth);
+        x=((inLevel+0.5)/levelW-0.5)*22; y=11-depth*3.0; z=(a-0.5)*3;
+        x+= (a-0.5)*1.2;
+      } else if(name==='chain'){
+        const seg=Math.floor(t*40); y=13-t*26; x=Math.sin(seg*1.7)*2.4+(a-0.5)*0.8; z=Math.cos(seg*1.3)*2.0;
+      } else if(name==='funnel'){
+        const ang=t*TAU*9; const r=10.5*(1-t)+0.6; x=Math.cos(ang)*r; y=11-t*24; z=Math.sin(ang)*r;
+      } else if(name==='ladder'){
+        const rung=Math.floor(t*14); const inRung=(t*14)%1; y=10-rung*1.5; x=(inRung-0.5)*20; z=(a-0.5)*2.2;
+      } else if(name==='scatter'){
+        if(i<8){ x=(a-0.5)*3; y=(R[(i*7)%COUNT]-0.5)*3; z=16; }
+        else { x=(a-0.5)*24; y=(R[(i*3)%COUNT]-0.5)*22; z=(R[(i*5)%COUNT]-0.5)*16-2; }
+      } else if(name==='thread'){
+        const ang=t*TAU*3, r=2+Math.sin(t*6)*0.6; x=Math.cos(ang)*r+(t-0.5)*4; y=(t-0.5)*20; z=Math.sin(ang)*r;
+      } else if(name==='brain'){
+        const ph=Math.acos(2*R[(i*13)%COUNT]-1), th=t*TAU*11; const rr=9+(R[(i*17)%COUNT]-0.5)*1.6;
+        x=rr*Math.sin(ph)*Math.cos(th); y=rr*Math.cos(ph)*0.9; z=rr*Math.sin(ph)*Math.sin(th);
+      } else if(name==='line'){
+        x=(t-0.5)*30; y=Math.sin(t*TAU*2)*0.25; z=(a-0.5)*0.5;
       }
+      p[i*3]=x; p[i*3+1]=y; p[i*3+2]=z;
     }
-    return changed;
+    return p;
   }
-  var pendR=false;
-  window.addEventListener('scroll',function(){
-    if(pendR) return; pendR=true;
-    requestAnimationFrame(function(){ pendR=false; if(readChapter()&&window.__strandApply) window.__strandApply(); });
+  const TOPO_CACHE={};
+  const topo=name=>TOPO_CACHE[name]||(TOPO_CACHE[name]=gen(name));
+
+  const base=new THREE.PlaneBufferGeometry(1,1);
+  const geo=new THREE.InstancedBufferGeometry();
+  geo.index=base.index; geo.attributes.position=base.attributes.position; geo.attributes.uv=base.attributes.uv;
+
+  const aTargetA=new Float32Array(topo('helix'));
+  const aTargetB=new Float32Array(aTargetA);
+  const aCell=new Float32Array(COUNT*2);
+  const aRand=new Float32Array(COUNT);
+  const aReplica=new Float32Array(COUNT);
+  const aLit=new Float32Array(COUNT);
+  for(let i=0;i<COUNT;i++){
+    const ci=i%CHARSET.length; aCell[i*2]=(ci%COLS)/COLS; aCell[i*2+1]=Math.floor(ci/COLS)/ROWS;
+    aRand[i]=R[i]; aReplica[i]=(i%2?1:-1); aLit[i]=1.0;
+  }
+  geo.setAttribute('aTargetA',new THREE.InstancedBufferAttribute(aTargetA,3));
+  geo.setAttribute('aTargetB',new THREE.InstancedBufferAttribute(aTargetB,3));
+  geo.setAttribute('aCell',new THREE.InstancedBufferAttribute(aCell,2));
+  geo.setAttribute('aRand',new THREE.InstancedBufferAttribute(aRand,1));
+  geo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(aReplica,1));
+  geo.setAttribute('aLit',new THREE.InstancedBufferAttribute(aLit,1));
+
+  const uniforms={
+    uAtlas:{value:atlas},
+    uMix:{value:1},
+    uTime:{value:0},
+    uSize:{value:0.55},       /* slightly smaller glyphs — less intrusive on text */
+    uSplit:{value:0},
+    uDrift:{value:0},
+    uBreath:{value:0},
+    uPointer:{value:new THREE.Vector3(999,999,0)},
+    uColor:{value:new THREE.Color('#2ED3C6')},
+    uColor2:{value:new THREE.Color('#9B7BFF')},
+    uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)},
+    uInk:{value:1.0}
+  };
+
+  const vert=`
+    precision mediump float;
+    attribute vec3 aTargetA; attribute vec3 aTargetB; attribute vec2 aCell;
+    attribute float aRand; attribute float aReplica; attribute float aLit;
+    uniform float uMix,uTime,uSize,uSplit,uDrift,uBreath; uniform vec3 uPointer;
+    varying vec2 vUv; varying vec2 vCell; varying float vLit; varying float vGlow;
+    void main(){
+      float m=smoothstep(0.0,1.0,uMix);
+      vec3 c=mix(aTargetA,aTargetB,m);
+      c.x += uSplit*aReplica*3.2;
+      float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);
+      c += n*(0.12+uDrift*1.6)*vec3(1.0,0.8,1.0);
+      c *= (1.0+uBreath*0.03*sin(uTime*0.9+aRand*6.0));
+      vec3 toP=c-uPointer; float d=length(toP.xy);
+      c.xy += normalize(toP.xy+vec2(0.001))* (3.5*exp(-d*d*0.03));
+      vUv=uv; vCell=aCell; vLit=aLit;
+      vGlow=0.5+0.5*sin(uTime*1.3+aRand*6.283);
+      vec4 mv=modelViewMatrix*vec4(c,1.0);
+      float sz=uSize*(0.55+aRand*0.9);
+      mv.xy += (uv-0.5)*sz;
+      gl_Position=projectionMatrix*mv;
+    }`;
+  /* Alpha reduced from 0.92→0.76 so glyphs don't compete with text layers */
+  const frag=`
+    precision mediump float;
+    uniform sampler2D uAtlas; uniform vec3 uColor,uColor2; uniform vec2 uCell; uniform float uInk;
+    varying vec2 vUv; varying vec2 vCell; varying float vLit; varying float vGlow;
+    void main(){
+      vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);
+      float a=texture2D(uAtlas,auv).a;
+      if(a<0.03) discard;
+      vec3 col=mix(uColor,uColor2,vGlow*0.55);
+      float lit=mix(0.16,1.0,vLit);
+      col = mix(vec3(0.08,0.10,0.12), col, uInk*0.85+0.15);
+      gl_FragColor=vec4(col*lit, a*lit*(uInk>0.5?0.76:0.82));
+    }`;
+
+  let material=new THREE.ShaderMaterial({
+    uniforms,vertexShader:vert,fragmentShader:frag,
+    transparent:true, depthWrite:false, depthTest:false,
+    blending:THREE.AdditiveBlending
+  });
+  const mesh=new THREE.Mesh(geo,material);
+  mesh.frustumCulled=false;
+  scene.add(mesh);
+
+  const STEP=Math.max(2,Math.floor(COUNT/650));
+  const eIdx=[]; for(let i=STEP;i<COUNT;i+=STEP){ eIdx.push(i-STEP,i); }
+  const edgePos=new Float32Array(eIdx.length*3);
+  const edgeGeo=new THREE.BufferGeometry();
+  edgeGeo.setAttribute('position',new THREE.BufferAttribute(edgePos,3));
+  const edgeMat=new THREE.LineBasicMaterial({color:new THREE.Color('#2ED3C6'),transparent:true,opacity:0.10,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false});
+  const edges=new THREE.LineSegments(edgeGeo,edgeMat);
+  edges.frustumCulled=false; scene.add(edges);
+
+  function updateEdges(){
+    const A=geo.attributes.aTargetA.array, B=geo.attributes.aTargetB.array;
+    const m=uniforms.uMix.value; const mm=m*m*(3-2*m);
+    for(let k=0;k<eIdx.length;k++){
+      const i=eIdx[k]*3;
+      edgePos[k*3]  =A[i]  +(B[i]  -A[i])*mm;
+      edgePos[k*3+1]=A[i+1]+(B[i+1]-A[i+1])*mm;
+      edgePos[k*3+2]=A[i+2]+(B[i+2]-A[i+2])*mm;
+    }
+    edgeGeo.attributes.position.needsUpdate=true;
+  }
+
+  let currentName='helix';
+  function snapshotCurrent(){
+    const A=geo.attributes.aTargetA.array, B=geo.attributes.aTargetB.array, m=uniforms.uMix.value;
+    const mm=m*m*(3-2*m);
+    for(let i=0;i<A.length;i++){ A[i]=A[i]+(B[i]-A[i])*mm; }
+    geo.attributes.aTargetA.needsUpdate=true;
+  }
+  function setTopology(name,accentHex){
+    snapshotCurrent();
+    const tgt=topo(name);
+    geo.attributes.aTargetB.array.set(tgt);
+    geo.attributes.aTargetB.needsUpdate=true;
+    uniforms.uMix.value=0;
+    currentName=name;
+    const dim = (name==='thread');
+    for(let i=0;i<COUNT;i++){ aLit[i]= dim ? (i%9===0?0.7:0.14) : 1.0; }
+    geo.attributes.aLit.needsUpdate=true;
+    if(reduce){ uniforms.uMix.value=1; }
+    else if(window.gsap){ gsap.to(uniforms.uMix,{value:1,duration:1.2,ease:'power2.inOut',overwrite:true}); }
+    else{ uniforms.uMix.value=1; }
+    if(accentHex){
+      const col=new THREE.Color(accentHex);
+      if(reduce){ uniforms.uColor.value.copy(col); edgeMat.color.copy(col); }
+      else if(window.gsap){
+        gsap.to(uniforms.uColor.value,{r:col.r,g:col.g,b:col.b,duration:1.0,overwrite:true});
+        gsap.to(edgeMat.color,{r:col.r,g:col.g,b:col.b,duration:1.0,overwrite:true});
+      } else { uniforms.uColor.value.copy(col); edgeMat.color.copy(col); }
+      document.documentElement.style.setProperty('--accent',accentHex);
+      const bd=document.getElementById('brandDot'); if(bd){bd.style.background=accentHex;bd.style.boxShadow='0 0 14px '+accentHex;}
+    }
+  }
+
+  const rc=new THREE.Raycaster();
+  const plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
+  const ndc=new THREE.Vector2(999,999);
+  window.addEventListener('pointermove',e=>{
+    ndc.x=(e.clientX/window.innerWidth)*2-1;
+    ndc.y=-(e.clientY/window.innerHeight)*2+1;
+    rc.setFromCamera(ndc,camera);
+    const hit=new THREE.Vector3();
+    if(rc.ray.intersectPlane(plane,hit)){ uniforms.uPointer.value.copy(hit); }
+    if(currentName==='helix' && !reduce && window.scrollY<window.innerHeight*0.8){
+      if(window.gsap) gsap.to(uniforms.uSplit,{value:0.7,duration:0.8,overwrite:true});
+      else uniforms.uSplit.value=0.7;
+    }
   },{passive:true});
-  readChapter();
+  window.addEventListener('pointerleave',()=>{uniforms.uPointer.value.set(999,999,0);});
 
-  /* ---- lite mode: no WebGL / no three.js — a calm static gradient, text intact ---- */
-  function startLite(){ if(canvas) canvas.hidden=true; if(fallback) fallback.hidden=false; }
+  const sections=Array.from(document.querySelectorAll('.chapter'));
+  function accentFor(sec){return sec.getAttribute('data-accent')||'#2ED3C6';}
 
-  /* ---- three.js is loaded only after the page is interactive ---- */
-  function loadThree(cb){
-    if(typeof THREE!=='undefined') return cb();
-    var s=document.createElement('script');
-    s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    s.async=true; s.onload=cb; s.onerror=startLite;
-    document.head.appendChild(s);
-  }
-  function whenIdle(fn){
-    if('requestIdleCallback' in window) requestIdleCallback(fn,{timeout:1500}); else setTimeout(fn,300);
-  }
-  if(document.readyState==='complete') whenIdle(function(){loadThree(boot);});
-  else window.addEventListener('load',function(){ whenIdle(function(){loadThree(boot);}); });
-
-  /* ======================================================================== */
-  function boot(){
-    if(typeof THREE==='undefined'){ startLite(); return; }
-
-    var W=innerWidth, H=innerHeight;
-    var isMobile = Math.min(W,H)<720 || /Mobi|Android/i.test(navigator.userAgent) || matchMedia('(pointer:coarse)').matches;
-    var cores = navigator.hardwareConcurrency||4;
-    // Deliberately far fewer glyphs than the original sketch: the strand has to
-    // read as a legible thread with named stations, not a blizzard of letters.
-    var COUNT = isMobile ? 700 : (cores<=4 ? 900 : 1500);
-    var DPR   = Math.min(window.devicePixelRatio||1, isMobile?1.5:2);
-
-    var renderer;
-    try{ renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:false,alpha:true,powerPreference:'high-performance'}); }
-    catch(e){ startLite(); return; }
-    renderer.setPixelRatio(DPR); renderer.setSize(W,H,false); renderer.setClearColor(0x000000,0);
-
-    var scene=new THREE.Scene();
-    var camera=new THREE.PerspectiveCamera(55,W/H,0.1,200);
-    camera.position.set(0,0,34);
-
-    function isLight(){ var t=document.documentElement.getAttribute('data-theme');
-      return t==='light' || (!t && matchMedia('(prefers-color-scheme: light)').matches); }
-    var light=isLight();
-
-    /* ---- glyph atlas: the letters are the milestone initials plus digits, so a
-       node that reads "Q" or "W" is literally that station on the timeline ---- */
-    var CHARSET="MBQZWVSTHGL0123456789·+()/".split("").filter(function(v,i,a){return a.indexOf(v)===i;});
-    var COLS=8, ROWS=Math.ceil(CHARSET.length/COLS), CELL=64;
-    var ac=document.createElement('canvas'); ac.width=COLS*CELL; ac.height=ROWS*CELL;
-    var ax=ac.getContext('2d');
-    ax.fillStyle='#fff'; ax.textAlign='center'; ax.textBaseline='middle';
-    ax.font='600 42px "Space Grotesk","Segoe UI",sans-serif';
-    CHARSET.forEach(function(ch,i){ ax.fillText(ch,(i%COLS)*CELL+CELL/2,Math.floor(i/COLS)*CELL+CELL/2); });
-    var atlas=new THREE.CanvasTexture(ac); atlas.flipY=false;
-    atlas.minFilter=THREE.LinearFilter; atlas.magFilter=THREE.LinearFilter;
-    var MILE_GLYPH=[0,1,2,3,4,5,6,7,8,9,10];   // M B Q Z W V S T H G L — index into CHARSET
-
-    /* ---- deterministic per-node randoms (stable across topology swaps) ---- */
-    var TAU=Math.PI*2;
-    var seed=1234567, rnd=function(){ seed=(seed*1103515245+12345)&0x7fffffff; return seed/0x7fffffff; };
-    var R=new Float32Array(COUNT); for(var i=0;i<COUNT;i++) R[i]=rnd();
-
-    /* ---- topology generators: same node, same order, different fold ---- */
-    function gen(name){
-      var p=new Float32Array(COUNT*3);
-      for(var i=0;i<COUNT;i++){
-        var t=i/COUNT, a=R[i], x=0,y=0,z=0;
-        if(name==='helix'){                      // one continuous strand (hero, lineage)
-          var ang=t*7*TAU, r=6+Math.sin(t*Math.PI)*1.2;
-          x=Math.cos(ang)*r; y=(t-0.5)*26; z=Math.sin(ang)*r;
-        } else if(name==='twohelix'){            // two replicas of one document
-          var side=(i%2)?1:-1, an2=t*6*TAU;
-          x=side*5.4+Math.cos(an2)*3.4; y=(t-0.5)*26; z=Math.sin(an2)*3.4;
-        } else if(name==='tree'){                // Weft: a tree of characters
-          var depth=Math.floor(Math.log2(i+2)), inL=(i+2)-Math.pow(2,depth), lw=Math.pow(2,depth);
-          x=((inL+0.5)/lw-0.5)*22+(a-0.5)*1.2; y=11-depth*3.0; z=(a-0.5)*3;
-        } else if(name==='chain'){               // Zeno: a hash chain of receipts
-          var seg=Math.floor(t*40); y=13-t*26; x=Math.sin(seg*1.7)*2.4+(a-0.5)*0.8; z=Math.cos(seg*1.3)*2.0;
-        } else if(name==='funnel'){              // Vantage: a typed funnel
-          var an3=t*TAU*9, r3=10.5*(1-t)+0.6; x=Math.cos(an3)*r3; y=11-t*24; z=Math.sin(an3)*r3;
-        } else if(name==='ladder'){              // glass: one lightness ladder
-          var rung=Math.floor(t*14), inR=(t*14)%1; y=10-rung*1.5; x=(inR-0.5)*20; z=(a-0.5)*2.2;
-        } else if(name==='scatter'){             // ShieldAI: ciphertext scatter, key held near
-          if(i%64===0){ x=(a-0.5)*3; y=(R[(i*7)%COUNT]-0.5)*3; z=15; }
-          else { x=(a-0.5)*24; y=(R[(i*3)%COUNT]-0.5)*22; z=(R[(i*5)%COUNT]-0.5)*16-2; }
-        } else if(name==='thread'){              // Textify: a thread of citation edges
-          var an4=t*TAU*3, r4=2.6+Math.sin(t*6)*0.7;
-          x=Math.cos(an4)*r4+(t-0.5)*10; y=(t-0.5)*20; z=Math.sin(an4)*r4;
-        } else if(name==='rooms'){               // HealthFlow: five rooms, one draft
-          var room=i%5, ra=room/5*TAU;
-          x=Math.cos(ra)*9+(a-0.5)*3.4; y=(R[(i*11)%COUNT]-0.5)*13; z=Math.sin(ra)*9+(R[(i*3)%COUNT]-0.5)*3.4;
-        } else if(name==='ring'){                // Helm: one ring around the fleet
-          var an5=t*TAU, r5=10+Math.sin(t*TAU*8)*0.5;
-          x=Math.cos(an5)*r5; y=Math.sin(an5)*r5*0.34+(a-0.5)*1.4; z=Math.sin(an5*2)*2.4;
-        } else if(name==='brain'){               // the throughline: it folds into one mind
-          var ph=Math.acos(2*R[(i*13)%COUNT]-1), th=t*TAU*11, rr=9+(R[(i*17)%COUNT]-0.5)*1.6;
-          x=rr*Math.sin(ph)*Math.cos(th); y=rr*Math.cos(ph)*0.9; z=rr*Math.sin(ph)*Math.sin(th);
-        } else {                                 // 'line' — it resolves to a single line
-          x=(t-0.5)*30; y=Math.sin(t*TAU*2)*0.25; z=(a-0.5)*0.5;
-        }
-        p[i*3]=x; p[i*3+1]=y; p[i*3+2]=z;
-      }
-      return p;
-    }
-    var CACHE={}; function topo(n){ return CACHE[n]||(CACHE[n]=gen(n)); }
-
-    /* ---- instanced glyph quads ---- */
-    var quad=new THREE.PlaneGeometry(1,1);
-    var geo=new THREE.InstancedBufferGeometry();
-    geo.index=quad.index; geo.attributes.position=quad.attributes.position; geo.attributes.uv=quad.attributes.uv;
-
-    var A=new Float32Array(topo('helix')), B=new Float32Array(A);
-    var aCell=new Float32Array(COUNT*2), aRand=new Float32Array(COUNT),
-        aRep=new Float32Array(COUNT), aMile=new Float32Array(COUNT),
-        aNode=new Float32Array(COUNT), aCol=new Float32Array(COUNT*3);
-    var SEGS=NM-1, c3=new THREE.Color();
-    var NODE_EVERY=Math.max(6,Math.floor(COUNT/(NM*7)));   // a handful of bright station glyphs each
-    for(var i=0;i<COUNT;i++){
-      var t=i/(COUNT-1);
-      var mf=t*SEGS;                       // continuous position on the timeline
-      var mi=Math.min(NM-1,Math.round(mf));// nearest milestone owns this particle's colour
-      aMile[i]=mf;
-      // a small number of particles sit exactly on a station and carry its initial
-      var atStation = Math.abs(mf-mi)<0.045 || (i%NODE_EVERY===0 && Math.abs(mf-mi)<0.12);
-      aNode[i]=atStation?1:0;
-      var ci = atStation ? MILE_GLYPH[mi] : (11+(i%14));   // stations = initials, rest = digits/marks
-      ci=ci%CHARSET.length;
-      aCell[i*2]=(ci%COLS)/COLS; aCell[i*2+1]=Math.floor(ci/COLS)/ROWS;
-      aRand[i]=R[i]; aRep[i]=(i%2)?1:-1;
-      c3.set(MILES[mi].c); aCol[i*3]=c3.r; aCol[i*3+1]=c3.g; aCol[i*3+2]=c3.b;
-    }
-    geo.setAttribute('aTargetA',new THREE.InstancedBufferAttribute(A,3));
-    geo.setAttribute('aTargetB',new THREE.InstancedBufferAttribute(B,3));
-    geo.setAttribute('aCell',new THREE.InstancedBufferAttribute(aCell,2));
-    geo.setAttribute('aRand',new THREE.InstancedBufferAttribute(aRand,1));
-    geo.setAttribute('aReplica',new THREE.InstancedBufferAttribute(aRep,1));
-    geo.setAttribute('aMile',new THREE.InstancedBufferAttribute(aMile,1));
-    geo.setAttribute('aNode',new THREE.InstancedBufferAttribute(aNode,1));
-    geo.setAttribute('aCol',new THREE.InstancedBufferAttribute(aCol,3));
-
-    var U={
-      uAtlas:{value:atlas}, uMix:{value:1}, uTime:{value:0}, uSize:{value:0.62},
-      uSplit:{value:0}, uDrift:{value:0}, uBreath:{value:0},
-      uPointer:{value:new THREE.Vector3(999,999,0)},
-      uActive:{value:-1}, uSpan:{value:1.25},
-      uCell:{value:new THREE.Vector2(1/COLS,1/ROWS)}, uInk:{value:light?0:1}
-    };
-
-    var vert=[
-      "precision mediump float;",
-      "attribute vec3 aTargetA;attribute vec3 aTargetB;attribute vec2 aCell;attribute vec3 aCol;",
-      "attribute float aRand;attribute float aReplica;attribute float aMile;attribute float aNode;",
-      "uniform float uMix,uTime,uSize,uSplit,uDrift,uBreath,uActive,uSpan;uniform vec3 uPointer;",
-      "varying vec2 vUv;varying vec2 vCell;varying vec3 vCol;varying float vLit;varying float vNode;",
-      "void main(){",
-      "  float m=smoothstep(0.0,1.0,uMix);",
-      "  vec3 c=mix(aTargetA,aTargetB,m);",
-      "  c.x += uSplit*aReplica*3.2;",
-      "  float n=sin(uTime*0.7+aRand*6.283)*cos(uTime*0.5+aRand*11.0);",
-      "  c += n*(0.10+uDrift*1.4)*vec3(1.0,0.8,1.0);",
-      "  c *= (1.0+uBreath*0.03*sin(uTime*0.9+aRand*6.0));",
-      "  vec3 toP=c-uPointer;float d=length(toP.xy);",
-      "  c.xy += normalize(toP.xy+vec2(0.001))*(3.2*exp(-d*d*0.03));",
-      // segment lighting: the milestone the current chapter belongs to burns bright,
-      // the rest of the timeline stays a dim, readable trace.
-      "  float lit = 1.0;",
-      "  if(uActive>=0.0){ float dm=abs(aMile-uActive); lit = mix(0.16,1.0,1.0-smoothstep(uSpan*0.55,uSpan,dm)); }",
-      "  vLit=lit; vNode=aNode; vCol=aCol; vUv=uv; vCell=aCell;",
-      "  vec4 mv=modelViewMatrix*vec4(c,1.0);",
-      "  float sz=uSize*(0.55+aRand*0.7)*(1.0+aNode*(0.9+0.9*lit));",
-      "  mv.xy += (uv-0.5)*sz;",
-      "  gl_Position=projectionMatrix*mv;",
-      "}"
-    ].join("\n");
-    var frag=[
-      "precision mediump float;",
-      "uniform sampler2D uAtlas;uniform vec2 uCell;uniform float uInk;",
-      "varying vec2 vUv;varying vec2 vCell;varying vec3 vCol;varying float vLit;varying float vNode;",
-      "void main(){",
-      "  vec2 auv=vec2(vCell.x+vUv.x*uCell.x, vCell.y+(1.0-vUv.y)*uCell.y);",
-      "  float a=texture2D(uAtlas,auv).a;",
-      "  if(a<0.04) discard;",
-      "  vec3 col=vCol;",
-      "  col=mix(col, col*0.45+vec3(0.04,0.05,0.07), 1.0-uInk);",  // light theme: ink, not glow
-      "  float lit=mix(0.18,1.0,vLit)*(0.75+0.55*vNode);",
-      "  float alpha=a*lit*(uInk>0.5?0.80:0.92);",
-      "  gl_FragColor=vec4(col*lit,alpha);",
-      "}"
-    ].join("\n");
-
-    var mat=new THREE.ShaderMaterial({uniforms:U,vertexShader:vert,fragmentShader:frag,
-      transparent:true,depthWrite:false,depthTest:false,
-      blending:light?THREE.NormalBlending:THREE.AdditiveBlending});
-    var mesh=new THREE.Mesh(geo,mat); mesh.frustumCulled=false; scene.add(mesh);
-    // On wide screens the text panel holds the left half, so the strand is pushed
-    // into the right half where it is fully visible instead of hiding behind glass.
-    function sceneOffset(){ return innerWidth>=1100 ? 11 : (innerWidth>=900 ? 6 : 0); }
-
-    /* ---- the literal thread: a coloured polyline joining consecutive nodes ---- */
-    var STEP=Math.max(1,Math.floor(COUNT/420));
-    var eIdx=[]; for(var e=STEP;e<COUNT;e+=STEP){ eIdx.push(e-STEP,e); }
-    var ePos=new Float32Array(eIdx.length*3), eCol=new Float32Array(eIdx.length*3);
-    for(var q=0;q<eIdx.length;q++){
-      var src=eIdx[q]*3; eCol[q*3]=aCol[src]; eCol[q*3+1]=aCol[src+1]; eCol[q*3+2]=aCol[src+2];
-    }
-    var eGeo=new THREE.BufferGeometry();
-    eGeo.setAttribute('position',new THREE.BufferAttribute(ePos,3));
-    eGeo.setAttribute('color',new THREE.BufferAttribute(eCol,3));
-    var eMat=new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:light?0.10:0.16,
-      blending:light?THREE.NormalBlending:THREE.AdditiveBlending,depthWrite:false,depthTest:false});
-    var lines=new THREE.LineSegments(eGeo,eMat); lines.frustumCulled=false; scene.add(lines);
-    mesh.position.x=lines.position.x=sceneOffset();
-    function updateEdges(){
-      var m=U.uMix.value, mm=m*m*(3-2*m);
-      for(var k=0;k<eIdx.length;k++){
-        var s=eIdx[k]*3;
-        ePos[k*3]  =A[s]  +(B[s]  -A[s])*mm;
-        ePos[k*3+1]=A[s+1]+(B[s+1]-A[s+1])*mm;
-        ePos[k*3+2]=A[s+2]+(B[s+2]-A[s+2])*mm;
-      }
-      eGeo.attributes.position.needsUpdate=true;
-    }
-
-    /* ---- morph between topologies (own tween; no animation library) ---- */
-    var shown='helix', mixFrom=1, mixT=1, MIX_DUR=1.15;
-    function snapshot(){
-      var m=U.uMix.value, mm=m*m*(3-2*m);
-      for(var k=0;k<A.length;k++) A[k]=A[k]+(B[k]-A[k])*mm;
-      geo.attributes.aTargetA.needsUpdate=true;
-    }
-    function applyChapter(){
-      var want=curTopo||'helix';
-      U.uSpan.value=curSpan;
-      if(want!==shown){
-        snapshot();
-        B.set(topo(want));
-        geo.attributes.aTargetB.needsUpdate=true;
-        U.uMix.value=0; mixT=0; shown=want;
-        if(reduce){ U.uMix.value=1; mixT=1; }
-      }
-      kick();
-    }
-    window.__strandApply=applyChapter;
-
-    /* ---- theme ---- */
-    window.__fugueThemeChange=function(){
-      light=isLight();
-      U.uInk.value=light?0:1;
-      mat.blending=light?THREE.NormalBlending:THREE.AdditiveBlending; mat.needsUpdate=true;
-      eMat.opacity=light?0.10:0.16;
-      eMat.blending=light?THREE.NormalBlending:THREE.AdditiveBlending; eMat.needsUpdate=true;
-      kick();
-    };
-
-    /* ---- pointer: parallax + the hero split (two replicas of one strand) ---- */
-    var rc=new THREE.Raycaster(), plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
-    var ndc=new THREE.Vector2(999,999), hit=new THREE.Vector3(), lastMove=-9;
-    if(!matchMedia('(pointer:coarse)').matches){
-      window.addEventListener('pointermove',function(ev){
-        ndc.x=(ev.clientX/innerWidth)*2-1; ndc.y=-(ev.clientY/innerHeight)*2+1;
-        rc.setFromCamera(ndc,camera);
-        // the strand mesh is translated on wide screens, so bring the world hit
-        // back into the mesh's own space before the shader repels from it
-        if(rc.ray.intersectPlane(plane,hit)) U.uPointer.value.set(hit.x-mesh.position.x,hit.y,hit.z);
-        lastMove=clock.elapsedTime;
-      },{passive:true});
-      window.addEventListener('pointerleave',function(){ U.uPointer.value.set(999,999,0); });
-    }
-
-    /* ---- resize ---- */
-    var rzT;
-    window.addEventListener('resize',function(){
-      clearTimeout(rzT);
-      rzT=setTimeout(function(){
-        W=innerWidth;H=innerHeight;
-        renderer.setSize(W,H,false); camera.aspect=W/H; camera.updateProjectionMatrix();
-        mesh.position.x=lines.position.x=sceneOffset();
-        kick();
-      },150);
+  let lenis=null;
+  if(!reduce && window.Lenis && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    lenis=new Lenis({duration:1.05,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+    lenis.on('scroll',(e)=>{
+      ScrollTrigger.update();
+      const v=Math.min(Math.abs(e.velocity||0)/40,1);
+      uniforms.uDrift.value=v;
     });
-
-    /* ---- one frame ---- */
-    var clock=new THREE.Clock();
-    var activeCur=-1;
-    function frame(dt,t){
-      if(!reduce){
-        U.uTime.value=t;
-        U.uBreath.value += (0.6-U.uBreath.value)*0.05;
-        U.uDrift.value  *= 0.94;
-        if(mixT<1){ mixT=Math.min(1,mixT+dt/MIX_DUR); var x=mixT; U.uMix.value=x*x*(3-2*x); }
-        var wantSplit=(scrollY<innerHeight*0.8 && (t-lastMove)<2.5)?0.7:0.0;
-        U.uSplit.value += (wantSplit-U.uSplit.value)*Math.min(1,dt*3);
-        camera.position.x += ((ndc.x>900?0:ndc.x*2)-camera.position.x)*0.03;
-        camera.position.y += ((ndc.y>900?0:ndc.y*2)-camera.position.y)*0.03;
-        camera.lookAt(0,0,0);
-      } else { U.uMix.value=1; }
-      // active milestone eases toward the chapter's own station
-      var wantA=curMile;
-      if(wantA<0) activeCur=-1;
-      else { if(activeCur<0) activeCur=wantA; else activeCur+=(wantA-activeCur)*Math.min(1,(reduce?1:dt*2.6)); }
-      U.uActive.value=activeCur;
-      updateEdges();
-      renderer.render(scene,camera);
-    }
-
-    /* ---- loop with pause guards ---- */
-    var running=true, onscreen=true, looping=false;
-    function loop(){
-      if(reduce||!running||!onscreen){ looping=false; return; }
-      looping=true;
-      requestAnimationFrame(loop);
-      frame(Math.min(clock.getDelta(),0.05), clock.elapsedTime);
-    }
-    function kick(){
-      if(reduce){ frame(0,0); return; }
-      if(!looping && running && onscreen){ clock.getDelta(); loop(); }
-    }
-    document.addEventListener('visibilitychange',function(){ running=!document.hidden; kick(); });
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){
-        es.forEach(function(en){ onscreen=en.isIntersecting; if(onscreen) kick(); });
-      },{threshold:0}).observe(canvas);
-    }
-    if(reduce){
-      var pend=false;
-      window.addEventListener('scroll',function(){
-        if(pend) return; pend=true;
-        requestAnimationFrame(function(){ pend=false; readChapter(); applyChapter(); frame(0,0); });
-      },{passive:true});
-    }
-
-    readChapter(); applyChapter(); frame(0,0);
-    if(!reduce) loop();
+    gsap.ticker.add((time)=>{ lenis.raf(time*1000); });
+    gsap.ticker.lagSmoothing(0);
+    sections.forEach(sec=>{
+      ScrollTrigger.create({
+        trigger:sec, start:'top 62%', end:'bottom 40%',
+        onEnter:()=>setTopology(sec.getAttribute('data-topo'),accentFor(sec)),
+        onEnterBack:()=>setTopology(sec.getAttribute('data-topo'),accentFor(sec)),
+      });
+    });
+    ScrollTrigger.create({trigger:'#hero',start:'bottom 70%',
+      onEnter:()=>{ if(window.gsap) gsap.to(uniforms.uSplit,{value:0,duration:0.8,overwrite:true}); }
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',ev=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){ev.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
+    });
+  } else {
+    // fallback: topology by IntersectionObserver
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){setTopology(e.target.getAttribute('data-topo'),accentFor(e.target));}});},{threshold:0.4});
+    sections.forEach(s=>io.observe(s));
   }
+
+  function applyTheme(){
+    const light=document.documentElement.getAttribute('data-theme')==='light';
+    uniforms.uInk.value=light?0.0:1.0;
+    material.blending=light?THREE.NormalBlending:THREE.AdditiveBlending;
+    edgeMat.opacity=light?0.08:0.10;
+    material.needsUpdate=true;
+    renderer.setClearColor(0x000000,0);
+  }
+  window.__fugueThemeChange=applyTheme; applyTheme();
+
+  let rt;
+  window.addEventListener('resize',()=>{
+    clearTimeout(rt);
+    rt=setTimeout(()=>{
+      renderer.setSize(window.innerWidth,window.innerHeight,false);
+      camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix();
+    },150);
+  });
+
+  let visible=true;
+  document.addEventListener('visibilitychange',()=>{visible=!document.hidden; if(visible)loop();});
+  const clock=new THREE.Clock();
+  let breathTarget=0.6;
+  function loop(){
+    if(!visible) return;
+    requestAnimationFrame(loop);
+    const dt=clock.getDelta();
+    if(!reduce){
+      uniforms.uTime.value+=dt;
+      uniforms.uBreath.value += (breathTarget-uniforms.uBreath.value)*0.05;
+      uniforms.uDrift.value *= 0.94;
+      camera.position.x += ( (ndc.x*2) - camera.position.x)*0.02;
+      camera.position.y += ( (ndc.y*2) - camera.position.y)*0.02;
+      camera.lookAt(0,0,0);
+    }
+    updateEdges();
+    renderer.render(scene,camera);
+  }
+  setTopology('helix','#2ED3C6'); uniforms.uMix.value=1;
+  loop();
 })();
 </script>
 
