@@ -13,7 +13,8 @@ includes a demo reel that plays while its section is in view.
 - **Site:** a single static `public/index.html` — no build step.
   - Three.js (r128) InstancedMesh glyph lattice + custom GLSL shader
   - Native scroll drives the camera, HUD and reveals (no GSAP/Lenis — Three.js is the only script dependency)
-  - Client-side RAG chatbot (TF‑IDF keyword retrieval over embedded facts, cited)
+  - Client-side portfolio assistant (TF‑IDF retrieval over embedded, cited facts; no model or tool execution)
+  - Assistant input is capped at 500 characters, rendered with DOM text nodes, and retained only in a 40-message in-page window; questions never leave the browser
   - Theme-aware (dark/light), responsive, `prefers-reduced-motion` aware
   - The hero statement is present in the server-sent HTML (visible before JS)
 - **Reels:** GIF used as a lazy-loaded poster; MP4 (`preload=none`) lazy-loads
@@ -21,7 +22,8 @@ includes a demo reel that plays while its section is in view.
   Dimensions are reserved via `aspect-ratio` so there is zero layout shift.
 - **Server:** `server.js` — a zero-dependency Node stdlib HTTP static server
   (correct content types incl. `video/mp4` + `application/pdf`, HTTP Range
-  support for video, a `/health` endpoint, path-traversal hardening).
+  support for video, a `/health` endpoint, path-traversal hardening, and restrictive
+  framing, permissions, referrer, and content-security headers).
 - **Container:** `node:22-alpine`, runs as the non-root `node` user, port 8080.
 
 ## Layout
