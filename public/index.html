@@ -151,6 +151,15 @@ main{position:relative;z-index:2}
 .chapter:not(.hero){
   background:color-mix(in srgb,var(--void) 14%,transparent);
 }
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,
+    color-mix(in srgb,var(--void) 96%,transparent) 0%,
+    color-mix(in srgb,var(--void) 90%,transparent) 42%,
+    color-mix(in srgb,var(--void) 36%,transparent) 66%,
+    transparent 82%);
+}
+.hero .wrap,.hero .scroll-cue{position:relative;z-index:1}
 .wrap{max-width:var(--maxw);margin:0 auto;width:100%}
 .mono{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 .tag{color:var(--accent)}
@@ -688,10 +697,10 @@ const RAG_FACTS = [
 "Textify fails closed in production - the access-code check and raw-body cap run before multipart parsing - and wraps retrieved excerpts as untrusted data as a prompt-injection boundary; it is built on Python 3.12 and FastAPI and is live at textify-abheet19.fly.dev.",
 "ShieldAI is an educational Paillier partial-homomorphic-encryption demo where the private key never leaves the browser and all inputs are synthetic; it is explicitly not AI, not a credit product, and not production cryptography.",
 "In ShieldAI the browser generates a 1024-bit Paillier keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts; the server computes an encrypted weighted sum on ciphertext and returns an encrypted total the browser decrypts locally to 37.5/100.",
-"ShieldAI keeps raw fields, the private key and the decrypted result off the server entirely, uses payload-free logging, is built with Flask and vanilla JS, is verified by 8 backend tests and a 19-group browser gate, and is live at shieldai-abheet19.fly.dev with /version proving the exact commit.",
+"ShieldAI keeps raw fields, the private key and the decrypted result off the server entirely, uses payload-free logging, is built with Flask and vanilla JS, and is live at shieldai-abheet19.fly.dev. Its public release does not currently expose a verified source commit.",
 "Helm is a deployed operations console for the portfolio. It measures live endpoint health and latency, maintains a rolling window for uptime and percentiles, and labels dry-run controls and sample metrics clearly.",
-"A recurring theme across Abheet's projects is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary - CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL security boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
-"Six of the seven built projects are publicly deployed (Weft, Vantage, glass, HealthFlow, Textify, ShieldAI); Zeno is the local-first flagship with no public deploy, and all repos live under github.com/abheet19.",
+"Each project makes its technical boundary explicit: CRDT convergence in Weft, governed side effects in Zeno, typed query compilation in Vantage, measured contrast in glass, and encrypted computation in ShieldAI.",
+"Seven of the eight projects are publicly deployed (Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm); Zeno is a local-first desktop app with no public deploy, and all repos live under github.com/abheet19.",
 "His canonical resume is available at /resume.pdf and his QuillBot work is framed as impact plus modern technology, not internal ticket IDs, experiment names, or repo names."
 ];
 
@@ -780,12 +789,11 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
   function isAvail(q){
     const lq=q.toLowerCase();
-    const availTokens=["available","hire","hiring","looking","open","job","role","work","employed","employment","status","quillbot","restructur","company","restructuring","open to","currently","actively"];
     const projNames=["weft","zeno","vantage","glass","healthflow","textify","shieldai","helm"];
     const isProj=projNames.some(p=>lq.includes(p));
     if(isProj) return null;
-    const hits=availTokens.filter(t=>lq.includes(t));
-    return hits.length>=1 ? true : null;
+    const asksAvailability=/(?:\b(?:available|open|looking)\b.{0,40}\b(?:roles?|work|opportunities|jobs?|hire)\b)|(?:\b(?:roles?|work|opportunities|jobs?|hire)\b.{0,40}\b(?:available|open|looking)\b)|(?:\b(?:employment status|currently employed)\b)|(?:\bcan (?:we|i|you) hire\b)/i.test(lq);
+    return asksAvailability ? true : null;
   }
 
   function retrieve(q){
@@ -824,6 +832,15 @@ document.getElementById('copyBtn').addEventListener('click',function(){
       add("I treat messages as untrusted questions, not instructions. I can only retrieve and quote the fixed portfolio facts shown on this page.","bot");
       return;
     }
+    const guided={
+      "what is zeno s approval kernel":[15,16],
+      "how does weft merge offline edits":[20,21],
+      "why doesn t vantage let the llm write sql":[25,26],
+      "what did he do at quillbot":[5,6],
+      "is he available for new roles":[0,4]
+    };
+    const exact=guided[norm(q).trim().replace(/\s+/g," ")];
+    if(exact){ add(exact.map(i=>RAG_FACTS[i]).join(" "),"bot",exact); return; }
     if(isAvail(q)){
       add("Abheet was a Software Engineer at QuillBot from December 2024 to August 2026. He is open to software engineering roles in India or fully remote. Reach him at abheet19@gmail.com.","bot",[4,0]);
       return;
