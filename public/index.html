@@ -646,7 +646,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 <section class="chat-panel" id="chatPanel" aria-label="Ask the lattice chatbot">
   <div class="chat-head">
     <div class="orb" aria-hidden="true"></div>
-    <div><h4>Ask the lattice</h4><p>grounded in 49 cited facts</p></div>
+    <div><h4>Ask the lattice</h4><p id="chatCount">grounded in 146 cited facts</p></div>
     <button class="x" id="chatClose" aria-label="Close">✕</button>
   </div>
   <div class="chat-log" id="chatLog"></div>
@@ -668,55 +668,167 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
    DATA
    ============================================================================ */
 const RAG_FACTS = [
-"Abheet Singh Isher is a software engineer based in India, open to roles in India and remote.",
-"His contact details are abheet19@gmail.com, +91-9682396948, linkedin.com/in/abheet-singh-isher, and github.com/abheet19.",
-"He holds a B.E. in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala (2018-2022).",
-"His career path is Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), then building his own project suite.",
-"At QuillBot (Learneo) he was a Software Engineer from Dec 2024 to Aug 2026 and was laid off in September 2026.",
-"At QuillBot he architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors including Google Docs, Gmail, MS Word and ChatGPT, preserving block-level formatting using the DOM Selection/Range and CSSOM APIs.",
-"His QuillBot work shipped AI-assisted writing to 10M+ weekly active users across a Chrome/Firefox Manifest V3 extension and its server-rendered web app.",
-"At QuillBot he optimized the selection hot path by moving an undebounced per-selectionchange computation (~60 calls/sec) onto a 300ms debounced path and eliminating forced-layout reflows and a requestIdleCallback leak.",
-"At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants, instrumented with Amplitude funnels and Google social auth.",
-"At QuillBot he owned build and CI health on an nx monorepo, upgrading the toolchain to Node 24 with 234 test suites / 3100+ tests green.",
-"At Barclays (Aug 2022 - Nov 2024) he built responsive financial dashboards with Python, FastAPI, React.js and TypeScript, saving an estimated $8000/month in auditor time by automating manual report reviews.",
-"At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%, and his React.js/KDB+ interfaces cut audit completion time by 40%.",
-"At Mamaearth (Jan 2022 - Jun 2022) he built a User Collaboration & Research SaaS platform and a JavaScript web SDK capturing 5K+ daily user interactions, and deployed Node.js/React microservices via Docker and GitLab CI/CD for 20% faster releases.",
-"His core strengths are browser-extension engineering at consumer scale (MV3, ~10M weekly active users), React/TypeScript, web performance, applied AI, and full-stack development.",
-"Zeno is his flagship project: a local-first, Windows-first personal AI suite whose tagline is 'Reason before action.'",
-"Zeno's core idea is a deterministic approval kernel that stands between what an AI agent proposes and what actually happens - governance as a runtime, not a policy document.",
-"In Zeno, every side-effecting action becomes a content-addressed 'held proposal'; the owner approves the exact action, a compare-and-swap check confirms the world hasn't moved, exactly one execution attempt is allowed, and the result is recorded on an Ed25519-signed hash-chained receipt ledger.",
-"In Zeno, an AI model can propose but can never approve its own action - this is structural: the agent holds a proposer token that the approval route rejects with 403, and Tier 4 payment/biometric effects are permanently unreachable.",
-"Zeno has three products over one gate: Command (orchestrator and approval home), Forge (a governed coding agent running Claude Code, Codex or a local Ollama model in a disposable git worktree), and Counsel (consent-gated meeting notes where every item cites its source line).",
-"Zeno is local-first (the daemon binds to 127.0.0.1 only), has zero telemetry, and its 16 packages have zero runtime dependencies; its current end-to-end suite passed 18 flows with 0 failed, and it has no public web deployment yet.",
+/* ---- Who is Abheet ---- */
+"Abheet Singh Isher is a full-stack software engineer based in India, open to roles in India and fully remote.",
+"His one-line headline: he shipped AI writing to 10M+ weekly active users at QuillBot, and now builds local-first AI tools with real safety guarantees.",
+"His contact details are email abheet19@gmail.com, phone +91-9682396948, LinkedIn linkedin.com/in/abheet-singh-isher, and GitHub github.com/abheet19.",
+"Abheet's education: he holds a B.E. degree in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala, where he did his undergraduate study from 2018 to 2022.",
+"His career path runs Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), and then building his own suite of deploy-ready projects.",
+"His core strengths are browser-extension engineering at consumer scale (Manifest V3, ~10M weekly active users), React and TypeScript, web performance, applied AI, and full-stack development.",
+"A recurring theme across all his work is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary.",
+"He was laid off from QuillBot in September 2026 and has since been building and deploying a portfolio of eight projects: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm.",
+"His resume is available from the Resume link in the site's top navigation and contact section (it opens the PDF).",
+"His work at QuillBot is deliberately framed around real results and modern tooling, never internal ticket IDs, experiment names, or repository names.",
+/* ---- QuillBot ---- */
+"At QuillBot (Learneo) Abheet was a Software Engineer from December 2024 to August 2026.",
+"His QuillBot work shipped AI-assisted writing to 10M+ weekly active users across a Chrome/Firefox Manifest V3 extension and its server-rendered (SSR) web app.",
+"At QuillBot he architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors, including Google Docs, Gmail, MS Word and ChatGPT.",
+"QuillBot's insert/replace engine preserves block-level formatting using the DOM Selection/Range and CSSOM APIs, and works across Shadow DOM and cross-frame boundaries, treating every editor as a peer writing back into one document.",
+"At QuillBot he optimized the selection hot path: an undebounced per-selectionchange computation running about 60 calls/sec was moved onto a 300ms debounce, and he eliminated forced-layout reflows and a requestIdleCallback leak.",
+"At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants.",
+"His QuillBot growth experiments were instrumented with Amplitude funnels and Google social auth.",
+"At QuillBot he owned build and CI health on an nx monorepo, upgrading the toolchain to Node 24 with 234 test suites and 3100+ tests green.",
+"QuillBot is where Abheet proves consumer-scale browser-extension engineering: MV3 service workers, content scripts, and reliable DOM manipulation across a hostile variety of third-party sites.",
+/* ---- Barclays ---- */
+"At Barclays (Aug 2022 - Nov 2024) he was a Software Developer building responsive financial dashboards with Python, FastAPI, React and TypeScript.",
+"His Barclays dashboards automated manual report reviews, saving an estimated $8,000/month in auditor time.",
+"At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%.",
+"At Barclays his React interfaces on a KDB+ backend cut audit completion time by 40% and lifted auditor satisfaction by about 10%; he shipped monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.",
+/* ---- Mamaearth ---- */
+"At Mamaearth (Jan 2022 - Jun 2022) he was an SDE intern who spearheaded a User Collaboration & Research SaaS platform for targeted surveys, contributing to a 10% increase in user feedback.",
+"At Mamaearth he built a responsive JavaScript web SDK capturing 5K+ daily user interactions and shipped Node.js (Express) and React microservices via Docker and GitLab CI/CD for 20% faster release cycles.",
+/* ---- Zeno ---- */
+"Zeno is Abheet's flagship project: a Windows-first, local-first personal AI suite whose tagline is 'Reason before action.'",
+"Zeno's core idea is a deterministic approval kernel - governance as a runtime, not a policy document - that stands between what an AI agent proposes and what actually happens.",
+"The problem Zeno solves: coding agents can edit your files, run your build and push your commits, and each one asks you to trust a prompt, which is a suggestion, not a boundary; Zeno makes the boundary structural.",
+"In Zeno, every side-effecting action becomes a content-addressed 'held proposal' bound to the exact payload, capability, target path, a hash of its context, and the base state.",
+"Zeno approvals are single-use: the owner approves the exact action, a compare-and-swap (CAS) check confirms the world hasn't moved, exactly one execution attempt is permitted, and the result lands on an Ed25519-signed, hash-chained receipt ledger.",
+"In Zeno an AI model can propose but can never approve its own action; it is structural, because the agent runs with a proposer token that the approval route rejects with a 403.",
+"Zeno classifies every effect into a risk tier from T0 (auto-safe reads) up to T4 (payment/biometric), and Tier 4 effects are permanently unreachable, with no toggle to enable them.",
+"Zeno ships three products over one gate: Command (the orchestrator and approval home), Forge (a governed coding agent), and Counsel (consent-gated meeting notes).",
+"Zeno's Command is an orchestrator, not just a chat box: the owner drives every Forge agent from it, and a 'Standing Field' orb renders each running agent as a live node showing phase, percent and elapsed time.",
+"Zeno's Forge runs Claude Code, Codex, or a discovered local Ollama model in a disposable git worktree; valid file output becomes a held proposal, and approval revalidates its target, base and context hashes.",
+"Zeno's Counsel is a consent-gated meeting notebook: it takes exclusive microphone ownership, requires declared consent, stores transcript text only, extracts cited items deterministically, and enables cited Q&A only after a meeting is ended and saved.",
+"Zeno's Vault stores plain, human-readable Markdown memories and answers with transparent keyword retrieval plus clickable citations - no embeddings, no vector database, no hidden cross-chat profile, no provider key.",
+"Zeno is local-first: the daemon binds to 127.0.0.1 (loopback) only, there is zero telemetry, and any hosted-provider or browser egress is explicit and per-run.",
+"Zeno's workspace runs across 16 packages with zero runtime dependencies; its approval kernel (about 2,500 lines) is deliberately kept even through an aggressive file-size refactor because it is the product's whole point.",
+"Zeno's end-to-end suite passed 18 flows with 0 failed (3 blocked on missing hardware like a microphone or a second device); each flow boots an isolated daemon and drives the real renderer in headless Chromium.",
+"In Zeno, project files, web and MCP content, transcripts, and model output are all treated as untrusted data and never as authority, which is also its defense against prompt injection.",
+"A hard bug Abheet debugged in Zeno: an end-to-end test hung when opening a second browser window because the UI opened four long-lived SSE connections per window (three to the same endpoint), exhausting the browser's roughly 6-per-origin HTTP/1.1 socket budget; he fixed it by consolidating the duplicate streams into one shared EventSource with a subscriber list.",
+"Zeno is intentionally not deployed to the public web; it runs locally, and its source is at github.com/abheet19/Zeno.",
+"Zeno's stack is TypeScript (strict), Node 22, Electron, Ed25519 via node:crypto, Server-Sent Events (SSE), local Ollama models, and the Model Context Protocol (MCP), with zero runtime dependencies.",
+"Zeno keeps its codebase maintainable with a hard rule of 500 lines per file maximum; its daemon's server.ts went from about 5,700 lines to about 420 by extracting roughly 27 focused route modules, and about 16,000 lines of dead or mock code were removed.",
+"Zeno's Forge enforces containment: file effects stay inside the selected project after path, symlink and junction checks, and the selected repository cannot change while the model is running.",
+/* ---- Weft ---- */
 "Weft is an offline-first collaborative rich-text editor whose tagline is 'Two people. One document. No lost edits.'",
-"Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
-"Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
-"Weft is verified by 613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases, and is deployed at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
-"Weft's stack includes TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check property tests, and its server is a pure relay that never imports CRDT semantics.",
+"The problem Weft solves: two people edit the same paragraph and one goes offline for an hour, and naive systems either overwrite work, force a conflict decision, or block editing.",
+"Weft stores a document as a tree of characters instead of a string, so a merge is a deterministic fact about the tree rather than a decision anyone has to make.",
+"Weft implements a from-scratch Fugue sequence CRDT (Weidner & Kleppmann, 2023) in which every character has a permanent (replica, counter) identity.",
+"Fugue's defining property is maximal non-interleaving: when two people type at the same spot, their runs stay whole instead of interleaving letter-by-letter.",
+"Because Weft is a CRDT, two peers can edit, disconnect, keep typing, reconnect and converge with no 'resolve conflict' dialog; on reconnect they swap state vectors and replay only the missing operations, which are idempotent so duplicates are safe.",
+"Weft shows honest sync states - 'in memory', 'on this device' (committed to IndexedDB), and 'Saved' (append plus fsync plus server acknowledgement) - and the green Saved pill comes from the server ack, never from a timer.",
+"Weft's server is a pure relay and log writer: it validates the wire format, durably appends, acknowledges and fans out operations, but never imports CRDT semantics, so a server bug cannot silently change a merge.",
+"Weft is verified by 613 distinct Vitest cases, a deterministic 100,000-operation benchmark, and 33 real-browser Chromium cases (including offline/reconnect and corrupt-storage recovery); its CRDT and protocol packages have zero runtime dependencies.",
+"Weft's correctness is proven with property-based tests (fast-check) that throw random operation sequences and arrival orders at convergence, plus a canonical serialization and content hash both peers compare.",
+"Weft's stack is TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check; the redesigned UI is a glass app shell with Documents, Editor, History and Settings screens.",
+"Weft deliberately does not use Yjs: Abheet built the CRDT from scratch to understand it, so it is simpler than Yjs in nameable ways but readable in one sitting, with a property test per invariant.",
+"Weft chose a CRDT over Operational Transformation (OT, Google Docs' lineage) because a long offline period is OT's worst case (a big rebase), whereas a CRDT just replays idempotent operations and converges.",
+"Weft's formatting uses per-character last-writer-wins resolved through logical metadata (never wall-clock time), a deliberate simplicity trade-off over the richer Peritext approach that its design doc names as not built.",
+"Weft is deployed at weft-abheet.fly.dev with source at github.com/abheet19/Weft; the public demo has no accounts or encryption, so it should not hold private documents.",
+/* ---- Vantage ---- */
 "Vantage is an auditable, AI-native product-analytics service whose tagline is 'Ask in English. See the SQL. Trust the number.'",
-"Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count) and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role with a 5-second timeout.",
-"Vantage is exposed as an MCP server with 8 read-only tools and no run_sql or ask tool, so Claude Desktop or Claude Code can query it as a tool with no LLM key of its own, and every result carries the SQL it ran.",
-"Vantage ensures idempotent ingestion via UNIQUE(project_id, insert_id) and proves funnel correctness with a hand-computed fixture (the August funnel is signup 13 -> create_project 6 -> invite_teammate 3 in a 7-day window).",
-"Vantage has 834 test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and is deployed at vantage-abheet.fly.dev exposing its exact commit at /health.release_sha.",
-"glass is a framework-neutral CSS design system whose tagline is 'A theme owns hue. The system owns everything else,' extracted from eight of Abheet's projects that independently converged on the same surface.",
-"glass uses semantic OKLCH tokens, eight themes, six component sheets and a Tailwind v3 adapter, and its contrast law is machine-verified: a dependency-free script proves 814 assertions across 8 themes x 2 grounds = 16 palettes on every push.",
-"glass's central rule is that a theme file contains eight numbers and no structure - a theme can rotate its accent hue but cannot break the shared lightness ladder, radii, type scale or motion curve.",
-"glass is live at abheet19.github.io/glass and is consumed in production by Zeno, Weft and Vantage; it is intentionally not published to npm.",
-"HealthFlow is a synthetic clinic health-checkup workflow whose tagline is 'One patient, five departments, one report,' and it is a demonstration only - not an EHR or compliance-ready product.",
-"HealthFlow puts five departments (IT, ENT, Vision, General, Dental) on live dashboards sharing one clinic-scoped draft over Socket.IO, and only IT's final submit persists the complete record transactionally to PostgreSQL, then generates a formatted .docx report from a template.",
-"HealthFlow enforces a tenant boundary by authenticating an exact clinic/user/secret triple over both HTTP and Socket.IO, deriving room names server-side, and filtering stored rows and reports by clinic (cross-clinic report requests return 404).",
-"HealthFlow uses React 18, TypeScript, Vite, Tailwind, MUI and Socket.IO on the frontend with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend, deploys as two Fly apps, and scored 100/100/100/100 on Lighthouse; it is live at healthflow-abheet19.fly.dev.",
+"The problem Vantage solves: analytics tools answer with numbers you cannot check, and adding an LLM that writes SQL makes the number both unverifiable and produced by something that can be talked into anything.",
+"Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec, and a pure compiler is the only thing that turns a spec into SQL.",
+"Vantage's QuerySpec is a small domain-specific language (a Zod schema, a discriminated union on kind: funnel, retention, trend, paths, count) with no free-text or expression field, so there is nothing for injected SQL to ride in on.",
+"Vantage's compiler emits a parameterized SELECT that runs as vantage_reader (a SELECT-only Postgres role) inside a READ ONLY transaction with a 5-second statement timeout and row caps.",
+"Vantage uses three Postgres roles for least privilege: vantage_owner (migrations), vantage_app (INSERT-only ingest), and vantage_reader (SELECT-only analytics).",
+"In Vantage, even a perfect jailbreak of the model only yields text that fails Zod validation and is refused with the raw output shown; the read-only role, transaction, timeout and row cap are independent backstops.",
+"Vantage is exposed as a stdio MCP server with 8 read-only tools and deliberately no run_sql and no ask tool, so Claude Desktop or Claude Code can query it with no LLM key of its own.",
+"Every Vantage result carries the exact SQL it ran (with $1 to $n parameters) plus an honest status (complete, empty, timed_out, truncated, or refused) and a data_until watermark.",
+"Vantage ingestion is idempotent via UNIQUE(project_id, insert_id) with ON CONFLICT DO NOTHING; a stable key is derived when a client omits insert_id, so retries cannot double-count.",
+"Vantage funnel correctness is pinned by a hand-computed fixture with adversarial rows (timezone boundaries, out-of-order events, an identity merge) whose expected numbers fail by name; the August funnel resolves to signup 13, then create_project 6, then invite_teammate 3 in a 7-day window.",
+"Vantage computes funnels with SQL window functions over per-person event streams (not exploding self-joins), buckets with AT TIME ZONE before date_trunc, uses first-occurrence step semantics, and adds covering and BRIN indexes on the append-only events table.",
+"Vantage has 834 distinct test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and a lint and dependency rule fails the build if Ask reaches the write pool or analytics reaches a model adapter.",
+"Vantage chose PostgreSQL over DuckDB or SQLite because only Postgres gives real least-privilege roles, a server-side statement_timeout that can interrupt a running query, and EXPLAIN (ANALYZE, BUFFERS) for real query plans.",
+"Vantage is deployed at vantage-abheet.fly.dev (Docker plus Caddy on Fly.io), exposes its exact commit at /health.release_sha, and its source is at github.com/abheet19/Vantage.",
+"Vantage's public demo runs with the LLM disabled (VANTAGE_LLM=none), so a successful canned example proves the typed-spec boundary, the compiler and the UI flow end-to-end, honestly not free-form model accuracy.",
+/* ---- glass ---- */
+"glass is a framework-neutral CSS design system whose tagline is 'A theme owns hue. The system owns everything else.'",
+"glass was extracted from eight of Abheet's projects that had independently converged on the same glass surface - the same radii, motion curves and theme triad - without ever sharing a stylesheet.",
+"glass solves cross-product visual drift with one importable design grammar and a contrast law a script proves on every theme, without imposing a JavaScript framework or runtime.",
+"glass uses semantic OKLCH color tokens, eight product themes, six component sheets, workspace and agent-shell primitives, and a Tailwind v3 adapter - no React, no Web Component, no JS runtime.",
+"OKLCH is a perceptually-uniform color space, which is the only reason one shared lightness ladder can be worn by a crimson, a teal and an emerald and land in the same measured contrast position.",
+"glass's contrast law is verified, not asserted: a dependency-free script parses the CSS, resolves var() chains, evaluates oklch() with sRGB gamut mapping and alpha compositing, and proves 814 assertions across 8 themes by 2 grounds = 16 palettes on every push.",
+"glass's core rule is that a theme file contains eight numbers and nothing else (a ground plus a hue-and-two-chromas per accent); lightness, radii, type scale, motion curve and state hues live in shared tokens, so a theme can rotate its accent but cannot break the ladder.",
+"Each glass accent ships two chroma values (a dark-ground one and a light-ground one) because sRGB holds more chroma at mid lightness than at high lightness, which is a gamut-mapping decision.",
+"Writing glass's contrast script caught three real defects: a light-mode warning color at 3.59:1 (below AA), three state chips collapsing in greyscale, and the --ink-2 token missing the glass ceiling by 0.06.",
+"glass is verified against WCAG 2.2 (4.5:1 text, 3:1 graphic, plus a live AA-to-AAA toggle) and every state carries a unique glyph and a unique word, so color is never the only channel.",
+"glass is consumed in production by Zeno, Weft and Vantage (and this portfolio page reuses its tokens); it is intentionally not published to npm and is consumed via git, submodule, a vendored copy, or the jsDelivr CDN.",
+"glass is live at abheet19.github.io/glass (GitHub Pages, exact-SHA publish), where the 'Glass Studio' demo is itself built from the same six component sheets; its source is at github.com/abheet19/glass.",
+"glass proves its provenance is real, not marketing: Weft and Vantage arrived at byte-identical radii, motion and theme triad independently, and each theme file documents the flagship's original value so the delta is verifiable.",
+/* ---- HealthFlow ---- */
+"HealthFlow is a synthetic clinic health-checkup workflow whose tagline is 'One patient, five departments, one report'; it is a demonstration only, not an EHR or a compliance-ready product, and must only ever receive synthetic data.",
+"HealthFlow puts five departments (IT intake, ENT, Vision, General and Dental) on their own live dashboards sharing one clinic-scoped draft over a Socket.IO room.",
+"In HealthFlow, department edits broadcast as low-latency per-field patches, but broadcasts are not database commits - only IT's final submit persists the complete record transactionally to PostgreSQL.",
+"After every department has submitted, HealthFlow stitches all five sections into a single formatted Word (.docx) report from a template, downloadable from the patients list.",
+"HealthFlow's tenant boundary authenticates the exact same clinic/user/secret triple over both HTTP and the Socket.IO handshake, derives room names server-side (payloads cannot select their own room), and filters stored rows and reports by clinic (cross-clinic report requests return 404).",
+"HealthFlow's stack is React 18, TypeScript, Vite, Tailwind and MUI on the frontend, with Flask, Flask-SocketIO, SQLAlchemy and python-docx on the backend, deployed as two separate Fly apps (frontend plus API) mapped to one commit.",
+"HealthFlow uses SPA code-splitting so a tiny access gate loads first and MUI, the socket client and each department load as separate chunks on demand; pinned Lighthouse runs scored 100/100/100/100 (Performance, Accessibility, Best Practices, SEO) on mobile and desktop.",
+"HealthFlow's /health runs a real SELECT 1 bounded by a 2-second Eventlet timeout and returns 503 with non-secret metadata when the database is down, degrading in a bounded way and then recovering (there is no failover).",
+"HealthFlow is live at healthflow-abheet19.fly.dev with source at github.com/abheet19/HealthFlow; it is verified by 11 backend tests plus browser workflow, navigation and resilience checks.",
+/* ---- Textify ---- */
 "Textify is a private, single-user, citation-first RAG study workspace whose tagline is 'Answers you can check.'",
-"Textify indexes a PDF, DOCX or TXT source into sentence-aware chunks (180 words, 36-word overlap), retrieves the top-4 passages by cosine similarity, and returns the answer with its cited source excerpts (or evidence-only without a generation key).",
-"Textify creates embeddings locally with a pinned quantized BAAI/bge-small-en-v1.5 ONNX model on CPU (no embedding API bill) and uses Claude to generate the final answer; it stores vectors in Neon PostgreSQL with pgvector.",
-"Textify fails closed in production - the access-code check and raw-body cap run before multipart parsing - and wraps retrieved excerpts as untrusted data as a prompt-injection boundary; it is built on Python 3.12 and FastAPI and is live at textify-abheet19.fly.dev.",
-"ShieldAI is an educational Paillier partial-homomorphic-encryption demo where the private key never leaves the browser and all inputs are synthetic; it is explicitly not AI, not a credit product, and not production cryptography.",
-"In ShieldAI the browser generates a 1024-bit Paillier keypair, encrypts four derived indicators, and sends only the public modulus and ciphertexts; the server computes an encrypted weighted sum on ciphertext and returns an encrypted total the browser decrypts locally to 37.5/100.",
-"ShieldAI keeps raw fields, the private key and the decrypted result off the server entirely, uses payload-free logging, is built with Flask and vanilla JS, is verified by 8 backend tests and a 19-group browser gate, and is live at shieldai-abheet19.fly.dev with /version proving the exact commit.",
-"Helm is Abheet's terminal deliverable: a cross-project observability and ops control plane for all seven projects (Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Zeno), built as its own product and now deployed at helm-abheet.fly.dev.",
-"A recurring theme across Abheet's projects is turning a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary - CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL security boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
-"His publicly deployed projects are Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and the Helm control plane; Zeno is the local-first flagship with no public deploy, and all repos live under github.com/abheet19.",
-"His resume is available from the Resume link in the site's nav and contact section (opens the PDF), and his QuillBot work is deliberately framed as impact plus modern technology, never internal ticket IDs, experiment names, or repo names."
+"The problem Textify solves: when an answer lives inside your own notes, you also need to check the evidence yourself, so Textify returns the answer alongside the source passages it used.",
+"Textify indexes a PDF, DOCX or TXT source into sentence-aware chunks (180 words with 36-word overlap) and retrieves the top-4 passages by cosine similarity within the selected document.",
+"Textify creates embeddings by default with a pinned quantized BAAI/bge-small-en-v1.5 ONNX model on CPU (384-dimensional, no embedding API key or bill); an OpenAI text-embedding-3-small (1536-dimensional) backend is also supported.",
+"Textify stores vectors in Neon PostgreSQL with the pgvector extension, keeping vectors in the same database as the rows, so there is no separate vector database to operate.",
+"Textify uses Claude (the Messages API) to generate the final grounded answer; without a generation key it returns retrieved evidence explicitly as 'evidence-only', which never hallucinates because it never generates.",
+"Textify fails closed in production: a raw ASGI upload gate checks the access code and a raw-body cap before FastAPI's multipart parser buffers anything, so an anonymous or oversized upload is rejected without being spooled.",
+"Textify treats retrieved excerpts as untrusted data (a prompt-injection boundary) and renders all document and answer text with textContent, never innerHTML, so injected markup stays inert.",
+"Textify's ingest is idempotent and race-safe via a normalized full SHA-256 with a UNIQUE constraint, and its front end drops stale answers after lock using a monotonic version token plus AbortController.",
+"Textify chose pgvector over a dedicated vector database (Pinecone, Weaviate, Milvus) because the corpus is small and per-document, so exact cosine over a bounded set is fast without an ANN index and there is one datastore to operate.",
+"Textify is built on Python 3.12 and FastAPI, is live at textify-abheet19.fly.dev, and its source is at github.com/abheet19/Textify.",
+/* ---- ShieldAI ---- */
+"ShieldAI is an educational demonstration of Paillier partial homomorphic encryption (PHE); its tagline is that the private key never leaves the browser, and it is explicitly not AI, not a credit product, and not production cryptography.",
+"Homomorphic encryption lets you compute on ciphertext and decrypt a result equal to computing on the plaintext; ShieldAI uses partial (additive) HE, which is exactly what a linear weighted sum needs.",
+"In ShieldAI the browser derives four bounded integer indicators from five synthetic financial fields, generates a fresh 1024-bit Paillier keypair in memory, encrypts the indicators, and sends only the public modulus and four ciphertexts to the server.",
+"ShieldAI's Flask server computes an encrypted weighted sum directly on the ciphertext (5 times DTI-bps + 4 times loan-to-income-bps + 3 times utilization-bps + 200 times stability-gap-months) starting from a fresh Enc(0), and returns an encrypted total; it never has the private key and never sees a plaintext value.",
+"The browser decrypts ShieldAI's total locally and normalizes it to a deterministic 37.5/100 on the canonical synthetic example, shown with a contribution breakdown and a privacy receipt.",
+"ShieldAI's threat model is honest-but-curious: the curious server only ever sees ciphertext; it deliberately has no zero-knowledge range proof, so it does not defend against a malicious client lying about its plaintext, which is a stated limitation.",
+"ShieldAI keeps raw fields, plaintext indicators, the private key, the decrypted total and the displayed score off the server entirely, and its logs contain only a request ID, route and status, and timing, never form values, keys or ciphertexts.",
+"ShieldAI bounds its CPU-heavy crypto endpoint with cheap-first checks (a body-size cap, decimal-string and ciphertext-length limits, range and coprimality checks) plus a process-local per-client hourly quota, all before any modular arithmetic.",
+"ShieldAI uses 1024-bit keys as a deliberate demo trade-off (2048-bit in-browser keygen adds noticeable latency); the server enforces exactly 1024-bit odd moduli so the boundary is explicit rather than accidental.",
+"ShieldAI is a vanilla-JS glass workspace (sidebar, command palette, drawers) with no build step, built on Flask, with the Paillier library and glass tokens vendored so runtime crypto does not depend on a CDN.",
+"ShieldAI is verified by 8 backend tests and a 19-group browser gate, is live at shieldai-abheet19.fly.dev with /version proving the exact commit, and its source is at github.com/abheet19/ShieldAI.",
+/* ---- Helm ---- */
+"Helm is Abheet's terminal deliverable and is deployed live at helm-abheet.fly.dev: a cross-project ops and observability command center - one glass console that watches all seven other projects as a single fleet.",
+"Helm is not a mockup: a small Node and Express server probes each live service server-side (no browser, so no CORS), measures real latency, and keeps a rolling window so up/down, uptime, p50/p95 and the sparklines are computed from actual measurements.",
+"Helm is honest about what is real: metrics not yet instrumented (Core Web Vitals, error rate, cost, deploy history) are shown as clearly-labelled SAMPLE placeholders with a wiring note, and its deploy/rollback actions are dry-runs that print the exact fly command and execute nothing.",
+"Helm offers ten ops flows reachable from a rail and a command palette: an Overview fleet grid, Performance/Web-Vitals, Health, Deploys, Alerts (evaluated live against real probe data), a Service Map, a public-style Status page, a client-side Assistant, and Settings.",
+"Helm's stack is Node 20+ and Express with a vanilla ES-module SPA (no build step and no chart library - charts are hand-drawn inline SVG), built on the shared glass design system and exposing a read-only MCP manifest of fleet tools.",
+"Helm is deployed at helm-abheet.fly.dev (Docker on Fly.io, region Singapore); glass is its visual foundation and MCP is its connective tissue, so the portfolio reads as one ecosystem rather than seven islands.",
+/* ---- Ecosystem / cross-cutting ---- */
+"The seven projects plus Helm form one ecosystem: glass is the shared visual foundation every project is built on, and MCP (the Model Context Protocol) is the connective tissue Zeno and Helm drive the products through.",
+"Across the suite the recurring pattern is a hard CS idea behind a clear trust boundary: CRDTs (Weft), a deterministic approval kernel (Zeno), an LLM-to-SQL boundary (Vantage), a machine-verified contrast law (glass), and homomorphic encryption (ShieldAI).",
+"His publicly deployed projects are Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm; Zeno is the local-first flagship with no public web deploy, and all repositories live under github.com/abheet19.",
+"Every deployed project proves the exact running commit (for example /health.release_sha, /version, or /release.json), so a reachable URL is never treated as proof on its own - the live SHA must match the reviewed source.",
+"MCP (the Model Context Protocol) is an open standard for exposing tools and data to an AI model; Vantage ships an MCP analytics server, Zeno exposes and consumes MCP tools, and Helm exposes a read-only MCP manifest.",
+"Several projects share a glass app-shell redesign (a nav rail, a command palette on Ctrl-K or Cmd-K, and light/dark themes): Weft, Vantage, glass, HealthFlow, Textify and ShieldAI all adopted it.",
+"The projects are heavily tested overall - for example 834 cases in Vantage, 613 in Weft, an 18-flow end-to-end suite in Zeno, 814 contrast assertions in glass, and Lighthouse 100s in HealthFlow.",
+"This portfolio site is named 'Fugue' and is itself one of Abheet's builds - a WebGL 'lattice' of glyph-nodes that morphs per chapter - and it reuses the glass design tokens.",
+/* ---- Skills ---- */
+"Abheet's tech stack and technologies span these skills: TypeScript, JavaScript, Python, SQL and C++ as languages; React, Redux, Node.js, Express, NestJS, Flask and FastAPI as frameworks; PostgreSQL, pgvector, Redis, MongoDB and KDB+ for data; Docker, Fly.io, GitHub Actions and nx for tooling; plus applied-AI work with CRDTs, MCP, RAG and homomorphic encryption.",
+"Abheet's programming languages include TypeScript, JavaScript, Python, SQL and C++.",
+"His frontend skills include React, Redux, ProseMirror, Material UI, Tailwind CSS and Vite; his backend skills include Node.js, Express, NestJS, Flask and FastAPI.",
+"His browser-extension skills include Manifest V3, service workers, content scripts, Shadow DOM, and the DOM Selection/Range and CSSOM APIs.",
+"His data skills include PostgreSQL, pgvector, MySQL, MongoDB, Redis, SQLAlchemy and KDB+.",
+"His infrastructure and tooling skills include Electron, Docker, Fly.io, GitHub Actions, GitLab CI/CD, AWS, GCP and nx monorepos.",
+"His applied-AI and computer-science skills include CRDTs, the Model Context Protocol (MCP), RAG, local embeddings (BGE), Paillier homomorphic encryption, content-addressed approvals, Ed25519 hash-chained ledgers, and capability security.",
+"His quality and design skills include property-based testing (fast-check), Playwright, Vitest, Jest, A/B experimentation, funnel analytics (Amplitude), web-performance optimization, and OKLCH design systems with WCAG contrast.",
+/* ---- Contact ---- */
+"The best way to reach Abheet is email at abheet19@gmail.com; his GitHub is github.com/abheet19 and his LinkedIn is linkedin.com/in/abheet-singh-isher.",
+"Abheet is open to new roles, in India or fully remote, following his QuillBot layoff in September 2026.",
+"All of Abheet's personal project repositories are public under github.com/abheet19, including Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm."
 ];
 
 const SKILLS = ["TypeScript","JavaScript","Python","SQL","C++","React","Redux","ProseMirror","Material UI","Tailwind CSS","Vite","Node.js","Express.js","NestJS","Flask","FastAPI","KDB+","Manifest V3","Service Workers","Content Scripts","Shadow DOM","DOM Selection/Range & CSSOM","PostgreSQL","pgvector","MySQL","MongoDB","Redis","SQLAlchemy","Electron","Docker","Fly.io","GitHub Actions","GitLab CI/CD","AWS","GCP","nx monorepo","CRDTs","Model Context Protocol (MCP)","RAG","Local embeddings (BGE)","LLM-assisted features","Paillier homomorphic encryption","Content-addressed approvals","Ed25519 hash-chained ledgers","Capability security","Property-based testing","Playwright","Vitest","Jest","A/B experimentation","Funnel analytics","Web performance","OKLCH design systems & WCAG"];
@@ -787,64 +899,205 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 });
 
 /* ============================================================================
-   RAG CHATBOT — keyword/token retrieval over the 49 facts, cited.
+   ASK THE LATTICE — client-side retrieval over the cited facts. No API key,
+   no backend, works offline. Pipeline: tokenize + lowercase + strip punctuation
+   + light stemming + synonym expansion of the question -> score every fact by
+   IDF-weighted token overlap + phrase (bigram) hits + named-entity boost ->
+   synthesize the top few into one short, coherent, cited answer. Greetings,
+   "what can I ask", and off-topic questions are handled gracefully.
    ============================================================================ */
 (function(){
-  const STOP=new Set("a an the of to in on at is are was were be been being and or but if then than that this these those it its as with for from by his he she they them your you i we our not no yes do does".split(" "));
-  const norm=s=>s.toLowerCase().replace(/[^a-z0-9+.# ]/g," ");
-  const toks=s=>norm(s).split(/\s+/).filter(w=>w.length>1&&!STOP.has(w));
-  // build df for idf weighting
-  const docs=RAG_FACTS.map((f,i)=>({i,text:f,set:new Set(toks(f)),arr:toks(f)}));
-  const df={}; docs.forEach(d=>{d.set.forEach(w=>df[w]=(df[w]||0)+1);});
+  const FACTS=RAG_FACTS;
+  const countEl=document.getElementById('chatCount');
+  if(countEl) countEl.textContent='grounded in '+FACTS.length+' cited facts';
+
+  const STOP=new Set(("a an the of to in on at is are was were be been being am do does did done "+
+    "and or but if then else so than that this these those it its as with for from by into onto over "+
+    "your you i we our us he she they them his her their me my mine ours also just such can could would "+
+    "should will shall may might must have has had not no yes what which who whom whose how why when "+
+    "where about tell me show give some any there here new one two get using use used via per abheet "+
+    "best good great better most really actually thing things want need like want").split(/\s+/));
+
+  const norm=s=>(s||"").toLowerCase().replace(/[^a-z0-9+.# ]/g," ").replace(/\s+/g," ").trim();
+  function stem(w){
+    if(w.length>4){
+      if(w.endsWith("ies")) return w.slice(0,-3)+"y";
+      if(w.endsWith("sses")) return w.slice(0,-2);
+      if(w.endsWith("ing")) return w.slice(0,-3);
+      if(w.endsWith("ed")&&w.length>5) return w.slice(0,-2);
+      if(w.endsWith("s")&&!w.endsWith("ss")) return w.slice(0,-1);
+    }
+    return w;
+  }
+  const rawToks=s=>norm(s).split(" ").filter(w=>w&&w.length>1&&!STOP.has(w));
+  const stoks=s=>rawToks(s).map(stem);
+
+  // ---- synonym / related-term groups (each word maps to the rest of its group) ----
+  const SYN_GROUPS=[
+    ["crdt","conflict","free","replicated","merge","converge","convergence","fugue","offline","collaborative","collaboration","editor","document","weft","yjs","interleave"],
+    ["encryption","encrypt","cipher","ciphertext","paillier","homomorphic","phe","private","privacy","shieldai","key","keypair"],
+    ["job","work","experience","career","employment","role","employer","company","history","professional"],
+    ["quillbot","learneo","extension","manifest","mv3","paraphrase","insert","replace","selection","writing","editor"],
+    ["barclays","auditor","audit","financial","finance","kdb","dashboard","fintech","bank"],
+    ["mamaearth","intern","internship","sdk","survey"],
+    ["stack","tech","technology","technologies","built","build","framework","language"],
+    ["contact","reach","email","hire","hiring","recruit","recruiter","touch"],
+    ["approval","approve","kernel","governance","govern","proposal","propose","receipt","ledger","cas","tier","zeno","agent","governed","boundary"],
+    ["sql","queryspec","query","postgres","postgresql","compiler","funnel","retention","analytics","vantage","metric","spec"],
+    ["safe","safety","secure","security","trust","boundary","untrusted","sandbox","injection","containment"],
+    ["test","tested","testing","vitest","jest","playwright","coverage","case","suite","property","benchmark","verified"],
+    ["deploy","deployment","live","hosted","host","url","production","fly","running","online"],
+    ["design","css","ui","theme","colour","color","oklch","contrast","token","glass","glassmorphism","wcag","accessible","accessibility"],
+    ["rag","retrieval","retrieve","embedding","vector","pgvector","bge","cosine","chunk","citation","cited","textify","onnx","neon"],
+    ["clinic","health","healthcare","medical","hospital","patient","department","healthflow","docx","report","workflow"],
+    ["mcp","protocol","tool"],
+    ["performance","perf","optimize","optimization","speed","fast","latency","debounce","reflow","hot","path"],
+    ["skill","skills","language","framework","proficient","expertise","know","good"],
+    ["who","bio","background","abheet","yourself","introduce","introduction"],
+    ["resume","cv","curriculum"],
+    ["helm","observability","ops","control","monitoring","monitor","fleet","probe","dashboard","console","uptime"],
+    ["ecosystem","suite","project","portfolio","overall","everything","story","theme","connect","together"],
+    ["socket","websocket","realtime","broadcast","room","tenant","tenancy"],
+    ["separate","isolate","isolation","tenant","tenancy","boundary","cross","room","segregate","wall"],
+    ["react","frontend","typescript","javascript","node","electron","backend"],
+    ["ollama","local","claude","llm","model","ai","anthropic"],
+    ["education","degree","college","university","thapar","study","studied","graduate"]
+  ];
+  const SYN={};
+  SYN_GROUPS.forEach(g=>{
+    const st=Array.from(new Set(g.map(stem)));
+    st.forEach(w=>{ (SYN[w]||(SYN[w]=new Set())); st.forEach(o=>{ if(o!==w) SYN[w].add(o); }); });
+  });
+
+  // ---- named entities (raw substrings) for a co-occurrence boost ----
+  const ENT=["zeno","weft","vantage","glass","healthflow","textify","shieldai","helm","quillbot","learneo",
+    "barclays","mamaearth","fugue","paillier","pgvector","queryspec","thapar","mcp"];
+
+  // ---- index ----
+  const docs=FACTS.map((f,i)=>{ const low=norm(f); return {i,text:f,low,set:new Set(stoks(f))}; });
+  const df={}; docs.forEach(d=>d.set.forEach(w=>df[w]=(df[w]||0)+1));
   const N=docs.length;
   const idf=w=>Math.log((N+1)/((df[w]||0)+1))+1;
 
+  function score(d,qstems,qent,qbig){
+    let s=0;
+    qstems.forEach(w=>{
+      if(d.set.has(w)){ s+=idf(w); return; }
+      let best=0, syn=SYN[w];
+      if(syn){ syn.forEach(e=>{ if(d.set.has(e)){ const v=idf(e)*0.5; if(v>best) best=v; } }); }
+      if(best>0){ s+=best; return; }
+      for(const dw of d.set){ if(dw.length>3&&(dw.startsWith(w)||w.startsWith(dw))){ s+=idf(w)*0.45; break; } }
+    });
+    qbig.forEach(bg=>{ if(d.low.indexOf(bg)>=0) s+=1.2; });
+    qent.forEach(e=>{ const at=d.low.indexOf(e); if(at>=0){ s+=2.6; if(at<=10) s+=2.2; /* fact is about this entity */ } });
+    return s;
+  }
+
   function retrieve(q){
-    const qt=toks(q); if(!qt.length) return [];
-    const scored=docs.map(d=>{
-      let s=0; const seen={};
-      qt.forEach(w=>{
-        if(d.set.has(w)){s+=idf(w)* (seen[w]?0.4:1);seen[w]=1;}
-        else{ // partial / prefix match
-          for(const dw of d.set){ if(dw.length>3&&(dw.startsWith(w)||w.startsWith(dw))){s+=idf(w)*0.5;break;} }
-        }
-      });
-      // small boost for named entities
-      ["zeno","weft","vantage","glass","healthflow","textify","shieldai","helm","quillbot","barclays","mamaearth"].forEach(e=>{
-        if(q.toLowerCase().includes(e)&&d.text.toLowerCase().includes(e)) s+=2.2;
-      });
-      return {d,s};
-    }).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
-    return scored.slice(0,3);
+    const qlow=norm(q);
+    const qstems=Array.from(new Set(stoks(q)));
+    if(!qstems.length) return {hits:[],qent:[]};
+    const qent=ENT.filter(e=>qlow.indexOf(e)>=0);
+    const qw=qlow.split(" ").filter(w=>w.length>1);
+    const qbig=[]; for(let k=0;k<qw.length-1;k++){ const a=qw[k],b=qw[k+1];
+      if(!STOP.has(a)||!STOP.has(b)) qbig.push(a+" "+b); } // drop pure stopword phrases
+    const hits=docs.map(d=>({d,s:score(d,qstems,qent,qbig)}))
+                   .filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+    return {hits,qent};
+  }
+
+  function jaccard(a,b){ let inter=0; a.forEach(w=>{ if(b.has(w)) inter++; }); return inter/(a.size+b.size-inter||1); }
+
+  // synthesize the top hits into one short, coherent answer (2-4 sentences).
+  // Facts about the same project the question named are given a lower inclusion
+  // bar, so a "what did he do at X" question returns X's meaty facts, not one line.
+  function synthesize(hits,qent){
+    const top=hits[0];
+    const chosen=[top.d]; let chars=top.d.text.length;
+    const named=qent.length>0;
+    const th1=top.s*0.45, th2=top.s*0.28, floor=top.s*0.22;
+    for(let k=1;k<hits.length&&chosen.length<3;k++){
+      const h=hits[k];
+      if(h.s<floor) break;
+      const entShare=named&&qent.some(e=>h.d.low.indexOf(e)>=0);
+      // If the question named a project/company, keep follow-up sentences on it
+      // (a lower bar for same-topic facts); otherwise require solid overlap.
+      if(named){ if(!entShare||h.s<th2) continue; }
+      else if(h.s<th1) continue;
+      if(chosen.some(c=>jaccard(c.set,h.d.set)>0.55)) continue;
+      if(chars+h.d.text.length>560) continue;
+      chosen.push(h.d); chars+=h.d.text.length;
+    }
+    return {text:chosen.map(c=>c.text).join(" "), cites:chosen.map(c=>c.i)};
+  }
+
+  // Content-addressed lookups for a clean bio answer (robust to fact reordering).
+  const F_ID=docs.find(d=>d.low.indexOf("abheet singh isher is a")>=0);
+  const F_HEAD=docs.find(d=>d.low.indexOf("one-line headline")>=0);
+  const F_CAREER=docs.find(d=>d.low.indexOf("career path runs")>=0);
+  const F_SKILLS=docs.find(d=>d.low.indexOf("tech stack and technologies span")>=0);
+  const F_STRENGTH=docs.find(d=>d.low.indexOf("core strengths")>=0);
+  function isBio(q){
+    const s=norm(q);
+    if(ENT.some(e=>s.indexOf(e)>=0)) return false;
+    if(/\b(project|projects|stack|skill|skills|tech|work|worked|experience|career|resume|contact|email|education|degree|study)\b/.test(s)) return false;
+    return s==="abheet"||/(who is|who's|who are|who\b[a-z '.-]*\b(he|abheet|him)|introduce|tell me about (abheet|him|yourself|himself)|about (abheet|him|himself|yourself)|his background)/.test(s);
+  }
+  function isSkills(q){
+    const s=norm(q);
+    if(ENT.some(e=>s.indexOf(e)>=0)) return false;
+    if(/\b(project|projects|education|degree|study|contact|email|resume|experience|career)\b/.test(s)) return false;
+    return /\b(stack|skill|skills|tech|technology|technologies|language|languages|framework|frameworks|proficient|expertise|toolkit)\b/.test(s);
+  }
+
+  const GREET="Hi, I'm the lattice. I can tell you about Abheet Singh Isher, his experience (QuillBot, Barclays, Mamaearth), and his projects — Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI and Helm — plus the tech behind each and how to reach him. What would you like to know?";
+  const HELP="Try asking things like: ‘Who is Abheet?’, ‘What did he do at QuillBot?’, ‘How does Weft merge offline edits?’, ‘Why can’t Vantage’s LLM write SQL?’, ‘What is Zeno’s approval kernel?’, ‘How does ShieldAI encrypt data?’, ‘What’s his tech stack?’ or ‘How do I contact him?’ I answer only from cited facts about his work.";
+  const OFFTOPIC="I can tell you about Abheet, his work (QuillBot, Barclays, Mamaearth), his projects (Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, Helm), the tech behind them, or how to reach him — ask me about any of those.";
+
+  function meta(q){
+    const s=norm(q);
+    if(!s) return 'help';
+    const topical=ENT.some(e=>s.indexOf(e)>=0)||
+      /(project|work|experience|career|stack|tech|skill|contact|email|resume|encrypt|crdt|sql|approval|kernel|clinic|analytics|rag|design|glass|deploy|test|education|degree|who is|about him|about abheet)/.test(s);
+    if(/\b(thanks|thank you|thankyou|thx|ty|cheers|appreciate)\b/.test(s)) return 'thanks';
+    if(topical) return '';
+    if(/^(hi|hey|hello|yo|hiya|howdy|sup|hola|namaste|greetings|gm|good (morning|afternoon|evening))\b/.test(s)) return 'greet';
+    if(/(what can i ask|what do you know|what can you|what should i ask|^help$|\bhelp\b|options|topics|examples|how does this work|who are you|what is this|what are you)/.test(s)) return 'help';
+    if(s.split(" ").length<=2&&/^(hi|hey|hello|yo|sup|help|hola|menu)$/.test(s)) return 'greet';
+    return '';
   }
 
   const log=document.getElementById('chatLog');
   function add(text,who,cites){
     const m=document.createElement('div');m.className='msg '+who;
     m.textContent=text;
-    if(cites&&cites.length){const c=document.createElement('span');c.className='cite';c.textContent='Grounded in '+cites.map(n=>'fact #'+(n+1)).join(', ');m.appendChild(c);}
+    if(cites&&cites.length){const c=document.createElement('span');c.className='cite';
+      c.textContent='Grounded in '+cites.map(n=>'fact #'+(n+1)).join(', ');m.appendChild(c);}
     log.appendChild(m);log.scrollTop=log.scrollHeight;
   }
   function answer(q){
-    const hits=retrieve(q);
-    if(!hits.length||hits[0].s<0.9){
-      add("I can only answer from the 49 facts about Abheet's work and career — try asking about Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, or his time at QuillBot, Barclays or Mamaearth.","bot");
-      return;
-    }
-    const top=hits[0].d;
-    // include a strong secondary if close in score
-    let text=top.text;
-    if(hits[1]&&hits[1].s>hits[0].s*0.62) text+=" "+hits[1].d.text;
-    const cites=[top.i]; if(hits[1]&&hits[1].s>hits[0].s*0.62) cites.push(hits[1].d.i);
+    const m=meta(q);
+    if(m==='greet'){ add(GREET,"bot"); return; }
+    if(m==='help'){ add(HELP,"bot"); return; }
+    if(m==='thanks'){ add("Happy to help. Ask me anything else about Abheet's projects, the tech behind them, his experience, or how to reach him.","bot"); return; }
+    if(isBio(q)&&F_ID){ const p=[F_ID,F_HEAD||F_CAREER].filter(Boolean);
+      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
+    if(isSkills(q)&&F_SKILLS){ const p=[F_SKILLS,F_STRENGTH].filter(Boolean);
+      add(p.map(x=>x.text).join(" "),"bot",p.map(x=>x.i)); return; }
+    const {hits,qent}=retrieve(q);
+    if(!hits.length||hits[0].s<1.2){ add(OFFTOPIC,"bot"); return; }
+    const {text,cites}=synthesize(hits,qent);
     add(text,"bot",cites);
   }
 
-  // suggestions
-  const suggestions=["What is Zeno's approval kernel?","How does Weft merge offline edits?","Why doesn't Vantage let the LLM write SQL?","What did he do at QuillBot?","Is Helm built yet?"];
+  // suggestion chips — refreshed to showcase the range
+  const suggestions=["Who is Abheet?","What is Zeno's approval kernel?","How does Weft merge offline edits?",
+    "Why can't Vantage's LLM write SQL?","How does ShieldAI encrypt data?","What did he do at QuillBot?",
+    "What's his tech stack?","Is Helm live?","How do I contact him?"];
   const sw=document.getElementById('chatSuggest');
-  suggestions.forEach(q=>{const b=document.createElement('button');b.textContent=q;b.addEventListener('click',()=>{ask(q);});sw.appendChild(b);});
+  suggestions.forEach(q=>{const b=document.createElement('button');b.type='button';b.textContent=q;b.addEventListener('click',()=>{ask(q);});sw.appendChild(b);});
 
-  function ask(q){ add(q,"user"); setTimeout(()=>answer(q), prefersReduced?0:220); }
+  function ask(q){ add(q,"user"); setTimeout(()=>answer(q), prefersReduced?0:200); }
 
   const form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
   form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(!v)return;input.value="";ask(v);});
@@ -852,7 +1105,8 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   // open/close
   const panel=document.getElementById('chatPanel'), fab=document.getElementById('chatFab');
   let greeted=false;
-  function open(){panel.classList.add('open');fab.style.display='none';if(!greeted){add("Hi — I'm the lattice. Ask me anything about Abheet's projects or career. I answer only from cited facts.","bot");greeted=true;}setTimeout(()=>input.focus(),80);}
+  function open(){panel.classList.add('open');fab.style.display='none';
+    if(!greeted){add(GREET,"bot");greeted=true;}setTimeout(()=>input.focus(),80);}
   function close(){panel.classList.remove('open');fab.style.display='grid';}
   fab.addEventListener('click',open);
   document.getElementById('chatClose').addEventListener('click',close);
