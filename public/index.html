@@ -352,7 +352,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
     <button class="nav-btn theme-toggle keep" id="themeBtn" aria-label="Toggle theme">◐</button>
-    <button class="nav-btn keep" id="askBtn">Ask&nbsp;the&nbsp;lattice</button>
+    <button class="nav-btn keep" id="askBtn">Ask&nbsp;about&nbsp;the&nbsp;work</button>
   </nav>
 </header>
 
@@ -366,7 +366,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <span class="lead">Build the part people have to trust.</span>
         <span class="type-line" id="typeLine">Make it hold under pressure.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
-      <p class="sub">I build structures that stay coherent under concurrency — from an AI writing engine used by 10M+ weekly users to a suite of local-first tools with real safety guarantees.</p>
+      <p class="sub">I build software around the failure cases that matter: concurrent edits, unsafe agent actions, unverifiable analytics, and private data — from an AI writing engine used by 10M+ weekly users to local-first tools.</p>
       <div class="ids">
         <span>(replica <b>A</b>, counter <b>0</b>)</span>
         <span>(replica <b>B</b>, counter <b>0</b>)</span>
@@ -380,8 +380,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="helix" data-accent="#2ED3C6" id="work">
     <div class="wrap">
       <div class="mono kicker reveal">01 — LINEAGE</div>
-      <h2 class="stmt reveal">A career grown as one strand through <em>three eras</em>.</h2>
-      <p class="lede reveal">Each era is a receipt that lights: an intern SDK, an auditor's dashboard, a writing assistant at scale.</p>
+      <h2 class="stmt reveal">Three roles, each with a larger <em>product surface</em>.</h2>
+      <p class="lede reveal">I started with a browser SDK, moved into financial audit software, and then built writing tools used at large scale.</p>
       <div class="receipts">
         <div class="receipt reveal"><div class="n">5K+</div><div class="l">daily interactions · Mamaearth</div></div>
         <div class="receipt reveal"><div class="n">$5,000<span style="font-size:1rem">/mo</span></div><div class="l">auditor time saved · Barclays</div></div>
@@ -390,7 +390,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
       <div class="timeline">
         <article class="job reveal">
           <div class="top"><div><h3>QuillBot <span class="role">· Software Engineer</span></h3></div><div class="period">Dec 2024 – Aug 2026</div></div>
-          <p>Architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors (Google Docs, Gmail, MS Word, ChatGPT) with block-level formatting preserved, across Shadow DOM and cross-frame boundaries. Shipped AI-assisted writing to 10M+ weekly active users on a Manifest V3 extension and its SSR web app. Optimized the selection hot path (~60 calls/sec onto a 300ms debounce; killed forced-layout reflows and a requestIdleCallback leak), led free-to-Premium A/B growth experiments, and owned CI health on an nx monorepo (Node 24, 234 suites / 3100+ tests green).</p>
+          <p>Architected the AI writing assistant's insert/replace engine for Google Docs, Gmail, MS Word, ChatGPT, and other web editors, preserving block-level formatting across Shadow DOM and cross-frame boundaries. Shipped AI-assisted writing to 10M+ weekly active users on a Manifest V3 extension and its SSR web app. Optimized the selection hot path (~60 calls/sec onto a 300ms debounce; removed forced-layout reflows and a requestIdleCallback leak), led free-to-Premium A/B growth experiments, and owned CI health on an nx monorepo (Node 24, 234 suites / 3100+ tests green).</p>
         </article>
         <article class="job reveal">
           <div class="top"><div><h3>Barclays <span class="role">· Software Developer</span></h3></div><div class="period">Aug 2022 – Nov 2024</div></div>
@@ -426,8 +426,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="helix" data-accent="#9B7BFF" id="projects">
     <div class="wrap">
       <div class="mono kicker reveal">04 — THESIS</div>
-      <h2 class="stmt reveal">Every hard idea here is a structure that <em>survives concurrency</em>.</h2>
-      <p class="lede reveal">CRDTs, a deterministic approval kernel, an LLM-to-SQL boundary, a machine-verified contrast law, homomorphic encryption — one lattice, folding into each project's own topology.</p>
+      <h2 class="stmt reveal">Each project starts with a failure mode the design must <em>prevent</em>.</h2>
+      <p class="lede reveal">Concurrent edits must converge. Agents must not approve themselves. Analytics must show their SQL. Contrast must be measured. Private inputs must stay encrypted.</p>
     </div>
   </section>
 
@@ -437,8 +437,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
       <div class="proj reveal">
         <div class="idx">05 — SPLIT · DRIFT · CONVERGE</div>
         <h2>Weft</h2>
-        <div class="tl">Two people. One document. No lost edits.</div>
-        <p class="pb">Two people edit the same paragraph and one goes offline for an hour. Weft stores a document as a tree of characters instead of a string, so merges are a deterministic fact about the tree — not a decision anyone has to make.</p>
+        <div class="tl">Keep editing when the connection drops.</div>
+        <p class="pb">Weft lets collaborators keep writing offline, then merges every edit when they reconnect. It stores the document as a tree of characters, so the same operations produce the same document on every peer without a conflict dialog.</p>
         <ul>
           <li>A from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023): every character has a permanent (replica, counter) identity, so two peers edit, disconnect, keep typing, reconnect and converge with no "resolve conflict" dialog.</li>
           <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
@@ -487,7 +487,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <div class="idx">07 — TYPED FUNNEL</div>
         <h2>Vantage</h2>
         <div class="tl">Ask in English. See the SQL. Trust the number.</div>
-        <p class="pb">Add an LLM that writes the query and the number becomes both unverifiable and produced by something that can be talked into anything. Vantage makes the model fill a typed spec instead of writing SQL.</p>
+        <p class="pb">Raw LLM-generated SQL is difficult to trust and easy to manipulate. Vantage limits the model to a typed query specification, then compiles that specification into parameterized, read-only SQL that users can inspect.</p>
         <ul>
           <li>The model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count), and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role, in a read-only transaction, with a 5-second timeout and row caps.</li>
           <li>Exposed as an MCP server with 8 read-only tools — no run_sql, no ask — so Claude can query it with no LLM key of its own, and every result carries the exact SQL it ran.</li>
@@ -495,8 +495,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
         <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">834</div><div class="l">automated checks</div></div>
-          <div class="receipt"><div class="n">13 → 6 → 3</div><div class="l">demo funnel over seven days</div></div>
+          <div class="receipt"><div class="n">834</div><div class="l">tests across compiler, API, MCP, and UI</div></div>
+          <div class="receipt"><div class="n">13 → 6 → 3</div><div class="l">signups → projects → invites in the demo fixture</div></div>
         </div>
         <div class="cta">
           <a class="link" href="https://vantage-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
@@ -509,8 +509,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <!-- 08 SHIELDAI / TEXTIFY / HEALTHFLOW -->
   <section class="chapter" data-topo="scatter" data-accent="#4F8EF7">
     <div class="wrap">
-      <div class="mono kicker reveal">08 — THREE FASTER BEATS</div>
-      <h2 class="stmt reveal" style="max-width:24ch">Ciphertext scatter. Citation edges. Five rooms, one draft.</h2>
+      <div class="mono kicker reveal">08 — THREE FOCUSED PROJECTS</div>
+      <h2 class="stmt reveal" style="max-width:24ch">Private computation, cited answers, and shared clinical workflows.</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:30px">
 
         <div class="proj reveal" style="--accent:#4F8EF7;max-width:none">
@@ -550,8 +550,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
       <div class="proj reveal">
         <div class="idx">09 — ONE LIGHTNESS LADDER</div>
         <h2>glass</h2>
-        <div class="tl">A theme owns hue. The system owns everything else.</div>
-        <p class="pb">Eight of my projects independently converged on the same glass surface without ever sharing a stylesheet. glass is the extraction: one importable design grammar and a contrast law a script proves on every theme.</p>
+        <div class="tl">One design system across the whole portfolio.</div>
+        <p class="pb">Several projects needed the same colors, spacing, surfaces, and accessible states. glass packages those decisions into one framework-neutral stylesheet and verifies contrast on every theme.</p>
         <ul>
           <li>Framework-neutral CSS: semantic OKLCH tokens, eleven product themes, six component sheets and a Tailwind v3 adapter — no React, no Web Component, no JS runtime.</li>
           <li>The contrast law is verified, not asserted: a dependency-free script proves 1111 assertions across 11 themes × 2 grounds = 22 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.</li>
@@ -593,10 +593,10 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter" data-topo="brain" data-accent="#7CF5D6">
     <div class="wrap">
       <div class="mono kicker reveal">11 — CONVERGENCE</div>
-      <h2 class="stmt reveal">The lattice folds into a <em>breathing mind</em>.</h2>
-      <p class="lede reveal">A recurring theme across every project: turn a hard computer-science idea into shipped, heavily-tested software with a clear trust boundary. Ask the lattice anything about this work — it answers only from cited facts.</p>
+      <h2 class="stmt reveal">Explore how the projects <em>fit together</em>.</h2>
+      <p class="lede reveal">The projects share a practical goal: turn a hard computer-science idea into software with a clear boundary and evidence that it works. The portfolio assistant answers questions from a fixed, cited set of project facts.</p>
       <div class="eco" id="ecoGrid"></div>
-      <div style="margin-top:26px"><button class="link" id="askBtn2">Ask the lattice ↗</button></div>
+      <div style="margin-top:26px"><button class="link" id="askBtn2">Ask about the work ↗</button></div>
     </div>
   </section>
 
@@ -604,7 +604,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   <section class="chapter contact" data-topo="line" data-accent="#F2B23E" id="contact">
     <div class="wrap">
       <div class="mono kicker reveal" style="text-align:center">12 — ONE LINE</div>
-      <h2 class="stmt reveal">The strand resolves to a single line.</h2>
+      <h2 class="stmt reveal">Want to talk about the work?</h2>
       <div class="email-row reveal">
         <span class="addr" id="emailAddr">abheet19@gmail.com</span>
         <button class="copy-btn" id="copyBtn">Copy</button>
@@ -623,11 +623,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 </main>
 
 <!-- Chatbot -->
-<button class="chat-fab" id="chatFab" aria-label="Ask the lattice">✦</button>
-<section class="chat-panel" id="chatPanel" aria-label="Ask the lattice chatbot">
+<button class="chat-fab" id="chatFab" aria-label="Ask about the work">✦</button>
+<section class="chat-panel" id="chatPanel" aria-label="Portfolio assistant">
   <div class="chat-head">
     <div class="orb" aria-hidden="true"></div>
-    <div><h4>Ask the lattice</h4><p>grounded in 49 cited facts</p></div>
+    <div><h4>Ask about the work</h4><p>grounded in 49 cited facts</p></div>
     <button class="x" id="chatClose" aria-label="Close">✕</button>
   </div>
   <div class="chat-log" id="chatLog"></div>
@@ -653,8 +653,8 @@ const RAG_FACTS = [
 "His contact details are abheet19@gmail.com, +91-9682396948, linkedin.com/in/abheet-singh-isher, and github.com/abheet19.",
 "He holds a B.E. in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala (2018-2022).",
 "His career path is Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), then building his own project suite.",
-"At QuillBot (Learneo) he was a Software Engineer from Dec 2024 to Aug 2026; following a company-wide restructuring in September 2026, he is now open to new software engineering roles in India or fully remote.",
-"At QuillBot he architected the AI writing assistant's insert/replace engine that writes LLM-paraphrased text back into 100+ web editors including Google Docs, Gmail, MS Word and ChatGPT, preserving block-level formatting using the DOM Selection/Range and CSSOM APIs.",
+"At QuillBot (Learneo) he was a Software Engineer from Dec 2024 to Aug 2026 and is now open to software engineering roles in India or fully remote.",
+"At QuillBot he architected the AI writing assistant's insert/replace engine for Google Docs, Gmail, MS Word, ChatGPT and other web editors, preserving block-level formatting using the DOM Selection/Range and CSSOM APIs.",
 "His QuillBot work shipped AI-assisted writing to 10M+ weekly active users across a Chrome/Firefox Manifest V3 extension and its server-rendered web app.",
 "At QuillBot he optimized the selection hot path by moving an undebounced per-selectionchange computation (~60 calls/sec) onto a 300ms debounced path and eliminating forced-layout reflows and a requestIdleCallback leak.",
 "At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants, instrumented with Amplitude funnels and Google social auth.",
@@ -668,7 +668,7 @@ const RAG_FACTS = [
 "A Zeno agent can propose work but cannot approve its own proposal. The approval route rejects the agent token, and high-risk payment and biometric effects are not permitted.",
 "Zeno has three connected products: Command for conversation and decisions, Forge for work in a selected Git repository, and Counsel for consent-first meeting assistance.",
 "Zeno keeps its daemon on loopback, has no public web deployment, and is being verified against the desktop app rather than represented as a browser-only demo.",
-"Weft is an offline-first collaborative rich-text editor whose tagline is 'Two people. One document. No lost edits.'",
+"Weft is an offline-first collaborative rich-text editor whose tagline is 'Keep editing when the connection drops.'",
 "Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
 "Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
 "Weft is verified by 613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases, and is deployed at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
@@ -678,7 +678,7 @@ const RAG_FACTS = [
 "Vantage is exposed as an MCP server with 8 read-only tools and no run_sql or ask tool, so Claude Desktop or Claude Code can query it as a tool with no LLM key of its own, and every result carries the SQL it ran.",
 "Vantage ensures idempotent ingestion via UNIQUE(project_id, insert_id) and proves funnel correctness with a hand-computed fixture (the August funnel is signup 13 -> create_project 6 -> invite_teammate 3 in a 7-day window).",
 "Vantage has 834 test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and is deployed at vantage-abheet.fly.dev exposing its exact commit at /health.release_sha.",
-"glass is a framework-neutral CSS design system whose tagline is 'A theme owns hue. The system owns everything else,' extracted from eight of Abheet's projects that independently converged on the same surface.",
+"glass is a framework-neutral CSS design system used across the portfolio for shared colors, spacing, surfaces and accessible states.",
 "glass uses semantic OKLCH tokens, eleven product themes, six component sheets and a Tailwind v3 adapter, and its contrast law is machine-verified: a dependency-free script proves 1111 assertions across 11 themes x 2 grounds = 22 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.",
 "glass's central rule is that a theme file contains eight numbers and no structure - a theme can rotate its accent hue but cannot break the shared lightness ladder, radii, type scale or motion curve.",
 "glass is live at abheet19.github.io/glass and is consumed in production by Zeno, Weft and Vantage; it is intentionally not published to npm.",
@@ -812,7 +812,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   }
   function answer(q){
     if(isAvail(q)){
-      add("Abheet was a Software Engineer at QuillBot from December 2024 to August 2026. Following a company-wide restructuring in September 2026, he is actively open to new software engineering roles — in India or fully remote. Reach him at abheet19@gmail.com.","bot",[4,0]);
+      add("Abheet was a Software Engineer at QuillBot from December 2024 to August 2026. He is open to software engineering roles in India or fully remote. Reach him at abheet19@gmail.com.","bot",[4,0]);
       return;
     }
     const hits=retrieve(q);
@@ -838,7 +838,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
   const panel=document.getElementById('chatPanel'), fab=document.getElementById('chatFab');
   let greeted=false;
-  function open(){panel.classList.add('open');fab.style.display='none';if(!greeted){add("Hi — I'm the lattice. Ask me anything about Abheet's projects or career. I answer only from cited facts.","bot");greeted=true;}setTimeout(()=>input.focus(),80);}
+  function open(){panel.classList.add('open');fab.style.display='none';if(!greeted){add("Hi — ask me about Abheet's projects or experience. I answer from the cited facts on this portfolio.","bot");greeted=true;}setTimeout(()=>input.focus(),80);}
   function close(){panel.classList.remove('open');fab.style.display='grid';}
   fab.addEventListener('click',open);
   document.getElementById('chatClose').addEventListener('click',close);
@@ -883,7 +883,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   const camera=new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 200);
   camera.position.set(0,0,34);
 
-  const CHARSET="TWOPEOPLE.NDCUMTGLSIEX/()ABRV0123456789replicaounter+".split("").filter((v,i,a)=>a.indexOf(v)===i);
+  const CHARSET="EDITTOGETHER.NDCUMTGLSIX/()ABRV0123456789peer+".split("").filter((v,i,a)=>a.indexOf(v)===i);
   const COLS=8, ROWS=Math.ceil(CHARSET.length/COLS);
   const CELL=64, AW=COLS*CELL, AH=ROWS*CELL;
   const ac=document.createElement('canvas'); ac.width=AW; ac.height=AH;

@@ -1,11 +1,10 @@
 # Abheet Singh Isher — Portfolio ("Fugue")
 
-A cinematic, single-page portfolio. One continuous 3D glyph-particle "lattice"
-splits, drifts and converges across every chapter as you scroll — hero,
-experience, and each project (Weft, Zeno, Vantage, ShieldAI, Textify,
-HealthFlow, glass, Helm) — with a working, client-side, citation-grounded
-chatbot ("Ask the lattice") that answers only from a fixed set of facts about
-the work. Each shipped project embeds a 60fps demo reel that plays on scroll.
+A single-page portfolio for Abheet's experience and eight projects: Weft,
+Zeno, Vantage, ShieldAI, Textify, HealthFlow, glass, and Helm. A continuous 3D
+glyph animation connects the sections as you scroll. The client-side portfolio
+assistant answers only from a fixed set of cited facts, and each web project
+includes a demo reel that plays while its section is in view.
 
 **Live target:** https://abheet-isher.fly.dev (Fly.io, region `sin`)
 
