@@ -3,8 +3,10 @@
 A single-page portfolio for Abheet's experience and eight projects: Weft,
 Zeno, Vantage, ShieldAI, Textify, HealthFlow, glass, and Helm. A continuous 3D
 glyph animation connects the sections as you scroll. The client-side portfolio
-assistant answers only from a fixed set of cited facts, and each web project
-includes a demo reel that plays while its section is in view.
+assistant answers only from a fixed set of cited facts. Six product sections
+include a demo reel that plays while its section is in view; the local-only
+Zeno and operations-focused Helm sections link to their source or live surface
+without implying that a reel exists.
 
 **Live target:** https://abheet-isher.fly.dev (Fly.io, region `sin`)
 
@@ -12,7 +14,7 @@ includes a demo reel that plays while its section is in view.
 
 - **Site:** a single static `public/index.html` — no build step.
   - Three.js (r128) InstancedMesh glyph lattice + custom GLSL shader
-  - Native scroll drives the camera, HUD and reveals (no GSAP/Lenis — Three.js is the only script dependency)
+  - Native scroll drives the page; GSAP + ScrollTrigger animate the lattice and chapter transitions when available (no Lenis)
   - Client-side portfolio assistant (TF‑IDF retrieval over embedded, cited facts; no model or tool execution)
   - Assistant input is capped at 500 characters, rendered with DOM text nodes, and retained only in a 40-message in-page window; questions never leave the browser
   - Theme-aware (dark/light), responsive, `prefers-reduced-motion` aware
@@ -22,7 +24,8 @@ includes a demo reel that plays while its section is in view.
   Dimensions are reserved via `aspect-ratio` so there is zero layout shift.
 - **Server:** `server.js` — a zero-dependency Node stdlib HTTP static server
   (correct content types incl. `video/mp4` + `application/pdf`, HTTP Range
-  support for video, a `/health` endpoint, path-traversal hardening, and restrictive
+  support for video, `/health` liveness, a build-injected `/version` revision,
+  path-traversal hardening, and restrictive
   framing, permissions, referrer, and content-security headers).
 - **Container:** `node:22-alpine`, runs as the non-root `node` user, port 8080.
 
@@ -41,7 +44,7 @@ public/
       healthflow-demo.gif / healthflow-reel.mp4
       textify-demo.gif / textify-reel.mp4
       shieldai-demo.gif / shieldai-reel.mp4
-server.js               # static file server (port 8080, /health)
+server.js               # static file server (port 8080, /health, /version)
 Dockerfile
 fly.toml                # app = "abheet-isher", primary_region = "sin"
 ```
@@ -50,13 +53,13 @@ fly.toml                # app = "abheet-isher", primary_region = "sin"
 
 ```bash
 node server.js
-# → http://localhost:8080   (health: http://localhost:8080/health)
+# → http://localhost:8080   (health: /health; identity: /version)
 ```
 
 Or in Docker:
 
 ```bash
-docker build -t abheet-portfolio .
+docker build --build-arg SOURCE_REVISION=$(git rev-parse HEAD) -t abheet-portfolio .
 docker run --rm -p 8080:8080 abheet-portfolio
 ```
 
@@ -64,11 +67,13 @@ docker run --rm -p 8080:8080 abheet-portfolio
 
 ```bash
 fly apps create abheet-isher   # once
-fly deploy
+fly deploy --build-arg SOURCE_REVISION=$(git rev-parse HEAD)
 ```
 
 `fly.toml` serves the container on internal port 8080 with an HTTP health
-check at `/health`. No secrets or env vars are required.
+check at `/health`. `/version` reports the validated 40-character
+`sourceRevision` supplied at build time; it reports `null` rather than guessing
+when that build argument is absent. No secrets or runtime env vars are required.
 
 ## Avatar placeholder
 
