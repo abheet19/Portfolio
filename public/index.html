@@ -171,11 +171,11 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-ite
   border-bottom:1px solid transparent}
 header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:.82rem;letter-spacing:.1em}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:.82rem;letter-spacing:.1em;min-height:44px}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);
   box-shadow:0 0 14px var(--accent);transition:background .5s var(--ease),box-shadow .5s var(--ease)}
 .nav-links{display:flex;align-items:center;gap:22px}
-.nav-links a{font-size:.82rem;color:var(--ink-2);transition:color .2s}
+.nav-links a{font-size:.82rem;color:var(--ink-2);transition:color .2s;display:inline-flex;align-items:center;min-height:44px}
 .nav-links a:hover{color:var(--cream)}
 .nav-btn{cursor:pointer;border:1px solid var(--line);background:var(--gl-fill);color:var(--cream);
   font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;padding:8px 14px;border-radius:var(--r-pill);
@@ -193,6 +193,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   margin-left:2px;transform:translateY(2px)}
 @keyframes blink{50%{opacity:0}}
 .hero .sub{margin-top:26px;max-width:52ch;color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.18rem)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .hero .ids{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 20px}
 .hero .ids span{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-3)}
 .hero .ids b{color:var(--teal);font-weight:500}
@@ -245,6 +246,16 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 .chip{font-family:var(--font-mono);font-size:.7rem;padding:5px 10px;border-radius:var(--r-1);
   border:1px solid var(--line);color:var(--ink-2);background:color-mix(in srgb,var(--accent) 6%,transparent)}
 .proj .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.demo-reel{margin:24px 0 0;border:1px solid var(--line);border-radius:var(--r-2);overflow:hidden;background:var(--base)}
+.demo-reel video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--base)}
+.demo-reel figcaption{padding:9px 12px;color:var(--ink-3);font:500 .66rem/1.4 var(--font-mono);letter-spacing:.05em;text-transform:uppercase}
+.proof{margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+.proof summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--cream);font:500 .74rem/1.4 var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.proof summary::marker{color:var(--accent)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-top:8px}
+.proof-grid div{border-left:2px solid color-mix(in srgb,var(--accent) 55%,transparent);padding-left:10px}
+.proof-grid dt{color:var(--accent);font:500 .65rem/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.proof-grid dd{margin:5px 0 0;color:var(--ink-2);font-size:.82rem;line-height:1.5}
 .link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.78rem;
   padding:11px 18px;border-radius:var(--r-pill);border:1px solid var(--accent);color:var(--cream);
   background:color-mix(in srgb,var(--accent) 12%,transparent);transition:all .2s var(--ease);cursor:pointer;min-height:44px}
@@ -330,6 +341,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   .receipt .n{font-size:1.35rem}
   .hero .sub{font-size:1rem}
   .proj{max-width:none}
+  .proof-grid{grid-template-columns:1fr}
 }
 @media(max-width:360px){
   .hero h1{font-size:1.9rem}
@@ -376,6 +388,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <span class="type-line" id="typeLine">Make it hold under pressure.</span><span class="caret" id="caret" aria-hidden="true">&nbsp;</span>
       </h1>
       <p class="sub">I build software around the failure cases that matter: concurrent edits, unsafe agent actions, unverifiable analytics, and private data — from an AI writing engine used by 10M+ weekly users to local-first tools.</p>
+      <div class="hero-actions" aria-label="Portfolio actions">
+        <a class="link" href="#projects">View projects</a>
+        <a class="link ghost" href="/resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+        <a class="link ghost" href="#contact">Contact</a>
+      </div>
     </div>
     <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
   </section>
@@ -388,7 +405,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
       <p class="lede reveal">I started with a browser SDK, moved into financial audit software, and then built writing tools used at large scale.</p>
       <div class="receipts">
         <div class="receipt reveal"><div class="n">5K+</div><div class="l">daily interactions · Mamaearth</div></div>
-        <div class="receipt reveal"><div class="n">$5,000<span style="font-size:1rem">/mo</span></div><div class="l">auditor time saved · Barclays</div></div>
+        <div class="receipt reveal"><div class="n">40%</div><div class="l">audit-time cut · Barclays</div></div>
         <div class="receipt reveal"><div class="n">10M+</div><div class="l">weekly active users · QuillBot</div></div>
       </div>
       <div class="timeline">
@@ -398,7 +415,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </article>
         <article class="job reveal">
           <div class="top"><div><h3>Barclays <span class="role">· Software Developer</span></h3></div><div class="period">Aug 2022 – Nov 2024</div></div>
-          <p>Built responsive financial dashboards with Python, FastAPI, React and TypeScript, automating manual report reviews and saving an estimated $5,000/month in auditor time. Queried 100k+ daily transactions over KDB+ and SQL (15% faster complex-query retrieval); React interfaces on a KDB+ backend cut audit completion time by 40%. Monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.</p>
+          <p>Built responsive financial dashboards with Python, FastAPI, React and TypeScript, automating manual report reviews. Queried 100k+ daily transactions over KDB+ and SQL (15% faster complex-query retrieval); React interfaces on a KDB+ backend cut audit completion time by 40%. Monthly Agile releases with CI/CD (TeamCity, OpenShift) and 90% coverage via SonarQube.</p>
         </article>
         <article class="job reveal">
           <div class="top"><div><h3>Mamaearth <span class="role">· SDE Intern</span></h3></div><div class="period">Jan 2022 – Jun 2022</div></div>
@@ -454,6 +471,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="receipt"><div class="n">Convergent</div><div class="l">same operations, same document</div></div>
           <div class="receipt"><div class="n">Durable</div><div class="l">Saved only after server fsync + ack</div></div>
         </div>
+        <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/weft-demo.gif" data-src="/assets/reels/weft-reel.mp4" aria-label="Weft collaborative editing demonstration"></video><figcaption>Two peers edit, disconnect, and converge</figcaption></figure>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Offline collaborators must merge without asking a human to resolve conflicts.</dd></div><div><dt>Contribution</dt><dd>Implemented the Fugue sequence CRDT, durable sync states, relay, and editor integration.</dd></div><div><dt>Proof</dt><dd>Reconnect flow converges deterministically and “Saved” appears only after fsync and acknowledgement.</dd></div></dl></details>
         <div class="cta">
           <a class="link" href="https://weft-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Weft" target="_blank" rel="noopener">Source</a>
@@ -476,6 +495,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <li>Command handles conversation and decisions, Forge works in a selected Git repository, and Counsel is a consent-first meeting assistant. All three share the same local boundary.</li>
         </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span></div>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>A model request is not a safe authorization boundary for machine side effects.</dd></div><div><dt>Contribution</dt><dd>Built a local proposal, policy, approval, execution, and signed-receipt pipeline across Command, Forge, and Counsel.</dd></div><div><dt>Proof</dt><dd>Installed-app and post-commit tests cover owner-token separation, stale-proposal rejection, repository jailing, and receipt integrity; hardware-only cases stay labelled blocked.</dd></div></dl></details>
         <div class="cta">
           <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
           <span class="link ghost" style="cursor:default">Local-first · no public deploy</span>
@@ -499,9 +519,11 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         </ul>
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
         <div class="receipts" style="margin-top:22px">
-          <div class="receipt"><div class="n">834</div><div class="l">tests across compiler, API, MCP, and UI</div></div>
-          <div class="receipt"><div class="n">13 → 6 → 3</div><div class="l">signups → projects → invites in the demo fixture</div></div>
+          <div class="receipt"><div class="n">Typed → SQL</div><div class="l">the model never writes a query</div></div>
+          <div class="receipt"><div class="n">13 · 6 · 3</div><div class="l">signups · projects · invites in the demo</div></div>
         </div>
+        <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/vantage-demo.gif" data-src="/assets/reels/vantage-reel.mp4" aria-label="Vantage typed analytics demonstration"></video><figcaption>Prompt to typed spec, inspectable SQL, and result</figcaption></figure>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Generated SQL can be unsafe, opaque, and difficult to audit.</dd></div><div><dt>Contribution</dt><dd>Constrained the model to a typed QuerySpec and compiled it into parameterized read-only SQL.</dd></div><div><dt>Proof</dt><dd>The demo exposes the spec, exact SQL, boundary state, and hand-computed funnel fixture together.</dd></div></dl></details>
         <div class="cta">
           <a class="link" href="https://vantage-abheet.fly.dev" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/Vantage" target="_blank" rel="noopener">Source</a>
@@ -523,6 +545,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="tl">The private key never leaves the browser.</div>
           <p class="pb" style="font-size:.9rem">An educational Paillier partial-homomorphic-encryption demo: the browser generates a 1024-bit keypair, encrypts four derived indicators and sends only the public modulus and ciphertexts. The server computes an encrypted weighted sum and returns a total the browser decrypts locally to 37.5/100 — raw fields and the key never reach the server.</p>
           <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Vanilla JS</span><span class="chip">Paillier PHE</span></div>
+          <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/shieldai-demo.gif" data-src="/assets/reels/shieldai-reel.mp4" aria-label="ShieldAI encrypted evaluation demonstration"></video><figcaption>Encrypt in browser, compute on ciphertext, decrypt locally</figcaption></figure>
+          <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>A server should not need raw private fields to calculate a weighted score.</dd></div><div><dt>Contribution</dt><dd>Kept key generation, encryption, and decryption in the browser while the server computes on ciphertext.</dd></div><div><dt>Proof</dt><dd>The privacy receipt shows the POST boundary and local decryption path for the synthetic example.</dd></div></dl></details>
           <div class="cta"><a class="link" href="https://shieldai-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/ShieldAI" target="_blank" rel="noopener">Source</a></div>
         </div>
 
@@ -532,6 +556,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="tl">Answers you can check.</div>
           <p class="pb" style="font-size:.9rem">A private, citation-first RAG workspace: indexes a PDF/DOCX/TXT into sentence-aware chunks (180 words, 36 overlap), retrieves the top-4 passages by cosine similarity and returns the answer with its cited excerpts. Local BGE ONNX embeddings on CPU; Claude writes the final answer; retrieved text is wrapped as untrusted data.</p>
           <div class="stack"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">BGE ONNX</span><span class="chip">Neon</span></div>
+          <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/textify-demo.gif" data-src="/assets/reels/textify-reel.mp4" aria-label="Textify cited answer demonstration"></video><figcaption>Private workspace: index a document and inspect cited answers</figcaption></figure>
+          <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Document answers are hard to trust when their evidence is hidden.</dd></div><div><dt>Contribution</dt><dd>Built local embeddings, bounded retrieval, untrusted-context handling, and citation-first answers.</dd></div><div><dt>Proof</dt><dd>The read-only demo returns seeded answers with inline citations and source excerpts.</dd></div></dl></details>
           <div class="cta"><a class="link" href="https://textify-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/Textify" target="_blank" rel="noopener">Source</a></div>
         </div>
 
@@ -541,6 +567,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="tl">One patient, five departments, one report.</div>
           <p class="pb" style="font-size:.9rem">A synthetic health-camp workflow: IT, ENT, Vision, General and Dental share one clinic-scoped draft over Socket.IO; the full flow can stitch five sections into a formatted .docx report. The public release is deliberately read-only—its sample data, uploads, reset and submit controls are disabled. It is not an EHR, access-controlled service, or compliance claim.</p>
           <div class="stack"><span class="chip">React 18</span><span class="chip">Socket.IO</span><span class="chip">Flask</span><span class="chip">python-docx</span></div>
+          <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/healthflow-demo.gif" data-src="/assets/reels/healthflow-reel.mp4" aria-label="HealthFlow synthetic clinic workflow demonstration"></video><figcaption>Authenticated test-data flow: one synthetic patient across five departments</figcaption></figure>
+          <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Sequential departments need one coherent draft without overwriting each other.</dd></div><div><dt>Contribution</dt><dd>Built a shared Socket.IO workflow and report assembly across five clinical sections.</dd></div><div><dt>Proof</dt><dd>The public sample exposes every department with synthetic data and refuses all writes.</dd></div></dl></details>
           <div class="cta"><a class="link" href="https://healthflow-abheet19.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/HealthFlow" target="_blank" rel="noopener">Source</a></div>
         </div>
 
@@ -566,6 +594,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
           <div class="receipt"><div class="n">1111</div><div class="l">contrast assertions</div></div>
           <div class="receipt"><div class="n">22</div><div class="l">palettes proven</div></div>
         </div>
+        <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/glass-demo.gif" data-src="/assets/reels/glass-reel.mp4" aria-label="glass themes and component library demonstration"></video><figcaption>Browse themes, components, tokens, and contrast evidence</figcaption></figure>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Shared themes drift when every app chooses colors and interaction states independently.</dd></div><div><dt>Contribution</dt><dd>Defined semantic OKLCH tokens, reusable component sheets, and workspace primitives without a JS runtime.</dd></div><div><dt>Proof</dt><dd>The live catalogue recalculates contrast and exposes preview, token, code, and accessibility details.</dd></div></dl></details>
         <div class="cta">
           <a class="link" href="https://abheet19.github.io/glass/" target="_blank" rel="noopener">Live ↗</a>
           <a class="link ghost" href="https://github.com/abheet19/glass" target="_blank" rel="noopener">Source</a>
@@ -589,6 +619,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <p class="pb">Helm is the deployed operations console for this project suite. It checks public endpoints from the server, keeps a rolling latency history, and makes the current fleet state easy to inspect.</p>
         <ul><li>Live now: server-side health probes, rolling latency, uptime, p50/p95, alerts, a service map, and dry-run deployment commands that show exactly what would run.</li></ul>
         <div class="stack"><span class="chip">Node 22</span><span class="chip">Express</span><span class="chip">Server-side probes</span><span class="chip">MCP</span><span class="chip">glass</span></div>
+        <div class="receipts" style="margin-top:22px"><div class="receipt"><div class="n">7 web apps</div><div class="l">probed from the server</div></div><div class="receipt"><div class="n">Dry run</div><div class="l">deployment commands preview first</div></div></div>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Portfolio releases need one place to see availability, latency, freshness, and failures.</dd></div><div><dt>Contribution</dt><dd>Built server-side probes, rolling histories, alerts, a service map, and bounded dry-run controls.</dd></div><div><dt>Proof</dt><dd>Each metric names its source and age; local-only Zeno and sample-only metrics remain explicit.</dd></div></dl></details>
         <div class="cta"><a class="link" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Live ↗</a><a class="link ghost" href="https://github.com/abheet19/Helm" target="_blank" rel="noopener">Source</a></div>
       </div>
     </div>
@@ -664,7 +696,7 @@ const RAG_FACTS = [
 "At QuillBot he optimized the selection hot path by moving an undebounced per-selectionchange computation (~60 calls/sec) onto a 300ms debounced path and eliminating forced-layout reflows and a requestIdleCallback leak.",
 "At QuillBot he led A/B growth experiments to drive free-to-Premium conversion, including a 3-surface anonymous auth-wall, a Premium discovery panel, and AI-detector toolbar variants, instrumented with Amplitude funnels and Google social auth.",
 "At QuillBot he owned build and CI health on an nx monorepo, upgrading the toolchain to Node 24 with 234 test suites / 3100+ tests green.",
-"At Barclays (Aug 2022 - Nov 2024) he built responsive financial dashboards with Python, FastAPI, React.js and TypeScript, saving an estimated $5,000/month in auditor time by automating manual report reviews.",
+"At Barclays (Aug 2022 - Nov 2024) he built responsive financial dashboards with Python, FastAPI, React.js and TypeScript, automating manual report reviews and cutting audit completion time by 40%.",
 "At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%, and his React.js/KDB+ interfaces cut audit completion time by 40%.",
 "At Mamaearth (Jan 2022 - Jun 2022) he built a User Collaboration & Research SaaS platform and a JavaScript web SDK capturing 5K+ daily user interactions, and deployed Node.js/React microservices via Docker and GitLab CI/CD for 20% faster releases.",
 "His core strengths are browser-extension engineering at consumer scale (MV3, ~10M weekly active users), React/TypeScript, web performance, applied AI, and full-stack development.",
@@ -735,6 +767,36 @@ const prefersReduced = window.matchMedia('(prefers-color-scheme: reduce)').match
     d.append(dot,title,summary);
     eg.appendChild(d);
   });
+})();
+
+/* ============================================================================
+   DEMO REELS — defer every poster and video request until its chapter is near.
+   ============================================================================ */
+(function(){
+  const reels=[...document.querySelectorAll('.demo-reel video[data-src]')];
+  const load=video=>{
+    if(video.dataset.loaded==='1') return;
+    video.poster=video.dataset.poster||'';
+    video.src=video.dataset.src;
+    video.dataset.loaded='1';
+    video.load();
+  };
+  if(!('IntersectionObserver' in window)){
+    reels.forEach(load);
+    return;
+  }
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      const video=entry.target;
+      if(entry.isIntersecting){
+        load(video);
+        if(!prefersReduced) video.play().catch(()=>{});
+      }else{
+        video.pause();
+      }
+    });
+  },{rootMargin:'320px 0px',threshold:.2});
+  reels.forEach(video=>observer.observe(video));
 })();
 
 /* ============================================================================
@@ -1154,7 +1216,18 @@ document.getElementById('copyBtn').addEventListener('click',function(){
       onEnter:()=>{ if(window.gsap) gsap.to(uniforms.uSplit,{value:0,duration:0.8,overwrite:true}); }
     });
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',ev=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){ev.preventDefault();lenis.scrollTo(t,{offset:-10});}}});
+      a.addEventListener('click',ev=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){
+          const target=document.querySelector(id);
+          if(target){
+            ev.preventDefault();
+            // Navigation must finish even when animation frames are throttled.
+            lenis.scrollTo(target,{offset:-10,immediate:true});
+            history.replaceState(null,'',id);
+          }
+        }
+      });
     });
   } else {
     // fallback: topology by IntersectionObserver

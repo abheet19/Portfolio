@@ -4,7 +4,9 @@ A single-page portfolio for Abheet's experience and eight projects: Weft,
 Zeno, Vantage, ShieldAI, Textify, HealthFlow, glass, and Helm. A continuous 3D
 glyph animation connects the sections as you scroll. The client-side portfolio
 assistant answers only from a fixed set of cited facts, and each web project
-includes a demo reel that plays while its section is in view.
+includes a demo reel that lazy-loads near its section. The first screen links
+directly to the projects, résumé, and contact details; each project keeps its
+problem, contribution, and proof in a compact expandable disclosure.
 
 **Live target:** https://abheet-isher.fly.dev (Fly.io, region `sin`)
 
@@ -12,7 +14,9 @@ includes a demo reel that plays while its section is in view.
 
 - **Site:** a single static `public/index.html` — no build step.
   - Three.js (r128) InstancedMesh glyph lattice + custom GLSL shader
-  - Native scroll drives the camera, HUD and reveals (no GSAP/Lenis — Three.js is the only script dependency)
+  - Lenis and GSAP ScrollTrigger coordinate the scroll-driven camera and
+    section transitions; native scrolling and IntersectionObserver remain the
+    reduced-motion/failure fallback
   - Client-side portfolio assistant (TF‑IDF retrieval over embedded, cited facts; no model or tool execution)
   - Assistant input is capped at 500 characters, rendered with DOM text nodes, and retained only in a 40-message in-page window; questions never leave the browser
   - Theme-aware (dark/light), responsive, `prefers-reduced-motion` aware
@@ -65,6 +69,14 @@ docker run --rm -p 8080:8080 abheet-portfolio
 ```bash
 fly apps create abheet-isher   # once
 fly deploy
+```
+
+For a traceable release, pass the exact Git commit into the image and confirm
+that `/version` reports it after deployment:
+
+```bash
+fly deploy --build-arg SOURCE_REVISION=$(git rev-parse HEAD)
+curl https://abheet-isher.fly.dev/version
 ```
 
 `fly.toml` serves the container on internal port 8080 with an HTTP health
