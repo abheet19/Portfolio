@@ -14,7 +14,7 @@ problem, contribution, and proof in a compact expandable disclosure.
 
 - **Site:** a single static `public/index.html` — no build step.
   - Three.js (r128) InstancedMesh glyph lattice + custom GLSL shader
-  - Lenis and GSAP ScrollTrigger coordinate the scroll-driven camera and
+  - A pinned local Lenis asset and GSAP ScrollTrigger coordinate the scroll-driven camera and
     section transitions; native scrolling and IntersectionObserver remain the
     reduced-motion/failure fallback
   - Client-side portfolio assistant (TF‑IDF retrieval over embedded, cited facts; no model or tool execution)
