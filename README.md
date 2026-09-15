@@ -3,8 +3,8 @@
 A single-page portfolio for Abheet's experience and eight projects: Weft,
 Zeno, Vantage, ShieldAI, Textify, HealthFlow, glass, and Helm. A continuous 3D
 glyph animation connects the sections as you scroll. The client-side portfolio
-assistant answers only from a fixed set of cited facts, and each web project
-includes a demo reel that lazy-loads near its section. The first screen links
+assistant answers only from a fixed set of cited facts, and six web projects
+include demo reels that lazy-load near their sections. The first screen links
 directly to the projects, résumé, and contact details; each project keeps its
 problem, contribution, and proof in a compact expandable disclosure.
 
@@ -37,7 +37,8 @@ public/
   index.html            # the whole site
   resume.pdf            # linked from the nav ("Résumé") and Contact
   assets/
-    avatar.svg          # PLACEHOLDER monogram — swap for a real photo (see below)
+    avatar.jpg          # active portrait used by the page and social metadata
+    avatar.svg          # retained monogram fallback asset
     reels/
       weft-demo.gif / weft-reel.mp4
       vantage-demo.gif / vantage-reel.mp4
@@ -82,10 +83,8 @@ curl https://abheet-isher.fly.dev/version
 `fly.toml` serves the container on internal port 8080 with an HTTP health
 check at `/health`. No secrets or env vars are required.
 
-## Avatar placeholder
+## Portrait assets
 
-`public/assets/avatar.svg` is a tasteful glass monogram — **not** a real
-likeness. To use a real photo, drop a square image at
-`public/assets/avatar.jpg` (or `.png` / `.webp`) and update the `<img src>`
-in the `.about-id` block of `index.html`. If the referenced file is missing,
-the CSS gradient orb behind it shows as the fallback.
+`public/assets/avatar.jpg` is the portrait used by the page, favicon, and
+social metadata. `public/assets/avatar.svg` remains in the repository as a
+monogram fallback asset.

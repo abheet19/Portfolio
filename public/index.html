@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fugue — Abheet Singh Isher</title>
-<meta name="description" content="Abheet Singh Isher — full-stack software engineer. Shipped AI writing to 10M+ weekly users at QuillBot; now building local-first AI tools with safety guarantees you can check: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI.">
+<meta name="description" content="Abheet Singh Isher — full-stack software engineer. Shipped AI writing to 10M+ weekly users at QuillBot; now building local-first AI tools with safety guarantees you can check: Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, and Helm.">
 <link rel="canonical" href="https://abheet-isher.fly.dev/">
 <meta name="author" content="Abheet Singh Isher">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -262,6 +262,8 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 .link:hover{background:color-mix(in srgb,var(--accent) 26%,transparent);transform:translateY(-1px)}
 .link.ghost{border-color:var(--line);background:transparent;color:var(--ink-2)}
 .link.ghost:hover{border-color:var(--cream);color:var(--cream)}
+.status-chip{display:inline-flex;align-items:center;font:500 .72rem/1.4 var(--font-mono);padding:9px 13px;
+  border-radius:var(--r-pill);border:1px solid var(--line);color:var(--ink-3);background:var(--surface);min-height:44px}
 .proj.unbuilt{opacity:.72;filter:saturate(.4)}
 .proj.unbuilt::after{display:none}
 .proj.unbuilt li::before,.proj.unbuilt .idx{background:var(--ink-3);color:var(--ink-3)}
@@ -498,7 +500,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>A model request is not a safe authorization boundary for machine side effects.</dd></div><div><dt>Contribution</dt><dd>Built a local proposal, policy, approval, execution, and signed-receipt pipeline across Command, Forge, and Counsel.</dd></div><div><dt>Proof</dt><dd>Installed-app and post-commit tests cover owner-token separation, stale-proposal rejection, repository jailing, and receipt integrity; hardware-only cases stay labelled blocked.</dd></div></dl></details>
         <div class="cta">
           <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
-          <span class="link ghost" style="cursor:default">Local-first · no public deploy</span>
+          <span class="status-chip">Local-first · no public deploy</span>
         </div>
       </div>
     </div>
@@ -664,7 +666,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 <section class="chat-panel" id="chatPanel" aria-label="Portfolio assistant">
   <div class="chat-head">
     <div class="orb" aria-hidden="true"></div>
-    <div><h4>Ask about the work</h4><p>grounded in 49 cited facts</p></div>
+    <div><h4>Ask about the work</h4><p>grounded in 48 cited facts</p></div>
     <button class="x" id="chatClose" aria-label="Close">✕</button>
   </div>
   <div class="chat-log" id="chatLog"></div>
@@ -683,7 +685,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 
 <script>
 /* ============================================================================
-   DATA — all facts corrected: Barclays $5k, glass 1111/22/11, Zeno 25 scripts
+   DATA — portfolio facts used by the local retrieval assistant
    ============================================================================ */
 const RAG_FACTS = [
 "Abheet Singh Isher is a software engineer based in India, open to roles in India and remote.",
@@ -708,13 +710,13 @@ const RAG_FACTS = [
 "Weft is an offline-first collaborative rich-text editor whose tagline is 'Keep editing when the connection drops.'",
 "Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
 "Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
-"Weft is verified by 613 Vitest cases, a 100,000-operation benchmark, and 33 real-browser Chromium cases, and is deployed at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
+"Weft's local candidate at commit 06cd35e passed 647 Vitest cases, a bounded 100,000-operation benchmark, and 42 Chromium cases on September 15, 2026. The separately deployed site is available at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
 "Weft's stack includes TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check property tests, and its server is a pure relay that never imports CRDT semantics.",
 "Vantage is an auditable, AI-native product-analytics service whose tagline is 'Ask in English. See the SQL. Trust the number.'",
 "Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count) and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role with a 5-second timeout.",
 "Vantage is exposed as an MCP server with 8 read-only tools and no run_sql or ask tool, so Claude Desktop or Claude Code can query it as a tool with no LLM key of its own, and every result carries the SQL it ran.",
 "Vantage ensures idempotent ingestion via UNIQUE(project_id, insert_id) and proves funnel correctness with a hand-computed fixture (the August funnel is signup 13 -> create_project 6 -> invite_teammate 3 in a 7-day window).",
-"Vantage has 834 test cases, is built on NestJS, PostgreSQL 17, Zod and React 19, and is deployed at vantage-abheet.fly.dev exposing its exact commit at /health.release_sha.",
+"Vantage's local candidate at commit ae585ce passed 680 API and contract tests, 160 web tests, and 15 PostgreSQL and Chromium workflows on September 15, 2026. The separately deployed site is built on NestJS, PostgreSQL 17, Zod and React 19 and exposes its exact commit at /health.release_sha.",
 "glass is a framework-neutral CSS design system used across the portfolio for shared colors, spacing, surfaces and accessible states.",
 "glass uses semantic OKLCH tokens, eleven product themes, six component sheets and a Tailwind v3 adapter, and its contrast law is machine-verified: a dependency-free script proves 1111 assertions across 11 themes x 2 grounds = 22 palettes (WCAG 4.5:1 text, 3:1 graphic) on every push.",
 "glass's central rule is that a theme file contains eight numbers and no structure - a theme can rotate its accent hue but cannot break the shared lightness ladder, radii, type scale or motion curve.",
@@ -909,7 +911,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
     }
     const hits=retrieve(q);
     if(!hits.length||hits[0].s<0.9){
-      add("I can only answer from the 49 facts about Abheet's work and career — try asking about Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, or his time at QuillBot, Barclays or Mamaearth.","bot");
+      add(`I can only answer from the ${RAG_FACTS.length} facts about Abheet's work and career — try asking about Zeno, Weft, Vantage, glass, HealthFlow, Textify, ShieldAI, Helm, or his time at QuillBot, Barclays or Mamaearth.`,"bot");
       return;
     }
     const top=hits[0].d;
