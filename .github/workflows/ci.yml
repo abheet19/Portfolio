@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax and static contracts
+        run: |
+          node --check server.js
+          node --check public/assets/vendor/lenis.min.js
+          test -s public/assets/vendor/LICENSES.md
+          ! grep -q 'cdnjs.cloudflare.com/ajax/libs/lenis' public/index.html
+      - name: Loopback health and revision
+        env:
+          SOURCE_REVISION: ${{ github.sha }}
+          PORT: 18080
+        run: |
+          node server.js > server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 30); do
+            curl --fail --silent http://127.0.0.1:18080/health && break
+            sleep 0.2
+          done
+          curl --fail --silent http://127.0.0.1:18080/version | grep -q "${GITHUB_SHA}"
+          curl --fail --silent http://127.0.0.1:18080/assets/vendor/lenis.min.js > /dev/null
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' -X POST http://127.0.0.1:18080/)" = "405"
