@@ -81,7 +81,9 @@ curl https://abheet-isher.fly.dev/version
 ```
 
 `fly.toml` serves the container on internal port 8080 with an HTTP health
-check at `/health`. No secrets or env vars are required.
+check at `/health`. `/version` reports the validated 40-character
+`sourceRevision` supplied at build time; it reports `null` rather than guessing
+when that build argument is absent. No secrets or runtime env vars are required.
 
 ## Portrait assets
 
