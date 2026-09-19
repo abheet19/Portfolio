@@ -22,6 +22,7 @@ jobs:
         run: |
           node --check server.js
           node --check public/assets/vendor/lenis.min.js
+          node --test tests/portfolio-contract.test.js
           test -s public/assets/vendor/LICENSES.md
           ! grep -q 'cdnjs.cloudflare.com/ajax/libs/lenis' public/index.html
       - name: Loopback health and revision

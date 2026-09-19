@@ -35,7 +35,7 @@
 "jobTitle":"Software Engineer","email":"mailto:abheet19@gmail.com",
 "address":{"@type":"PostalAddress","addressCountry":"IN"},
 "alumniOf":{"@type":"CollegeOrUniversity","name":"Thapar Institute of Engineering and Technology"},
-"sameAs":["https://github.com/abheet19","https://linkedin.com/in/abheet-singh-isher"],
+"sameAs":["https://github.com/abheet19","https://www.linkedin.com/in/abheet-singh-isher-951920175/"],
 "knowsAbout":["TypeScript","React","Python","CRDTs","Model Context Protocol","Browser extensions (Manifest V3)","PostgreSQL","Web performance"]}
 </script>
 
@@ -179,9 +179,9 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 .nav-links a:hover{color:var(--cream)}
 .nav-btn{cursor:pointer;border:1px solid var(--line);background:var(--gl-fill);color:var(--cream);
   font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;padding:8px 14px;border-radius:var(--r-pill);
-  backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur);transition:all .2s var(--ease);text-transform:uppercase}
+  backdrop-filter:var(--gl-blur);-webkit-backdrop-filter:var(--gl-blur);transition:all .2s var(--ease);text-transform:uppercase;min-height:44px}
 .nav-btn:hover{border-color:var(--accent);color:var(--cream)}
-.theme-toggle{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.theme-toggle{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
 @media(max-width:720px){.nav-links a:not(.keep){display:none}}
 
 /* ---- Hero ---- */
@@ -317,7 +317,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
 @keyframes orbpulse{50%{transform:scale(1.12);filter:brightness(1.15)}}
 .chat-head h4{font-family:var(--font-display);font-size:.98rem}
 .chat-head p{font-family:var(--font-mono);font-size:.62rem;color:var(--ink-3)}
-.chat-head .x{margin-left:auto;cursor:pointer;color:var(--ink-2);background:none;border:none;font-size:1.2rem}
+.chat-head .x{margin-left:auto;cursor:pointer;color:var(--ink-2);background:none;border:none;font-size:1.2rem;width:44px;height:44px;display:grid;place-items:center}
 .chat-log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px}
 .msg{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.88rem;line-height:1.5}
 .msg.bot{background:var(--raised);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
@@ -327,14 +327,14 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
   border-top:1px dashed var(--line);padding-top:6px}
 .chat-suggest{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 12px}
 .chat-suggest button{font-family:var(--font-mono);font-size:.66rem;padding:6px 10px;border-radius:var(--r-pill);
-  border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .2s}
+  border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .2s;min-height:44px}
 .chat-suggest button:hover{border-color:var(--teal);color:var(--cream)}
 .chat-input{display:flex;gap:8px;padding:14px;border-top:1px solid var(--line)}
 .chat-input input{flex:1;background:var(--base);border:1px solid var(--line);border-radius:var(--r-pill);
   padding:11px 16px;color:var(--cream);font-family:var(--font-ui);font-size:.9rem;outline:none;min-width:0}
 .chat-input input:focus{border-color:var(--teal)}
 .chat-input button{background:var(--teal);border:none;color:#07100E;border-radius:50%;width:42px;height:42px;
-  cursor:pointer;font-size:1.1rem;flex:none;min-height:44px}
+  cursor:pointer;font-size:1.1rem;flex:none;min-width:44px;min-height:44px}
 
 /* ---- responsive ---- */
 @media(max-width:640px){
@@ -463,7 +463,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <div class="tl">Keep editing when the connection drops.</div>
         <p class="pb">Weft lets collaborators keep writing offline, then merges every edit when they reconnect. It stores the document as a tree of characters, so the same operations produce the same document on every peer without a conflict dialog.</p>
         <ul>
-          <li>A from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023): every character has a permanent (replica, counter) identity, so two peers edit, disconnect, keep typing, reconnect and converge with no "resolve conflict" dialog.</li>
+          <li>A from-scratch Fugue sequence CRDT (Weidner &amp; Kleppmann, 2023) gives every character a stable place in the document, so collaborators can edit offline, reconnect, and reach the same result without a conflict dialog.</li>
           <li>Honest sync states — in memory, "on this device" (IndexedDB), and "Saved" (append + fsync + server ack). The green Saved pill comes from the ack, never a timer.</li>
           <li>The server is a pure relay/log writer that never imports CRDT semantics.</li>
         </ul>
@@ -490,14 +490,15 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <div class="idx">06 — GOVERNED ACTIONS</div>
         <h2>Zeno</h2>
         <div class="tl">An agent can suggest. You decide what runs.</div>
-        <p class="pb">Zeno is a local-first Windows app for working with AI agents without turning a chat message into permission. Its approval kernel sits between a proposed side effect and the action itself.</p>
+        <p class="pb">Zeno is a local-first Windows agent suite that brings hosted coding agents and local Ollama models into one governed interface. It keeps reasoning separate from the authority to change the machine.</p>
         <ul>
-          <li>Each side effect is captured as a content-addressed proposal. Approval checks that the target has not changed, permits one execution, and records the result in a signed receipt chain.</li>
+          <li>Each agent-proposed side effect is captured as a content-addressed proposal. Approval checks that the target has not changed, permits one execution, and records the result in a signed receipt chain.</li>
           <li>The separation is structural: an agent can propose work but cannot approve its own proposal. High-risk payment and biometric effects are not permitted.</li>
-          <li>Command handles conversation and decisions, Forge works in a selected Git repository, and Counsel is a consent-first meeting assistant. All three share the same local boundary.</li>
+          <li>Command holds goals, context, conversations and approvals. Forge plans and runs repository tasks in an isolated worktree with skills and typed MCP tools. Counsel turns consented meeting audio into cited decisions and actions.</li>
+          <li>Forge can pause a run for approval, reject it if the workspace has moved, and resume from the decision. Commands typed directly by the owner in Forge's terminal run with owner authority.</li>
         </ul>
-        <div class="stack"><span class="chip">TypeScript</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span></div>
-        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>A model request is not a safe authorization boundary for machine side effects.</dd></div><div><dt>Contribution</dt><dd>Built a local proposal, policy, approval, execution, and signed-receipt pipeline across Command, Forge, and Counsel.</dd></div><div><dt>Proof</dt><dd>Current source and browser tests cover owner-token separation, stale-proposal rejection, repository jailing, and receipt integrity; hardware-only cases stay labelled blocked.</dd></div></dl></details>
+        <div class="stack"><span class="chip">TypeScript</span><span class="chip">Node 22</span><span class="chip">Electron</span><span class="chip">MCP</span><span class="chip">Ed25519</span><span class="chip">SSE</span><span class="chip">Ollama</span></div>
+        <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>A model request is not a safe authorization boundary for machine side effects.</dd></div><div><dt>Contribution</dt><dd>Built the path from goal intake and bounded context through provider routing, tool use, approval interruption, execution, and signed receipts.</dd></div><div><dt>Proof</dt><dd>Current package and browser checks cover owner-token separation, stale-proposal rejection, repository jailing, resumable work, and receipt integrity; hardware-only cases stay labelled blocked.</dd></div></dl></details>
         <div class="cta">
           <a class="link ghost" href="https://github.com/abheet19/Zeno" target="_blank" rel="noopener">Source ↗</a>
           <span class="status-chip">Local-first · no public deploy</span>
@@ -522,7 +523,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
         <div class="stack"><span class="chip">TypeScript</span><span class="chip">NestJS</span><span class="chip">PostgreSQL 17</span><span class="chip">Zod</span><span class="chip">MCP</span><span class="chip">React 19</span><span class="chip">fast-check</span></div>
         <div class="receipts" style="margin-top:22px">
           <div class="receipt"><div class="n">Typed → SQL</div><div class="l">the model never writes a query</div></div>
-          <div class="receipt"><div class="n">13 · 6 · 3</div><div class="l">signups · projects · invites in the demo</div></div>
+          <div class="receipt"><div class="n">Demo funnel</div><div class="l">13 signups → 6 projects → 3 invites</div></div>
         </div>
         <figure class="demo-reel"><video muted loop playsinline controls preload="none" data-poster="/assets/reels/vantage-demo.gif" data-src="/assets/reels/vantage-reel.mp4" aria-label="Vantage typed analytics demonstration"></video><figcaption>Prompt to typed spec, inspectable SQL, and result</figcaption></figure>
         <details class="proof"><summary>Problem · contribution · proof</summary><dl class="proof-grid"><div><dt>Problem</dt><dd>Generated SQL can be unsafe, opaque, and difficult to audit.</dd></div><div><dt>Contribution</dt><dd>Constrained the model to a typed QuerySpec and compiled it into parameterized read-only SQL.</dd></div><div><dt>Proof</dt><dd>The demo exposes the spec, exact SQL, boundary state, and hand-computed funnel fixture together.</dd></div></dl></details>
@@ -650,7 +651,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
       </div>
       <div class="contact-links reveal">
         <a class="link" href="https://github.com/abheet19" target="_blank" rel="noopener">GitHub</a>
-        <a class="link" href="https://linkedin.com/in/abheet-singh-isher" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link" href="https://www.linkedin.com/in/abheet-singh-isher-951920175/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="link ghost" href="mailto:abheet19@gmail.com">Email</a>
         <a class="link ghost" href="/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
         <a class="link ghost" href="https://helm-abheet.fly.dev" target="_blank" rel="noopener">Helm</a>
@@ -689,7 +690,7 @@ header.nav.solid{background:color-mix(in srgb,var(--void) 72%,transparent);
    ============================================================================ */
 const RAG_FACTS = [
 "Abheet Singh Isher is a software engineer based in India, open to roles in India and remote.",
-"His contact details are abheet19@gmail.com, +91-9682396948, linkedin.com/in/abheet-singh-isher, and github.com/abheet19.",
+"His contact details are abheet19@gmail.com, +91-9682396948, linkedin.com/in/abheet-singh-isher-951920175, and github.com/abheet19.",
 "He holds a B.E. in Computer Engineering from Thapar Institute of Engineering and Technology, Patiala (2018-2022).",
 "His career path is Mamaearth (SDE intern), then Barclays (Software Developer), then QuillBot/Learneo (Software Engineer), then building his own project suite.",
 "At QuillBot (Learneo) he was a Software Engineer from Dec 2024 to Aug 2026 and is now open to software engineering roles in India or fully remote.",
@@ -702,15 +703,15 @@ const RAG_FACTS = [
 "At Barclays he used KDB+ and SQL to query 100k+ daily financial transactions, improving complex-query retrieval efficiency by 15%, and his React.js/KDB+ interfaces cut audit completion time by 40%.",
 "At Mamaearth (Jan 2022 - Jun 2022) he built a User Collaboration & Research SaaS platform and a JavaScript web SDK capturing 5K+ daily user interactions, and deployed Node.js/React microservices via Docker and GitLab CI/CD for 20% faster releases.",
 "His core strengths are browser-extension engineering at consumer scale (MV3, ~10M weekly active users), React/TypeScript, web performance, applied AI, and full-stack development.",
-"Zeno is a local-first Windows desktop app built around one question: what should happen between an agent proposing a side effect and that effect reaching the machine?",
+"Zeno is a local-first Windows agent suite that brings hosted coding agents and local Ollama models into one governed interface while keeping model reasoning separate from authority over the machine.",
 "Zeno uses a deterministic approval kernel so a side effect becomes a content-addressed proposal, the owner decides whether to release it, and the result is recorded in a signed receipt chain.",
 "A Zeno agent can propose work but cannot approve its own proposal. The approval route rejects the agent token, and high-risk payment and biometric effects are not permitted.",
-"Zeno has three connected products: Command for conversation and decisions, Forge for work in a selected Git repository, and Counsel for consent-first meeting assistance.",
+"Zeno has three connected products: Command holds goals, context, conversations and approvals; Forge plans and runs repository tasks in isolated worktrees with skills and typed MCP tools; Counsel turns consented meeting audio into cited decisions and actions.",
 "Zeno keeps its daemon on loopback, has no public web deployment, and is being verified against the desktop app rather than represented as a browser-only demo.",
 "Weft is an offline-first collaborative rich-text editor whose tagline is 'Keep editing when the connection drops.'",
 "Weft stores a document as a tree of characters using the Fugue sequence CRDT (Weidner & Kleppmann, 2023), so two peers can edit offline and converge deterministically with no 'resolve conflict' dialog.",
 "Weft shows honest sync states - in memory, 'on this device' (committed to IndexedDB), and 'Saved' (server fsync + acknowledgement) - and the Saved pill comes from the server ack, never a timer.",
-"Weft's local candidate at commit 06cd35e passed 647 Vitest cases, a bounded 100,000-operation benchmark, and 42 Chromium cases on September 15, 2026. The separately deployed site is available at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
+"Weft's local verification covers deterministic convergence, offline reconnection, durable acknowledgements and browser collaboration flows. The deployed site is available at weft-abheet.fly.dev; its CRDT and protocol packages have zero runtime dependencies.",
 "Weft's stack includes TypeScript, ProseMirror, React 19, WebSocket (ws), IndexedDB, Vite, Vitest and fast-check property tests, and its server is a pure relay that never imports CRDT semantics.",
 "Vantage is an auditable, AI-native product-analytics service whose tagline is 'Ask in English. See the SQL. Trust the number.'",
 "Vantage's one hard idea is that the model never writes SQL: it fills a typed QuerySpec (funnel, retention, trend, paths, count) and a pure compiler turns it into a parameterized SELECT run as a read-only Postgres role with a 5-second timeout.",
